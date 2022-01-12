@@ -1,0 +1,76 @@
+{
+  "base": "vs-dark",
+  "inherit": true,
+  "rules": [
+    {
+      "background": "141414",
+      "token": ""
+    },
+    {
+      "foreground": "e1efff",
+      "token": "punctuation - (punctuation.definition.string || punctuation.definition.comment)"
+    },
+    {
+      "foreground": "ff628c",
+      "token": "constant"
+    },
+    {
+      "foreground": "ffdd00",
+      "token": "entity"
+    },
+    {
+      "foreground": "ff9d00",
+      "token": "keyword"
+    },
+    {
+      "foreground": "ffee80",
+      "token": "storage"
+    },
+    {
+      "foreground": "FF2C26",
+      "fontStyle": "bold",
+      "token": "comment"
+    },
+    {
+      "foreground": "80ffbb",
+      "token": "support"
+    },
+    {
+      "foreground": "cccccc",
+      "token": "variable"
+    },
+    {
+      "foreground": "ff80e1",
+      "token": "variable.language"
+    },
+    {
+      "foreground": "f8f8f8",
+      "background": "800f00",
+      "token": "invalid"
+    },
+    {
+      "foreground": "9eff80",
+      "token": "string.quoted source"
+    },
+    {
+      "foreground": "80ff82",
+      "token": "string constant"
+    },
+    {
+      "foreground": "80ffc2",
+      "token": "string.regexp"
+    },
+    {
+      "foreground": "edef7d",
+      "token": "string variable"
+    }
+  ],
+  "colors": {
+    "editor.foreground": "#FFFFFF",
+    "editor.background": "#141414",
+    "editor.selectionBackground": "#1E4976",
+    "editor.lineHighlightBackground": "#000000",
+    "editorCursor.foreground": "#FFFFFF",
+    "editorWhitespace.foreground": "#FFFFFF"
+  }
+}

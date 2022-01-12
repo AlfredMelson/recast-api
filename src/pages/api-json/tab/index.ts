@@ -1,0 +1,6 @@
+export { default as DataHeaders } from './DataHeaders'
+export { default as DataResponse } from './DataResponse'
+export { default as DTypescript } from './DTypescript'
+export { default as EditResponse } from './EditResponse'
+export { default as FullResponse } from './FullResponse'
+export { default as TsInterface } from './TsInterface'

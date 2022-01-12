@@ -1,0 +1,22 @@
+# vscode
+.vscode
+
+# jsdocs
+/docs
+
+# dependencies
+/node_modules
+
+# production
+/build
+
+# misc
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# package manager
+yarn-debug.log*
+yarn-error.log*
+
