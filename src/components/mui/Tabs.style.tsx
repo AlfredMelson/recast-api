@@ -1,5 +1,5 @@
 import Tabs from '@mui/material/Tabs'
-import { alpha, styled } from '@mui/material'
+import { alpha, styled } from '@mui/material/styles'
 import * as React from 'react'
 import { BrandSwatch } from '../../style'
 

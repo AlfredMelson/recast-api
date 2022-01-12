@@ -1,7 +1,7 @@
 import { Link as MuiLink } from '@mui/material'
 import { useSetRecoilState } from 'recoil'
 import { dataDrawerOpenAtom } from '../../recoil'
-import { Navigation } from '../mui/Navigation.style'
+import { Navigation } from '../mui'
 
 export function NavBarLinks() {
   // set visability of user json drawer

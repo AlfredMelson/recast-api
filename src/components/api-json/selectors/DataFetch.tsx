@@ -14,19 +14,21 @@ import { SxCircularProgress } from '../../action'
 import { BrandSwatch } from '../../../style'
 import {
   userSubmittedUrlAtom,
-  userTypedUrlAtom,
+  // userTypedUrlAtom,
   userQuerySelector,
   axiosResponseAtom,
-  selectedApiAtom,
-  selectedApiProviderAtom,
+  dataUrlAtom,
+  dataSourceAtom,
 } from '../../../recoil'
 
 export default function DataFetch() {
   // user entered api url stored in recoil
-  const userTypedUrl = useRecoilValue(userTypedUrlAtom)
+  // const userTypedUrl = useRecoilValue(userTypedUrlAtom)
+
+  const dataUrl = useRecoilValue(dataUrlAtom)
 
   // reset textfield value to recoil stored default
-  const resetUserTypedUrl = useResetRecoilState(userTypedUrlAtom)
+  // const resetUserTypedUrl = useResetRecoilState(userTypedUrlAtom)
 
   // reset textfield value to recoil stored default
   const resetUserSubmittedUrl = useResetRecoilState(userSubmittedUrlAtom)
@@ -34,12 +36,9 @@ export default function DataFetch() {
   // reset response.data value to recoil stored default
   const resetAxiosResponse = useResetRecoilState(axiosResponseAtom)
 
-  // reset full response value to recoil stored default
-  const resetApiFullResponse = useResetRecoilState(axiosResponseAtom)
+  const resetDataSource = useResetRecoilState(dataSourceAtom)
 
-  const resetApiProvider = useResetRecoilState(selectedApiProviderAtom)
-
-  const resetSelectedApi = useResetRecoilState(selectedApiAtom)
+  const resetDataUrl = useResetRecoilState(dataUrlAtom)
 
   const setUserSubmittedUrl = useSetRecoilState(userSubmittedUrlAtom)
 
@@ -65,7 +64,7 @@ export default function DataFetch() {
         setSubmitting(false)
         // switch between initial call and refresh
         if (Object.getOwnPropertyNames(axiosResponse).length === 0) {
-          setUserSubmittedUrl(userTypedUrl)
+          setUserSubmittedUrl(dataUrl)
         } else {
           refresh()
         }
@@ -98,20 +97,19 @@ export default function DataFetch() {
           aria-label='clear url'
           onClick={event => {
             event.preventDefault()
-            resetUserTypedUrl()
+            // resetUserTypedUrl()
             resetUserSubmittedUrl()
             resetAxiosResponse()
-            resetApiFullResponse()
-            resetApiProvider()
-            resetSelectedApi()
+            resetDataSource()
+            resetDataUrl()
           }}
-          disabled={userTypedUrl.length === 0}>
+          disabled={dataUrl.length === 0}>
           <Typography variant='button'>Clear</Typography>
         </ButtonSxStyle>
         <Box sx={{ position: 'relative' }}>
           <ButtonSxStyle
             aria-label='fetch api'
-            disabled={userTypedUrl === undefined}
+            disabled={dataUrl === undefined}
             onClick={handleDataFetching}>
             {!submitting && !successSubmit ? (
               <Typography variant='button'>

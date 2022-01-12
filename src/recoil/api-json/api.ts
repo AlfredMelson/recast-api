@@ -1,69 +1,73 @@
 import { atom } from 'recoil'
 
 /**
- * @name selectedApiProviderAtom
- * @description state representing the selected api provider
+ * Recoil managed state representing the selected api provider
+ *
  * @return {Object} a writeable RecoilState object
  * @bug Objects stored in atoms will freeze in development mode when bugs are detected
  *
- * @RecoilHooks to manage state changes and notify components subscribing to re-render
- * const [selectedApiProvider, setSelectedApiProvider] = useRecoilState(selectedApiProviderAtom)
- * const setSelectedApiProvider = useSetRecoilState(selectedApiProviderAtom)
- * const selectedApiProvider = useRecoilValue(selectedApiProviderAtom)
- * const resetSelectedApiProvider = useResetRecoilState(selectedApiProviderAtom)
+ * Utilise hooks to manage state changes and notify components subscribing to re-render.
+ *
  */
-export const selectedApiProviderAtom = atom<string>({
-  key: 'selectedApiProvider',
+export const dataSourceAtom = atom<string>({
+  key: 'dataSource',
   default: '',
 })
+// const [dataSource, setDataSource] = useRecoilState(dataSourceAtom)
+// const setDataSource = useSetRecoilState(dataSourceAtom)
+// const dataSource = useRecoilValue(dataSourceAtom)
+// const resetDataSource = useResetRecoilState(dataSourceAtom)
 
 /**
- * @name selectedApiUrlsAtom
- * @description state representing the selected api url
+ * Recoil managed state representing the selected providers category
+ *
  * @return {Object} a writeable RecoilState object
  * @bug Objects stored in atoms will freeze in development mode when bugs are detected
  *
- * @RecoilHooks to manage state changes and notify components subscribing to re-render
- * const [selectedApiUrls, setSelectedApiUrls = useRecoilState(selectedApiUrlsAtom)
- * const setSelectedApiUrls = useSetRecoilState(selectedApiUrlsAtom)
- * const selectedApiUrls = useRecoilValue(selectedApiUrlsAtom)
- * const resetSelectedApiUrls = useResetRecoilState(selectedApiUrlsAtom)
+ * Utilise hooks to manage state changes and notify components subscribing to re-render.
+ *
  */
-export const selectedApiUrlsAtom = atom<string>({
-  key: 'selectedApiUrls',
+export const dataCategoryAtom = atom<string>({
+  key: 'dataCategory',
   default: '',
 })
+// const [dataCategory, setDataCategory] = useRecoilState(dataCategoryAtom)
+// const setDataCategory = useSetRecoilState(dataCategoryAtom)
+// const dataCategory = useRecoilValue(dataCategoryAtom)
+// const resetDataCategory = useResetRecoilState(dataCategoryAtom)
 
 /**
- * @name selectedApiAtom
- * @description state representing the selected api provider
+ * Recoil managed state representing the selected request quantity
+ *
  * @return {Object} a writeable RecoilState object
  * @bug Objects stored in atoms will freeze in development mode when bugs are detected
  *
- * @RecoilHooks to manage state changes and notify components subscribing to re-render:
- * const [selectedApi, setSelectedApi] = useRecoilState(selectedApiAtom)
- * const setSelectedApi = useSetRecoilState(selectedApiAtom)
- * const selectedApi = useRecoilValue(selectedApiAtom)
- * const resetSelectedApi = useResetRecoilState(selectedApiAtom)
+ * Utilise hooks to manage state changes and notify components subscribing to re-render.
+ *
  */
-export const selectedApiAtom = atom<string>({
-  key: 'selectedApi',
+export const dataQuantityAtom = atom<string>({
+  key: 'dataQuantity',
   default: '',
 })
+// const [dataQuantity, setDataQuantity] = useRecoilState(dataQuantityAtom)
+// const setDataQuantity = useSetRecoilState(dataQuantityAtom)
+// const dataQuantity = useRecoilValue(dataQuantityAtom)
+// const resetDataQuantity = useResetRecoilState(dataQuantityAtom)
 
 /**
- * @name apiRequestQuantityAtom
- * @description state representing the url with quantity
+ * Recoil managed state representing the combined url of the provider, category, and quantity
+ *
  * @return {Object} a writeable RecoilState object
  * @bug Objects stored in atoms will freeze in development mode when bugs are detected
  *
- * @RecoilHooks to manage state changes and notify components subscribing to re-render:
- * const [apiRequestQuantity, setApiRequestQuantity] = useRecoilState(apiRequestQuantityAtom)
- * const setApiRequestQuantity = useSetRecoilState(apiRequestQuantityAtom)
- * const apiRequestQuantity = useRecoilValue(apiRequestQuantityAtom)
- * const resetApiRequestQuantity = useResetRecoilState(apiRequestQuantityAtom)
+ * Utilise hooks to manage state changes and notify components subscribing to re-render.
+ *
  */
-export const apiRequestQuantityAtom = atom<string>({
-  key: 'apiRequestQuantity',
+export const dataUrlAtom = atom<string>({
+  key: 'dataUrl',
   default: '',
 })
+// const [dataUrl, setDataUrl] = useRecoilState(dataUrlAtom)
+// const setDataUrl = useSetRecoilState(dataUrlAtom)
+// const dataUrl = useRecoilValue(dataUrlAtom)
+// const resetDataUrl = useResetRecoilState(dataUrlAtom)

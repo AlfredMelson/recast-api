@@ -4,10 +4,10 @@ import Container from '@mui/material/Container'
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
 import Typography from '@mui/material/Typography'
 import Stack from '@mui/material/Stack'
-import { userSubmittedUrlAtom } from '../../recoil/api-json/atom'
+import { userSubmittedUrlAtom } from '../../recoil'
 import { ApiSelector, ApiTabs } from '../../components/api-json'
 import { BrandSwatch } from '../../style'
-import { HeroStyle } from '../../components/mui/Hero.style'
+import { HeroStyle } from '../../components/mui'
 import { DataFetch, DataSearchBar } from '../../components/api-json/selectors'
 import {
   axiosConfigAtom,

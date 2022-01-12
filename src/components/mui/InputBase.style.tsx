@@ -1,10 +1,9 @@
 import InputBase, { InputProps } from '@mui/material/Input'
 import { useRecoilState, useSetRecoilState } from 'recoil'
 import * as React from 'react'
-import { alpha, styled } from '@mui/material'
+import { alpha, styled } from '@mui/material/styles'
 import { SxProps } from '@mui/system'
-import { keyCodeAtom } from '../../recoil'
-import { selectedElementAtom } from '../../recoil/api-json/atom'
+import { keyCodeAtom, selectedElementAtom } from '../../recoil'
 import { BrandSwatch } from '../../style'
 
 /**

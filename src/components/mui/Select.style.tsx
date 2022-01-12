@@ -1,5 +1,6 @@
 import Select, { SelectChangeEvent, SelectProps } from '@mui/material/Select'
-import { alpha, Box, styled } from '@mui/material'
+import { alpha, styled } from '@mui/material/styles'
+import Box from '@mui/material/Box'
 import * as React from 'react'
 import { BrandSwatch } from '../../style'
 

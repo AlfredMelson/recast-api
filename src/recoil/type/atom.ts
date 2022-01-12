@@ -21,7 +21,7 @@ export enum DataType {
 }
 
 /**
- * @name userTypedUrlAtom
+ * @name dataTypeAtom
  * @description state representing the user entered API URL
  * @return {Object} a writeable RecoilState object
  * @bug Objects stored in atoms will freeze in development mode when bugs are detected

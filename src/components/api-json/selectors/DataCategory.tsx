@@ -1,37 +1,30 @@
-import * as React from 'react'
 import MenuItem from '@mui/material/MenuItem'
 import { SelectChangeEvent } from '@mui/material/Select'
-import { useRecoilValue, useSetRecoilState } from 'recoil'
+import { useRecoilState, useRecoilValue } from 'recoil'
 import Box from '@mui/material/Box'
 import FormControl from '@mui/material/FormControl'
-import { BaseUrlData, JsonPlaceholderData, RandomData } from '../../../cms'
+import { JsonPlaceholderData, RandomData } from '../../../cms'
 import { SelectSx, ApiUIWrapper } from '../../mui'
-import { selectedApiAtom, selectedApiProviderAtom } from '../../../recoil'
+import { dataSourceAtom, dataCategoryAtom } from '../../../recoil'
 
 export default function DataCategorySelector() {
-  const apiProvider = useRecoilValue(selectedApiProviderAtom)
+  const [dataCategory, setDataCategory] = useRecoilState(dataCategoryAtom)
 
-  const [providerUrl, setProviderUrl] = React.useState<string>('')
+  const dataSource = useRecoilValue(dataSourceAtom)
 
-  const setSelectedApi = useSetRecoilState(selectedApiAtom)
-
-  // filter base from BaseUrlData using selected provider (apiProvider)
-  const baseUrl = BaseUrlData.filter(base => base.index === apiProvider)[0].base
-
-  const providerUrls = apiProvider === 'jsonPlaceholderApi' ? JsonPlaceholderData : RandomData
+  const categoryByProvider = dataSource === 'jsonPlaceholderApi' ? JsonPlaceholderData : RandomData
 
   const handleChange = (event: SelectChangeEvent) => {
-    setProviderUrl(event.target.value as string)
-    setSelectedApi(`${baseUrl}${event.target.value}`)
+    setDataCategory(event.target.value as string)
   }
 
   return (
     <Box component='div'>
-      {apiProvider !== '' && (
+      {dataSource !== '' && (
         <ApiUIWrapper title='Data' sx={{ mt: 10, ml: 20, mb: 0 }}>
           <FormControl>
-            <SelectSx id='provider-url-selector' value={providerUrl} onChange={handleChange}>
-              {providerUrls.map(item => (
+            <SelectSx id='provider-url-selector' value={dataCategory} onChange={handleChange}>
+              {categoryByProvider.map(item => (
                 <MenuItem key={item.index} value={item.url}>
                   {item.name}
                 </MenuItem>

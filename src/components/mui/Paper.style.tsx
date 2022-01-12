@@ -1,5 +1,5 @@
 import Paper, { PaperProps } from '@mui/material/Paper'
-import { alpha, styled } from '@mui/material'
+import { alpha, styled } from '@mui/material/styles'
 import { SxProps } from '@mui/system'
 import * as React from 'react'
 import { useRecoilValue } from 'recoil'

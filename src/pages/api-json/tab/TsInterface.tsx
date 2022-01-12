@@ -14,7 +14,7 @@ import {
   ApiObjectAlias,
   ApiStringAlias,
 } from '../data-types/typeAliases'
-import { userSubmittedUrlAtom } from '../../../recoil/api-json/atom'
+import { userSubmittedUrlAtom } from '../../../recoil'
 import ApiDataTypeLabel from '../data-types/ApiDataTypeLabel'
 import { PaperSx } from '../../../components/mui/Paper.style'
 import { DownloadInfo, TsInterfaceIcons } from '../../../components/api-json'

@@ -3,6 +3,8 @@ export * from './ApiUIWrapper.style'
 export * from './Button.style'
 export * from './ButtonGroup.style'
 
+export * from './Hero.style'
+
 export * from './IconButton.style'
 export * from './Input.style'
 export * from './InputBase.style'
