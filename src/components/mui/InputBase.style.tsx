@@ -15,9 +15,15 @@ import { BrandSwatch } from '../../style'
  * @return
  */
 
-const InputBaseSxStyle = styled((props?: InputProps) => (
-  <InputBase size='small' autoComplete='off' fullWidth disableUnderline={true} {...props} />
-))(({ theme }) => ({
+const InputBaseSxStyle = styled(
+  (props?: InputProps) => (
+    <InputBase size='small' autoComplete='off' fullWidth disableUnderline={true} {...props} />
+  ),
+  {
+    name: 'SearchBar',
+    slot: 'input',
+  }
+)(({ theme }) => ({
   fontSize: 16,
   height: 50,
   paddingLeft: 20,

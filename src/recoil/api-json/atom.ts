@@ -16,8 +16,7 @@ import { atom, selector } from 'recoil'
  * Writeable Selectors
  * A bi-directional selector receives the incoming value as a parameter and can use that to propagate the changes back upstream along the data-flow graph. Because the user may either set the selector with a new value or reset the selector, the incoming value is either of the same type that the selector represents or a DefaultValue object which represents a reset action.
  *
- * Hooks to manage state changes and notify components subscribing to re-render:
- * const userQuery  = useRecoilValue(userQuerySelector)
+ * Utilise hooks to manage state changes and notify components subscribing to re-render.
  */
 export const userQuerySelector = selector({
   key: 'userQuery',
@@ -44,108 +43,104 @@ export const userQuerySelector = selector({
 })
 
 /**
- * @name userTypedUrlAtom
- * @description state representing the user entered API URL
+ * Recoil managed state representing what the user entered into the DataSearchBar.
+ *
  * @return {Object} a writeable RecoilState object
  * @bug Objects stored in atoms will freeze in development mode when bugs are detected
  *
- * Hooks to manage state changes and notify components subscribing to re-render:
- * const [userTypedUrl, setUserTypedUrl] = useRecoilState(userTypedUrlAtom)
- * const setUserTypedUrl = useSetRecoilState(userTypedUrlAtom)
- * const userTypedUrl = useRecoilValue(userTypedUrlAtom)
- * const resetUserTypedUrl = useResetRecoilState(userTypedUrlAtom)
+ * Utilise hooks to manage state changes and notify components subscribing to re-render.
+ *
  */
 export const userTypedUrlAtom = atom<string>({
   key: 'userTypedUrl',
   default: '',
 })
+// const [userTypedUrl, setUserTypedUrl] = useRecoilState(userTypedUrlAtom)
+// const setUserTypedUrl = useSetRecoilState(userTypedUrlAtom)
+// const userTypedUrl = useRecoilValue(userTypedUrlAtom)
+// const resetUserTypedUrl = useResetRecoilState(userTypedUrlAtom)
 
 /**
- * @name userSubmittedUrlAtom
- * @description state representing the textfield when user submits
+ * Recoil managed state representing the state of the textfield when user submits.
+ *
  * @return {Object} a writeable RecoilState object
  * @bug Objects stored in atoms will freeze in development mode when bugs are detected
  *
- * userSubmittedUrlAtom represents the state of the textfield when user submits.
- * @param {String | undefined}
- * @return {Object} a writeable RecoilState object
- * @bug Objects stored in atoms will freeze in development mode when bugs are detected
+ * Utilise hooks to manage state changes and notify components subscribing to re-render.
  *
- * Hooks to manage state changes and notify components subscribing to re-render:
- * const [userSubmittedUrl, setUserSubmittedUrl] = useRecoilState(userSubmittedUrlAtom)
- * const setUserSubmittedUrl = useSetRecoilState(userSubmittedUrlAtom)
- * const userSubmittedUrl = useRecoilValue(userSubmittedUrlAtom)
- * const resetUserSubmittedUrl = useResetRecoilState(userSubmittedUrlAtom)
  */
 export const userSubmittedUrlAtom = atom<string | undefined>({
   key: 'userSubmittedUrl',
   default: undefined,
 })
+// const [userSubmittedUrl, setUserSubmittedUrl] = useRecoilState(userSubmittedUrlAtom)
+// const setUserSubmittedUrl = useSetRecoilState(userSubmittedUrlAtom)
+// const userSubmittedUrl = useRecoilValue(userSubmittedUrlAtom)
+// const resetUserSubmittedUrl = useResetRecoilState(userSubmittedUrlAtom)
 
 /**
- * @name userToggledApiAtom
- * @description state representing the user toggled api response
+ * Recoil managed state representing the user toggled api response
+ *
  * @return {Object} a writeable RecoilState object
  * @bug Objects stored in atoms will freeze in development mode when bugs are detected
  *
- * Hooks to manage state changes and notify components subscribing to re-render:
- * const [userToggledApi, setUserToggledApi] = useRecoilState(userToggledApiAtom)
- * const setUserToggledApi = useSetRecoilState(userToggledApiAtom)
- * const userToggledApi = useRecoilValue(userToggledApiAtom)
- * const resetUserToggledApi = useResetRecoilState(userToggledApiAtom)
+ * Utilise hooks to manage state changes and notify components subscribing to re-render.
+ *
  */
-export type UserToggledApiAtomOptions = 'data' | 'edit' | 'full' | 'ts' | 'headers' | 'dtype'
-
 export const userToggledApiAtom = atom<UserToggledApiAtomOptions>({
   key: 'userToggledApi',
   default: 'data',
 })
+export type UserToggledApiAtomOptions = 'data' | 'edit' | 'full' | 'ts' | 'headers' | 'dtype'
+// const [userToggledApi, setUserToggledApi] = useRecoilState(userToggledApiAtom)
+// const setUserToggledApi = useSetRecoilState(userToggledApiAtom)
+// const userToggledApi = useRecoilValue(userToggledApiAtom)
+// const resetUserToggledApi = useResetRecoilState(userToggledApiAtom)
 
 /**
- * @name selectedElementAtom
- * @description state representing the selected element
+ * Recoil managed state representing the selected element
+ *
  * @return {Object} a writeable RecoilState object
  * @bug Objects stored in atoms will freeze in development mode when bugs are detected
  *
- * Hooks to manage state changes and notify components subscribing to re-render:
- * const [selectedElement, setSelectedElement] = useRecoilState(selectedElementAtom)
- * const setSelectedElement = useSetRecoilState(selectedElementAtom)
- * const selectedElement = useRecoilValue(selectedElementAtom)
- * const resetSelectedElement = useResetRecoilState(selectedElementAtom)
+ * Utilise hooks to manage state changes and notify components subscribing to re-render.
+ *
  */
 export const selectedElementAtom = atom<number | null>({
   key: 'selectedElement',
   default: null,
 })
+// const [selectedElement, setSelectedElement] = useRecoilState(selectedElementAtom)
+// const setSelectedElement = useSetRecoilState(selectedElementAtom)
+// const selectedElement = useRecoilValue(selectedElementAtom)
+// const resetSelectedElement = useResetRecoilState(selectedElementAtom)
 
 /**
- * @name elementStateAtom
- * @description state representing an array of element ids
+ * Recoil managed state representing an array of element ids
+ *
  * @return {Object} a writeable RecoilState object
  * @bug Objects stored in atoms will freeze in development mode when bugs are detected
  *
- * Hooks to manage state changes and notify components subscribing to re-render:
- * const [elementState, setElementState] = useRecoilState(elementStateAtom)
- * const setElementState = useSetRecoilState(elementStateAtom)
- * const elementState = useRecoilValue(elementStateAtom)
- * const resetElementState = useResetRecoilState(elementStateAtom)
+ * Utilise hooks to manage state changes and notify components subscribing to re-render.
+ *
  */
 export const elementStateAtom = atom<string[]>({
   key: 'elementState',
   default: [],
 })
+// const [elementState, setElementState] = useRecoilState(elementStateAtom)
+// const setElementState = useSetRecoilState(elementStateAtom)
+// const elementState = useRecoilValue(elementStateAtom)
+// const resetElementState = useResetRecoilState(elementStateAtom)
 
 /**
- * @name selectedElementProperties
- * @description state representing an array of element ids
+ * Recoil managed state representing...
+ *
  * @return {Object} a writeable RecoilState object
  * @bug Objects stored in atoms will freeze in development mode when bugs are detected
  *
- * Hooks to manage state changes and notify components subscribing to re-render:
- * const [elementState, setElementState] = useRecoilState(selectedElementProperties)
- * const setElementState = useSetRecoilState(selectedElementProperties)
- * const elementState = useRecoilValue(selectedElementProperties)
- * const resetElementState = useResetRecoilState(selectedElementProperties)
+ * Utilise hooks to manage state changes and notify components subscribing to re-render.
+ *
  */
 export const selectedElementProperties = selector({
   key: 'selectedElementProperties',
@@ -158,3 +153,7 @@ export const selectedElementProperties = selector({
     // return get(elementState(selectedElementId))
   },
 })
+// const [elementState, setElementState] = useRecoilState(selectedElementProperties)
+// const setElementState = useSetRecoilState(selectedElementProperties)
+// const elementState = useRecoilValue(selectedElementProperties)
+// const resetElementState = useResetRecoilState(selectedElementProperties)

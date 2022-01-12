@@ -53,7 +53,7 @@ export default function DataQuantitySelector() {
               {VolumeSelector.map(item => (
                 <FormControlLabel
                   key={item.index}
-                  sx={{ padding: theme => theme.spacing(0, 5) }}
+                  sx={{ px: 5, py: 0 }}
                   value={item.value}
                   control={<Radio />}
                   label={item.name}

@@ -8,17 +8,19 @@ body.loading * {
 }
 
 /**
- * Microsoft's Monaco Editor overrides
+ *
+ * Microsoft's Monaco Editor style overrides
+ *
  */
-
-.monaco-editor-background {
+/* .monaco-editor-background {
   background-color: #21262d !important;
 }
-
 .monaco-editor .margin {
   background-color: #21262d !important;
   color: #000000 !important;
-}
+} */
+
+/** Font */
 .monaco-editor .line-numbers {
   color: #f0f6fc !important;
   font-family: 'Fira Code', monospace !important;
@@ -28,19 +30,24 @@ body.loading * {
 }
 
 /** Object value type = Number */
-.monaco-editor .mtk6 {
+/* .monaco-editor .mtk6 {
   color: #9980ff !important;
-}
-.monaco-editor .mtk5 {
+} */
+
+/** Object value type = String */
+/* .monaco-editor .mtk5 {
   color: #3fb950 !important;
-}
-.monaco-editor .mtk1,
+} */
+
+/** Object key & punctuation */
+/* .monaco-editor .mtk1,
 .mtk4,
 .mtk11 {
   color: #f0f6fc !important;
-}
+} */
 
-.monaco-editor.vs-dark .squiggly-d-error,
+/** WORKING... */
+/* .monaco-editor.vs-dark .squiggly-d-error,
 .monaco-editor.vs .squiggly-d-error {
   background: transparent !important;
   border-bottom: 4px double #000000 !important;
@@ -54,4 +61,4 @@ body.loading * {
   min-width: 1px;
   padding: 0;
   background-color: #000000 !important;
-}
+} */

@@ -1,3 +1,5 @@
 {
-    "typescript.tsdk": "node_modules\\typescript\\lib"
+    "typescript.tsdk": "node_modules\\typescript\\lib",
+    "appService.defaultWebAppToDeploy": "/subscriptions/91edeba9-da7d-4609-bbc3-9e5ad37ae1e9/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/recastapi",
+    "appService.deploySubpath": "."
 }

@@ -9,7 +9,7 @@ export function TerminalToggle() {
   const setDataDrawerOpen = useSetRecoilState(dataDrawerOpenAtom)
 
   return (
-    <ToolTipSx tooltipTitle='Terminal'>
+    <ToolTipSx tooltipTitle='Open Terminal'>
       <IconButtonSxColorMode onClick={() => setDataDrawerOpen(true)}>
         <TerminalOutlinedIcon fontSize='medium' />
       </IconButtonSxColorMode>
