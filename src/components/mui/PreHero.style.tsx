@@ -15,7 +15,7 @@ const PreHeroSxStyle = styled(CardHeader, { name: 'PreHeroSx', slot: 'style' })(
 export function PreHeroSx() {
   return (
     <PreHeroSxStyle
-      title='An interactive playground to display editable api responses and extract data'
+      title='An interactive tool that displays editable api responses'
       action={
         <Stack direction='row' alignItems='center'>
           <Box sx={{ mr: 0 }}>

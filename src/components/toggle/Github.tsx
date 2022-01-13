@@ -1,5 +1,5 @@
-import GitHubIcon from '@mui/icons-material/GitHub'
 import Link from '@mui/material/Link'
+import { GithubIcon } from '../icons'
 import { IconButtonSxColorMode, ToolTipSx } from '../mui'
 
 export function GithubToggle() {
@@ -10,7 +10,7 @@ export function GithubToggle() {
         rel='noopener noreferrer'
         href='https://github.com/AlfredMelson/recast-api'>
         <IconButtonSxColorMode>
-          <GitHubIcon fontSize='medium' />
+          <GithubIcon />
         </IconButtonSxColorMode>
       </Link>
     </ToolTipSx>

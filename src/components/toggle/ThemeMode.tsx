@@ -1,8 +1,7 @@
-import Brightness4Icon from '@mui/icons-material/Brightness4'
-import Brightness7Icon from '@mui/icons-material/Brightness7'
 import * as React from 'react'
 import { useRecoilState } from 'recoil'
 import { themeColorAtom } from '../../recoil'
+import { MoonIcon, SunIcon } from '../icons'
 import { IconButtonSxColorMode, ToolTipSx } from '../mui'
 // import useMediaQuery from '@mui/material/useMediaQuery'
 
@@ -30,7 +29,7 @@ export function ThemeModeToggle() {
   return (
     <ToolTipSx tooltipTitle={themeColor === 'dark' ? 'Light mode' : 'Dark mode'}>
       <IconButtonSxColorMode onClick={handleChange}>
-        {themeColor === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+        {themeColor === 'dark' ? <SunIcon /> : <MoonIcon />}
       </IconButtonSxColorMode>
     </ToolTipSx>
   )

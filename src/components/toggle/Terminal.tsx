@@ -1,7 +1,7 @@
-import TerminalOutlinedIcon from '@mui/icons-material/TerminalOutlined'
 import Box from '@mui/material/Box'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { dataDrawerOpenAtom, userSubmittedUrlAtom } from '../../recoil'
+import { TerminalIcon } from '../icons'
 import { IconButtonSxColorMode, ToolTipSx } from '../mui'
 
 export function TerminalToggle() {
@@ -18,7 +18,7 @@ export function TerminalToggle() {
         <IconButtonSxColorMode
           disabled={disable}
           onClick={() => setDataDrawerOpen(dataDrawerOpen === true ? false : true)}>
-          <TerminalOutlinedIcon fontSize='medium' />
+          <TerminalIcon />
         </IconButtonSxColorMode>
       </ToolTipSx>
     </Box>
