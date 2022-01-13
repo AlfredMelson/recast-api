@@ -3,8 +3,7 @@ import Brightness7Icon from '@mui/icons-material/Brightness7'
 import * as React from 'react'
 import { useRecoilState } from 'recoil'
 import { themeColorAtom } from '../../recoil'
-import { ToolTipSx } from '../mui'
-import { IconButtonSxColorMode } from '../mui/IconButton.style'
+import { IconButtonSxColorMode, ToolTipSx } from '../mui'
 // import useMediaQuery from '@mui/material/useMediaQuery'
 
 export function ThemeModeToggle() {

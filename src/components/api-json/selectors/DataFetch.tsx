@@ -18,7 +18,7 @@ import {
 } from '../../../recoil'
 import { BrandSwatch } from '../../../style'
 import { SxCircularProgress } from '../../action'
-import { ApiUIWrapper, ButtonSxStyle } from '../../mui'
+import { ButtonSxStyle, CardSx } from '../../mui'
 
 export default function DataFetch() {
   // user entered api url stored in recoil
@@ -85,13 +85,8 @@ export default function DataFetch() {
   }, [])
 
   return (
-    <ApiUIWrapper title='Controls' sx={{ mt: 10, ml: 20, mb: 0 }}>
-      <Stack
-        direction='row'
-        justifyContent='center'
-        alignItems='center'
-        spacing={20}
-        sx={{ m: 10 }}>
+    <CardSx title='Controls'>
+      <Stack direction='row' justifyContent='center' alignItems='center' spacing={10}>
         <ButtonSxStyle
           aria-label='clear url'
           onClick={event => {
@@ -125,6 +120,6 @@ export default function DataFetch() {
           {submitting && <SxCircularProgress size='20px' color='blue' />}
         </Box>
       </Stack>
-    </ApiUIWrapper>
+    </CardSx>
   )
 }

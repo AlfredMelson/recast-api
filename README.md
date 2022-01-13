@@ -13,6 +13,7 @@ github: [recast-api](https://github.com/AlfredMelson/recast-api.git)
 updated 05 Jan 2022
 
 - [ ] user preferred color mode (ThemeModeToggle).
+- [ ] define background color levels.
 - [ ] keyboard navigation (folder: action).
 - [ ] tsdoc config
 - [ ] testing with Jest

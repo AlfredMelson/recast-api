@@ -48,7 +48,38 @@ export function BrandThemedComponents(theme: Theme) {
       MuiCard: {
         defaultProps: {},
         styleOverrides: {
-          root: {}
+          root: {} // Styles applied to the root element
+        }
+      },
+      MuiCardActionArea: {
+        defaultProps: {},
+        styleOverrides: {
+          root: {} // Styles applied to the root element
+        }
+      },
+      MuiCardActions: {
+        defaultProps: {},
+        styleOverrides: {
+          root: {} // Styles applied to the root element
+        }
+      },
+      MuiCardContent: {
+        defaultProps: {},
+        styleOverrides: {
+          root: {} // Styles applied to the root element
+        }
+      },
+      MuiCardHeader: {
+        defaultProps: {},
+        styleOverrides: {
+          root: {}, // Styles applied to the root element
+          avatar: {}, // Styles applied to the avatar element
+          action: {}, // Styles applied to the action element
+          content: {}, // Styles applied to the content wrapper element
+          title: {
+            ...theme.typography.body2
+          }, // Styles applied to the title Typography element
+          subheader: {} // 	Styles applied to the subheader Typography element
         }
       },
       MuiContainer: {

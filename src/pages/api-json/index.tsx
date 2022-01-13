@@ -6,8 +6,7 @@ import * as React from 'react'
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
 import { ApiSelector, ApiTabs } from '../../components/api-json'
 import { DataFetch, DataSearchBar } from '../../components/api-json/selectors'
-import { HeroStyle } from '../../components/mui'
-import { GithubToggle, TerminalToggle, ThemeModeToggle } from '../../components/toggle'
+import { HeroSx } from '../../components/mui'
 import {
   axiosConfigAtom,
   axiosDataAtom,
@@ -158,26 +157,20 @@ export function ApiJson() {
       //   setSelectedElement(null)
       // }}
     >
-      <HeroStyle>
-        <Stack direction='row' justifyContent='space-between' alignItems='center' sx={{ mb: 14 }}>
-          <Typography
-            variant='body2'
-            sx={{
-              fontStyle: 'italic',
-              color: theme =>
-                theme.palette.mode === 'dark'
-                  ? BrandSwatch.Dark.Grey[100]
-                  : BrandSwatch.Light.Grey[800],
-              mb: -10
-            }}>
-            Select API from dropdown
-          </Typography>
-          <Stack direction='row' justifyContent='space-between' alignItems='center'>
-            <TerminalToggle />
-            <ThemeModeToggle />
-            <GithubToggle />
-          </Stack>
-        </Stack>
+      <HeroSx>
+        <Typography
+          variant='body2'
+          sx={{
+            fontStyle: 'italic',
+            color: theme =>
+              theme.palette.mode === 'dark'
+                ? BrandSwatch.Dark.Grey[100]
+                : BrandSwatch.Light.Grey[800],
+            mb: 8,
+            ml: 10
+          }}>
+          Select API from dropdown
+        </Typography>
 
         <ApiSelector />
         <Typography
@@ -189,15 +182,16 @@ export function ApiJson() {
                 ? BrandSwatch.Dark.Grey[100]
                 : BrandSwatch.Light.Grey[800],
             mt: 20,
-            mb: 14
+            mb: 8,
+            ml: 10
           }}>
           or Enter API
         </Typography>
-        <Stack direction='row' spacing={20} justifyContent='space-between' alignItems='flex-start'>
+        <Stack direction='row' spacing={20}>
           <DataSearchBar />
           <DataFetch />
         </Stack>
-      </HeroStyle>
+      </HeroSx>
       {/* <Collapse in={showError}>
             <Box sx={{ mt: 10, mb: 20 }}>
               <Alert

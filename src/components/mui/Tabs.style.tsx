@@ -3,34 +3,23 @@ import Tabs from '@mui/material/Tabs'
 import * as React from 'react'
 import { BrandSwatch } from '../../style'
 
-/**
- * @name TabWrapperSx
- * @description styles API Tabs
- * @param {Tabs} mui Tabs
- * @param {styled} mui styled
- * @param {theme} MuiBrandingTheme
- * @userActionPseudoClasses {hover}	:hover, {active}	:active, {focus}	:focus
- * {focus visible}	:focus-visible, {focus within}	:focus-within
- * @globalClassNames {active}	.Mui-active, {checked}	.Mui-checked, {completed}	.Mui-completed
- * {disabled}	.Mui-disabled, {expanded}	.Mui-expanded, {focus visible}	.Mui-focusVisible
- * {focused}	.Mui-focused. {required}	.Mui-required, {selected}	.Mui-selected
- * @return styled Tabs
- */
-
 type TabWrapperSxAlias = {
   value?: number
   onChange?: (event: React.SyntheticEvent, newValue: number) => void
   children?: React.ReactNode
 }
 
-export const TabWrapperSx = styled((props: TabWrapperSxAlias) => (
-  <Tabs
-    allowScrollButtonsMobile
-    selectionFollowsFocus
-    TabIndicatorProps={{ children: <span className='MuiTabs-indicatorSpan' /> }}
-    {...props}
-  />
-))(({ theme }) => ({
+export const TabWrapperSx = styled(
+  (props: TabWrapperSxAlias) => (
+    <Tabs
+      allowScrollButtonsMobile
+      selectionFollowsFocus
+      TabIndicatorProps={{ children: <span className='MuiTabs-indicatorSpan' /> }}
+      {...props}
+    />
+  ),
+  { name: '', slot: '' }
+)(({ theme }) => ({
   '.MuiButtonBase-root, .MuiTab-root': {
     borderRadius: '3px 3px 0 0',
     margin: theme.spacing(0, 2, 0, 0),
@@ -41,7 +30,6 @@ export const TabWrapperSx = styled((props: TabWrapperSxAlias) => (
     borderColor:
       theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[800] : BrandSwatch.Light.Grey[100],
     color: theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[200] : BrandSwatch.Light.Grey[700],
-
     transition: theme.transitions.create(['all'], {
       duration: theme.transitions.duration.standard,
       easing: theme.transitions.easing.easeInOut
@@ -62,8 +50,7 @@ export const TabWrapperSx = styled((props: TabWrapperSxAlias) => (
       transform: 'translateY(1px)'
     }
   },
-
-  '& .MuiTabs-indicator': {
+  '.MuiTabs-indicator': {
     backgroundColor: 'transparent'
   }
 }))

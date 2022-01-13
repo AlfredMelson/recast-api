@@ -1,34 +1,18 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import * as React from 'react'
 
-/**
- * @checklist
- * @typescript (Y)
- * @testing ()
- *
- * @name FadeAnimation
- * @description styles mounting & unmonuting with fade animation
- * @param {AnimatePresence} framer-motion AnimatePresence
- * @param {motion} framer-motion motion
- * @return
- */
-
 type FadeAnimationAlias = {
   children: React.ReactNode
   layoutId?: string
+  duration?: number
 }
 
-export const FadeAnimation = ({ children, layoutId }: FadeAnimationAlias) => {
+export const FadeAnimation = ({ children, layoutId, duration = 0.3 }: FadeAnimationAlias) => {
   const animations = {
     initial: { opacity: 0 },
     animate: { opacity: 1 },
     exit: { opacity: 0 }
   }
-
-  // const transitions = {
-  //   ease: 'easeInOut',
-  //   duration: 0.3,
-  // }
 
   return (
     <AnimatePresence exitBeforeEnter>
@@ -38,8 +22,10 @@ export const FadeAnimation = ({ children, layoutId }: FadeAnimationAlias) => {
         initial='initial'
         animate='animate'
         exit='exit'
-        // transition={transitions}
-      >
+        transition={{
+          ease: 'easeInOut',
+          duration: duration
+        }}>
         {children}
       </motion.div>
     </AnimatePresence>

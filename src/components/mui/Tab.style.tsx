@@ -11,7 +11,7 @@ type TabSxStyleAlias = {
   onClick?: React.MouseEventHandler
 }
 
-export const TabSxStyle = styled(
+const TabSxStyle = styled(
   ({ label, disabled, onClick, icon, iconPosition, ...props }: TabSxStyleAlias) => (
     <Tab
       label={label}
@@ -22,7 +22,8 @@ export const TabSxStyle = styled(
       iconPosition={iconPosition}
       {...props}
     />
-  )
+  ),
+  { name: '', slot: '' }
 )(({ theme }) => ({
   ...theme.typography.body2,
   textTransform: 'none',

@@ -23,12 +23,27 @@ declare module '@mui/material/styles' {
     code: React.CSSProperties
   }
 }
+
 // Update the Typography's variant prop options
 declare module '@mui/material/Typography' {
   interface TypographyPropsVariantOverrides {
     code: true
   }
 }
+
+/**
+ * Adding color variants
+ *
+ * In addition to using the default typography variants, you can add custom ones, or disable any you don't need. Here is what you need to do:
+ *
+ * - Update the theme's typography object
+ *
+ * - Update the necessary typings
+ *
+ * Make sure that the typings for the theme's typography variants and the Typography's variant prop reflects the new set of variants.
+ *
+ * https://mui.com/customization/typography/#adding-amp-disabling-variants
+ */
 
 // optically-consistent adjustment to space between letters
 function round(value: number) {
@@ -48,7 +63,7 @@ export const BrandDesignTokens = (mode: 'dark' | 'light') =>
         },
         text: {
           primary: BrandSwatch.Dark.Grey[50],
-          secondary: BrandSwatch.Dark.Grey[100],
+          secondary: BrandSwatch.Dark.Grey[200],
           disabled: BrandSwatch.Dark.Grey[500]
         },
         // primary: {},

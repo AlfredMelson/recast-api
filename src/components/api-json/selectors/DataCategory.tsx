@@ -5,7 +5,7 @@ import { SelectChangeEvent } from '@mui/material/Select'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { JsonPlaceholderData, RandomData } from '../../../cms'
 import { dataCategoryAtom, dataSourceAtom } from '../../../recoil'
-import { ApiUIWrapper, SelectSx } from '../../mui'
+import { CardSx, SelectSx } from '../../mui'
 
 export default function DataCategorySelector() {
   const [dataCategory, setDataCategory] = useRecoilState(dataCategoryAtom)
@@ -21,7 +21,7 @@ export default function DataCategorySelector() {
   return (
     <Box component='div'>
       {dataSource !== '' && (
-        <ApiUIWrapper title='Data' sx={{ mt: 10, ml: 20, mb: 0 }}>
+        <CardSx title='Data'>
           <FormControl>
             <SelectSx id='provider-url-selector' value={dataCategory} onChange={handleChange}>
               {categoryByProvider.map(item => (
@@ -31,7 +31,7 @@ export default function DataCategorySelector() {
               ))}
             </SelectSx>
           </FormControl>
-        </ApiUIWrapper>
+        </CardSx>
       )}
     </Box>
   )

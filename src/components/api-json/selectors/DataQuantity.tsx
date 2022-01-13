@@ -1,4 +1,3 @@
-import Box from '@mui/material/Box'
 import FormControl from '@mui/material/FormControl'
 import FormControlLabel from '@mui/material/FormControlLabel'
 import Radio from '@mui/material/Radio'
@@ -7,7 +6,7 @@ import * as React from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { VolumeSelector } from '../../../cms'
 import { dataQuantityAtom, dataSourceAtom } from '../../../recoil'
-import { ApiUIWrapper } from '../../mui'
+import { CardSx } from '../../mui'
 
 export default function DataQuantitySelector() {
   const dataSource = useRecoilValue(dataSourceAtom)
@@ -39,10 +38,10 @@ export default function DataQuantitySelector() {
   }
 
   return (
-    <Box component='div'>
+    <>
       {dataSource !== 'randomDataApi' ||
         ('' && (
-          <ApiUIWrapper title='Volume' sx={{ ml: 20, pt: 8 }}>
+          <CardSx title='Volume'>
             <FormControl component='fieldset' sx={{ pb: 12 }}>
               <RadioGroup
                 row
@@ -63,8 +62,8 @@ export default function DataQuantitySelector() {
                 ))}
               </RadioGroup>
             </FormControl>
-          </ApiUIWrapper>
+          </CardSx>
         ))}
-    </Box>
+    </>
   )
 }

@@ -22,37 +22,41 @@ export function AppHeader() {
   const dataDrawerOpen = useRecoilValue(dataDrawerOpenAtom)
 
   return (
-    <HeaderWrapper
-      sx={{
-        zIndex: !dataDrawerOpen && -1
-      }}>
-      <Box sx={{ display: { xs: 'none', md: 'initial' } }}>
-        <Container maxWidth='lg'>
-          <Stack
-            direction='row'
-            justifyContent='center'
-            alignItems='center'
-            sx={{
-              height: 50
-            }}>
-            {dataDrawerOpen && <DrawerIcons />}
-          </Stack>
-        </Container>
-      </Box>
-
-      <Box sx={{ display: { md: 'none' } }}>
-        <Container
-          disableGutters
+    <>
+      {dataDrawerOpen && (
+        <HeaderWrapper
           sx={{
-            minHeight: 52,
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)'
+            zIndex: !dataDrawerOpen && -1
           }}>
-          <Box sx={{ gridColumn: 3, alignSelf: 'center', justifySelf: 'end', pr: 30 }}>
-            <MobileNavBarLinks />
+          <Box sx={{ display: { xs: 'none', md: 'initial' } }}>
+            <Container maxWidth='lg'>
+              <Stack
+                direction='row'
+                justifyContent='center'
+                alignItems='center'
+                sx={{
+                  height: 50
+                }}>
+                {dataDrawerOpen && <DrawerIcons />}
+              </Stack>
+            </Container>
           </Box>
-        </Container>
-      </Box>
-    </HeaderWrapper>
+
+          <Box sx={{ display: { md: 'none' } }}>
+            <Container
+              disableGutters
+              sx={{
+                minHeight: 52,
+                display: 'grid',
+                gridTemplateColumns: 'repeat(3, 1fr)'
+              }}>
+              <Box sx={{ gridColumn: 3, alignSelf: 'center', justifySelf: 'end', pr: 30 }}>
+                <MobileNavBarLinks />
+              </Box>
+            </Container>
+          </Box>
+        </HeaderWrapper>
+      )}
+    </>
   )
 }

@@ -1,21 +1,12 @@
-import Box from '@mui/material/Box'
 import Select, { SelectChangeEvent, SelectProps } from '@mui/material/Select'
 import { alpha, styled } from '@mui/material/styles'
 import * as React from 'react'
 import { BrandSwatch } from '../../style'
 
-/**
- * @name SelectSxStyle
- * @description styles API Tab Panel
- * @param {Tabs} mui Tabs
- * @param {styled} mui styled
- * @param {theme} MuiBrandingTheme
- * @return
- */
-
-const SelectSxStyle = styled((props?: SelectProps) => (
-  <Select autoWidth disableUnderline={true} {...props} />
-))(({ theme }) => ({
+const SelectSxStyle = styled(
+  (props?: SelectProps) => <Select autoWidth disableUnderline={true} {...props} />,
+  { name: '', slot: '' }
+)(({ theme }) => ({
   fontSize: 16,
   height: 40,
   paddingLeft: 20,
@@ -42,29 +33,36 @@ const SelectSxStyle = styled((props?: SelectProps) => (
   }
 }))
 
-/**
- * @name SelectSx
- * @description styles API Tab Panel background motion
- * @param {motion} framer-motion motion
- * @param {children} React.ReactNode
- * @param {paddingLeft} mui
- * @return
- */
-
 type SelectSxAlias = {
   id: string
   value: string
   children: React.ReactNode
   onChange?: (event: SelectChangeEvent<unknown>, child: React.ReactNode) => void
+  onClick?: (event: React.MouseEvent<HTMLElement>) => void
   props?: SelectProps
 }
 
-export const SelectSx = ({ id, value, onChange, children, ...props }: SelectSxAlias) => {
+export const SelectSx = ({ id, value, onChange, onClick, children, ...props }: SelectSxAlias) => {
+  const ITEM_HEIGHT = 48
+  const ITEM_PADDING_TOP = 8
+  const MenuProps = {
+    PaperProps: {
+      style: {
+        maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+        width: 220
+      }
+    }
+  }
+
   return (
-    <Box sx={{ m: 10 }}>
-      <SelectSxStyle id={id} value={value} onChange={onChange} {...props}>
-        {children}
-      </SelectSxStyle>
-    </Box>
+    <SelectSxStyle
+      MenuProps={MenuProps}
+      id={id}
+      value={value}
+      onChange={onChange}
+      onClick={onClick}
+      {...props}>
+      {children}
+    </SelectSxStyle>
   )
 }

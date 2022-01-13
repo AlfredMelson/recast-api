@@ -9,7 +9,7 @@ import {
   // userTypedUrlAtom,
   dataUrlAtom
 } from '../../../recoil'
-import { ApiUIWrapper, InputBaseSx } from '../../mui'
+import { CardSx, InputBaseSx } from '../../mui'
 
 export default function DataSearchBar() {
   // user entered api url stored in recoil
@@ -49,12 +49,11 @@ export default function DataSearchBar() {
 
   return (
     <Box sx={{ flex: 1 }}>
-      <ApiUIWrapper title='Api Url' sx={{ mt: 10, ml: 20, mb: 0 }}>
+      <CardSx title='Api Url'>
         <InputBaseSx
           sx={{
-            m: 10,
             pl: 20,
-            width: 'calc(100% - 20px)',
+            width: '100%',
             fontSize: 16,
             height: 40
           }}
@@ -62,7 +61,7 @@ export default function DataSearchBar() {
           value={dataUrl}
           onChange={handleTextFieldChanges}
         />
-      </ApiUIWrapper>
+      </CardSx>
     </Box>
   )
 }
