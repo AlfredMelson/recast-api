@@ -5,7 +5,7 @@ import { atom, atomFamily } from 'recoil'
 
 export const selectedObjectAtom = atom<string | null>({
   key: 'selectedObject',
-  default: null,
+  default: null
 })
 
 // const [selectedObject, setSelectedObject] = useRecoilState(selectedObjectAtom)
@@ -16,7 +16,7 @@ export type Path = string[]
 
 export enum EditType {
   Key,
-  Value,
+  Value
 }
 
 export interface EditMode {
@@ -26,7 +26,7 @@ export interface EditMode {
 
 export const objectPathNameAtomFamily = atomFamily({
   key: 'objectPathName',
-  default: ['', ''],
+  default: ['', '']
 })
 
 // const [objectPathName, setObjectPathName] = useRecoilState(objectPathNameAtomFamily)
@@ -97,7 +97,7 @@ export const getParentPathAndName = (path: Path): [Path, string] => {
 
 export const textEditModeAtom = atom<boolean>({
   key: 'textEditMode',
-  default: false,
+  default: false
 })
 // const [textEditMode, setTextEditMode] = useRecoilState(textEditModeAtom)
 // const setTextEditMode = useSetRecoilState(textEditModeAtom)

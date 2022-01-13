@@ -15,7 +15,7 @@ import { atom } from 'recoil'
 
 export const keyCodeAtom = atom<KeyCodeEnum | null>({
   key: 'keyCode',
-  default: null,
+  default: null
 })
 
 enum KeyCodeEnum {
@@ -116,5 +116,5 @@ enum KeyCodeEnum {
   Open_bracket = 219,
   Back_slash = 220,
   Close_braket = 221,
-  Single_quote = 222,
+  Single_quote = 222
 }

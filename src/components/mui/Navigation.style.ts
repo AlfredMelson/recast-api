@@ -15,7 +15,7 @@ import { styled } from '@mui/material/styles'
 
 export const Navigation = styled('nav', {
   name: 'Navigation',
-  slot: 'wrapper',
+  slot: 'wrapper'
 })(({ theme }) => ({
   ...theme.typography.body2,
   cursor: 'default',
@@ -24,9 +24,9 @@ export const Navigation = styled('nav', {
   color: theme.palette.text.secondary,
   transition: theme.transitions.create(['all'], {
     duration: theme.transitions.duration.standard,
-    easing: theme.transitions.easing.easeInOut,
+    easing: theme.transitions.easing.easeInOut
   }),
   '&:hover': {
-    color: theme.palette.text.primary,
-  },
+    color: theme.palette.text.primary
+  }
 }))

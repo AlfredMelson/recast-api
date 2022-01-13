@@ -1,14 +1,14 @@
-import Box, { BoxProps } from '@mui/material/Box'
 import Add from '@mui/icons-material/Add'
-import Card from '@mui/material/Card'
-import CardActions from '@mui/material/CardActions'
-import CardActionArea from '@mui/material/CardActionArea'
-import CardContent from '@mui/material/CardContent'
+import Box, { BoxProps } from '@mui/material/Box'
 import Button from '@mui/material/Button'
+import Card from '@mui/material/Card'
+import CardActionArea from '@mui/material/CardActionArea'
+import CardActions from '@mui/material/CardActions'
+import CardContent from '@mui/material/CardContent'
+import IconButton from '@mui/material/IconButton'
 import Typography from '@mui/material/Typography'
 import { useRecoilValue } from 'recoil'
-import IconButton from '@mui/material/IconButton'
-import { selectedElementAtom } from '../../recoil/api-json/atom'
+import { selectedElementAtom } from '../../recoil'
 import { BrandSwatch } from '../../style'
 
 export function AsideEditInfo({ ...props }: BoxProps) {
@@ -58,7 +58,7 @@ export function AsideEditInfo({ ...props }: BoxProps) {
         transition: theme =>
           theme.transitions.create(['transform'], {
             duration: theme.transitions.duration.standard,
-            easing: theme.transitions.easing.easeInOut,
+            easing: theme.transitions.easing.easeInOut
           }),
         transitionDelay: '0.5s',
         bgcolor: theme =>
@@ -66,12 +66,12 @@ export function AsideEditInfo({ ...props }: BoxProps) {
         minWidth: 200,
         borderRadius: '0 0 3px 0',
         boxShadow: 1,
-        ...props.sx,
+        ...props.sx
       }}>
       <Box
         sx={{
           position: 'sticky',
-          top: 0,
+          top: 0
         }}>
         <IconButton
           // aria-label={hidden ? 'show' : 'hide'}
@@ -82,7 +82,7 @@ export function AsideEditInfo({ ...props }: BoxProps) {
             transition: theme =>
               theme.transitions.create(['transform'], {
                 duration: theme.transitions.duration.standard,
-                easing: theme.transitions.easing.easeInOut,
+                easing: theme.transitions.easing.easeInOut
               }),
             left: 10,
             top: 0,
@@ -95,8 +95,8 @@ export function AsideEditInfo({ ...props }: BoxProps) {
               bgcolor: theme =>
                 theme.palette.mode === 'dark'
                   ? BrandSwatch.Dark.Blue[600]
-                  : BrandSwatch.Light.Blue[200],
-            },
+                  : BrandSwatch.Light.Blue[200]
+            }
           }}>
           <Add />
         </IconButton>
@@ -111,7 +111,7 @@ export function AsideEditInfo({ ...props }: BoxProps) {
             transition: theme =>
               theme.transitions.create(['transform'], {
                 duration: theme.transitions.duration.standard,
-                easing: theme.transitions.easing.easeInOut,
+                easing: theme.transitions.easing.easeInOut
               }),
             left: 10,
             top: 0,
@@ -124,8 +124,8 @@ export function AsideEditInfo({ ...props }: BoxProps) {
               bgcolor: theme =>
                 theme.palette.mode === 'dark'
                   ? BrandSwatch.Dark.Blue[600]
-                  : BrandSwatch.Light.Blue[200],
-            },
+                  : BrandSwatch.Light.Blue[200]
+            }
           }}>
           <Add />
         </IconButton>

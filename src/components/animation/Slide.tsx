@@ -16,12 +16,12 @@ export function Slide({ animationName, keyframes, ...props }: BoxProps & SlideAl
         width: 'min-content',
         animation: `${animationName} 30s ease-out forwards`,
         '@media (prefers-reduced-motion)': {
-          animation: 'none',
+          animation: 'none'
         },
         [`@keyframes ${animationName}`]: {
-          ...keyframes,
+          ...keyframes
         },
-        ...props.sx,
+        ...props.sx
       }}
     />
   )

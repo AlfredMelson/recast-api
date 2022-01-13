@@ -1,25 +1,24 @@
-import * as React from 'react'
-import axios from 'axios'
 import Container from '@mui/material/Container'
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
-import Typography from '@mui/material/Typography'
 import Stack from '@mui/material/Stack'
-import { userSubmittedUrlAtom } from '../../recoil'
+import Typography from '@mui/material/Typography'
+import axios from 'axios'
+import * as React from 'react'
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
 import { ApiSelector, ApiTabs } from '../../components/api-json'
-import { BrandSwatch } from '../../style'
-import { HeroStyle } from '../../components/mui'
 import { DataFetch, DataSearchBar } from '../../components/api-json/selectors'
+import { HeroStyle } from '../../components/mui'
+import { GithubToggle, TerminalToggle, ThemeModeToggle } from '../../components/toggle'
 import {
   axiosConfigAtom,
   axiosDataAtom,
-  axiosResponseAtom,
   axiosHeadersAtom,
   axiosRequestAtom,
+  axiosResponseAtom,
   axiosStatusAtom,
   axiosStatusTextAtom,
-} from '../../recoil/api-json/axios'
-import { ThemeModeToggle } from '../../components/toggle/ThemeMode'
-import { TerminalToggle } from '../../components/toggle/Terminal'
+  userSubmittedUrlAtom
+} from '../../recoil'
+import { BrandSwatch } from '../../style'
 
 // import ApiFallback from '../../components/action/ApiFallback'
 // import Alert from '@mui/material/Alert'
@@ -76,7 +75,7 @@ export function ApiJson() {
     setAxiosData,
     setAxiosRequest,
     setAxiosStatus,
-    setAxiosStatusText,
+    setAxiosStatusText
   ])
 
   if (axiosResponse) {
@@ -169,13 +168,14 @@ export function ApiJson() {
                 theme.palette.mode === 'dark'
                   ? BrandSwatch.Dark.Grey[100]
                   : BrandSwatch.Light.Grey[800],
-              mb: -10,
+              mb: -10
             }}>
             Select API from dropdown
           </Typography>
           <Stack direction='row' justifyContent='space-between' alignItems='center'>
             <TerminalToggle />
             <ThemeModeToggle />
+            <GithubToggle />
           </Stack>
         </Stack>
 
@@ -189,7 +189,7 @@ export function ApiJson() {
                 ? BrandSwatch.Dark.Grey[100]
                 : BrandSwatch.Light.Grey[800],
             mt: 20,
-            mb: 14,
+            mb: 14
           }}>
           or Enter API
         </Typography>

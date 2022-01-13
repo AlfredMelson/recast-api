@@ -1,9 +1,9 @@
 import * as React from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import { Layout } from './layout'
 import { ApiJson, NoMatch } from './pages'
 
-const App: React.FC = () => {
+const App: React.FunctionComponent = () => {
   return (
     <Router>
       <Routes>

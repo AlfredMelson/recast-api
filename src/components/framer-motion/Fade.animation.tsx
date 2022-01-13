@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import * as React from 'react'
 
 /**
@@ -22,7 +22,7 @@ export const FadeAnimation = ({ children, layoutId }: FadeAnimationAlias) => {
   const animations = {
     initial: { opacity: 0 },
     animate: { opacity: 1 },
-    exit: { opacity: 0 },
+    exit: { opacity: 0 }
   }
 
   // const transitions = {

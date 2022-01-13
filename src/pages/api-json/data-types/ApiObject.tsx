@@ -1,14 +1,14 @@
-import * as React from 'react'
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight'
+import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
-import Box from '@mui/material/Box'
-import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight'
-import { IconButtonSxApiIcons } from '../../../components/mui'
+import * as React from 'react'
 import { ApiDeleteIcon } from '../../../components/icons'
+import { IconButtonSxApiIcons } from '../../../components/mui'
 import { BrandSwatch } from '../../../style'
 import ApiDataSort from './ApiDataSort'
 import ApiDataTypeLabel from './ApiDataTypeLabel'
-import { getType, ApiObjectAlias } from './typeAliases'
+import { ApiObjectAlias, getType } from './typeAliases'
 
 export function ApiObject({ value, dataKey, dataType, onDelete }: ApiObjectAlias) {
   const [col, setCol] = React.useState(true)
@@ -57,7 +57,7 @@ export function ApiObject({ value, dataKey, dataType, onDelete }: ApiObjectAlias
         onClick={() => setCol(!col)}
         sx={{
           transform: col ? 'rotate(90deg)' : 'rotate(0deg)',
-          mr: 10,
+          mr: 10
         }}>
         <KeyboardArrowRightIcon />
       </IconButtonSxApiIcons>
@@ -103,7 +103,7 @@ export function ApiObject({ value, dataKey, dataType, onDelete }: ApiObjectAlias
                     color: theme =>
                       theme.palette.mode === 'dark'
                         ? BrandSwatch.Dark.Grey[200]
-                        : BrandSwatch.Light.Grey[900],
+                        : BrandSwatch.Light.Grey[900]
                   }}>
                   &#47;&#47;&nbsp;
                   {keys.length}&nbsp;

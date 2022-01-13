@@ -1,8 +1,8 @@
-import { useSetRecoilState } from 'recoil'
 import TerminalOutlinedIcon from '@mui/icons-material/TerminalOutlined'
+import { useSetRecoilState } from 'recoil'
 import { dataDrawerOpenAtom } from '../../recoil'
-import { IconButtonSxColorMode } from '../mui/IconButton.style'
 import { ToolTipSx } from '../mui'
+import { IconButtonSxColorMode } from '../mui/IconButton.style'
 
 export function TerminalToggle() {
   //retrieve localStorage theme value

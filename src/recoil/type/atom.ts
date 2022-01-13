@@ -1,7 +1,7 @@
 // WORKING DOC
 //
-import { atom } from 'recoil'
 import _ from 'lodash'
+import { atom } from 'recoil'
 
 export const isArray = (data: []) => Array.isArray(data)
 // eslint-disable-next-line @typescript-eslint/ban-types
@@ -17,7 +17,7 @@ export enum DataType {
   String = 'string',
   Number = 'number',
   Boolean = 'boolean',
-  Null = 'null',
+  Null = 'null'
 }
 
 /**
@@ -34,7 +34,7 @@ export enum DataType {
  */
 export const dataTypeAtom = atom<DataType>({
   key: 'dataType',
-  default: DataType.Object,
+  default: DataType.Object
 })
 
 // /**

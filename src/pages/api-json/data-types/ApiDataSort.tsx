@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { atom } from 'recoil'
 import { ApiDataSortAlias, EditResponseAlias } from './typeAliases'
-import { ApiNumber, ApiString, ApiBoolean, ApiArray, ApiFunction, ApiObject } from '.'
+import { ApiArray, ApiBoolean, ApiFunction, ApiNumber, ApiObject, ApiString } from '.'
 
 /**
  * @name currentDataAtom
@@ -19,7 +19,7 @@ import { ApiNumber, ApiString, ApiBoolean, ApiArray, ApiFunction, ApiObject } fr
  */
 export const currentDataAtom = atom<EditResponseAlias['data']>({
   key: 'currentData',
-  default: {},
+  default: {}
 })
 
 /**
@@ -59,7 +59,7 @@ export default function ApiDataSort({
   dataValue,
   dataKey,
   onEdit,
-  onDelete,
+  onDelete
 }: ApiDataSortAlias) {
   // console.log('ApiDataSort : index', index)
   // console.log('ApiDataSort : dataType', dataType)

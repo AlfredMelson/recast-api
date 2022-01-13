@@ -1,6 +1,6 @@
+import Box from '@mui/material/Box'
 import Select, { SelectChangeEvent, SelectProps } from '@mui/material/Select'
 import { alpha, styled } from '@mui/material/styles'
-import Box from '@mui/material/Box'
 import * as React from 'react'
 import { BrandSwatch } from '../../style'
 
@@ -28,18 +28,18 @@ const SelectSxStyle = styled((props?: SelectProps) => (
   color: theme.palette.text.secondary,
   transition: theme.transitions.create(['all'], {
     duration: theme.transitions.duration.standard,
-    easing: theme.transitions.easing.easeInOut,
+    easing: theme.transitions.easing.easeInOut
   }),
   '&:hover, &.Mui-focused ': {
     color: theme.palette.text.primary,
     backgroundColor:
       theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[700] : BrandSwatch.Light.Grey[200],
-    borderRadius: 3,
+    borderRadius: 3
   },
   '&.Mui-selected': {
     color: theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[50] : BrandSwatch.Light.Grey[900],
-    backgroundColor: theme.palette.background.default,
-  },
+    backgroundColor: theme.palette.background.default
+  }
 }))
 
 /**

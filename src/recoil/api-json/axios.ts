@@ -14,7 +14,7 @@ import { atom } from 'recoil'
  */
 export const axiosResponseAtom = atom({
   key: 'axiosResponse',
-  default: {},
+  default: {}
 })
 
 /**
@@ -31,7 +31,7 @@ export const axiosResponseAtom = atom({
  */
 export const axiosConfigAtom = atom({
   key: 'axiosConfig',
-  default: {},
+  default: {}
 })
 
 /**
@@ -48,7 +48,7 @@ export const axiosConfigAtom = atom({
  */
 export const axiosDataAtom = atom({
   key: 'axiosData',
-  default: {},
+  default: {}
 })
 
 /**
@@ -65,7 +65,7 @@ export const axiosDataAtom = atom({
  */
 export const axiosHeadersAtom = atom({
   key: 'axiosHeaders',
-  default: {},
+  default: {}
 })
 
 /**
@@ -82,7 +82,7 @@ export const axiosHeadersAtom = atom({
  */
 export const axiosRequestAtom = atom({
   key: 'axiosRequest',
-  default: {},
+  default: {}
 })
 
 /**
@@ -99,7 +99,7 @@ export const axiosRequestAtom = atom({
  */
 export const axiosStatusAtom = atom({
   key: 'axiosStatus',
-  default: {},
+  default: {}
 })
 
 /**
@@ -116,5 +116,5 @@ export const axiosStatusAtom = atom({
  */
 export const axiosStatusTextAtom = atom({
   key: 'axiosStatusText',
-  default: {},
+  default: {}
 })

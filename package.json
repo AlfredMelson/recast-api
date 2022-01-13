@@ -42,18 +42,17 @@
     "react-router-dom": "6.2.1",
     "react-scripts": "^5.0.0",
     "recoil": "^0.5.2",
-    "sass": "^1.47.0"
+    "sass": "^1.48.0"
   },
   "scripts": {
     "build": "react-scripts build",
     "start": "react-scripts start",
     "eject": "react-scripts eject",
-    "format": "prettier --write \"**/*.+(js|jsx|json|css|scss|ts|tsx)\"",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "format": "prettier --write \"src/**/*.{js,ts,tsx,css,scss,md,json}\"",
+    "lint": "eslint -f unix \"src/**/*.{js,ts,tsx}\"",
     "typeCheck": "tsc --pretty",
     "fullTest": "yarn format && yarn lint && yarn typecheck",
-    "clean": "lerna clean --yes && rimraf node_modules yarn.lock",
-    "docs": "jsdoc -c jsdoc.conf.json"
+    "clean": "lerna clean --yes && rimraf node_modules yarn.lock"
   },
   "browserslist": [
     ">0.2%",
@@ -61,6 +60,8 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@types/eslint": "^8.2.2",
+    "@types/eslint-config-prettier": "^6.11.0",
     "@types/eslint-plugin-prettier": "^3.1.0",
     "@types/file-saver": "^2.0.5",
     "@types/lodash": "^4.14.178",
@@ -69,17 +70,16 @@
     "@types/react": "17.0.38",
     "@types/react-dom": "17.0.11",
     "@types/react-router-dom": "5.3.2",
+    "@types/rimraf": "^3.0.2",
     "@typescript-eslint/eslint-plugin": "^5.9.1",
     "@typescript-eslint/parser": "^5.9.1",
-    "better-docs": "^2.3.2",
     "eslint": "^8.6.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.4",
-    "eslint-plugin-jsdoc": "^37.6.1",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
-    "jsdoc": "^3.6.7",
+    "eslint-plugin-tsdoc": "^0.2.14",
     "lerna": "^4.0.0",
     "prettier": "^2.5.1",
     "rimraf": "^3.0.2",

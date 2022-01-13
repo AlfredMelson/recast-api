@@ -1,24 +1,9 @@
 import InputBase from '@mui/material/Input'
-import Typography from '@mui/material/Typography'
-import { useRecoilState, useSetRecoilState } from 'recoil'
-import * as React from 'react'
 import InputAdornment from '@mui/material/InputAdornment'
-import { keyCodeAtom } from '../../recoil'
-import { selectedElementAtom } from '../../recoil/api-json/atom'
-
-/**
- * @name InputSxEditApi
- * @description
- * @param {IconButton} mui IconButton
- * @param {theme} MuiBrandingTheme
- * @param {styled} mui styled
- * @userActionPseudoClasses {hover}	:hover, {active}	:active, {focus}	:focus
- * {focus visible}	:focus-visible, {focus within}	:focus-within
- * @globalClassNames {active}	.Mui-active, {checked}	.Mui-checked, {completed}	.Mui-completed
- * {disabled}	.Mui-disabled, {expanded}	.Mui-expanded, {focus visible}	.Mui-focusVisible
- * {focused}	.Mui-focused. {required}	.Mui-required, {selected}	.Mui-selected
- * @return style for edit icon button
- */
+import Typography from '@mui/material/Typography'
+import * as React from 'react'
+import { useRecoilState, useSetRecoilState } from 'recoil'
+import { keyCodeAtom, selectedElementAtom } from '../../recoil'
 
 type InputSxEditApiAlias = {
   currentValue: any
@@ -26,7 +11,6 @@ type InputSxEditApiAlias = {
   onEdit: any
   quotes?: boolean
   onChange: (event: any) => void
-  // onChange: (event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => void
 }
 
 export const InputSxEditApi = ({
@@ -34,11 +18,11 @@ export const InputSxEditApi = ({
   dataKey,
   onEdit,
   onChange,
-  quotes,
+  quotes
 }: InputSxEditApiAlias) => {
   const setSelectedElement = useSetRecoilState(selectedElementAtom)
 
-  // Keyboard interaction
+  // keyboard interaction
   const [keyCode, setKeyCode] = useRecoilState(keyCodeAtom)
   const onKeyDown = React.useCallback(
     event => {

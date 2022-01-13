@@ -1,4 +1,4 @@
-import { atom, DefaultValue, selector, AtomEffect } from 'recoil'
+import { atom, AtomEffect, DefaultValue, selector } from 'recoil'
 
 /**
  * @name localPersist
@@ -42,7 +42,7 @@ export const localPersist: AtomEffect<any> = ({ onSet, setSelf, node }) => {
 export const userGeneratedJsonAtom = atom<string>({
   key: 'userGeneratedJson',
   default: '',
-  effects_UNSTABLE: [localPersist],
+  effects_UNSTABLE: [localPersist]
 })
 
 /**
@@ -65,7 +65,7 @@ export const editorTextSelector = selector<string>({
   set: ({ set }, newEditedEditorText) => {
     const newEditorText = newEditedEditorText
     set(userGeneratedJsonAtom, newEditorText)
-  },
+  }
 })
 
 /**
@@ -87,7 +87,7 @@ export const parseJsonSelector = selector({
       return parsedJson
       // eslint-disable-next-line no-empty
     } catch {}
-  },
+  }
 })
 
 /**
@@ -109,7 +109,7 @@ export const stringifyJsonSelector = selector({
       return stringifiedJson
       // eslint-disable-next-line no-empty
     } catch {}
-  },
+  }
 })
 
 /**
@@ -126,5 +126,5 @@ export const stringifyJsonSelector = selector({
  */
 export const monacoThemeAtom = atom<string>({
   key: 'monacoTheme',
-  default: '',
+  default: ''
 })

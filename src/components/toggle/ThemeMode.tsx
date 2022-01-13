@@ -1,10 +1,10 @@
 import Brightness4Icon from '@mui/icons-material/Brightness4'
 import Brightness7Icon from '@mui/icons-material/Brightness7'
-import { useRecoilState } from 'recoil'
 import * as React from 'react'
+import { useRecoilState } from 'recoil'
 import { themeColorAtom } from '../../recoil'
-import { IconButtonSxColorMode } from '../mui/IconButton.style'
 import { ToolTipSx } from '../mui'
+import { IconButtonSxColorMode } from '../mui/IconButton.style'
 // import useMediaQuery from '@mui/material/useMediaQuery'
 
 export function ThemeModeToggle() {

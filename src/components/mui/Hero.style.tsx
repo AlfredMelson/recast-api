@@ -1,5 +1,5 @@
-import Paper from '@mui/material/Paper'
 import Box from '@mui/material/Box'
+import Paper from '@mui/material/Paper'
 import { styled } from '@mui/material/styles'
 import * as React from 'react'
 import { BrandSwatch } from '../../style'
@@ -16,7 +16,7 @@ import { BrandSwatch } from '../../style'
 const HeroWrapper = styled(Paper)(({ theme }) => ({
   backgroundColor:
     theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[800] : BrandSwatch.Light.Grey[100],
-  borderRadius: 3,
+  borderRadius: 3
 }))
 
 type HeroStyleAlias = {

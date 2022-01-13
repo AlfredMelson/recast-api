@@ -1,15 +1,15 @@
-import * as React from 'react'
-import Box from '@mui/material/Box'
-import CloseIcon from '@mui/icons-material/Close'
 import CheckIcon from '@mui/icons-material/Check'
-import DownloadIcon from '@mui/icons-material/Download'
+import CloseIcon from '@mui/icons-material/Close'
 import ContentCopyIcon from '@mui/icons-material/ContentCopy'
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
+import DownloadIcon from '@mui/icons-material/Download'
+import Box from '@mui/material/Box'
 import { saveAs } from 'file-saver'
-import { userGeneratedJsonAtom, minifiedTextAtom, minifyDialogOpenAtom } from '../../recoil'
-import { SxCircularProgress } from '../action/SxCircularProgress'
-import { IconButtonSxAppBar, ToolTipSx, ButtonGroupSx } from '../mui'
+import * as React from 'react'
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
+import { minifiedTextAtom, minifyDialogOpenAtom, userGeneratedJsonAtom } from '../../recoil'
 import { BrandSwatch } from '../../style'
+import { SxCircularProgress } from '../action/SxCircularProgress'
+import { ButtonGroupSx, IconButtonSxAppBar, ToolTipSx } from '../mui'
 
 export function MinifyIcons() {
   //set dialog with minified json visability
@@ -117,7 +117,7 @@ export function MinifyIcons() {
                   color: theme =>
                     theme.palette.mode === 'dark'
                       ? BrandSwatch.Dark.Green[300]
-                      : BrandSwatch.Light.Green[500],
+                      : BrandSwatch.Light.Green[500]
                 }}
               />
             )}
@@ -138,7 +138,7 @@ export function MinifyIcons() {
                   color: theme =>
                     theme.palette.mode === 'dark'
                       ? BrandSwatch.Dark.Green[300]
-                      : BrandSwatch.Light.Green[500],
+                      : BrandSwatch.Light.Green[500]
                 }}
               />
             )}

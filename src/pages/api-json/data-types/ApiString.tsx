@@ -1,20 +1,20 @@
-import * as React from 'react'
-import Stack from '@mui/material/Stack'
-import Typography from '@mui/material/Typography'
-import { useRecoilState } from 'recoil'
 import Box from '@mui/material/Box'
 import ButtonGroup from '@mui/material/ButtonGroup'
+import Stack from '@mui/material/Stack'
+import Typography from '@mui/material/Typography'
+import * as React from 'react'
+import { useRecoilState } from 'recoil'
 import { ApiEditHighlighter } from '../../../components/action'
-import { ApiDeleteIcon, ApiCloseIcon, ApiApplyIcon } from '../../../components/icons'
-import { selectedElementAtom } from '../../../recoil'
+import { ApiApplyIcon, ApiCloseIcon, ApiDeleteIcon } from '../../../components/icons'
 import {
-  InputSxEditApi,
   ButtonSxApiJsonEditItem,
   IconButtonSxApiEdit,
+  InputSxEditApi
 } from '../../../components/mui'
+import { selectedElementAtom } from '../../../recoil'
 import { BrandSwatch } from '../../../style'
-import { ApiStringAlias } from './typeAliases'
 import ApiDataTypeLabel from './ApiDataTypeLabel'
+import { ApiStringAlias } from './typeAliases'
 
 export function ApiString({ index, value, dataKey, dataType, onEdit, onDelete }: ApiStringAlias) {
   const [selectedElement, setSelectedElement] = useRecoilState(selectedElementAtom)
@@ -65,8 +65,8 @@ export function ApiString({ index, value, dataKey, dataType, onEdit, onDelete }:
                         : BrandSwatch.Light.Grey[900],
                     mr: 5,
                     '&:hover ': {
-                      color: BrandSwatch.Dark.Green[300],
-                    },
+                      color: BrandSwatch.Dark.Green[300]
+                    }
                   }}
                 />
               </IconButtonSxApiEdit>
@@ -85,7 +85,7 @@ export function ApiString({ index, value, dataKey, dataType, onEdit, onDelete }:
                 color: theme =>
                   theme.palette.mode === 'dark'
                     ? BrandSwatch.Dark.Grey[50]
-                    : BrandSwatch.Light.Grey[900],
+                    : BrandSwatch.Light.Grey[900]
               }}
               variant='code'>
               &#34;{dataKey}&#34;&#58;&nbsp;
@@ -97,7 +97,7 @@ export function ApiString({ index, value, dataKey, dataType, onEdit, onDelete }:
                 color: theme =>
                   theme.palette.mode === 'dark'
                     ? BrandSwatch.Dark.Green[300]
-                    : BrandSwatch.Light.Green[500],
+                    : BrandSwatch.Light.Green[500]
               }}>
               &#34;{currentValue}&#34;
             </Typography>

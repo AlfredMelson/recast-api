@@ -1,11 +1,11 @@
-import * as React from 'react'
-import Drawer from '@mui/material/Drawer'
-import { useRecoilValue, useSetRecoilState } from 'recoil'
 import Box from '@mui/material/Box'
 import Container from '@mui/material/Container'
-import { themeColorAtom, dataDrawerOpenAtom, monacoThemeAtom } from '../../recoil'
-import { Editor, EditorTheme } from '../monaco-editor'
+import Drawer from '@mui/material/Drawer'
+import * as React from 'react'
+import { useRecoilValue, useSetRecoilState } from 'recoil'
+import { dataDrawerOpenAtom, monacoThemeAtom, themeColorAtom } from '../../recoil'
 import { toggleDrawer } from '../action'
+import { Editor, EditorTheme } from '../monaco-editor'
 import { MinifyDialog } from '.'
 
 export function EditorDrawer() {

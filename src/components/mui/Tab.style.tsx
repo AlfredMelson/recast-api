@@ -1,17 +1,7 @@
-import Tab from '@mui/material/Tab'
 import { styled } from '@mui/material/styles'
-import * as React from 'react'
+import Tab from '@mui/material/Tab'
 import { motion } from 'framer-motion'
-
-/**
- * @name TabSxStyle
- * @description styles API Tab
- * @param {Tab} mui Tab
- * @param {styled} mui styled
- * @param {theme} MuiBrandingTheme
- * @alias TabSxAlias
- * @return styled Tab
- */
+import * as React from 'react'
 
 type TabSxStyleAlias = {
   label: string
@@ -39,17 +29,8 @@ export const TabSxStyle = styled(
   minWidth: 130,
   height: 50,
   minHeight: 50,
-  padding: theme.spacing(0, 10),
+  padding: theme.spacing(0, 10)
 }))
-
-/**
- * @name TabSx
- * @description styles API Tab Panel background motion
- * @param {motion} framer-motion motion
- * @param {children} React.ReactNode
- * @param {paddingLeft} mui
- * @return
- */
 
 type TabSxAlias = {
   label: string

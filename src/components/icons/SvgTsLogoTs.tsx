@@ -1,5 +1,5 @@
 import { useRecoilValue } from 'recoil'
-import { userToggledApiAtom } from '../../recoil/api-json/atom'
+import { userToggledApiAtom } from '../../recoil'
 import { BrandSwatch } from '../../style'
 import RootSvg, { RootSvgProps } from './RootSvg'
 
@@ -13,7 +13,7 @@ export function SvgTsLogoTs(props: RootSvgProps) {
       height='18'
       viewBox='0 0 128 128'
       sx={{
-        pr: 10,
+        pr: 10
       }}
       {...props}>
       <rect

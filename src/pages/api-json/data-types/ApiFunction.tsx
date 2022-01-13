@@ -1,6 +1,6 @@
+import { blue } from '@mui/material/colors'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
-import { blue } from '@mui/material/colors'
 import ApiDataTypeLabel from './ApiDataTypeLabel'
 import { ApiFunctionAlias } from './typeAliases'
 

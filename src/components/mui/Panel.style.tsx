@@ -12,7 +12,7 @@ import * as React from 'react'
 
 const PanelWrapper = styled('div')(() => ({
   position: 'relative',
-  overflow: 'hidden',
+  overflow: 'hidden'
 }))
 
 type PanelStyleAlias = {

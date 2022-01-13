@@ -14,7 +14,7 @@ export function ApiEditHighlighter({
         transitionProperty: 'all',
         transitionDuration: '300ms',
         ...(selected && {
-          paddingBottom: '10px',
+          paddingBottom: '10px'
           // bgcolor: theme => (theme.palette.mode === 'dark' ? '#000000' : '#ffffff'),
         }),
         ...(!selected &&
@@ -26,7 +26,7 @@ export function ApiEditHighlighter({
             //   },
             // },
           }),
-        ...props.sx,
+        ...props.sx
       }}
       {...props}
     />

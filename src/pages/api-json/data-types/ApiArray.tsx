@@ -1,12 +1,12 @@
-import * as React from 'react'
-import Stack from '@mui/material/Stack'
-import Typography from '@mui/material/Typography'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
+import Stack from '@mui/material/Stack'
+import Typography from '@mui/material/Typography'
+import * as React from 'react'
 import { IconButtonSx } from '../../../components/mui'
 import ApiDataSort from './ApiDataSort'
 import ApiDataTypeLabel from './ApiDataTypeLabel'
-import { getType, ApiArrayAlias } from './typeAliases'
+import { ApiArrayAlias, getType } from './typeAliases'
 
 export function ApiArray({ value, dataKey, dataType }: ApiArrayAlias) {
   const [col, setCol] = React.useState(false)

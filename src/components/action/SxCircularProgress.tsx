@@ -16,7 +16,7 @@ export function SxCircularProgress({ size, color }: SxCircularProgressAlias) {
         top: '50%',
         left: '50%',
         marginTop: size === '16px' ? '-4px' : '-9px',
-        marginLeft: size === '16px' ? '-12px' : '-9px',
+        marginLeft: size === '16px' ? '-12px' : '-9px'
       }}
     />
   )

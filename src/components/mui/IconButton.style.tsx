@@ -15,11 +15,11 @@ export const IconButtonSxColorMode = styled(IconButton)(({ theme }) => ({
   padding: theme.spacing(10),
   transition: theme.transitions.create(['color'], {
     duration: theme.transitions.duration.standard,
-    easing: theme.transitions.easing.easeInOut,
+    easing: theme.transitions.easing.easeInOut
   }),
   '&:hover, & .Mui-focused': {
-    color: theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[50] : BrandSwatch.Light.Grey[900],
-  },
+    color: theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[50] : BrandSwatch.Light.Grey[900]
+  }
 }))
 
 /**
@@ -38,11 +38,11 @@ export const IconButtonSxApiIcons = styled((props: IconButtonProps) => <IconButt
     padding: theme.spacing(0),
     transition: theme.transitions.create(['color'], {
       duration: theme.transitions.duration.standard,
-      easing: theme.transitions.easing.easeInOut,
+      easing: theme.transitions.easing.easeInOut
     }),
     '&:hover, & .Mui-focused': {
-      color: theme.palette.mode === 'dark' ? theme.palette.grey[50] : theme.palette.grey[900],
-    },
+      color: theme.palette.mode === 'dark' ? theme.palette.grey[50] : theme.palette.grey[900]
+    }
   })
 )
 
@@ -62,17 +62,17 @@ export const IconButtonSxApiIcons = styled((props: IconButtonProps) => <IconButt
 
 export const IconButtonSxApiEdit = styled(IconButton)(({ theme }) => ({
   '.Mui-disabled': {
-    color: theme.palette.mode === 'dark' ? '#000000' : theme.palette.grey[900],
+    color: theme.palette.mode === 'dark' ? '#000000' : theme.palette.grey[900]
   },
   color: theme.palette.mode === 'dark' ? theme.palette.grey[500] : theme.palette.grey[700],
   padding: theme.spacing(5),
   transition: theme.transitions.create(['color'], {
     duration: theme.transitions.duration.standard,
-    easing: theme.transitions.easing.easeInOut,
+    easing: theme.transitions.easing.easeInOut
   }),
   '&:hover, .Mui-focused': {
-    color: theme.palette.mode === 'dark' ? theme.palette.grey[50] : theme.palette.grey[900],
-  },
+    color: theme.palette.mode === 'dark' ? theme.palette.grey[50] : theme.palette.grey[900]
+  }
 }))
 
 /**
@@ -88,11 +88,11 @@ export const IconButtonSxAppBar = styled(IconButton)(({ theme }) => ({
   color: theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[100] : BrandSwatch.Light.Grey[800],
   transition: theme.transitions.create(['color'], {
     duration: theme.transitions.duration.standard,
-    easing: theme.transitions.easing.easeInOut,
+    easing: theme.transitions.easing.easeInOut
   }),
   '&:hover': {
-    color: theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[50] : BrandSwatch.Light.Grey[900],
-  },
+    color: theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[50] : BrandSwatch.Light.Grey[900]
+  }
 }))
 
 /**
@@ -109,12 +109,12 @@ export const IconButtonSxTsInterface = styled(IconButton)(({ theme }) => ({
   backgroundColor: BrandSwatch.Dark.Grey[900],
   transition: theme.transitions.create(['color', 'backgroundColor'], {
     duration: theme.transitions.duration.standard,
-    easing: theme.transitions.easing.easeInOut,
+    easing: theme.transitions.easing.easeInOut
   }),
   '&:hover, &.Mui-focused': {
     backgroundColor: BrandSwatch.Dark.Grey[800],
-    color: '#007FFF',
-  },
+    color: '#007FFF'
+  }
 }))
 
 /**
@@ -130,14 +130,14 @@ export const IconButtonSx = styled(IconButton)(({ theme }) => ({
   padding: theme.spacing(10),
   transition: theme.transitions.create(['color'], {
     duration: theme.transitions.duration.standard,
-    easing: theme.transitions.easing.easeInOut,
+    easing: theme.transitions.easing.easeInOut
   }),
   '&:hover, & .Mui-focused': {
-    color: '#007FFF',
+    color: '#007FFF'
   },
   '& > div': {
-    cursor: 'default',
-  },
+    cursor: 'default'
+  }
 }))
 
 /**
@@ -153,9 +153,9 @@ export const IconButtonSxDataIcon = styled(IconButton)(({ theme }) => ({
   color: theme.palette.text.secondary,
   transition: theme.transitions.create(['color'], {
     duration: theme.transitions.duration.standard,
-    easing: theme.transitions.easing.easeInOut,
+    easing: theme.transitions.easing.easeInOut
   }),
   '&:hover, & .Mui-focused': {
-    color: '#007FFF',
-  },
+    color: '#007FFF'
+  }
 }))

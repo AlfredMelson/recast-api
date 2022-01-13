@@ -1,10 +1,10 @@
+import FormControl from '@mui/material/FormControl'
 import MenuItem from '@mui/material/MenuItem'
 import { SelectChangeEvent } from '@mui/material/Select'
 import { useRecoilState } from 'recoil'
-import FormControl from '@mui/material/FormControl'
 import { SourceSelector } from '../../../cms'
-import { SelectSx, ApiUIWrapper } from '../../mui/'
 import { dataSourceAtom } from '../../../recoil'
+import { CardSx, SelectSx } from '../../mui/'
 
 export default function DataSourceSelector() {
   const [dataSource, setDataSource] = useRecoilState(dataSourceAtom)
@@ -14,7 +14,8 @@ export default function DataSourceSelector() {
   }
 
   return (
-    <ApiUIWrapper title='Source' sx={{ mt: 10, ml: 20, mb: 0 }}>
+    // <SelectCards title='Source' sx={{ mt: 10, ml: 20, mb: 0 }}>
+    <CardSx title='Source'>
       <FormControl>
         <SelectSx id='provider-selector' value={dataSource} onChange={handleChange}>
           {SourceSelector.map(item => (
@@ -24,6 +25,6 @@ export default function DataSourceSelector() {
           ))}
         </SelectSx>
       </FormControl>
-    </ApiUIWrapper>
+    </CardSx>
   )
 }

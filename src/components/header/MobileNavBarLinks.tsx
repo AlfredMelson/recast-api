@@ -1,12 +1,12 @@
-import * as React from 'react'
+import KeyboardArrowDownRounded from '@mui/icons-material/KeyboardArrowDownRounded'
 import Box from '@mui/material/Box'
+import Button from '@mui/material/Button'
+import ClickAwayListener from '@mui/material/ClickAwayListener'
 import Collapse from '@mui/material/Collapse'
 import IconButton from '@mui/material/IconButton'
-import Typography from '@mui/material/Typography'
-import Button from '@mui/material/Button'
-import KeyboardArrowDownRounded from '@mui/icons-material/KeyboardArrowDownRounded'
 import { styled } from '@mui/material/styles'
-import ClickAwayListener from '@mui/material/ClickAwayListener'
+import Typography from '@mui/material/Typography'
+import * as React from 'react'
 import { SvgHamburgerMenu } from '../icons'
 
 const Anchor = styled('a')<{ component?: React.ElementType; noLinkStyle?: boolean }>(
@@ -28,16 +28,16 @@ const Anchor = styled('a')<{ component?: React.ElementType; noLinkStyle?: boolea
         theme.palette.mode === 'dark' ? theme.palette.grey[700] : theme.palette.grey[100],
       // Reset on touch devices, it doesn't add specificity
       '@media (hover: none)': {
-        backgroundColor: 'transparent',
-      },
-    },
+        backgroundColor: 'transparent'
+      }
+    }
   })
 )
 
 const UList = styled('ul')({
   listStyleType: 'none',
   padding: 0,
-  margin: 0,
+  margin: 0
 })
 
 type ProductAlias = {
@@ -52,14 +52,14 @@ const PRODUCTS: ProductAlias[] = [
     index: 0,
     title: 'Treeview',
     description: 'Expand and collapse the JSON tree.',
-    href: '/tree-view',
+    href: '/tree-view'
   },
   {
     index: 1,
     title: 'Api Json',
     description: 'Expand and collapse the JSON tree.',
-    href: '/api-json',
-  },
+    href: '/api-json'
+  }
 ]
 
 export function MobileNavBarLinks() {
@@ -80,16 +80,16 @@ export function MobileNavBarLinks() {
           '&:hover': { background: 'none' },
           '& rect': {
             transformOrigin: 'center',
-            transition: '0.2s',
+            transition: '0.2s'
           },
           ...(open && {
             '& rect:first-of-type': {
-              transform: 'translate(1.5px, 1.6px) rotateZ(-45deg)',
+              transform: 'translate(1.5px, 1.6px) rotateZ(-45deg)'
             },
             '& rect:last-of-type': {
-              transform: 'translate(1.5px, -1.2px) rotateZ(45deg)',
-            },
-          }),
+              transform: 'translate(1.5px, -1.2px) rotateZ(45deg)'
+            }
+          })
         }}>
         <SvgHamburgerMenu />
       </IconButton>
@@ -107,14 +107,14 @@ export function MobileNavBarLinks() {
             left: 0,
             right: 0,
             boxShadow: '0 15px 10px -5px rgb(90 105 120 / 10%)',
-            bgcolor: 'background.paper',
+            bgcolor: 'background.paper'
           }}>
           <Box
             sx={{
               p: 2.5,
               bgcolor: 'background.paper',
               maxHeight: 'calc(100vh - 56px)',
-              overflow: 'auto',
+              overflow: 'auto'
             }}>
             <UList>
               <li>
@@ -127,7 +127,7 @@ export function MobileNavBarLinks() {
                     color='primary'
                     sx={{
                       transition: '0.3s',
-                      transform: productsOpen ? 'rotate(-180deg)' : 'rotate(0)',
+                      transform: productsOpen ? 'rotate(-180deg)' : 'rotate(0)'
                     }}
                   />
                 </Anchor>
@@ -139,7 +139,7 @@ export function MobileNavBarLinks() {
                         theme.palette.mode === 'dark' ? 'grey.700' : 'grey.100',
                       pl: 10,
                       pb: 10,
-                      ml: 10,
+                      ml: 10
                     }}>
                     {PRODUCTS.map(item => (
                       <li key={item.index}>

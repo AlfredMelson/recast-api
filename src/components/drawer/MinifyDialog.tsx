@@ -1,13 +1,13 @@
+import Box from '@mui/material/Box'
+import Container from '@mui/material/Container'
+import Dialog from '@mui/material/Dialog'
+import DialogContent from '@mui/material/DialogContent'
+import Stack from '@mui/material/Stack'
+import { styled } from '@mui/material/styles'
+import Typography from '@mui/material/Typography'
 import * as React from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil'
-import { styled } from '@mui/material/styles'
-import Dialog from '@mui/material/Dialog'
-import Box from '@mui/material/Box'
-import Stack from '@mui/material/Stack'
-import DialogContent from '@mui/material/DialogContent'
-import Typography from '@mui/material/Typography'
-import Container from '@mui/material/Container'
-import { userGeneratedJsonAtom, minifiedTextAtom, minifyDialogOpenAtom } from '../../recoil'
+import { minifiedTextAtom, minifyDialogOpenAtom, userGeneratedJsonAtom } from '../../recoil'
 import { BrandSwatch } from '../../style'
 import { MinifyIcons } from '.'
 
@@ -17,11 +17,11 @@ const TypographyRoot = styled(Typography)(({ theme }) => ({
   color: theme.palette.text.secondary,
   transition: theme.transitions.create(['all'], {
     duration: theme.transitions.duration.standard,
-    easing: theme.transitions.easing.easeInOut,
+    easing: theme.transitions.easing.easeInOut
   }),
   '&:hover': {
-    color: theme.palette.text.primary,
-  },
+    color: theme.palette.text.primary
+  }
 }))
 
 const MinifyHeaderWrapper = styled(Box, { name: 'MinifyHeader', slot: 'wrapper' })(({ theme }) => ({
@@ -30,7 +30,7 @@ const MinifyHeaderWrapper = styled(Box, { name: 'MinifyHeader', slot: 'wrapper' 
   backgroundColor:
     theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[800] : BrandSwatch.Light.Grey[100],
   borderRadius: theme.spacing(3, 3, 0, 0),
-  zIndex: theme.zIndex.drawer + 1,
+  zIndex: theme.zIndex.drawer + 1
 }))
 
 export function MinifyDialog() {
@@ -81,8 +81,8 @@ export function MinifyDialog() {
           overflowWrap: 'break-word',
           overflowX: 'scroll',
           '&::-webkit-scrollbar': {
-            width: 0,
-          },
+            width: 0
+          }
         }}>
         <TypographyRoot variant='code' id='minified-json-data'>
           {minifiedText}

@@ -11,7 +11,7 @@ import { atom } from 'recoil'
  */
 export const dataSourceAtom = atom<string>({
   key: 'dataSource',
-  default: '',
+  default: ''
 })
 // const [dataSource, setDataSource] = useRecoilState(dataSourceAtom)
 // const setDataSource = useSetRecoilState(dataSourceAtom)
@@ -29,7 +29,7 @@ export const dataSourceAtom = atom<string>({
  */
 export const dataCategoryAtom = atom<string>({
   key: 'dataCategory',
-  default: '',
+  default: ''
 })
 // const [dataCategory, setDataCategory] = useRecoilState(dataCategoryAtom)
 // const setDataCategory = useSetRecoilState(dataCategoryAtom)
@@ -47,7 +47,7 @@ export const dataCategoryAtom = atom<string>({
  */
 export const dataQuantityAtom = atom<string>({
   key: 'dataQuantity',
-  default: '',
+  default: ''
 })
 // const [dataQuantity, setDataQuantity] = useRecoilState(dataQuantityAtom)
 // const setDataQuantity = useSetRecoilState(dataQuantityAtom)
@@ -65,7 +65,7 @@ export const dataQuantityAtom = atom<string>({
  */
 export const dataUrlAtom = atom<string>({
   key: 'dataUrl',
-  default: '',
+  default: ''
 })
 // const [dataUrl, setDataUrl] = useRecoilState(dataUrlAtom)
 // const setDataUrl = useSetRecoilState(dataUrlAtom)

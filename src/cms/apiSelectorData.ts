@@ -1,4 +1,4 @@
-import { UserToggledApiAtomOptions } from '../recoil/api-json/atom'
+import { UserToggledApiAtomOptions } from '../recoil'
 
 type SourceSelectorAlias = {
   index: number
@@ -9,7 +9,7 @@ type SourceSelectorAlias = {
 export const SourceSelector: SourceSelectorAlias[] = [
   { index: 0, name: '', value: '' },
   { index: 1, name: 'Random Data API', value: 'randomDataApi' },
-  { index: 2, name: 'Json Placeholder API', value: 'jsonPlaceholderApi' },
+  { index: 2, name: 'Json Placeholder API', value: 'jsonPlaceholderApi' }
 ]
 
 type BaseUrlDataAlias = {
@@ -20,7 +20,7 @@ type BaseUrlDataAlias = {
 export const BaseUrlData: BaseUrlDataAlias[] = [
   { index: '', base: '' },
   { index: 'randomDataApi', base: 'https://random-data-api.com/api/' },
-  { index: 'jsonPlaceholderApi', base: 'https://jsonplaceholder.typicode.com/' },
+  { index: 'jsonPlaceholderApi', base: 'https://jsonplaceholder.typicode.com/' }
 ]
 
 type RandomDataAlias = {
@@ -66,7 +66,7 @@ export const RandomData: RandomDataAlias[] = [
   { index: 33, name: 'Number', url: 'number/random_number' },
   { index: 34, name: 'Phone Number ', url: 'phone_number/random_phone_number' },
   { index: 35, name: 'Placeholdit', url: 'placeholdit/random_placeholdit' },
-  { index: 36, name: 'Restaurant', url: 'restaurant/random_restaurant' },
+  { index: 36, name: 'Restaurant', url: 'restaurant/random_restaurant' }
 ]
 
 type JsonPlaceholderDataAlias = {
@@ -82,7 +82,7 @@ export const JsonPlaceholderData: JsonPlaceholderDataAlias[] = [
   { index: 3, name: 'Albums', url: 'albums/' },
   { index: 4, name: 'Photos', url: 'photos/' },
   { index: 5, name: 'Todos', url: 'todos/' },
-  { index: 6, name: 'Users', url: 'users/' },
+  { index: 6, name: 'Users', url: 'users/' }
 ]
 
 type VolumeSelectorAlias = {
@@ -95,7 +95,7 @@ export const VolumeSelector: VolumeSelectorAlias[] = [
   { index: 0, name: 'one', value: '1' },
   { index: 1, name: 'two', value: '2' },
   { index: 2, name: 'five', value: '5' },
-  { index: 3, name: 'ten', value: '10' },
+  { index: 3, name: 'ten', value: '10' }
 ]
 
 type ApiTabDataAlias = {
@@ -112,5 +112,5 @@ export const ApiTabData: ApiTabDataAlias[] = [
   { index: '2', num: 2, label: 'Full response', isIcon: false, value: 'full' },
   { index: '3', num: 3, label: 'Headers', isIcon: false, value: 'headers' },
   { index: '4', num: 4, label: ' interface', isIcon: true, value: 'ts' },
-  { index: '5', num: 5, label: ' * .d.ts', isIcon: true, value: 'dtype' },
+  { index: '5', num: 5, label: ' * .d.ts', isIcon: true, value: 'dtype' }
 ]

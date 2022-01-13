@@ -1,11 +1,11 @@
+import Box from '@mui/material/Box'
+import FormControl from '@mui/material/FormControl'
 import MenuItem from '@mui/material/MenuItem'
 import { SelectChangeEvent } from '@mui/material/Select'
 import { useRecoilState, useRecoilValue } from 'recoil'
-import Box from '@mui/material/Box'
-import FormControl from '@mui/material/FormControl'
 import { JsonPlaceholderData, RandomData } from '../../../cms'
-import { SelectSx, ApiUIWrapper } from '../../mui'
-import { dataSourceAtom, dataCategoryAtom } from '../../../recoil'
+import { dataCategoryAtom, dataSourceAtom } from '../../../recoil'
+import { ApiUIWrapper, SelectSx } from '../../mui'
 
 export default function DataCategorySelector() {
   const [dataCategory, setDataCategory] = useRecoilState(dataCategoryAtom)

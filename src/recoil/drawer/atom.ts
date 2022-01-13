@@ -15,7 +15,7 @@ import { atom } from 'recoil'
 
 export const dataDrawerOpenAtom = atom<boolean>({
   key: 'dataDrawerOpen',
-  default: false,
+  default: false
 })
 
 /**
@@ -32,7 +32,7 @@ export const dataDrawerOpenAtom = atom<boolean>({
  */
 export const minifyDialogOpenAtom = atom<boolean>({
   key: 'minifyDialogOpen',
-  default: false,
+  default: false
 })
 
 /**
@@ -49,5 +49,5 @@ export const minifyDialogOpenAtom = atom<boolean>({
  */
 export const minifiedTextAtom = atom<string>({
   key: 'minifiedText',
-  default: '',
+  default: ''
 })

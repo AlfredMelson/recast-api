@@ -1,9 +1,9 @@
 import MonacoEditor from '@monaco-editor/react'
-import { useRecoilValue, useRecoilState } from 'recoil'
-import * as React from 'react'
-import { debounce } from 'lodash'
 import Container from '@mui/material/Container'
-import { userGeneratedJsonAtom, monacoThemeAtom, axiosResponseAtom } from '../../recoil'
+import { debounce } from 'lodash'
+import * as React from 'react'
+import { useRecoilState, useRecoilValue } from 'recoil'
+import { axiosResponseAtom, monacoThemeAtom, userGeneratedJsonAtom } from '../../recoil'
 
 export function Editor() {
   //retrieve editor theme value
@@ -67,7 +67,7 @@ export function Editor() {
           links: true,
           minimap: {
             enabled: true,
-            renderCharacters: false,
+            renderCharacters: false
           },
           mouseWheelZoom: true,
           multiCursorMergeOverlapping: true,
@@ -96,7 +96,7 @@ export function Editor() {
           wordWrap: 'on',
           wordWrapBreakAfterCharacters: '\t})]?|&,;',
           wordWrapBreakBeforeCharacters: '{([+',
-          wordWrapColumn: 80,
+          wordWrapColumn: 80
         }}
       />
     </Container>

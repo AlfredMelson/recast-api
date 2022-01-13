@@ -26,7 +26,7 @@ export default function ApiDataTypeLabel({ type, variant }: ApiDataTypeLabelAlia
               : BrandSwatch.Dark.Blue[400]
             : variant === 'edit'
             ? BrandSwatch.Light.Grey[600]
-            : BrandSwatch.Light.Blue[500],
+            : BrandSwatch.Light.Blue[500]
       }}>
       {type}&nbsp;
     </Typography>

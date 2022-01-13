@@ -1,25 +1,24 @@
+import CheckIcon from '@mui/icons-material/Check'
+import Box from '@mui/material/Box'
+import Stack from '@mui/material/Stack'
+import Typography from '@mui/material/Typography'
 import * as React from 'react'
 import {
   useRecoilRefresher_UNSTABLE,
   useRecoilValue,
   useResetRecoilState,
-  useSetRecoilState,
+  useSetRecoilState
 } from 'recoil'
-import Box from '@mui/material/Box'
-import CheckIcon from '@mui/icons-material/Check'
-import Typography from '@mui/material/Typography'
-import Stack from '@mui/material/Stack'
-import { ButtonSxStyle, ApiUIWrapper } from '../../mui'
-import { SxCircularProgress } from '../../action'
-import { BrandSwatch } from '../../../style'
 import {
-  userSubmittedUrlAtom,
-  // userTypedUrlAtom,
-  userQuerySelector,
   axiosResponseAtom,
-  dataUrlAtom,
   dataSourceAtom,
+  dataUrlAtom,
+  userQuerySelector,
+  userSubmittedUrlAtom
 } from '../../../recoil'
+import { BrandSwatch } from '../../../style'
+import { SxCircularProgress } from '../../action'
+import { ApiUIWrapper, ButtonSxStyle } from '../../mui'
 
 export default function DataFetch() {
   // user entered api url stored in recoil

@@ -1,6 +1,6 @@
 import ButtonGroup, { ButtonGroupProps } from '@mui/material/ButtonGroup'
-import { styled } from '@mui/material/styles'
 import { blue } from '@mui/material/colors'
+import { styled } from '@mui/material/styles'
 
 /**
  * @name ButtonGroupSxTsInterface
@@ -12,8 +12,8 @@ import { blue } from '@mui/material/colors'
  */
 export const ButtonGroupSxTsInterface = styled(ButtonGroup)(({ theme }) => ({
   '& .MuiButtonGroup-root': {
-    background: theme.palette.mode === 'dark' ? blue[900] : theme.palette.grey[100],
-  },
+    background: theme.palette.mode === 'dark' ? blue[900] : theme.palette.grey[100]
+  }
 }))
 
 /**
@@ -28,7 +28,7 @@ export const ButtonGroupSx = styled((props: ButtonGroupProps) => <ButtonGroup {.
   ({ theme }) => ({
     '& .MuiButtonGroup-root': {
       backgroundColor:
-        theme.palette.mode === 'dark' ? theme.palette.grey[900] : theme.palette.grey[100],
-    },
+        theme.palette.mode === 'dark' ? theme.palette.grey[900] : theme.palette.grey[100]
+    }
   })
 )

@@ -1,16 +1,16 @@
-import * as React from 'react'
-import Box from '@mui/material/Box'
+import CheckIcon from '@mui/icons-material/Check'
 import ContentCopyIcon from '@mui/icons-material/ContentCopy'
 import DownloadIcon from '@mui/icons-material/Download'
-import { useRecoilValue } from 'recoil'
-import CheckIcon from '@mui/icons-material/Check'
+import Box from '@mui/material/Box'
 import { blue } from '@mui/material/colors'
 import saveAs from 'file-saver'
+import * as React from 'react'
+import { useRecoilValue } from 'recoil'
 import { userGeneratedJsonAtom } from '../../recoil'
-import { IconButtonSxTsInterface } from '../mui/IconButton.style'
-import { ToolTipSx } from '../mui/ToolTip.style'
 import { SxCircularProgress } from '../action/SxCircularProgress'
 import { ButtonGroupSxTsInterface } from '../mui/ButtonGroup.style'
+import { IconButtonSxTsInterface } from '../mui/IconButton.style'
+import { ToolTipSx } from '../mui/ToolTip.style'
 
 export function TsInterfaceIcons() {
   // retrieve localStorage value

@@ -1,7 +1,7 @@
-import * as React from 'react'
+import { SxProps } from '@mui/material'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
-import { SxProps } from '@mui/system'
+import * as React from 'react'
 import { BrandSwatch } from '../../style'
 
 type ApiUIWrapperAlias = {
@@ -25,7 +25,7 @@ export const ApiUIWrapper = ({ title, sx, children }: ApiUIWrapperAlias) => {
         color: theme =>
           theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[200] : BrandSwatch.Light.Grey[700],
         backgroundColor: theme =>
-          theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[900] : BrandSwatch.Light.Grey[50],
+          theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[900] : BrandSwatch.Light.Grey[50]
       }}>
       <Typography gutterBottom variant='body2' sx={sx}>
         {title}

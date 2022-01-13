@@ -1,8 +1,8 @@
-import * as React from 'react'
-import Box, { BoxProps } from '@mui/material/Box'
-import IconButton from '@mui/material/IconButton'
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft'
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight'
+import Box, { BoxProps } from '@mui/material/Box'
+import IconButton from '@mui/material/IconButton'
+import * as React from 'react'
 import { BrandSwatch } from '../../style'
 
 export function DownloadInfo({
@@ -27,19 +27,19 @@ export function DownloadInfo({
         transition: theme =>
           theme.transitions.create(['transform'], {
             duration: theme.transitions.duration.standard,
-            easing: theme.transitions.easing.easeInOut,
+            easing: theme.transitions.easing.easeInOut
           }),
         bgcolor: theme =>
           theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[700] : BrandSwatch.Light.Pink[500],
         minWidth: 200,
         borderRadius: '0 0 3px 0',
         boxShadow: 1,
-        ...props.sx,
+        ...props.sx
       }}>
       <Box
         sx={{
           position: 'sticky',
-          top: 0,
+          top: 0
         }}>
         <IconButton
           aria-label={hidden ? 'show' : 'hide'}
@@ -54,12 +54,12 @@ export function DownloadInfo({
             transition: theme =>
               theme.transitions.create(['backgroundColor', 'transform'], {
                 duration: theme.transitions.duration.standard,
-                easing: theme.transitions.easing.easeInOut,
+                easing: theme.transitions.easing.easeInOut
               }),
             bgcolor: BrandSwatch.Dark.Grey[900],
             '&:hover, &.Mui-focused': {
-              bgcolor: BrandSwatch.Dark.Grey[800],
-            },
+              bgcolor: BrandSwatch.Dark.Grey[800]
+            }
           }}>
           {hidden ? <KeyboardArrowLeftIcon /> : <KeyboardArrowRightIcon />}
         </IconButton>

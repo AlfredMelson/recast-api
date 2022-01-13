@@ -1,7 +1,7 @@
+import CssBaseline from '@mui/material/CssBaseline'
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import { RecoilRoot } from 'recoil'
-import CssBaseline from '@mui/material/CssBaseline'
 import App from './app'
 import './style/BrandGlobal.css'
 import './style/BrandGlobal.scss'

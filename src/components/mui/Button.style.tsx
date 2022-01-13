@@ -1,7 +1,7 @@
+import LoadingButton, { LoadingButtonProps } from '@mui/lab/LoadingButton'
+import Box from '@mui/material/Box'
 import Button, { ButtonProps } from '@mui/material/Button'
 import { alpha, styled } from '@mui/material/styles'
-import Box from '@mui/material/Box'
-import LoadingButton, { LoadingButtonProps } from '@mui/lab/LoadingButton'
 import { BrandSwatch } from '../../style'
 
 /**
@@ -31,21 +31,21 @@ export const ButtonSxUserJsonDataToggle = styled((props: ButtonProps) => (
     borderWidth: theme.palette.mode === 'dark' ? 1 : 2,
     backgroundColor:
       theme.palette.mode === 'dark' ? BrandSwatch.Dark.Blue[700] : BrandSwatch.Light.Blue[500],
-    color: theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[50] : BrandSwatch.Light.Grey[50],
+    color: theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[50] : BrandSwatch.Light.Grey[50]
   },
   '&.Mui-focused': {
     color: '#007FFF',
     backgroundColor:
-      theme.palette.mode === 'dark' ? BrandSwatch.Dark.Blue[800] : BrandSwatch.Light.Blue[500],
+      theme.palette.mode === 'dark' ? BrandSwatch.Dark.Blue[800] : BrandSwatch.Light.Blue[500]
   },
   '&.Mui-disabled': {
     color: 'transparent',
     borderColor: 'transparent',
-    backgroundColor: 'transparent',
+    backgroundColor: 'transparent'
   },
   '& > div': {
-    cursor: 'default',
-  },
+    cursor: 'default'
+  }
 }))
 
 /**
@@ -66,11 +66,11 @@ export const ButtonSxApiJsonEditItem = styled((props: ButtonProps) => (
   '&.MuiButton-root': {
     textTransform: 'none',
     padding: theme.spacing(0, 8),
-    borderRadius: 3,
+    borderRadius: 3
   },
   '&:hover': {
-    backgroundColor: theme.palette.background.default,
-  },
+    backgroundColor: theme.palette.background.default
+  }
 }))
 
 /**
@@ -98,17 +98,17 @@ export const ButtonSxStyle = styled((props: ButtonProps) => (
   color: theme.palette.text.secondary,
   transition: theme.transitions.create(['all'], {
     duration: theme.transitions.duration.standard,
-    easing: theme.transitions.easing.easeInOut,
+    easing: theme.transitions.easing.easeInOut
   }),
   '&:hover, &.Mui-focused ': {
     color: theme.palette.text.primary,
     backgroundColor:
-      theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[700] : BrandSwatch.Light.Grey[200],
+      theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[700] : BrandSwatch.Light.Grey[200]
   },
   '&.Mui-selected': {
     color: theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[50] : BrandSwatch.Light.Grey[900],
-    backgroundColor: theme.palette.background.default,
-  },
+    backgroundColor: theme.palette.background.default
+  }
 }))
 
 /**
@@ -136,17 +136,17 @@ export const LoadingButtonSxStyle = styled((props: LoadingButtonProps) => (
   color: theme.palette.text.secondary,
   transition: theme.transitions.create(['all'], {
     duration: theme.transitions.duration.standard,
-    easing: theme.transitions.easing.easeInOut,
+    easing: theme.transitions.easing.easeInOut
   }),
   '&:hover, &.Mui-focused ': {
     color: theme.palette.text.primary,
     backgroundColor:
-      theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[700] : BrandSwatch.Light.Grey[200],
+      theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[700] : BrandSwatch.Light.Grey[200]
   },
   '&.Mui-selected': {
     color: theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[50] : BrandSwatch.Light.Grey[900],
-    backgroundColor: theme.palette.background.default,
-  },
+    backgroundColor: theme.palette.background.default
+  }
 }))
 
 /**

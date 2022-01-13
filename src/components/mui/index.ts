@@ -2,6 +2,7 @@ export * from './ApiUIWrapper.style'
 
 export * from './Button.style'
 export * from './ButtonGroup.style'
+export * from './Card.style'
 
 export * from './Hero.style'
 
@@ -12,6 +13,7 @@ export * from './InputBase.style'
 export * from './Navigation.style'
 
 export * from './Paper.style'
+export * from './Panel.style'
 
 export * from './SubMenu.style'
 export * from './Select.style'

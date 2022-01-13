@@ -1,5 +1,5 @@
+import { SxProps } from '@mui/material'
 import { styled, Theme } from '@mui/material/styles'
-import { SxProps } from '@mui/system'
 
 export type RootSvgProps<P = unknown> = Omit<React.SVGProps<SVGSVGElement>, 'ref'> & {
   sx?: SxProps<Theme>
@@ -7,7 +7,7 @@ export type RootSvgProps<P = unknown> = Omit<React.SVGProps<SVGSVGElement>, 'ref
 } & P
 
 const Svg = styled('svg')({
-  verticalAlign: 'bottom',
+  verticalAlign: 'bottom'
 })
 
 export default Svg

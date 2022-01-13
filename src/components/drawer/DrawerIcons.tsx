@@ -1,18 +1,18 @@
+import CheckIcon from '@mui/icons-material/Check'
+import CloseIcon from '@mui/icons-material/Close'
+import ContentCopyIcon from '@mui/icons-material/ContentCopy'
+import DeleteIcon from '@mui/icons-material/Delete'
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline'
+import DownloadIcon from '@mui/icons-material/Download'
+import UnfoldLessIcon from '@mui/icons-material/UnfoldLess'
+import Box from '@mui/material/Box'
+import saveAs from 'file-saver'
 import * as React from 'react'
 import { useRecoilValue, useResetRecoilState, useSetRecoilState } from 'recoil'
-import Box from '@mui/material/Box'
-import ContentCopyIcon from '@mui/icons-material/ContentCopy'
-import DownloadIcon from '@mui/icons-material/Download'
-import DeleteIcon from '@mui/icons-material/Delete'
-import saveAs from 'file-saver'
-import CheckIcon from '@mui/icons-material/Check'
-import UnfoldLessIcon from '@mui/icons-material/UnfoldLess'
-import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline'
-import CloseIcon from '@mui/icons-material/Close'
-import { dataDrawerOpenAtom, userGeneratedJsonAtom, minifyDialogOpenAtom } from '../../recoil'
-import { SxCircularProgress } from '../action'
-import { IconButtonSxAppBar, ToolTipSx, ButtonGroupSx } from '../mui'
+import { dataDrawerOpenAtom, minifyDialogOpenAtom, userGeneratedJsonAtom } from '../../recoil'
 import { BrandSwatch } from '../../style'
+import { SxCircularProgress } from '../action'
+import { ButtonGroupSx, IconButtonSxAppBar, ToolTipSx } from '../mui'
 
 export function DrawerIcons() {
   // retrieve localStorage value
@@ -112,7 +112,7 @@ export function DrawerIcons() {
                     color: theme =>
                       theme.palette.mode === 'dark'
                         ? BrandSwatch.Dark.Green[300]
-                        : BrandSwatch.Light.Green[500],
+                        : BrandSwatch.Light.Green[500]
                   }}
                 />
               )}
@@ -139,7 +139,7 @@ export function DrawerIcons() {
                     color: theme =>
                       theme.palette.mode === 'dark'
                         ? BrandSwatch.Dark.Green[300]
-                        : BrandSwatch.Light.Green[500],
+                        : BrandSwatch.Light.Green[500]
                   }}
                 />
               )}

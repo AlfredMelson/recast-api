@@ -4,7 +4,7 @@ import { userGeneratedJsonAtom } from './atom'
 export enum ValidityType {
   Valid = 'valid',
   Invalid = 'invalid',
-  None = 'none',
+  None = 'none'
 }
 
 /**
@@ -32,7 +32,7 @@ export const textAreaDataSelector = selector<ValidityType>({
     } else {
       return ValidityType.None
     }
-  },
+  }
 })
 
 /**
@@ -51,7 +51,7 @@ export const jsonValiditySelector = selector<boolean>({
   get: ({ get }) => {
     const textareaData = get(textAreaDataSelector)
     return textareaData === ValidityType.Valid ? true : false
-  },
+  }
 })
 
 /**
@@ -68,5 +68,5 @@ export const jsonValiditySelector = selector<boolean>({
  */
 export const validJsonAtom = atom<boolean>({
   key: 'validJson',
-  default: true,
+  default: true
 })

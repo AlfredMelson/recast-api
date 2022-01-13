@@ -1,10 +1,10 @@
+import { SxProps } from '@mui/material'
 import Paper, { PaperProps } from '@mui/material/Paper'
 import { alpha, styled } from '@mui/material/styles'
-import { SxProps } from '@mui/system'
 import * as React from 'react'
 import { useRecoilValue } from 'recoil'
+import { apiTabSelectedAtom } from '../../recoil'
 import { BrandSwatch } from '../../style'
-import { apiTabSelectedAtom } from '../../recoil/api-json/tab'
 import { FadeAnimation } from '../framer-motion'
 
 /**
@@ -21,7 +21,7 @@ const PaperSxStyle = styled(Paper)(({ theme }) => ({
     theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[700] : BrandSwatch.Light.Grey[200],
   maxHeight: 'calc(100vh - 539px )',
   overflowX: 'hidden',
-  overflowY: 'scroll',
+  overflowY: 'scroll'
 }))
 
 /**
@@ -64,7 +64,7 @@ const PaperSxTreeviewStyle = styled(Paper)(({ theme }) => ({
   maxHeight: '86vh',
   width: '100%',
   overflowX: 'hidden',
-  overflowY: 'scroll',
+  overflowY: 'scroll'
 }))
 
 /**
@@ -172,14 +172,14 @@ export const PaperSxDropdownStyle = styled((props: PaperProps) => <Paper {...pro
     '& ul': {
       margin: 0,
       padding: 0,
-      listStyle: 'none',
+      listStyle: 'none'
     },
     '& li:not(:last-of-type)': {
       borderBottom: 1,
       borderStyle: 'solid',
       borderColor:
-        theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[900] : BrandSwatch.Light.Grey[200],
-    },
+        theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[900] : BrandSwatch.Light.Grey[200]
+    }
     // '& a': { textDecoration: 'none' },
     // transition: theme.transitions.create(['all'], {
     //   duration: theme.transitions.duration.standard,

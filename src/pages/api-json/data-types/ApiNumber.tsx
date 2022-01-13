@@ -1,17 +1,17 @@
-import * as React from 'react'
-import Stack from '@mui/material/Stack'
 import Box from '@mui/material/Box'
-import Typography from '@mui/material/Typography'
 import ButtonGroup from '@mui/material/ButtonGroup'
+import Stack from '@mui/material/Stack'
+import Typography from '@mui/material/Typography'
+import * as React from 'react'
 import { useRecoilState } from 'recoil'
+import { ApiEditHighlighter } from '../../../components/action'
+import { ApiApplyIcon, ApiCloseIcon, ApiDeleteIcon } from '../../../components/icons'
 import {
   ButtonSxApiJsonEditItem,
   IconButtonSxApiEdit,
-  InputSxEditApi,
+  InputSxEditApi
 } from '../../../components/mui'
-import { ApiEditHighlighter } from '../../../components/action'
-import { ApiDeleteIcon, ApiCloseIcon, ApiApplyIcon } from '../../../components/icons'
-import { selectedElementAtom } from '../../../recoil/api-json/atom'
+import { selectedElementAtom } from '../../../recoil'
 import { BrandSwatch } from '../../../style'
 import ApiDataTypeLabel from './ApiDataTypeLabel'
 import { ApiNumberAlias } from './typeAliases'
@@ -66,8 +66,8 @@ export function ApiNumber({ index, value, dataKey, dataType, onEdit, onDelete }:
                         : BrandSwatch.Light.Grey[900],
                     mr: 5,
                     '&:hover': {
-                      color: BrandSwatch.Dark.Green[300],
-                    },
+                      color: BrandSwatch.Dark.Green[300]
+                    }
                   }}
                 />
               </IconButtonSxApiEdit>
@@ -86,7 +86,7 @@ export function ApiNumber({ index, value, dataKey, dataType, onEdit, onDelete }:
                 color: theme =>
                   theme.palette.mode === 'dark'
                     ? BrandSwatch.Dark.Grey[50]
-                    : BrandSwatch.Light.Grey[900],
+                    : BrandSwatch.Light.Grey[900]
               }}
               variant='code'>
               &#34;{dataKey}&#34;&#58;&nbsp;
@@ -98,7 +98,7 @@ export function ApiNumber({ index, value, dataKey, dataType, onEdit, onDelete }:
                 color: theme =>
                   theme.palette.mode === 'dark'
                     ? BrandSwatch.Dark.Purple[500]
-                    : BrandSwatch.Light.Purple[600],
+                    : BrandSwatch.Light.Purple[600]
               }}>
               {currentValue}
             </Typography>

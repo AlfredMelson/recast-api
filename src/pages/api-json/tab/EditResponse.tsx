@@ -1,17 +1,17 @@
-import * as React from 'react'
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight'
+import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
+import * as React from 'react'
 import { useRecoilState } from 'recoil'
-import Box from '@mui/material/Box'
-import { IconButtonSxApiIcons } from '../../../components/mui/IconButton.style'
+import { AsideEditInfo } from '../../../components/api-json'
+import { IconButtonSxApiIcons } from '../../../components/mui'
+import { PaperSx } from '../../../components/mui/Paper.style'
+import { ErrorBoundary } from '../../../lib/ErrorBoundary'
+import { elementStateAtom } from '../../../recoil'
+import { BrandSwatch } from '../../../style'
 import ApiDataSort, { currentDataAtom } from '../data-types/ApiDataSort'
 import { EditResponseAlias, getType } from '../data-types/typeAliases'
-import { PaperSx } from '../../../components/mui/Paper.style'
-import { AsideEditInfo } from '../../../components/api-json'
-import { elementStateAtom } from '../../../recoil/api-json/atom'
-import { BrandSwatch } from '../../../style'
-import { ErrorBoundary } from '../../../lib/ErrorBoundary'
 
 export default function EditResponse({ data, onDelete, onEdit }: EditResponseAlias) {
   // const element = useRecoilValue(selectedElementProperties)
@@ -57,7 +57,7 @@ export default function EditResponse({ data, onDelete, onEdit }: EditResponseAli
         onClick={(): void => setReveal(!reveal)}
         sx={{
           transform: reveal ? 'rotate(90deg)' : 'rotate(0deg)',
-          mr: 10,
+          mr: 10
         }}>
         <KeyboardArrowRightIcon />
       </IconButtonSxApiIcons>
@@ -95,7 +95,7 @@ export default function EditResponse({ data, onDelete, onEdit }: EditResponseAli
                     color: theme =>
                       theme.palette.mode === 'dark'
                         ? BrandSwatch.Dark.Grey[200]
-                        : BrandSwatch.Light.Grey[900],
+                        : BrandSwatch.Light.Grey[900]
                   }}>
                   &#47;&#47;&nbsp;
                   {elementState.length}&nbsp;

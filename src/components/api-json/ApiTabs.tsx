@@ -1,23 +1,27 @@
-import * as React from 'react'
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
 import Box from '@mui/material/Box'
 import _ from 'lodash'
+import * as React from 'react'
 import { useLocation } from 'react-router-dom'
-import { userSubmittedUrlAtom, userToggledApiAtom } from '../../recoil/api-json/atom'
-import { SvgTsLogoDtype } from '../icons/SvgTsLogoTs'
-import { TabSx, TabWrapperSx } from '../mui'
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
+import { ApiTabData } from '../../cms'
 import {
+  DataHeaders,
   DataResponse,
+  DTypescript,
   EditResponse,
   FullResponse,
-  DataHeaders,
-  TsInterface,
-  DTypescript,
+  TsInterface
 } from '../../pages/api-json/tab'
-import { PanelStyle } from '../mui/Panel.style'
-import { axiosDataAtom, axiosResponseAtom, axiosHeadersAtom } from '../../recoil/api-json/axios'
-import { ApiTabData } from '../../cms'
-import { apiTabSelectedAtom } from '../../recoil/api-json/tab'
+import {
+  apiTabSelectedAtom,
+  axiosDataAtom,
+  axiosHeadersAtom,
+  axiosResponseAtom,
+  userSubmittedUrlAtom,
+  userToggledApiAtom
+} from '../../recoil'
+import { SvgTsLogoDtype } from '../icons/SvgTsLogoTs'
+import { PanelStyle, TabSx, TabWrapperSx } from '../mui'
 
 type TabPanelAlias = {
   index: number
@@ -41,7 +45,7 @@ function TabPanel({ children, value, index, ...other }: TabPanelAlias) {
 function a11yProps(index: number) {
   return {
     id: `apijson-tab-${index}`,
-    'aria-controls': `apijson-tabpanel-${index}`,
+    'aria-controls': `apijson-tabpanel-${index}`
   }
 }
 

@@ -1,21 +1,21 @@
-import * as React from 'react'
+import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
-import Box from '@mui/material/Box'
 import { motion } from 'framer-motion'
+import * as React from 'react'
+import { PaperSx } from '../../../components/mui/Paper.style'
+import { ErrorBoundary } from '../../../lib/ErrorBoundary'
+import { BrandSwatch } from '../../../style'
 import {
-  ApiDataSortAlias,
-  getType,
   ApiArrayAlias,
   ApiBooleanAlias,
+  ApiDataSortAlias,
   ApiFunctionAlias,
   ApiNumberAlias,
   ApiObjectAlias,
   ApiStringAlias,
+  getType
 } from '../data-types/typeAliases'
-import { PaperSx } from '../../../components/mui/Paper.style'
-import { BrandSwatch } from '../../../style'
-import { ErrorBoundary } from '../../../lib/ErrorBoundary'
 
 type DataHeadersAlias = {
   data?: { [key: string]: any } | undefined

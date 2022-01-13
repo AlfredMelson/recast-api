@@ -1,5 +1,5 @@
-import Stack from '@mui/material/Stack'
 import Box from '@mui/material/Box'
+import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import * as React from 'react'
 import { Link } from 'react-router-dom'
@@ -38,9 +38,9 @@ export const SubMenu = React.forwardRef<HTMLAnchorElement, SubMenuAlias>(functio
               outline: 'none',
               '@media (hover: none)': {
                 backgroundColor: 'initial',
-                outline: 'initial',
-              },
-            },
+                outline: 'initial'
+              }
+            }
           }}>
           <Box component='div' sx={{ px: 20 }}>
             {icon}
@@ -56,7 +56,7 @@ export const SubMenu = React.forwardRef<HTMLAnchorElement, SubMenuAlias>(functio
                   theme.palette.mode === 'dark'
                     ? BrandSwatch.Dark.Grey[100]
                     : BrandSwatch.Light.Grey[800],
-                fontWeight: theme => theme.palette.mode === 'light' && 600,
+                fontWeight: theme => theme.palette.mode === 'light' && 600
               }}>
               {description}
             </Typography>

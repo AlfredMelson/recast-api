@@ -31,7 +31,7 @@ export const userQuerySelector = selector({
       // console.log('urlData: ', urlData)
       return response
     }
-  },
+  }
   // set: ({ set }, newValue) => {
   //   set(apiData(newValue.data), apiFullResponse(newValue))
   // },
@@ -53,7 +53,7 @@ export const userQuerySelector = selector({
  */
 export const userTypedUrlAtom = atom<string>({
   key: 'userTypedUrl',
-  default: '',
+  default: ''
 })
 // const [userTypedUrl, setUserTypedUrl] = useRecoilState(userTypedUrlAtom)
 // const setUserTypedUrl = useSetRecoilState(userTypedUrlAtom)
@@ -71,7 +71,7 @@ export const userTypedUrlAtom = atom<string>({
  */
 export const userSubmittedUrlAtom = atom<string | undefined>({
   key: 'userSubmittedUrl',
-  default: undefined,
+  default: undefined
 })
 // const [userSubmittedUrl, setUserSubmittedUrl] = useRecoilState(userSubmittedUrlAtom)
 // const setUserSubmittedUrl = useSetRecoilState(userSubmittedUrlAtom)
@@ -89,7 +89,7 @@ export const userSubmittedUrlAtom = atom<string | undefined>({
  */
 export const userToggledApiAtom = atom<UserToggledApiAtomOptions>({
   key: 'userToggledApi',
-  default: 'data',
+  default: 'data'
 })
 export type UserToggledApiAtomOptions = 'data' | 'edit' | 'full' | 'ts' | 'headers' | 'dtype'
 // const [userToggledApi, setUserToggledApi] = useRecoilState(userToggledApiAtom)
@@ -108,7 +108,7 @@ export type UserToggledApiAtomOptions = 'data' | 'edit' | 'full' | 'ts' | 'heade
  */
 export const selectedElementAtom = atom<number | null>({
   key: 'selectedElement',
-  default: null,
+  default: null
 })
 // const [selectedElement, setSelectedElement] = useRecoilState(selectedElementAtom)
 // const setSelectedElement = useSetRecoilState(selectedElementAtom)
@@ -126,7 +126,7 @@ export const selectedElementAtom = atom<number | null>({
  */
 export const elementStateAtom = atom<string[]>({
   key: 'elementState',
-  default: [],
+  default: []
 })
 // const [elementState, setElementState] = useRecoilState(elementStateAtom)
 // const setElementState = useSetRecoilState(elementStateAtom)
@@ -151,7 +151,7 @@ export const selectedElementProperties = selector({
 
     // caseB: else
     // return get(elementState(selectedElementId))
-  },
+  }
 })
 // const [elementState, setElementState] = useRecoilState(selectedElementProperties)
 // const setElementState = useSetRecoilState(selectedElementProperties)

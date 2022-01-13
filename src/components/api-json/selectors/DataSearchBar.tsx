@@ -1,15 +1,15 @@
+import Box from '@mui/material/Box'
 import * as React from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil'
-import Box from '@mui/material/Box'
+import { BaseUrlData } from '../../../cms'
 import {
   dataCategoryAtom,
   dataQuantityAtom,
   dataSourceAtom,
   // userTypedUrlAtom,
-  dataUrlAtom,
+  dataUrlAtom
 } from '../../../recoil'
 import { ApiUIWrapper, InputBaseSx } from '../../mui'
-import { BaseUrlData } from '../../../cms'
 
 export default function DataSearchBar() {
   // user entered api url stored in recoil
@@ -56,7 +56,7 @@ export default function DataSearchBar() {
             pl: 20,
             width: 'calc(100% - 20px)',
             fontSize: 16,
-            height: 40,
+            height: 40
           }}
           placeholder='Enter url ...'
           value={dataUrl}

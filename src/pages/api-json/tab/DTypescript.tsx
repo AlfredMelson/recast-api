@@ -1,24 +1,24 @@
-import * as React from 'react'
+import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import { motion } from 'framer-motion'
-import Box from '@mui/material/Box'
+import * as React from 'react'
 import { useRecoilValue } from 'recoil'
+import { DownloadInfo, TsInterfaceIcons } from '../../../components/api-json'
+import { PaperSx } from '../../../components/mui'
+import { ErrorBoundary } from '../../../lib/ErrorBoundary'
+import { userSubmittedUrlAtom } from '../../../recoil'
+import ApiDataTypeLabel from '../data-types/ApiDataTypeLabel'
 import {
-  getType,
-  ApiDataSortAlias,
   ApiArrayAlias,
   ApiBooleanAlias,
+  ApiDataSortAlias,
   ApiFunctionAlias,
   ApiNumberAlias,
   ApiObjectAlias,
   ApiStringAlias,
+  getType
 } from '../data-types/typeAliases'
-import { userSubmittedUrlAtom } from '../../../recoil'
-import ApiDataTypeLabel from '../data-types/ApiDataTypeLabel'
-import { PaperSx } from '../../../components/mui'
-import { DownloadInfo, TsInterfaceIcons } from '../../../components/api-json'
-import { ErrorBoundary } from '../../../lib/ErrorBoundary'
 
 type DTypescriptAlias = {
   data?: { [key: string]: any } | undefined

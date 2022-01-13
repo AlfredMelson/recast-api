@@ -15,7 +15,7 @@ interface State {
  */
 export class ErrorBoundary extends React.Component<Props, State> {
   public state: State = {
-    hasError: false,
+    hasError: false
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -40,13 +40,11 @@ export class ErrorBoundary extends React.Component<Props, State> {
 /**
  * Generic promise connecting to Suspense & ErrorBoundary
  *
- * -> Error State is handled in ErrorBoundary
- * -> Pending State is handled in React.Suspense
- * -> Success State is handled in renderData()
+ * - error state is handled in ErrorBoundary
+ * - pending state is handled in React.Suspense
+ * - success state is handled in renderData()
  *
- * @param {Promise<T>} promise
- *
- * @return {Object} Object with a read function that relays different states to Suspense & ErrorBoundary in order for the fallback and error to take effect
+ * Returns an object with a read function that relays different states to Suspense & ErrorBoundary in order for the fallback and error to take effect.
  */
 export function handleSuspense(givenPromise) {
   let status = 'pending'
@@ -77,6 +75,6 @@ export function handleSuspense(givenPromise) {
         console.log('success')
         return result
       }
-    },
+    }
   }
 }

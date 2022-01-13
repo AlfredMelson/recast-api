@@ -1,8 +1,8 @@
+import { SxProps } from '@mui/material'
 import InputBase, { InputProps } from '@mui/material/Input'
-import { useRecoilState, useSetRecoilState } from 'recoil'
-import * as React from 'react'
 import { alpha, styled } from '@mui/material/styles'
-import { SxProps } from '@mui/system'
+import * as React from 'react'
+import { useRecoilState, useSetRecoilState } from 'recoil'
 import { keyCodeAtom, selectedElementAtom } from '../../recoil'
 import { BrandSwatch } from '../../style'
 
@@ -20,7 +20,7 @@ const InputBaseSxStyle = styled(
   ),
   {
     name: 'SearchBar',
-    slot: 'input',
+    slot: 'input'
   }
 )(({ theme }) => ({
   fontSize: 16,
@@ -40,20 +40,20 @@ const InputBaseSxStyle = styled(
   color: theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[200] : BrandSwatch.Light.Grey[700],
   transition: theme.transitions.create(['all'], {
     duration: theme.transitions.duration.standard,
-    easing: theme.transitions.easing.easeInOut,
+    easing: theme.transitions.easing.easeInOut
   }),
   '&:hover, &.Mui-focused ': {
     color: theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[50] : BrandSwatch.Light.Grey[900],
     backgroundColor:
       theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[700] : BrandSwatch.Light.Grey[200],
     border: '1px solid transparent',
-    borderRadius: 3,
+    borderRadius: 3
   },
   '&.Mui-selected': {
     color: theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[50] : BrandSwatch.Light.Grey[900],
     backgroundColor:
-      theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[900] : BrandSwatch.Light.Grey[200],
-  },
+      theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[900] : BrandSwatch.Light.Grey[200]
+  }
 }))
 
 /**

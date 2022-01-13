@@ -14,5 +14,5 @@ import { atom } from 'recoil'
  */
 export const apiTabSelectedAtom = atom<string>({
   key: 'apiTabSelected',
-  default: '0',
+  default: '0'
 })

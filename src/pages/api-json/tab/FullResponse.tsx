@@ -1,12 +1,14 @@
-import * as React from 'react'
-import Stack from '@mui/material/Stack'
-import Typography from '@mui/material/Typography'
-import { green, blue, red, grey } from '@mui/material/colors'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight'
-import { motion } from 'framer-motion'
 import Box from '@mui/material/Box'
+import { blue, green, grey, red } from '@mui/material/colors'
+import Stack from '@mui/material/Stack'
+import Typography from '@mui/material/Typography'
+import { motion } from 'framer-motion'
+import * as React from 'react'
 import { IconButtonSxDataIcon } from '../../../components/mui'
+import { PaperSx } from '../../../components/mui/Paper.style'
+import { ErrorBoundary } from '../../../lib/ErrorBoundary'
 import {
   ApiArrayAlias,
   ApiBooleanAlias,
@@ -15,10 +17,8 @@ import {
   ApiNumberAlias,
   ApiObjectAlias,
   ApiStringAlias,
-  getType,
+  getType
 } from '../data-types/typeAliases'
-import { PaperSx } from '../../../components/mui/Paper.style'
-import { ErrorBoundary } from '../../../lib/ErrorBoundary'
 
 type FullResponseAlias = {
   data?: { [key: string]: any } | undefined

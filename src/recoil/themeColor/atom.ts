@@ -37,7 +37,7 @@ export const themePersist: AtomEffect<any> = ({ onSet, setSelf, node }) => {
 export const themeColorAtom = atom<string>({
   key: 'themeColor',
   default: 'light',
-  effects_UNSTABLE: [themePersist],
+  effects_UNSTABLE: [themePersist]
 })
 
 /**
@@ -71,5 +71,5 @@ export const themeColorAtom = atom<string>({
  */
 export const userPreferenceAtom = atom<boolean>({
   key: 'userPreference',
-  default: false,
+  default: false
 })
