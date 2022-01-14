@@ -86,6 +86,15 @@ export function ApiTabs() {
 
   const setApiTabSelected = useSetRecoilState(apiTabSelectedAtom)
 
+  const TabPanels = [
+    { index: 0, panel: <DataResponse data={axiosData} /> },
+    { index: 1, panel: <EditResponse data={axiosData} onDelete={DeleteObj} onEdit={EditObj} /> },
+    { index: 2, panel: <FullResponse data={axiosResponse} /> },
+    { index: 3, panel: <DataHeaders data={axiosHeaders} /> },
+    { index: 4, panel: <TsInterface data={axiosData} /> },
+    { index: 5, panel: <DTypescript data={axiosData} /> }
+  ]
+
   return (
     <Box sx={{ mt: 30 }}>
       {userSubmittedUrl !== undefined && (
@@ -110,29 +119,11 @@ export function ApiTabs() {
             ))}
           </TabWrapperSx>
           <PanelStyle>
-            <TabPanel value={value} index={0}>
-              <DataResponse data={axiosData} />
-            </TabPanel>
-
-            <TabPanel value={value} index={1}>
-              <EditResponse data={axiosData} onDelete={DeleteObj} onEdit={EditObj} />
-            </TabPanel>
-
-            <TabPanel value={value} index={2}>
-              <FullResponse data={axiosResponse} />
-            </TabPanel>
-
-            <TabPanel value={value} index={3}>
-              <DataHeaders data={axiosHeaders} />
-            </TabPanel>
-
-            <TabPanel value={value} index={4}>
-              <TsInterface data={axiosData} />
-            </TabPanel>
-
-            <TabPanel value={value} index={5}>
-              <DTypescript data={axiosData} />
-            </TabPanel>
+            {TabPanels.map(({ index, panel }) => (
+              <TabPanel key={index} value={value} index={index}>
+                {panel}
+              </TabPanel>
+            ))}
           </PanelStyle>
         </>
       )}
