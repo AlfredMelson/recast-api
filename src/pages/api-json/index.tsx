@@ -1,4 +1,4 @@
-import Container from '@mui/material/Container'
+import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import axios from 'axios'
@@ -19,16 +19,9 @@ import {
 } from '../../recoil'
 import { BrandSwatch } from '../../style'
 
-// import ApiFallback from '../../components/action/ApiFallback'
 // import Alert from '@mui/material/Alert'
 // import Collapse from '@mui/material/Collapse'
 // import Snackbar from '@mui/material/Snackbar'
-
-// export async function fetchTest(url) {
-//   const response = await axios.get(url)
-//   console.log('response', response)
-//   return response
-// }
 
 export function ApiJson() {
   // const [showError, setShowError] = React.useState(false)
@@ -78,7 +71,7 @@ export function ApiJson() {
   ])
 
   if (axiosResponse) {
-    console.log('axiosResponse', axiosResponse)
+    // console.log('axiosResponse')
   }
   // state of query
   // const userQuery = useRecoilValue(userQuerySelector)
@@ -151,11 +144,10 @@ export function ApiJson() {
   // }
 
   return (
-    <Container
-      maxWidth='lg'
-      // onClick={(): void => {
-      //   setSelectedElement(null)
-      // }}
+    <Box
+    // onClick={(): void => {
+    //   setSelectedElement(null)
+    // }}
     >
       <HeroSx>
         <Typography
@@ -206,6 +198,6 @@ export function ApiJson() {
           </Collapse> */}
 
       <ApiTabs />
-    </Container>
+    </Box>
   )
 }

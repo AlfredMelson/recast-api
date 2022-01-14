@@ -10,7 +10,6 @@ import { CardSx } from '../../mui'
 
 export default function DataQuantitySelector() {
   const dataSource = useRecoilValue(dataSourceAtom)
-  console.log('dataSource', dataSource)
 
   // filter base from BaseUrlData using selected provider (apiProvider)
   // const baseUrl = BaseUrlData.filter(base => base.index === apiProvider)[0].base

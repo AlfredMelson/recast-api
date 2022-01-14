@@ -15,7 +15,7 @@ const SelectSxStyle = styled(
   backgroundColor:
     theme.palette.mode === 'dark'
       ? alpha(BrandSwatch.Dark.Grey[700], 0.2)
-      : alpha(BrandSwatch.Light.Grey[200], 0.2),
+      : alpha(BrandSwatch.Light.Grey[300], 0.2),
   color: theme.palette.text.secondary,
   transition: theme.transitions.create(['all'], {
     duration: theme.transitions.duration.standard,
@@ -28,7 +28,7 @@ const SelectSxStyle = styled(
     borderRadius: 3
   },
   '&.Mui-selected': {
-    color: theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[50] : BrandSwatch.Light.Grey[900],
+    color: theme.palette.text.primary,
     backgroundColor: theme.palette.background.default
   }
 }))

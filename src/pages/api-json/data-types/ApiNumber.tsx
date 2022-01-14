@@ -60,10 +60,7 @@ export function ApiNumber({ index, value, dataKey, dataType, onEdit, onDelete }:
               <IconButtonSxApiEdit onClick={handleNumberEdit}>
                 <ApiApplyIcon
                   sx={{
-                    color: theme =>
-                      theme.palette.mode === 'dark'
-                        ? BrandSwatch.Dark.Grey[50]
-                        : BrandSwatch.Light.Grey[900],
+                    color: theme => theme.palette.text.primary,
                     mr: 5,
                     '&:hover': {
                       color: BrandSwatch.Dark.Green[300]
@@ -83,10 +80,7 @@ export function ApiNumber({ index, value, dataKey, dataType, onEdit, onDelete }:
           <ButtonSxApiJsonEditItem onClick={() => setSelectedElement(index)}>
             <Typography
               sx={{
-                color: theme =>
-                  theme.palette.mode === 'dark'
-                    ? BrandSwatch.Dark.Grey[50]
-                    : BrandSwatch.Light.Grey[900]
+                color: theme => theme.palette.text.primary
               }}
               variant='code'>
               &#34;{dataKey}&#34;&#58;&nbsp;

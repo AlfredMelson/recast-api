@@ -5,6 +5,7 @@ import DeleteIcon from '@mui/icons-material/Delete'
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline'
 import DownloadIcon from '@mui/icons-material/Download'
 import UnfoldLessIcon from '@mui/icons-material/UnfoldLess'
+import { ButtonGroup } from '@mui/material'
 import Box from '@mui/material/Box'
 import saveAs from 'file-saver'
 import * as React from 'react'
@@ -12,7 +13,7 @@ import { useRecoilValue, useResetRecoilState, useSetRecoilState } from 'recoil'
 import { dataDrawerOpenAtom, minifyDialogOpenAtom, userGeneratedJsonAtom } from '../../recoil'
 import { BrandSwatch } from '../../style'
 import { SxCircularProgress } from '../action'
-import { ButtonGroupSx, IconButtonSxAppBar, ToolTipSx } from '../mui'
+import { IconButtonSxAppBar, ToolTipSx } from '../mui'
 
 export function DrawerIcons() {
   // retrieve localStorage value
@@ -93,7 +94,7 @@ export function DrawerIcons() {
   const setDataDrawerOpen = useSetRecoilState(dataDrawerOpenAtom)
 
   return (
-    <ButtonGroupSx>
+    <ButtonGroup sx={{ backgroundColor: theme => theme.palette.background.default }}>
       <Box sx={{ position: 'relative', pl: 5 }}>
         {userGeneratedJson.length === 0 ? (
           <IconButtonSxAppBar disabled={true}>
@@ -190,6 +191,6 @@ export function DrawerIcons() {
           </IconButtonSxAppBar>
         </ToolTipSx>
       </Box>
-    </ButtonGroupSx>
+    </ButtonGroup>
   )
 }

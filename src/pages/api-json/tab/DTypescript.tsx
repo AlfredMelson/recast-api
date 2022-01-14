@@ -68,7 +68,7 @@ const DTypescript: React.FC<DTypescriptAlias> = ({ data }: DTypescriptAlias) => 
         <DownloadInfo
           appeared={true}
           content={
-            <React.Fragment>
+            <>
               <Typography fontWeight='bold' color='grey.300' variant='body2'>
                 {cleanLastSegment}
               </Typography>
@@ -78,7 +78,7 @@ const DTypescript: React.FC<DTypescriptAlias> = ({ data }: DTypescriptAlias) => 
               <Box sx={{ my: 10, textAlign: 'center' }}>
                 <TsInterfaceIcons />
               </Box>
-            </React.Fragment>
+            </>
           }
         />
       </ErrorBoundary>

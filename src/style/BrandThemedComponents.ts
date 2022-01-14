@@ -245,7 +245,7 @@ export function BrandThemedComponents(theme: Theme) {
             backgroundColor:
               theme.palette.mode === 'dark'
                 ? BrandSwatch.Dark.Grey[800]
-                : BrandSwatch.Light.Grey[100],
+                : BrandSwatch.Light.Grey[200],
             '&:hover': {
               backgroundColor:
                 theme.palette.mode === 'dark'
@@ -488,24 +488,24 @@ export function BrandThemedComponents(theme: Theme) {
           popperArrow: {}, // Styles applied to the Popper component if arrow={true}
           popperClose: {}, // Styles applied to the Popper component unless the tooltip is open
           tooltip: {
-            boxShadow: '0px 0px 4px 0px rgba(0,0,0,0.25)',
+            boxShadow:
+              theme.palette.mode === 'dark'
+                ? '0px 0px 6px 0px rgba(0,0,0,0.5)'
+                : '0px 0px 3px 0px rgba(0,0,0,0.25)',
             fontWeight: theme.palette.mode === 'dark' ? 400 : 600,
             fontSize: 13,
-            color:
-              theme.palette.mode === 'dark'
-                ? BrandSwatch.Dark.Grey[50]
-                : BrandSwatch.Light.Grey[900],
+            color: theme.palette.text.primary,
             backgroundColor:
               theme.palette.mode === 'dark'
-                ? BrandSwatch.Dark.Grey[600]
-                : BrandSwatch.Light.Grey[300]
+                ? BrandSwatch.Dark.Green[600]
+                : BrandSwatch.Light.Green[300]
           }, // Styles applied to the tooltip (label wrapper) element
           tooltipArrow: {}, // Styles applied to the tooltip (label wrapper) element if arrow={true}
           arrow: {
             color:
               theme.palette.mode === 'dark'
-                ? BrandSwatch.Dark.Grey[600]
-                : BrandSwatch.Light.Grey[300]
+                ? BrandSwatch.Dark.Green[600]
+                : BrandSwatch.Light.Green[300]
           }, // Styles applied to the arrow element
           touch: {}, // Styles applied to the tooltip (label wrapper) element if the tooltip is opened by touch
           tooltipPlacementLeft: {}, // Styles applied to the tooltip (label wrapper) element if placement contains "left"

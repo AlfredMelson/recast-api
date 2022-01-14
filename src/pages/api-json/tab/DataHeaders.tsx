@@ -106,7 +106,7 @@ function JsonBoolean({ value, dataKey }: ApiBooleanAlias) {
   return (
     <Typography variant='code'>
       {`"${dataKey}"`}&#58;&nbsp;
-      <span style={{ color: BrandSwatch.Dark.Green[300] }}>{`${value}`}</span>
+      <Box component='span' sx={{ color: BrandSwatch.Dark.Green[300] }}>{`${value}`}</Box>
     </Typography>
   )
 }
@@ -115,9 +115,9 @@ function JsonFunction({ dataKey }: ApiFunctionAlias) {
   return (
     <Typography variant='code'>
       {`"${dataKey}"`}&#58;&nbsp;
-      <span style={{ color: '#ffffff' }}>
+      <Box component='span' sx={{ color: theme => theme.palette.text.primary }}>
         {'['}&nbsp;&#402;&nbsp;{']'}
-      </span>
+      </Box>
     </Typography>
   )
 }
@@ -126,7 +126,7 @@ function JsonNumber({ value, dataKey }: ApiNumberAlias) {
   return (
     <Typography variant='code'>
       {`"${dataKey}"`}&#58;&nbsp;
-      <span style={{ color: BrandSwatch.Dark.Green[300] }}>{`${value}`}</span>
+      <Box component='span' sx={{ color: BrandSwatch.Dark.Green[300] }}>{`${value}`}</Box>
     </Typography>
   )
 }
@@ -168,7 +168,7 @@ function JsonString({ value, dataKey }: ApiStringAlias) {
   return (
     <Typography variant='code'>
       {`"${dataKey}"`}&#58;&nbsp;
-      <span style={{ color: BrandSwatch.Dark.Green[300] }}>{`"${value}"`}</span>
+      <Box component='span' sx={{ color: BrandSwatch.Dark.Green[300] }}>{`"${value}"`}</Box>
     </Typography>
   )
 }

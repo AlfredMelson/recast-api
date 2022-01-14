@@ -28,7 +28,7 @@ const MinifyHeaderWrapper = styled(Box, { name: 'MinifyHeader', slot: 'wrapper' 
   top: 0,
   position: 'sticky',
   backgroundColor:
-    theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[800] : BrandSwatch.Light.Grey[100],
+    theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[800] : BrandSwatch.Light.Grey[300],
   borderRadius: theme.spacing(3, 3, 0, 0),
   zIndex: theme.zIndex.drawer + 1
 }))
@@ -77,7 +77,7 @@ export function MinifyDialog() {
           background: theme =>
             theme.palette.mode === 'dark'
               ? BrandSwatch.Dark.Grey[700]
-              : BrandSwatch.Light.Grey[100],
+              : BrandSwatch.Light.Grey[200],
           overflowWrap: 'break-word',
           overflowX: 'scroll',
           '&::-webkit-scrollbar': {

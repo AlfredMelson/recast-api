@@ -1,4 +1,4 @@
-import Box from '@mui/material/Box'
+import React from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { dataDrawerOpenAtom, userSubmittedUrlAtom } from '../../recoil'
 import { TerminalIcon } from '../icons'
@@ -10,17 +10,32 @@ export function TerminalToggle() {
 
   const userSubmittedUrl = useRecoilValue(userSubmittedUrlAtom)
 
-  const disable = userSubmittedUrl === undefined ? true : false
+  function handleClick() {
+    setDataDrawerOpen(!dataDrawerOpen)
+  }
+  const [disable, setDisable] = React.useState(false)
+
+  React.useEffect(() => {
+    const result: boolean = userSubmittedUrl === undefined
+    setDisable(result)
+    return
+  }, [userSubmittedUrl, setDisable])
 
   return (
-    <Box sx={{ zIndex: theme => theme.zIndex.drawer + 2 }}>
-      <ToolTipSx tooltipTitle='Open Terminal' disabled={disable}>
-        <IconButtonSxColorMode
-          disabled={disable}
-          onClick={() => setDataDrawerOpen(dataDrawerOpen === true ? false : true)}>
+    <>
+      {disable ? (
+        <IconButtonSxColorMode disabled={disable} onClick={handleClick}>
           <TerminalIcon />
         </IconButtonSxColorMode>
-      </ToolTipSx>
-    </Box>
+      ) : (
+        <ToolTipSx
+          tooltipTitle={dataDrawerOpen ? 'close Terminal' : 'open Terminal'}
+          disabled={disable}>
+          <IconButtonSxColorMode disabled={disable} onClick={handleClick}>
+            <TerminalIcon />
+          </IconButtonSxColorMode>
+        </ToolTipSx>
+      )}
+    </>
   )
 }

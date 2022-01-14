@@ -38,7 +38,7 @@ export function CardSx({ title, children }: CardSxAlias) {
 
 const HeroSxStyle = styled(Card, { name: 'HeroSx', slot: 'style' })(({ theme }) => ({
   backgroundColor:
-    theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[800] : BrandSwatch.Light.Grey[100]
+    theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[800] : BrandSwatch.Light.Grey[200]
 }))
 
 const HeroContentSxStyle = styled(CardContent, { name: 'HeroContentSx', slot: 'style' })(

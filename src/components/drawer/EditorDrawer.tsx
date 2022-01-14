@@ -1,6 +1,5 @@
-import Box from '@mui/material/Box'
-import Container from '@mui/material/Container'
 import Drawer from '@mui/material/Drawer'
+import { AnimatePresence, motion } from 'framer-motion'
 import * as React from 'react'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 import { dataDrawerOpenAtom, monacoThemeAtom, themeColorAtom } from '../../recoil'
@@ -21,17 +20,29 @@ export function EditorDrawer() {
   const dataDrawerOpen = useRecoilValue(dataDrawerOpenAtom)
 
   return (
-    <Drawer
-      transitionDuration={0}
-      anchor='top'
-      open={dataDrawerOpen}
-      onClose={toggleDrawer(false)}
-      sx={{ height: '100vh' }}>
-      <Container maxWidth='lg' sx={{ height: 100, backgroundColor: 'transparent' }} />
-      <Box>
-        <Editor />
-      </Box>
-      <MinifyDialog />
-    </Drawer>
+    <>
+      {dataDrawerOpen && (
+        <AnimatePresence exitBeforeEnter>
+          <Drawer
+            transitionDuration={0}
+            anchor='top'
+            open={dataDrawerOpen}
+            onClose={toggleDrawer(false)}
+            sx={{ height: '100vh' }}>
+            <motion.div
+              key={1}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{
+                duration: 0.5
+              }}>
+              <Editor />
+            </motion.div>
+            <MinifyDialog />
+          </Drawer>
+        </AnimatePresence>
+      )}
+    </>
   )
 }

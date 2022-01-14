@@ -62,8 +62,8 @@ export const BrandDesignTokens = (mode: 'dark' | 'light') =>
           default: BrandSwatch.Dark.Grey[900]
         },
         text: {
-          primary: BrandSwatch.Dark.Grey[50],
-          secondary: BrandSwatch.Dark.Grey[200],
+          primary: BrandSwatch.Dark.White[50],
+          secondary: BrandSwatch.Dark.Grey[50],
           disabled: BrandSwatch.Dark.Grey[500]
         },
         // primary: {},
@@ -88,11 +88,11 @@ export const BrandDesignTokens = (mode: 'dark' | 'light') =>
       }),
       ...(mode === 'light' && {
         background: {
-          default: BrandSwatch.Light.Grey[50]
+          default: BrandSwatch.Light.Grey[100]
         },
         text: {
-          primary: BrandSwatch.Light.Grey[900],
-          secondary: BrandSwatch.Light.Grey[700],
+          primary: BrandSwatch.Light.Black[50],
+          secondary: BrandSwatch.Light.Grey[900],
           disabled: BrandSwatch.Light.Grey[500]
         },
         // primary: {},
@@ -248,6 +248,5 @@ export const BrandDesignTokens = (mode: 'dark' | 'light') =>
         // sharp curve is used by objects that may return at any time
         sharp: 'cubic-bezier(0.4, 0, 0.6, 1)'
       }
-    },
-    zIndex: {}
+    }
   } as ThemeOptions)

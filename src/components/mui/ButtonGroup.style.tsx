@@ -15,7 +15,6 @@ export const ButtonGroupSx = styled((props: ButtonGroupProps) => <ButtonGroup {.
   slot: ''
 })(({ theme }) => ({
   '& .MuiButtonGroup-root': {
-    backgroundColor:
-      theme.palette.mode === 'dark' ? theme.palette.grey[900] : theme.palette.grey[100]
+    backgroundColor: theme.palette.background.default
   }
 }))

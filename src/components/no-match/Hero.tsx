@@ -32,7 +32,9 @@ export default function HeroNoMatch() {
                   '&& > *': { minWidth: 'clamp(0px, (492px - 100%) * 999 ,100%)' }
                 }}>
                 <Link to='/' style={{ textDecoration: 'none' }}>
-                  <ButtonSxStyle sx={{ px: 20 }} endIcon={<KeyboardArrowRightRounded />}>
+                  <ButtonSxStyle
+                    sx={{ px: 20, textTransform: 'capitalize' }}
+                    endIcon={<KeyboardArrowRightRounded />}>
                     Head back
                   </ButtonSxStyle>
                 </Link>

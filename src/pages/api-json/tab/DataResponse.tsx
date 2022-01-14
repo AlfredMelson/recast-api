@@ -141,9 +141,11 @@ export function JsonBoolean({ value, dataKey }: ApiBooleanAlias) {
   return (
     <Typography variant='code' sx={{ color: blue[400] }}>
       &#34;{dataKey}&#34;&#58;&nbsp;
-      <span style={{ color: value ? BrandSwatch.Dark.Green[300] : BrandSwatch.Dark.Red[300] }}>
+      <Box
+        component='span'
+        sx={{ color: value ? BrandSwatch.Dark.Green[300] : BrandSwatch.Dark.Red[300] }}>
         {value}
-      </span>
+      </Box>
     </Typography>
   )
 }
@@ -152,7 +154,9 @@ export function JsonFunction({ dataKey }: ApiFunctionAlias) {
   return (
     <Typography variant='code' sx={{ color: blue[500] }}>
       &#34;{dataKey}&#34;&#58;&nbsp;
-      <span style={{ color: '#ffffff' }}>&#91;&nbsp;&#402;&nbsp;&#93;</span>
+      <Box component='span' sx={{ color: '#ffffff' }}>
+        &#91;&nbsp;&#402;&nbsp;&#93;
+      </Box>
     </Typography>
   )
 }
@@ -161,7 +165,9 @@ function JsonNumber({ value, dataKey }: ApiNumberAlias) {
   return (
     <Typography variant='code'>
       &#34;{dataKey}&#34;&#58;&nbsp;
-      <span style={{ color: '#9980FF' }}>{value}</span>
+      <Box component='span' sx={{ color: '#9980FF' }}>
+        {value}
+      </Box>
     </Typography>
   )
 }
@@ -218,10 +224,10 @@ function JsonObject({ value, dataKey }: ApiObjectAlias) {
           ) : (
             <React.Fragment>
               {dataKey}&#58;&nbsp;&#123;&#46;&#46;&#46;&#125;&nbsp;
-              <span style={{ color: grey[500] }}>
+              <Box component='span' sx={{ color: grey[500] }}>
                 &#47;&#47;&nbsp;{keys.length}&nbsp;
                 {keys.length === 1 ? 'item' : 'items'}
-              </span>
+              </Box>
             </React.Fragment>
           )}
         </Typography>
@@ -235,7 +241,9 @@ function JsonString({ value, dataKey }: ApiStringAlias) {
   return (
     <Typography variant='code'>
       &#34;{dataKey}&#34;&#58;&nbsp;
-      <span style={{ color: BrandSwatch.Dark.Green[300] }}>&#34;{value}&#34;</span>
+      <Box component='span' sx={{ color: BrandSwatch.Dark.Green[300] }}>
+        &#34;{value}&#34;
+      </Box>
     </Typography>
   )
 }

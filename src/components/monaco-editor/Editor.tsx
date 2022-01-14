@@ -1,9 +1,9 @@
 import MonacoEditor from '@monaco-editor/react'
-import Container from '@mui/material/Container'
 import { debounce } from 'lodash'
 import * as React from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { axiosResponseAtom, monacoThemeAtom, userGeneratedJsonAtom } from '../../recoil'
+import { EditorContainer } from '../mui'
 
 export function Editor() {
   //retrieve editor theme value
@@ -33,9 +33,9 @@ export function Editor() {
   )
 
   return (
-    <Container maxWidth='lg' sx={{ overflow: 'hidden' }}>
+    <EditorContainer>
       <MonacoEditor
-        height='90vh'
+        height='92vh'
         value={userGeneratedJson}
         language='json'
         theme={monacoTheme}
@@ -49,7 +49,7 @@ export function Editor() {
           automaticLayout: true,
           codeLens: true,
           colorDecorators: false,
-          contextmenu: true,
+          contextmenu: false,
           lineNumbers: 'on',
           cursorBlinking: 'blink',
           cursorSmoothCaretAnimation: false,
@@ -60,13 +60,13 @@ export function Editor() {
           fixedOverflowWidgets: false,
           folding: true,
           foldingStrategy: 'auto',
-          fontLigatures: false,
+          fontLigatures: true,
           formatOnPaste: true,
           formatOnType: true,
           hideCursorInOverviewRuler: false,
           links: true,
           minimap: {
-            enabled: true,
+            enabled: false,
             renderCharacters: false
           },
           mouseWheelZoom: true,
@@ -83,9 +83,9 @@ export function Editor() {
           renderWhitespace: 'none',
           revealHorizontalRightPadding: 30,
           roundedSelection: true,
-          scrollBeyondLastLine: true,
+          scrollBeyondLastLine: false,
           scrollBeyondLastColumn: 1,
-          selectOnLineNumbers: false,
+          selectOnLineNumbers: true,
           selectionClipboard: false,
           selectionHighlight: true,
           showFoldingControls: 'mouseover',
@@ -96,9 +96,9 @@ export function Editor() {
           wordWrap: 'on',
           wordWrapBreakAfterCharacters: '\t})]?|&,;',
           wordWrapBreakBeforeCharacters: '{([+',
-          wordWrapColumn: 80
+          wordWrapColumn: 100
         }}
       />
-    </Container>
+    </EditorContainer>
   )
 }

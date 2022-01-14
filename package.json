@@ -2,7 +2,7 @@
   "name": "recast-api",
   "version": "1.0.0",
   "private": false,
-  "description": "An interactive playground to display editable api responses and extract data.",
+  "description": "Lightweight, interactive api tool that visualizes responses, interfers type and allows for crud operations.",
   "tags": [
     "editor",
     "format",

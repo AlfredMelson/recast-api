@@ -12,39 +12,83 @@ body.loading * {
  * Microsoft's Monaco Editor style overrides
  *
  */
-/* .monaco-editor-background {
+.monaco-editor {
+  font-family: 'Fira Code' !important;
+  font-size: 16px !important;
+}
+.monaco-editor .inputarea {
+  font-family: 'Fira Code' !important;
+  font-size: 16px !important;
+}
+.monaco-editor .overflow-guard {
+  position: relative;
+  overflow: hidden;
+  border-radius: 3px !important;
+}
+.monaco-editor .monaco-editor-background {
   background-color: #21262d !important;
 }
+
 .monaco-editor .margin {
   background-color: #21262d !important;
-  color: #000000 !important;
+  padding-top: 20px !important;
+}
+
+.monaco-editor {
+  background-color: #21262d !important;
+}
+.monaco-editor .lines-content {
+  margin-top: 20px !important;
+}
+.monaco-editor .lines-content .cigra {
+  box-shadow: none !important;
+}
+/* .monaco-editor .view-overlays {
 } */
 
-/** Font */
+/** Line Number Section */
 .monaco-editor .line-numbers {
-  color: #f0f6fc !important;
-  font-family: 'Fira Code', monospace !important;
+  color: #484f58 !important;
+  font-family: 'Fira Code' !important;
+  font-size: 16px !important;
 }
-.monaco-editor .view-line {
-  font-family: 'Fira Code', monospace !important;
+.monaco-editor .active-line-number {
+  color: #b1bac4 !important;
+  font-weight: 500 !important;
+  background-color: transparent !important;
+}
+.monaco-editor .margin .current-line {
+  background-color: #21262d !important;
 }
 
-/** Object value type = Number */
-/* .monaco-editor .mtk6 {
+/** Content Section */
+
+.monaco-editor .view-lines {
+  font-family: 'Fira Code' !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+}
+.monaco-editor .current-line {
+  background-color: #30363d !important;
+  font-weight: 600 !important;
+}
+
+/** Content Section - Object value type = Number */
+.mtk6 {
   color: #9980ff !important;
-} */
+}
 
-/** Object value type = String */
-/* .monaco-editor .mtk5 {
+/** Content Section - Object value type = String */
+.mtk5 {
   color: #3fb950 !important;
-} */
+}
 
-/** Object key & punctuation */
-/* .monaco-editor .mtk1,
+/** Content Section - Object key & punctuation */
+.mtk1,
 .mtk4,
 .mtk11 {
   color: #f0f6fc !important;
-} */
+}
 
 /** WORKING... */
 /* .monaco-editor.vs-dark .squiggly-d-error,

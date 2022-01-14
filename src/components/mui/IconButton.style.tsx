@@ -56,7 +56,7 @@ export const IconButtonSxAppBar = styled(IconButton, {
   slot: ''
 })(({ theme }) => ({
   padding: theme.spacing(10),
-  color: theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[100] : BrandSwatch.Light.Grey[800],
+  color: theme.palette.text.secondary,
   transition: theme.transitions.create(['color'], {
     duration: theme.transitions.duration.standard,
     easing: theme.transitions.easing.easeInOut
@@ -79,7 +79,7 @@ export const IconButtonSxTsInterface = styled(IconButton, {
   }),
   '&:hover': {
     backgroundColor: BrandSwatch.Dark.Grey[800],
-    color: '#007FFF'
+    color: theme.palette.text.primary
   }
 }))
 
@@ -94,7 +94,7 @@ export const IconButtonSx = styled(IconButton, {
     easing: theme.transitions.easing.easeInOut
   }),
   '&:hover': {
-    color: '#007FFF'
+    color: theme.palette.text.primary
   },
   '& > div': {
     cursor: 'default'
@@ -112,6 +112,6 @@ export const IconButtonSxDataIcon = styled(IconButton, {
     easing: theme.transitions.easing.easeInOut
   }),
   '&:hover': {
-    color: '#007FFF'
+    color: theme.palette.text.primary
   }
 }))
