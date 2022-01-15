@@ -1,6 +1,6 @@
 ## recast-api
 
-Lightweight, interactive api module that displays sent data. Built to explore the user experience when working with an api as well as visualization and manipultion of sent data.
+Lightweight, interactive tool that visualizes api response, infers type and accepts crud operations. Built to micro-manage the users experience when working with an api.
 
 Try it yourself @ [ ]()
 <br />

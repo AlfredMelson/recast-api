@@ -114,3 +114,21 @@ export const ApiTabData: ApiTabDataAlias[] = [
   { index: '4', num: 4, label: ' interface', isIcon: true, value: 'ts' },
   { index: '5', num: 5, label: ' * .d.ts', isIcon: true, value: 'dtype' }
 ]
+
+type FetchButtonStateAlias = {
+  index: number
+  state: string
+  label: string
+  icon: boolean
+  iconName: string
+  background: string
+}
+
+export const FetchButtonState: FetchButtonStateAlias[] = [
+  { index: 0, state: 'idle', label: 'Fetch', icon: false, iconName: '', background: '' },
+  { index: 1, state: 'initialClick', label: '', icon: false, iconName: '', background: '' },
+  { index: 2, state: 'submitting', label: '', icon: true, iconName: '', background: '' },
+  { index: 3, state: 'received', label: '', icon: true, iconName: '', background: '' },
+  { index: 4, state: 'failed', label: '', icon: true, iconName: '', background: '' },
+  { index: 5, state: 'success', label: 'Refetch', icon: false, iconName: '', background: '' }
+]

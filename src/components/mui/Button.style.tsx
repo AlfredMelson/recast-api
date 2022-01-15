@@ -40,5 +40,9 @@ export const ButtonSxStyle = styled(
   '&.Mui-selected': {
     color: theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[50] : BrandSwatch.Light.Grey[900],
     backgroundColor: theme.palette.background.default
+  },
+  '&.Mui-active': {
+    color: theme.palette.mode === 'dark' ? BrandSwatch.Dark.Red[50] : BrandSwatch.Light.Grey[900],
+    backgroundColor: 'red'
   }
 }))

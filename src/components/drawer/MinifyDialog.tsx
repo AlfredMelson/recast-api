@@ -63,8 +63,7 @@ export function MinifyDialog() {
       onClose={() => {
         setMinifyDialogOpen(false)
       }}
-      scroll='paper'
-      sx={{ mt: 20 }}>
+      scroll='paper'>
       <MinifyHeaderWrapper>
         <Container maxWidth='lg'>
           <Stack direction='row' justifyContent='center' alignItems='center' sx={{ height: 50 }}>

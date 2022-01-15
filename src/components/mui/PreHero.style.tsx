@@ -14,7 +14,7 @@ import { GithubToggle, TerminalToggle, ThemeModeToggle } from '../toggle'
 export const HeaderStyle = styled('header', { name: 'PreHero', slot: 'header' })(({ theme }) => ({
   position: 'sticky',
   top: 0,
-  height: 60,
+  height: 70,
   transition: theme.transitions.create('top'),
   zIndex: theme.zIndex.drawer + 1
 }))
@@ -42,12 +42,23 @@ export const ButtonSxPreHero = styled(
 }))
 
 export function PreHeroSx() {
-  const [hover, setHover] = React.useState(false)
-
   const dataDrawerOpen = useRecoilValue(dataDrawerOpenAtom)
+
+  const [hover, setHover] = React.useState(false)
 
   const hoverTransition = () => {
     setHover(!hover)
+  }
+
+  // useRef to avoid re-renders during button handler
+  const interactionTimer = React.useRef<number>()
+
+  const hoverOutTransition = () => {
+    // restore state to pre-hover
+    interactionTimer.current = window.setTimeout(() => {
+      setHover(!hover)
+    }, 3000)
+    return
   }
 
   return (
@@ -56,23 +67,9 @@ export function PreHeroSx() {
         sx={{
           display: 'grid',
           gridTemplateColumns: '1fr 1fr 150px',
-          minHeight: 60,
+          minHeight: 70,
           mx: 20
         }}>
-        <Box sx={{ gridColumn: 1, gridRow: 1, alignSelf: 'center', justifySelf: 'start' }}>
-          {dataDrawerOpen && (
-            <Typography
-              variant='body1'
-              sx={{
-                // cursor: 'pointer',
-                m: 0,
-                p: 0,
-                color: theme => theme.palette.text.secondary
-              }}>
-              Recast
-            </Typography>
-          )}
-        </Box>
         <Box sx={{ gridColumn: 2, gridRow: 1, alignSelf: 'center', justifySelf: 'start' }}>
           {dataDrawerOpen && (
             <motion.div
@@ -97,11 +94,11 @@ export function PreHeroSx() {
             justifySelf: 'start'
           }}>
           {!dataDrawerOpen && hover && (
-            <TextAnimation text='Lightweight, interactive tool that visualizes api response, infers type and allows for crud operations.' />
+            <TextAnimation text='Lightweight, interactive tool that visualizes api response, infers type and accepts crud operations.' />
           )}
         </Box>
         <Box sx={{ gridColumn: 1, gridRow: 1, alignSelf: 'center', justifySelf: 'start' }}>
-          {!dataDrawerOpen && !hover && (
+          {!hover && (
             <FadeAnimation delay={0.2} duration={0.4}>
               <Typography variant='body1'>Recast</Typography>
             </FadeAnimation>
@@ -114,7 +111,7 @@ export function PreHeroSx() {
               disableRipple
               onMouseOver={hoverTransition}
               onFocus={hoverTransition}
-              onMouseOut={hoverTransition}
+              onMouseOut={hoverOutTransition}
               onBlur={hoverTransition}
               sx={{
                 height: 60,

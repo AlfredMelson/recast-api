@@ -107,11 +107,7 @@ export default function DataFetch() {
             onClick={handleDataFetching}>
             {!submitting && !successSubmit ? (
               <Typography variant='button'>
-                {Object.getOwnPropertyNames(axiosResponse).length === 0 ? (
-                  <span>Fetch</span>
-                ) : (
-                  <span>Refetch</span>
-                )}
+                {Object.getOwnPropertyNames(axiosResponse).length === 0 ? 'Fetch' : 'Refetch'}
               </Typography>
             ) : (
               successSubmit && <CheckIcon sx={{ color: BrandSwatch.Light.Blue[400] }} />
