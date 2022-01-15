@@ -2,7 +2,7 @@
   "name": "recast-api",
   "version": "1.0.0",
   "private": false,
-  "description": "Lightweight, interactive api tool that visualizes responses, interfers type and allows for crud operations.",
+  "description": "Lightweight, interactive tool that visualizes api response, infers type and allows for crud operations.",
   "tags": [
     "editor",
     "format",

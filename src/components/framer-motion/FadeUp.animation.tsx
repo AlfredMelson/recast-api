@@ -4,19 +4,12 @@ import * as React from 'react'
 type FadeAnimationAlias = {
   children: React.ReactNode
   layoutId?: string
-  delay?: number
-  duration?: number
 }
 
-export const FadeAnimation = ({
-  children,
-  layoutId,
-  delay,
-  duration = 0.3
-}: FadeAnimationAlias) => {
+export const FadeUpAnimation = ({ children, layoutId }: FadeAnimationAlias) => {
   const animations = {
-    initial: { opacity: 0 },
-    animate: { opacity: 1 },
+    initial: { opacity: 0, y: 100 },
+    animate: { opacity: 1, y: 0 },
     exit: { opacity: 0 }
   }
 
@@ -28,9 +21,8 @@ export const FadeAnimation = ({
       animate='animate'
       exit='exit'
       transition={{
-        ease: 'easeInOut',
-        delay: delay,
-        duration: duration
+        type: 'spring',
+        stiffness: 60
       }}>
       {children}
     </motion.div>

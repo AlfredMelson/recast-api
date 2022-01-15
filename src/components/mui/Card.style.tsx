@@ -3,6 +3,7 @@ import CardContent from '@mui/material/CardContent'
 import CardHeader from '@mui/material/CardHeader'
 import { styled } from '@mui/material/styles'
 import { BrandSwatch } from '../../style'
+import { FadeUpAnimation } from '../framer-motion'
 
 const CardSxStyle = styled(Card, { name: 'CardSx', slot: 'style' })(({ theme }) => ({
   color: theme.palette.text.secondary,
@@ -51,8 +52,10 @@ type HeroSxAlias = {
 }
 export function HeroSx({ children }: HeroSxAlias) {
   return (
-    <HeroSxStyle>
-      <HeroContentSxStyle>{children}</HeroContentSxStyle>
-    </HeroSxStyle>
+    <FadeUpAnimation>
+      <HeroSxStyle>
+        <HeroContentSxStyle>{children}</HeroContentSxStyle>
+      </HeroSxStyle>
+    </FadeUpAnimation>
   )
 }
