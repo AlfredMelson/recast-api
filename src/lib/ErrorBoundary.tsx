@@ -30,7 +30,7 @@ export class ErrorBoundary extends React.Component<Props, State> {
 
   public render() {
     if (this.state.hasError) {
-      return <h1>Sorry.. there was an error</h1>
+      return <h6 style={{ color: 'orange' }}>Sorry.. there was an error</h6>
     }
 
     return this.props.children

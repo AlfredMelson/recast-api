@@ -1,4 +1,52 @@
-import { atom } from 'recoil'
+// import axios from 'axios'
+import { atom, selector } from 'recoil'
+import { BaseUrlData } from '../../cms'
+
+/**
+ * Recoil managed state representing the selected api provider, category and quantity
+ *
+ * @return {Object} a writeable RecoilState object
+ * @bug Objects stored in atoms will freeze in development mode when bugs are detected
+ *
+ * Utilise hooks to manage state changes and notify components subscribing to re-render.
+ *
+ */
+export const selectedApiSelector = selector<string>({
+  key: 'selectedApi',
+  get: ({ get }) => {
+    // pull in the selected api source
+    const provider = get(dataSourceAtom)
+    if (dataSourceAtom) {
+      // filter base from BaseUrlData using selected provider (apiProvider)
+      const selectedSource = BaseUrlData.filter(base => base.index === provider)[0].base
+
+      const selectedCategory = get(dataCategoryAtom)
+
+      const concatSourceCategory = selectedSource.concat(selectedCategory)
+
+      const selectedQuantity = get(dataQuantityAtom)
+
+      const concatQuantity = concatSourceCategory.concat(selectedQuantity)
+
+      return concatQuantity
+    }
+
+    // const response = axios.get(concatQuantity)
+    // console.log('response', response)
+    // const urlData = await fetch(userSubmittedUrl).then(response => response.json())
+    // console.log('urlData: ', urlData)
+    // return response
+  },
+  set: ({ reset }) => {
+    reset(dataSourceAtom)
+    reset(dataCategoryAtom)
+    reset(dataQuantityAtom)
+  }
+})
+// const [selectedApi, setSelectedApi] = useRecoilState(selectedApiSelector)
+// const setSelectedApi = useSetRecoilState(selectedApiSelector)
+// const selectedApi = useRecoilValue(selectedApiSelector)
+// const resetSelectedApi = useResetRecoilState(selectedApiSelector)
 
 /**
  * Recoil managed state representing the selected api provider

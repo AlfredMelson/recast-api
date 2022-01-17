@@ -5,17 +5,14 @@ import Typography from '@mui/material/Typography'
 import * as React from 'react'
 import { useRecoilState } from 'recoil'
 import { AsideEditInfo } from '../../../components/api-json'
-import { IconButtonSxApiIcons } from '../../../components/mui'
-import { PaperSx } from '../../../components/mui/Paper.style'
-import { ErrorBoundary } from '../../../lib/ErrorBoundary'
-import { elementStateAtom } from '../../../recoil'
+import { IconButtonSxApiIcons, PaperSx } from '../../../components/mui'
+import { ErrorBoundary } from '../../../lib'
+import { currentDataAtom, elementStateAtom } from '../../../recoil'
 import { BrandSwatch } from '../../../style'
-import ApiDataSort, { currentDataAtom } from '../data-types/ApiDataSort'
+import { ApiDataSort } from '../data-types'
 import { EditResponseAlias, getType } from '../data-types/typeAliases'
 
 export default function EditResponse({ data, onDelete, onEdit }: EditResponseAlias) {
-  // const element = useRecoilValue(selectedElementProperties)
-  // console.log('element', element)
   // state representing an array of element ids
   const [elementState, setElementState] = useRecoilState(elementStateAtom)
   // state representing...

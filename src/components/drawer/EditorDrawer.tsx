@@ -1,4 +1,5 @@
 import Drawer from '@mui/material/Drawer'
+import { AnimatePresence } from 'framer-motion'
 import * as React from 'react'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 import { dataDrawerOpenAtom, monacoThemeAtom, themeColorAtom } from '../../recoil'
@@ -20,7 +21,7 @@ export function EditorDrawer() {
   const dataDrawerOpen = useRecoilValue(dataDrawerOpenAtom)
 
   return (
-    <>
+    <AnimatePresence>
       {dataDrawerOpen && (
         <Drawer
           transitionDuration={0}
@@ -36,6 +37,6 @@ export function EditorDrawer() {
           </FadeAnimation>
         </Drawer>
       )}
-    </>
+    </AnimatePresence>
   )
 }

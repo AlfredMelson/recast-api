@@ -5,10 +5,10 @@ import { motion } from 'framer-motion'
 import * as React from 'react'
 import { useRecoilValue } from 'recoil'
 import { DownloadInfo, TsInterfaceIcons } from '../../../components/api-json'
-import { PaperSx } from '../../../components/mui/Paper.style'
-import { ErrorBoundary } from '../../../lib/ErrorBoundary'
-import { userSubmittedUrlAtom } from '../../../recoil'
-import ApiDataTypeLabel from '../data-types/ApiDataTypeLabel'
+import { PaperSx } from '../../../components/mui'
+import { ErrorBoundary } from '../../../lib'
+import { selectedApiSelector } from '../../../recoil'
+import { ApiDataTypeLabel } from '../data-types'
 import {
   ApiArrayAlias,
   ApiBooleanAlias,
@@ -48,10 +48,10 @@ const TsInterface: React.FC<TsInterfaceAlias> = ({ data }: TsInterfaceAlias) => 
     })
   }
 
-  // state when user submits user entered url
-  const apiUrl = useRecoilValue(userSubmittedUrlAtom)
+  // state when url is submitted
+  const selectedApi = useRecoilValue(selectedApiSelector)
   // split and pop to isolate interface name
-  const lastSegment = apiUrl.split('/').pop()
+  const lastSegment = selectedApi.split('/').pop()
   // remove underscore and uppercase following character
   const formLastSegment = lastSegment.replace(/(^|_)./g, s => s.slice(-1).toUpperCase())
   // substring and landIndexOf to verify last segment

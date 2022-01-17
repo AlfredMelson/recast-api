@@ -4,9 +4,8 @@ import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import * as React from 'react'
 import { IconButtonSx } from '../../../components/mui'
-import ApiDataSort from './ApiDataSort'
-import ApiDataTypeLabel from './ApiDataTypeLabel'
 import { ApiArrayAlias, getType } from './typeAliases'
+import { ApiDataSort, ApiDataTypeLabel } from '.'
 
 export function ApiArray({ value, dataKey, dataType }: ApiArrayAlias) {
   const [col, setCol] = React.useState(false)

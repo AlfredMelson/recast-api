@@ -1,22 +1,9 @@
 import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
-import axios from 'axios'
-import * as React from 'react'
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
 import { ApiSelector, ApiTabs } from '../../components/api-json'
 import { DataFetch, DataSearchBar } from '../../components/api-json/selectors'
 import { HeroSx } from '../../components/mui'
-import {
-  axiosConfigAtom,
-  axiosDataAtom,
-  axiosHeadersAtom,
-  axiosRequestAtom,
-  axiosResponseAtom,
-  axiosStatusAtom,
-  axiosStatusTextAtom,
-  userSubmittedUrlAtom
-} from '../../recoil'
 import { BrandSwatch } from '../../style'
 
 // import Alert from '@mui/material/Alert'
@@ -26,55 +13,55 @@ import { BrandSwatch } from '../../style'
 export function ApiJson() {
   // const [showError, setShowError] = React.useState(false)
   // state when user submits user entered url
-  const userSubmittedUrl = useRecoilValue(userSubmittedUrlAtom)
+  // const selectedApi = useRecoilValue(selectedApiSelector)
 
-  // state of full response returned from the api call
-  const [axiosResponse, setAxiosResponse] = useRecoilState(axiosResponseAtom)
-  // state of response.headers returned from the api call
-  const setAxiosConfig = useSetRecoilState(axiosConfigAtom)
-  // state of response.headers returned from the api call
-  const setAxiosData = useSetRecoilState(axiosDataAtom)
-  // state of response.headers returned from the api call
-  const setAxiosHeaders = useSetRecoilState(axiosHeadersAtom)
-  // state of response.headers returned from the api call
-  const setAxiosRequest = useSetRecoilState(axiosRequestAtom)
-  // state of response.headers returned from the api call
-  const setAxiosStatus = useSetRecoilState(axiosStatusAtom)
-  // state of response.headers returned from the api call
-  const setAxiosStatusText = useSetRecoilState(axiosStatusTextAtom)
+  // const fetchQuery = useRecoilValue(fetchQuerySelector)
+  // console.log('fetchQuery', fetchQuery)
 
-  // api request
-  React.useEffect(() => {
-    // test for url before invoking axiosFetch
-    if (userSubmittedUrl !== undefined) {
-      async function axiosFetch(url) {
-        const response = axios.get(url)
-        setAxiosResponse(await response)
-        setAxiosConfig((await response).config)
-        setAxiosData((await response).data)
-        setAxiosHeaders((await response).headers)
-        setAxiosRequest((await response).request)
-        setAxiosStatus((await response).status)
-        setAxiosStatusText((await response).statusText)
-      }
-      axiosFetch(userSubmittedUrl)
-    }
-  }, [
-    userSubmittedUrl,
-    setAxiosHeaders,
-    setAxiosResponse,
-    setAxiosConfig,
-    setAxiosData,
-    setAxiosRequest,
-    setAxiosStatus,
-    setAxiosStatusText
-  ])
+  // // state of full response returned from the api call
+  // const [axiosResponse, setAxiosResponse] = useRecoilState(axiosResponseAtom)
+  // // state of response.headers returned from the api call
+  // const setAxiosConfig = useSetRecoilState(axiosConfigAtom)
+  // // state of response.headers returned from the api call
+  // const setAxiosData = useSetRecoilState(axiosDataAtom)
+  // // state of response.headers returned from the api call
+  // const setAxiosHeaders = useSetRecoilState(axiosHeadersAtom)
+  // // state of response.headers returned from the api call
+  // const setAxiosRequest = useSetRecoilState(axiosRequestAtom)
+  // // state of response.headers returned from the api call
+  // const setAxiosStatus = useSetRecoilState(axiosStatusAtom)
+  // // state of response.headers returned from the api call
+  // const setAxiosStatusText = useSetRecoilState(axiosStatusTextAtom)
 
-  if (axiosResponse) {
-    // console.log('axiosResponse')
-  }
+  // // api request
+  // React.useEffect(() => {
+  //   // test for url before invoking axiosFetch
+  //   if (selectedApi !== undefined) {
+  //     async function axiosFetch(url) {
+  //       const response = axios.get(url)
+  //       setAxiosResponse(await response)
+  //       setAxiosConfig((await response).config)
+  //       setAxiosData((await response).data)
+  //       setAxiosHeaders((await response).headers)
+  //       setAxiosRequest((await response).request)
+  //       setAxiosStatus((await response).status)
+  //       setAxiosStatusText((await response).statusText)
+  //     }
+  //     axiosFetch(selectedApi)
+  //   }
+  // }, [
+  //   selectedApi,
+  //   setAxiosHeaders,
+  //   setAxiosResponse,
+  //   setAxiosConfig,
+  //   setAxiosData,
+  //   setAxiosRequest,
+  //   setAxiosStatus,
+  //   setAxiosStatusText
+  // ])
+
   // state of query
-  // const userQuery = useRecoilValue(userQuerySelector)
+  // const fetchQuery = useRecoilValue(fetchQuerySelector)
   // api request
   // React.useEffect(() => {
   //   // test for url before invoking apiDataFetch
@@ -186,17 +173,16 @@ export function ApiJson() {
       </HeroSx>
       {/* <Collapse in={showError}>
             <Box sx={{ mt: 10, mb: 20 }}>
-              <Alert
-                variant='outlined'
-                elevation={6}
-                onClose={handleClose}
-                severity='error'
-                sx={{ width: '100%', backgroundColor: '#000000' }}>
-                URL provided is invalid
-              </Alert>
+            <Alert
+            variant='outlined'
+            elevation={6}
+            onClose={handleClose}
+            severity='error'
+            sx={{ width: '100%', backgroundColor: '#000000' }}>
+            URL provided is invalid
+            </Alert>
             </Box>
           </Collapse> */}
-
       <ApiTabs />
     </Box>
   )

@@ -3,8 +3,8 @@ import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import { motion } from 'framer-motion'
 import * as React from 'react'
-import { PaperSx } from '../../../components/mui/Paper.style'
-import { ErrorBoundary } from '../../../lib/ErrorBoundary'
+import { PaperSx } from '../../../components/mui'
+import { ErrorBoundary } from '../../../lib'
 import { BrandSwatch } from '../../../style'
 import {
   ApiArrayAlias,

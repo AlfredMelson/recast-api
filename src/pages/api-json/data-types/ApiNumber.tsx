@@ -13,8 +13,8 @@ import {
 } from '../../../components/mui'
 import { selectedElementAtom } from '../../../recoil'
 import { BrandSwatch } from '../../../style'
-import ApiDataTypeLabel from './ApiDataTypeLabel'
 import { ApiNumberAlias } from './typeAliases'
+import { ApiDataTypeLabel } from '.'
 
 export function ApiNumber({ index, value, dataKey, dataType, onEdit, onDelete }: ApiNumberAlias) {
   // console.log('ApiNumber : index', index)

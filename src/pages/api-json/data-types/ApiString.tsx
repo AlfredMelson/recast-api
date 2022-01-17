@@ -13,8 +13,8 @@ import {
 } from '../../../components/mui'
 import { selectedElementAtom } from '../../../recoil'
 import { BrandSwatch } from '../../../style'
-import ApiDataTypeLabel from './ApiDataTypeLabel'
 import { ApiStringAlias } from './typeAliases'
+import { ApiDataTypeLabel } from '.'
 
 export function ApiString({ index, value, dataKey, dataType, onEdit, onDelete }: ApiStringAlias) {
   const [selectedElement, setSelectedElement] = useRecoilState(selectedElementAtom)

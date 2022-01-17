@@ -2,13 +2,13 @@ import Box from '@mui/material/Box'
 import Button, { ButtonProps } from '@mui/material/Button'
 import { styled } from '@mui/material/styles'
 import Typography from '@mui/material/Typography'
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import * as React from 'react'
 import { useRecoilValue } from 'recoil'
 import { dataDrawerOpenAtom } from '../../recoil'
 import { DrawerIcons } from '../drawer'
 import { FadeAnimation } from '../framer-motion'
-import { TextAnimation } from '../framer-motion/Text.animation'
+import { SlideUpAnimation } from '../framer-motion/Slideup.animation'
 import { GithubToggle, TerminalToggle, ThemeModeToggle } from '../toggle'
 
 export const HeaderStyle = styled('header', { name: 'PreHero', slot: 'header' })(({ theme }) => ({
@@ -71,21 +71,22 @@ export function PreHeroSx() {
           mx: 20
         }}>
         <Box sx={{ gridColumn: 2, gridRow: 1, alignSelf: 'center', justifySelf: 'start' }}>
-          {dataDrawerOpen && (
-            <motion.div
-              key={1}
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{
-                delay: 0.5,
-                duration: 0.5
-              }}>
-              <DrawerIcons />
-            </motion.div>
-          )}
+          <AnimatePresence>
+            {dataDrawerOpen && (
+              <motion.div
+                key={1}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{
+                  delay: 0.5,
+                  duration: 0.5
+                }}>
+                <DrawerIcons />
+              </motion.div>
+            )}
+          </AnimatePresence>
         </Box>
-
         <Box
           sx={{
             gridColumn: '1 / span 2',
@@ -93,16 +94,32 @@ export function PreHeroSx() {
             alignSelf: 'center',
             justifySelf: 'start'
           }}>
-          {!dataDrawerOpen && hover && (
-            <TextAnimation text='Lightweight, interactive tool that visualizes api response, infers type and accepts crud operations.' />
-          )}
+          <AnimatePresence exitBeforeEnter>
+            {!dataDrawerOpen && hover && (
+              <SlideUpAnimation startY={30} endY={0}>
+                <Typography variant='body2'>
+                  Lightweight, interactive tool that visualizes api response, infers type and
+                  accepts crud operations.
+                </Typography>
+              </SlideUpAnimation>
+            )}
+          </AnimatePresence>
         </Box>
-        <Box sx={{ gridColumn: 1, gridRow: 1, alignSelf: 'center', justifySelf: 'start' }}>
-          {!hover && (
-            <FadeAnimation delay={0.2} duration={0.4}>
-              <Typography variant='body1'>Recast</Typography>
-            </FadeAnimation>
-          )}
+        <Box
+          sx={{
+            gridColumn: '1 / span 2',
+            gridRow: 1,
+            alignSelf: 'center',
+            justifySelf: 'start',
+            position: 'absolute'
+          }}>
+          <AnimatePresence exitBeforeEnter>
+            {!hover && (
+              <SlideUpAnimation startY={-30} endY={0}>
+                <Typography variant='body1'>Recast</Typography>
+              </SlideUpAnimation>
+            )}
+          </AnimatePresence>
         </Box>
         <Box sx={{ gridColumn: 1, gridRow: 1, alignSelf: 'center', justifySelf: 'start' }}>
           {!dataDrawerOpen && (

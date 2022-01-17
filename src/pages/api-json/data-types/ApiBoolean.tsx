@@ -1,12 +1,13 @@
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import { BrandSwatch } from '../../../style'
-import ApiDataTypeLabel from './ApiDataTypeLabel'
 import { ApiBooleanAlias } from './typeAliases'
+import { ApiDataTypeLabel } from '.'
 
 export function ApiBoolean({ value, dataKey, dataType }: ApiBooleanAlias) {
   // // state representing the selected element
   // const [selectedElement, setSelectedElement] = useRecoilState(selectedElementAtom)
+
   return (
     <Stack direction='row'>
       <Typography variant='code'>&#34;{dataKey}&#34;&#58;&nbsp;</Typography>

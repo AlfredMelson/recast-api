@@ -1,16 +1,22 @@
 import FormControl from '@mui/material/FormControl'
 import MenuItem from '@mui/material/MenuItem'
 import { SelectChangeEvent } from '@mui/material/Select'
-import { useRecoilState } from 'recoil'
+import { useRecoilState, useResetRecoilState } from 'recoil'
 import { SourceSelector } from '../../../cms'
-import { dataSourceAtom } from '../../../recoil'
+import { dataCategoryAtom, dataQuantityAtom, dataSourceAtom } from '../../../recoil'
 import { CardSx, SelectSx } from '../../mui/'
 
 export default function DataSourceSelector() {
   const [dataSource, setDataSource] = useRecoilState(dataSourceAtom)
 
+  const resetDataQuantity = useResetRecoilState(dataQuantityAtom)
+
+  const resetDataCategory = useResetRecoilState(dataCategoryAtom)
+
   const handleChange = (event: SelectChangeEvent) => {
     setDataSource(event.target.value as string)
+    resetDataCategory()
+    resetDataQuantity()
   }
 
   return (

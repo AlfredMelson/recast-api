@@ -4,6 +4,7 @@ import * as React from 'react'
 import { useLocation } from 'react-router-dom'
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
 import { ApiTabData } from '../../cms'
+import { ErrorBoundary } from '../../lib'
 import {
   DataHeaders,
   DataResponse,
@@ -17,10 +18,10 @@ import {
   axiosDataAtom,
   axiosHeadersAtom,
   axiosResponseAtom,
-  userSubmittedUrlAtom,
+  fetchQuerySelector,
   userToggledApiAtom
 } from '../../recoil'
-import { SvgTsLogoDtype } from '../icons/SvgTsLogoTs'
+import { SvgTsLogoDtype } from '../icons'
 import { PanelStyle, TabSx, TabWrapperSx } from '../mui'
 
 type TabPanelAlias = {
@@ -50,8 +51,8 @@ function a11yProps(index: number) {
 }
 
 export function ApiTabs() {
-  // state when user submits user entered url
-  const userSubmittedUrl = useRecoilValue(userSubmittedUrlAtom)
+  // state when url is submitted
+  const fetchQuery = useRecoilValue(fetchQuerySelector)
   // state of user toggled api response
   const setUserToggledApi = useSetRecoilState(userToggledApiAtom)
   // state of full response returned from Axios api call
@@ -96,37 +97,39 @@ export function ApiTabs() {
   ]
 
   return (
-    <Box sx={{ mt: 30 }}>
-      {userSubmittedUrl !== undefined && (
-        <>
-          <TabWrapperSx
-            key={local.pathname}
-            aria-label='api data tabs'
-            onChange={handleDataTabs}
-            value={value}>
-            {ApiTabData.map(({ index, num, label, isIcon, value }) => (
-              <TabSx
-                key={num}
-                index={index}
-                label={label}
-                icon={isIcon && <SvgTsLogoDtype />}
-                iconPosition='start'
-                {...a11yProps(num)}
-                onClick={() => {
-                  setUserToggledApi(value), setApiTabSelected(index)
-                }}
-              />
-            ))}
-          </TabWrapperSx>
-          <PanelStyle>
-            {TabPanels.map(({ index, panel }) => (
-              <TabPanel key={index} value={value} index={index}>
-                {panel}
-              </TabPanel>
-            ))}
-          </PanelStyle>
-        </>
-      )}
-    </Box>
+    <ErrorBoundary>
+      <Box sx={{ mt: 30 }}>
+        {fetchQuery !== undefined && (
+          <>
+            <TabWrapperSx
+              key={local.pathname}
+              aria-label='api data tabs'
+              onChange={handleDataTabs}
+              value={value}>
+              {ApiTabData.map(({ index, num, label, isIcon, value }) => (
+                <TabSx
+                  key={num}
+                  index={index}
+                  label={label}
+                  icon={isIcon && <SvgTsLogoDtype />}
+                  iconPosition='start'
+                  {...a11yProps(num)}
+                  onClick={() => {
+                    setUserToggledApi(value), setApiTabSelected(index)
+                  }}
+                />
+              ))}
+            </TabWrapperSx>
+            <PanelStyle>
+              {TabPanels.map(({ index, panel }) => (
+                <TabPanel key={index} value={value} index={index}>
+                  {panel}
+                </TabPanel>
+              ))}
+            </PanelStyle>
+          </>
+        )}
+      </Box>
+    </ErrorBoundary>
   )
 }

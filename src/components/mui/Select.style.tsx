@@ -21,10 +21,15 @@ const SelectSxStyle = styled(
     duration: theme.transitions.duration.standard,
     easing: theme.transitions.easing.easeInOut
   }),
-  '&:hover, &.Mui-focused ': {
+  '&:hover': {
     color: theme.palette.text.primary,
     backgroundColor:
       theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[700] : BrandSwatch.Light.Grey[200],
+    borderRadius: 3
+  },
+  '&.Mui-focused ': {
+    color: theme.palette.text.primary,
+    backgroundColor: alpha(BrandSwatch.Light.Blue[400], 0.2),
     borderRadius: 3
   },
   '&.Mui-selected': {

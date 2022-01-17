@@ -5,7 +5,7 @@ type ApiDataTypeLabelAlias = {
   type: string
   variant: 'edit' | 'ts'
 }
-export default function ApiDataTypeLabel({ type, variant }: ApiDataTypeLabelAlias) {
+export function ApiDataTypeLabel({ type, variant }: ApiDataTypeLabelAlias) {
   return (
     <Typography
       variant='code'

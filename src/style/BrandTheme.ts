@@ -64,7 +64,7 @@ export const BrandDesignTokens = (mode: 'dark' | 'light') =>
         text: {
           primary: BrandSwatch.Dark.White[50],
           secondary: BrandSwatch.Dark.Grey[50],
-          disabled: BrandSwatch.Dark.Grey[500]
+          disabled: BrandSwatch.Dark.Grey[400]
         },
         // primary: {},
         // secondary: {},

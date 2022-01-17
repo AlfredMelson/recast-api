@@ -6,9 +6,9 @@ import * as React from 'react'
 import { useRecoilValue } from 'recoil'
 import { DownloadInfo, TsInterfaceIcons } from '../../../components/api-json'
 import { PaperSx } from '../../../components/mui'
-import { ErrorBoundary } from '../../../lib/ErrorBoundary'
-import { userSubmittedUrlAtom } from '../../../recoil'
-import ApiDataTypeLabel from '../data-types/ApiDataTypeLabel'
+import { ErrorBoundary } from '../../../lib'
+import { selectedApiSelector } from '../../../recoil'
+import { ApiDataTypeLabel } from '../data-types'
 import {
   ApiArrayAlias,
   ApiBooleanAlias,
@@ -48,10 +48,10 @@ const DTypescript: React.FC<DTypescriptAlias> = ({ data }: DTypescriptAlias) => 
     })
   }
 
-  // state when user submits user entered url
-  const userSubmittedUrl = useRecoilValue(userSubmittedUrlAtom)
+  // state when url is submitted
+  const selectedApi = useRecoilValue(selectedApiSelector)
   // split and pop to isolate d.ts file name
-  const lastSegment = userSubmittedUrl.split('/').pop()
+  const lastSegment = selectedApi.split('/').pop()
   // remove underscore and uppercase following character
   const cleanLastSegment = lastSegment.replace(/(^|_)./g, s => s.slice(-1))
   // substring and landIndexOf to verify last segment

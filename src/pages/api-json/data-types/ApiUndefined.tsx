@@ -1,8 +1,8 @@
 import { blue } from '@mui/material/colors'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
-import ApiDataTypeLabel from './ApiDataTypeLabel'
 import { ApiUndefinedAlias } from './typeAliases'
+import { ApiDataTypeLabel } from '.'
 
 export function ApiUndefined({ value, dataKey, dataType }: ApiUndefinedAlias) {
   return (
