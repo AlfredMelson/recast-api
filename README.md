@@ -5,7 +5,7 @@ Lightweight, interactive tool that visualizes api response, infers type and acce
 Try it yourself @ [recast](https://main.d1w0icqzyeydgs.amplifyapp.com/)
 <br />
 
-github: [recast-api](https://github.com/AlfredMelson/recast-api.git)
+[github](https://github.com/AlfredMelson/recast-api.git)
 <br />
 
 ### Issues / Features to be implemented
