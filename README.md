@@ -2,7 +2,7 @@
 
 Lightweight, interactive tool that visualizes api response, infers type and accepts crud operations. Built to micro-manage the users experience when working with an api.
 
-Try it yourself @ [ ]()
+Try it yourself @ [recast](https://main.d1w0icqzyeydgs.amplifyapp.com/)
 <br />
 
 github: [recast-api](https://github.com/AlfredMelson/recast-api.git)
