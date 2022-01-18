@@ -3,21 +3,26 @@ import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import * as React from 'react'
-import { useRecoilRefresher_UNSTABLE, useRecoilValue, useResetRecoilState } from 'recoil'
-import { axiosResponseAtom, fetchQuerySelector, selectedApiSelector } from '../../../recoil'
+import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil'
+import { currentApiStateAtom, selectedApiSelector } from '../../../recoil'
 import { BrandSwatch } from '../../../style'
 import { SxCircularProgress } from '../../action'
 import { ButtonSxStyle, CardSx } from '../../mui'
 
 export default function DataFetch() {
-  const selectedApi = useRecoilValue(selectedApiSelector)
   const resetSelectedApi = useResetRecoilState(selectedApiSelector)
 
-  // value of data fetch
-  const axiosResponse = useRecoilValue(axiosResponseAtom)
+  const [currentApiState, setCurrentApiState] = useRecoilState(currentApiStateAtom)
+
+  // state when user submits user entered url
+  const selectedApi = useRecoilValue(selectedApiSelector)
+
+  // state of full response returned from the api call
+  // const [axiosResponse, setAxiosResponse] = useRecoilState(axiosResponseAtom)
+  // console.log('axiosResponse', axiosResponse)
 
   // return a callback to clear cache
-  const refreshFetchQuery = useRecoilRefresher_UNSTABLE(fetchQuerySelector)
+  // const refreshApiQuery = useRecoilRefresher_UNSTABLE(currentApiQuerySelector)
 
   // useRef to avoid re-renders during button handler
   const interactionTimer = React.useRef<number>()
@@ -37,13 +42,16 @@ export default function DataFetch() {
       interactionTimer.current = window.setTimeout(() => {
         setSuccessfulSubmit(true)
         setSubmitting(false)
+
+        setCurrentApiState(selectedApi)
+
         // switch between initial call and refresh
-        if (Object.getOwnPropertyNames(axiosResponse).length === 0) {
-          console.log('initial call')
-          // setUserSubmittedUrl(selectedApi)
-        } else {
-          refreshFetchQuery()
-        }
+        // if (Object.getOwnPropertyNames(currentApiState).length === 0) {
+        //   console.log('initial call')
+        //   setCurrentApiState(selectedApi)
+        // } else {
+        //   refreshApiQuery()
+        // }
       }, 1000)
       //restore state to pre-interaction
       interactionTimer.current = window.setTimeout(() => {
@@ -81,7 +89,7 @@ export default function DataFetch() {
             onClick={handleDataFetching}>
             {!submitting && !successSubmit ? (
               <Typography variant='button'>
-                {Object.getOwnPropertyNames(axiosResponse).length === 0 ? 'Fetch' : 'Refetch'}
+                {currentApiState === null ? 'Fetch' : 'Refetch'}
               </Typography>
             ) : (
               successSubmit && <CheckIcon sx={{ color: BrandSwatch.Light.Blue[400] }} />

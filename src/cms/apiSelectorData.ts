@@ -1,6 +1,6 @@
 import { UserToggledApiAtomOptions } from '../recoil'
 
-type SourceSelectorAlias = {
+export type SourceSelectorAlias = {
   index: number
   name: string
   value: string
@@ -12,7 +12,7 @@ export const SourceSelector: SourceSelectorAlias[] = [
   { index: 2, name: 'Json Placeholder API', value: 'jsonPlaceholderApi' }
 ]
 
-type BaseUrlDataAlias = {
+export type BaseUrlDataAlias = {
   index: string
   base: string
 }
@@ -23,7 +23,7 @@ export const BaseUrlData: BaseUrlDataAlias[] = [
   { index: 'jsonPlaceholderApi', base: 'https://jsonplaceholder.typicode.com/' }
 ]
 
-type RandomDataAlias = {
+export type RandomDataAlias = {
   index: number
   name: string
   url: string
@@ -69,7 +69,7 @@ export const RandomData: RandomDataAlias[] = [
   { index: 36, name: 'Restaurant', url: 'restaurant/random_restaurant' }
 ]
 
-type JsonPlaceholderDataAlias = {
+export type JsonPlaceholderDataAlias = {
   index: number
   name: string
   url: string
@@ -85,7 +85,7 @@ export const JsonPlaceholderData: JsonPlaceholderDataAlias[] = [
   { index: 6, name: 'Users', url: 'users/' }
 ]
 
-type VolumeSelectorAlias = {
+export type VolumeSelectorAlias = {
   index: number
   name: string
   value: string
@@ -98,24 +98,7 @@ export const VolumeSelector: VolumeSelectorAlias[] = [
   { index: 3, name: 'ten', value: '10' }
 ]
 
-type ApiTabDataAlias = {
-  index: string
-  num: number
-  label: string
-  isIcon: boolean
-  value: UserToggledApiAtomOptions
-}
-
-export const ApiTabData: ApiTabDataAlias[] = [
-  { index: '0', num: 0, label: 'Data response', isIcon: false, value: 'data' },
-  { index: '1', num: 1, label: 'Edit response', isIcon: false, value: 'edit' },
-  { index: '2', num: 2, label: 'Full response', isIcon: false, value: 'full' },
-  { index: '3', num: 3, label: 'Headers', isIcon: false, value: 'headers' },
-  { index: '4', num: 4, label: ' interface', isIcon: true, value: 'ts' },
-  { index: '5', num: 5, label: ' * .d.ts', isIcon: true, value: 'dtype' }
-]
-
-type FetchButtonStateAlias = {
+export type FetchButtonStateAlias = {
   index: number
   state: string
   label: string
@@ -132,3 +115,16 @@ export const FetchButtonState: FetchButtonStateAlias[] = [
   { index: 4, state: 'failed', label: '', icon: true, iconName: '', background: '' },
   { index: 5, state: 'success', label: 'Refetch', icon: false, iconName: '', background: '' }
 ]
+
+export type ApiTabDataAlias = {
+  index: string
+  num: number
+  label: string
+  value: UserToggledApiAtomOptions
+  icon: JSX.Element | null
+}
+
+export type ApiTabPanelAlias = {
+  index: number
+  panel: JSX.Element | null
+}

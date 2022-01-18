@@ -1,33 +1,39 @@
 import MonacoEditor from '@monaco-editor/react'
 import { debounce } from 'lodash'
 import * as React from 'react'
-import { useRecoilState, useRecoilValue } from 'recoil'
-import { axiosResponseAtom, monacoThemeAtom, userGeneratedJsonAtom } from '../../recoil'
+import { useRecoilValue } from 'recoil'
+import { currentApiQuerySelector, monacoThemeAtom } from '../../recoil'
 import { EditorContainer } from '../mui'
 
 export function Editor() {
   //retrieve editor theme value
   const monacoTheme = useRecoilValue(monacoThemeAtom)
 
-  const axiosResponse = useRecoilValue(axiosResponseAtom)
+  const currentApiQuery = useRecoilValue(currentApiQuerySelector)
+
   //retrieve localStorage value
-  const [userGeneratedJson, setUserGeneratedJson] = useRecoilState(userGeneratedJsonAtom)
+  const [formattedJson, setFormattedJson] = React.useState('')
+  console.log('Editor formattedJson', formattedJson)
+
   // load from local storage
   React.useEffect(() => {
     const localStorageJson = localStorage.getItem('userGeneratedJson')
     if (localStorageJson) {
-      const strData = JSON.stringify(axiosResponse, null, 2)
-      setUserGeneratedJson(strData)
+      const strData = JSON.stringify(localStorageJson, null, 2)
+      setFormattedJson(strData)
       //   setUserGeneratedJson(localStorageJson)
     }
-  }, [axiosResponse, setUserGeneratedJson])
+    const strData = JSON.stringify(currentApiQuery, null, 2)
+    setFormattedJson(strData)
+  }, [currentApiQuery, setFormattedJson])
+
   //lodash debounced() delays updating local text file for 750ms after user edit
   const onChange = debounce(
     React.useCallback(
       newValue => {
-        setUserGeneratedJson(newValue)
+        setFormattedJson(newValue)
       },
-      [setUserGeneratedJson]
+      [setFormattedJson]
     ),
     750
   )
@@ -36,7 +42,7 @@ export function Editor() {
     <EditorContainer>
       <MonacoEditor
         height='92vh'
-        value={userGeneratedJson}
+        value={formattedJson}
         language='json'
         theme={monacoTheme}
         onChange={onChange}

@@ -9,7 +9,7 @@ import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
 import { minifiedTextAtom, minifyDialogOpenAtom, userGeneratedJsonAtom } from '../../recoil'
 import { BrandSwatch } from '../../style'
 import { SxCircularProgress } from '../action/SxCircularProgress'
-import { ButtonGroupSx, IconButtonSxAppBar, ToolTipSx } from '../mui'
+import { ButtonGroupSx, IconButtonSxStyle, ToolTipSx } from '../mui'
 
 export function MinifyIcons() {
   //set dialog with minified json visability
@@ -103,7 +103,7 @@ export function MinifyIcons() {
     <ButtonGroupSx>
       <Box sx={{ position: 'relative', pl: 5 }}>
         <ToolTipSx tooltipTitle={minifiedCopy ? 'Copied' : 'Copy minified json'}>
-          <IconButtonSxAppBar
+          <IconButtonSxStyle
             id='copy-minified-to-clipboard'
             data-clipboard-target='#minified-json-data'
             onClick={handleMinifyCopy}>
@@ -121,13 +121,13 @@ export function MinifyIcons() {
                 }}
               />
             )}
-          </IconButtonSxAppBar>
+          </IconButtonSxStyle>
         </ToolTipSx>
         {loadingCopy && <SxCircularProgress size='20px' color='green' />}
       </Box>
       <Box sx={{ position: 'relative' }}>
         <ToolTipSx tooltipTitle={minifiedCopy ? 'Downloaded' : 'Download minified json'}>
-          <IconButtonSxAppBar onClick={handleMinifiedDownload}>
+          <IconButtonSxStyle onClick={handleMinifiedDownload}>
             {!loadingDownload && !successDownload ? (
               <DownloadIcon />
             ) : !successDownload ? (
@@ -142,18 +142,18 @@ export function MinifyIcons() {
                 }}
               />
             )}
-          </IconButtonSxAppBar>
+          </IconButtonSxStyle>
         </ToolTipSx>
         {loadingDownload && <SxCircularProgress size='20px' color='green' />}
       </Box>
       <Box sx={{ position: 'relative', pr: 5 }}>
         <ToolTipSx tooltipTitle={'Close'}>
-          <IconButtonSxAppBar
+          <IconButtonSxStyle
             onClick={() => {
               setMinifyDialogOpen(false)
             }}>
             <CloseIcon />
-          </IconButtonSxAppBar>
+          </IconButtonSxStyle>
         </ToolTipSx>
       </Box>
     </ButtonGroupSx>

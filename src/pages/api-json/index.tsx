@@ -1,9 +1,11 @@
 import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
+import * as React from 'react'
 import { ApiSelector, ApiTabs } from '../../components/api-json'
 import { DataFetch, DataSearchBar } from '../../components/api-json/selectors'
 import { HeroSx } from '../../components/mui'
+import { ErrorBoundary } from '../../lib'
 import { BrandSwatch } from '../../style'
 
 // import Alert from '@mui/material/Alert'
@@ -131,47 +133,49 @@ export function ApiJson() {
   // }
 
   return (
-    <Box
-    // onClick={(): void => {
-    //   setSelectedElement(null)
-    // }}
-    >
-      <HeroSx>
-        <Typography
-          variant='body2'
-          sx={{
-            fontStyle: 'italic',
-            color: theme =>
-              theme.palette.mode === 'dark'
-                ? BrandSwatch.Dark.Grey[100]
-                : BrandSwatch.Light.Grey[800],
-            mb: 8,
-            ml: 10
-          }}>
-          Select API from dropdown
-        </Typography>
+    <ErrorBoundary>
+      <React.Suspense fallback={<div>Loading...</div>}>
+        <Box
+        // onClick={(): void => {
+        //   setSelectedElement(null)
+        // }}
+        >
+          <HeroSx>
+            <Typography
+              variant='body2'
+              sx={{
+                fontStyle: 'italic',
+                color: theme =>
+                  theme.palette.mode === 'dark'
+                    ? BrandSwatch.Dark.Grey[100]
+                    : BrandSwatch.Light.Grey[800],
+                mb: 8,
+                ml: 10
+              }}>
+              Select API from dropdown
+            </Typography>
 
-        <ApiSelector />
-        <Typography
-          variant='body2'
-          sx={{
-            fontStyle: 'italic',
-            color: theme =>
-              theme.palette.mode === 'dark'
-                ? BrandSwatch.Dark.Grey[100]
-                : BrandSwatch.Light.Grey[800],
-            mt: 20,
-            mb: 8,
-            ml: 10
-          }}>
-          or Enter API
-        </Typography>
-        <Stack direction='row' spacing={20}>
-          <DataSearchBar />
-          <DataFetch />
-        </Stack>
-      </HeroSx>
-      {/* <Collapse in={showError}>
+            <ApiSelector />
+            <Typography
+              variant='body2'
+              sx={{
+                fontStyle: 'italic',
+                color: theme =>
+                  theme.palette.mode === 'dark'
+                    ? BrandSwatch.Dark.Grey[100]
+                    : BrandSwatch.Light.Grey[800],
+                mt: 20,
+                mb: 8,
+                ml: 10
+              }}>
+              or Enter API
+            </Typography>
+            <Stack direction='row' spacing={20}>
+              <DataSearchBar />
+              <DataFetch />
+            </Stack>
+          </HeroSx>
+          {/* <Collapse in={showError}>
             <Box sx={{ mt: 10, mb: 20 }}>
             <Alert
             variant='outlined'
@@ -183,7 +187,10 @@ export function ApiJson() {
             </Alert>
             </Box>
           </Collapse> */}
-      <ApiTabs />
-    </Box>
+
+          <ApiTabs />
+        </Box>
+      </React.Suspense>
+    </ErrorBoundary>
   )
 }

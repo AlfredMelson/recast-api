@@ -1,38 +1,29 @@
 import { useRecoilState, useRecoilValue } from 'recoil'
-import { ErrorBoundary } from '../../lib'
-import { axiosResponseAtom, dataDrawerOpenAtom } from '../../recoil'
+import { currentApiStateAtom, dataDrawerOpenAtom } from '../../recoil'
 import { TerminalIcon } from '../icons'
-import { IconButtonSxColorMode, ToolTipSx } from '../mui'
+import { IconButtonSxStyle, ToolTipSx } from '../mui'
 
 export function TerminalToggle() {
   const [dataDrawerOpen, setDataDrawerOpen] = useRecoilState(dataDrawerOpenAtom)
 
-  const axiosResponse = useRecoilValue(axiosResponseAtom)
-
-  function handleClick() {
-    setDataDrawerOpen(!dataDrawerOpen)
-  }
-  // const [disable, setDisable] = React.useState(false)
-
-  // React.useEffect(() => {
-  //   const result: boolean = fetchQuery === undefined
-  //   setDisable(result)
-  //   return
-  // }, [fetchQuery, setDisable])
+  const currentApiState = useRecoilValue(currentApiStateAtom)
 
   return (
-    <ErrorBoundary>
-      {axiosResponse === undefined ? (
-        <IconButtonSxColorMode disabled={true}>
+    <>
+      {currentApiState === null ? (
+        <IconButtonSxStyle disabled={true}>
           <TerminalIcon />
-        </IconButtonSxColorMode>
+        </IconButtonSxStyle>
       ) : (
         <ToolTipSx tooltipTitle={dataDrawerOpen ? 'close Terminal' : 'open Terminal'}>
-          <IconButtonSxColorMode onClick={handleClick}>
+          <IconButtonSxStyle
+            onClick={() => {
+              setDataDrawerOpen(!dataDrawerOpen)
+            }}>
             <TerminalIcon />
-          </IconButtonSxColorMode>
+          </IconButtonSxStyle>
         </ToolTipSx>
       )}
-    </ErrorBoundary>
+    </>
   )
 }

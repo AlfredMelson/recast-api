@@ -22,21 +22,19 @@ export function EditorDrawer() {
 
   return (
     <AnimatePresence>
-      {dataDrawerOpen && (
-        <Drawer
-          transitionDuration={0}
-          anchor='top'
-          open={dataDrawerOpen}
-          onClose={toggleDrawer(false)}
-          sx={{ height: '100vh' }}>
-          <FadeAnimation duration={0.4}>
-            <Editor />
-          </FadeAnimation>
-          <FadeAnimation duration={0.4}>
-            <MinifyDialog />
-          </FadeAnimation>
-        </Drawer>
-      )}
+      <Drawer
+        transitionDuration={0}
+        anchor='top'
+        open={dataDrawerOpen}
+        onClose={toggleDrawer(false)}
+        sx={{ height: '100vh' }}>
+        <FadeAnimation duration={0.4}>
+          <Editor />
+        </FadeAnimation>
+        <FadeAnimation duration={0.4}>
+          <MinifyDialog />
+        </FadeAnimation>
+      </Drawer>
     </AnimatePresence>
   )
 }

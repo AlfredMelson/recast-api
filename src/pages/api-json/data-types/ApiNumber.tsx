@@ -17,8 +17,6 @@ import { ApiNumberAlias } from './typeAliases'
 import { ApiDataTypeLabel } from '.'
 
 export function ApiNumber({ index, value, dataKey, dataType, onEdit, onDelete }: ApiNumberAlias) {
-  // console.log('ApiNumber : index', index)
-
   const [selectedElement, setSelectedElement] = useRecoilState(selectedElementAtom)
 
   const [currentValue, setCurrentValue] = React.useState<ApiNumberAlias['value'] | any>()

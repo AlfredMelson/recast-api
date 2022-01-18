@@ -3,7 +3,7 @@ import _ from 'lodash'
 import * as React from 'react'
 import { useLocation } from 'react-router-dom'
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
-import { ApiTabData } from '../../cms'
+import { ApiTabDataAlias, ApiTabPanelAlias } from '../../cms'
 import { ErrorBoundary } from '../../lib'
 import {
   DataHeaders,
@@ -15,10 +15,8 @@ import {
 } from '../../pages/api-json/tab'
 import {
   apiTabSelectedAtom,
-  axiosDataAtom,
-  axiosHeadersAtom,
   axiosResponseAtom,
-  fetchQuerySelector,
+  currentApiQuerySelector,
   userToggledApiAtom
 } from '../../recoil'
 import { SvgTsLogoDtype } from '../icons'
@@ -51,26 +49,20 @@ function a11yProps(index: number) {
 }
 
 export function ApiTabs() {
-  // state when url is submitted
-  const fetchQuery = useRecoilValue(fetchQuerySelector)
   // state of user toggled api response
   const setUserToggledApi = useSetRecoilState(userToggledApiAtom)
   // state of full response returned from Axios api call
   const [axiosResponse, setAxiosResponse] = useRecoilState(axiosResponseAtom)
-  // state of response.headers returned from fetch api call
-  const axiosHeaders = useRecoilValue(axiosHeadersAtom)
+
   // dispatch tab panel
   const [value, setValue] = React.useState<number>(0)
-  //
-  //
-  const axiosData = useRecoilValue(axiosDataAtom)
 
   const handleDataTabs = (_event: React.SyntheticEvent, newResponse: number) => {
     setValue(newResponse)
   }
 
   // edit a property of the object
-  const EditObj = (newValue, key) => {
+  const EditObj = (newValue: any, key: string | number) => {
     const newObj = axiosResponse
     newObj[key] = newValue
     setAxiosResponse(axiosResponse)
@@ -87,49 +79,61 @@ export function ApiTabs() {
 
   const setApiTabSelected = useSetRecoilState(apiTabSelectedAtom)
 
-  const TabPanels = [
-    { index: 0, panel: <DataResponse data={axiosData} /> },
-    { index: 1, panel: <EditResponse data={axiosData} onDelete={DeleteObj} onEdit={EditObj} /> },
-    { index: 2, panel: <FullResponse data={axiosResponse} /> },
-    { index: 3, panel: <DataHeaders data={axiosHeaders} /> },
-    { index: 4, panel: <TsInterface data={axiosData} /> },
-    { index: 5, panel: <DTypescript data={axiosData} /> }
+  const currentApiQuery = useRecoilValue(currentApiQuerySelector)
+
+  const ApiTabPanel: ApiTabPanelAlias[] = [
+    { index: 0, panel: <DataResponse data={currentApiQuery?.data} /> },
+    {
+      index: 1,
+      panel: <EditResponse data={currentApiQuery?.data} onDelete={DeleteObj} onEdit={EditObj} />
+    },
+    { index: 2, panel: <FullResponse data={currentApiQuery} /> },
+    { index: 3, panel: <DataHeaders data={currentApiQuery?.headers} /> },
+    { index: 4, panel: <TsInterface data={currentApiQuery} /> },
+    { index: 5, panel: <DTypescript data={currentApiQuery} /> }
+  ]
+
+  const ApiTabData: ApiTabDataAlias[] = [
+    { index: '0', num: 0, label: 'Data response', icon: null, value: 'data' },
+    { index: '1', num: 1, label: 'Edit response', icon: null, value: 'edit' },
+    { index: '2', num: 2, label: 'Full response', icon: null, value: 'full' },
+    { index: '3', num: 3, label: 'Headers', icon: null, value: 'headers' },
+    { index: '4', num: 4, label: ' interface', icon: <SvgTsLogoDtype />, value: 'ts' },
+    { index: '5', num: 5, label: ' * .d.ts', icon: <SvgTsLogoDtype />, value: 'dtype' }
   ]
 
   return (
     <ErrorBoundary>
-      <Box sx={{ mt: 30 }}>
-        {fetchQuery !== undefined && (
-          <>
-            <TabWrapperSx
-              key={local.pathname}
-              aria-label='api data tabs'
-              onChange={handleDataTabs}
-              value={value}>
-              {ApiTabData.map(({ index, num, label, isIcon, value }) => (
-                <TabSx
-                  key={num}
-                  index={index}
-                  label={label}
-                  icon={isIcon && <SvgTsLogoDtype />}
-                  iconPosition='start'
-                  {...a11yProps(num)}
-                  onClick={() => {
-                    setUserToggledApi(value), setApiTabSelected(index)
-                  }}
-                />
-              ))}
-            </TabWrapperSx>
-            <PanelStyle>
-              {TabPanels.map(({ index, panel }) => (
-                <TabPanel key={index} value={value} index={index}>
-                  {panel}
-                </TabPanel>
-              ))}
-            </PanelStyle>
-          </>
-        )}
-      </Box>
+      {currentApiQuery && (
+        <Box sx={{ mt: 30 }}>
+          <TabWrapperSx
+            key={local.pathname}
+            aria-label='api data tabs'
+            onChange={handleDataTabs}
+            value={value}>
+            {ApiTabData.map(({ index, num, label, icon, value }) => (
+              <TabSx
+                key={num}
+                index={index}
+                label={label}
+                icon={icon}
+                iconPosition='start'
+                {...a11yProps(num)}
+                onClick={() => {
+                  setUserToggledApi(value), setApiTabSelected(index)
+                }}
+              />
+            ))}
+          </TabWrapperSx>
+          <PanelStyle>
+            {ApiTabPanel.map(({ index, panel }) => (
+              <TabPanel key={index} value={value} index={index}>
+                {panel}
+              </TabPanel>
+            ))}
+          </PanelStyle>
+        </Box>
+      )}
     </ErrorBoundary>
   )
 }

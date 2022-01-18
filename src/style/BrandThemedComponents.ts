@@ -366,7 +366,16 @@ export function BrandThemedComponents(theme: Theme) {
           fontSize: 'small'
         },
         styleOverrides: {
-          root: {} // Styles applied to the root element
+          root: {
+            // color: theme.palette.text.secondary,
+            // transition: theme.transitions.create(['color'], {
+            //   duration: theme.transitions.duration.standard,
+            //   easing: theme.transitions.easing.easeInOut
+            // }),
+            // '&:hover': {
+            //   color: theme.palette.text.primary
+            // }
+          } // Styles applied to the root element
         }
       },
       MuiSwitch: {

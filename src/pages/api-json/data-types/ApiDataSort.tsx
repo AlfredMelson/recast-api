@@ -10,11 +10,6 @@ export function ApiDataSort({
   onEdit,
   onDelete
 }: ApiDataSortAlias) {
-  // console.log('ApiDataSort : index', index)
-  // console.log('ApiDataSort : dataType', dataType)
-  // console.log('ApiDataSort : dataValue', dataValue)
-  // console.log('ApiDataSort : dataKey', dataKey)
-
   const renderValue = () => {
     switch (dataType) {
       case 'number':

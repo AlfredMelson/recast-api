@@ -61,59 +61,129 @@ export const BrandDesignTokens = (mode: 'dark' | 'light') =>
         background: {
           default: BrandSwatch.Dark.Grey[900]
         },
+        common: {
+          black: BrandSwatch.Dark.Black[50],
+          white: BrandSwatch.Dark.White[50]
+        },
         text: {
           primary: BrandSwatch.Dark.White[50],
           secondary: BrandSwatch.Dark.Grey[50],
           disabled: BrandSwatch.Dark.Grey[400]
         },
-        // primary: {},
-        // secondary: {},
-        // error: {},
-        // warning: {},
-        // info: {},
-        // success: {},
-        divider: BrandSwatch.Dark.Grey[700],
-        svgBg: {
-          base: BrandSwatch.Dark.Grey[400],
-          active: BrandSwatch.Dark.Grey[500]
-        },
-        svgFilled: {
-          base: BrandSwatch.Dark.Green[800],
-          active: BrandSwatch.Dark.Green[300]
-        },
-        svgStroke: {
-          base: BrandSwatch.Dark.Blue[600],
-          active: BrandSwatch.Dark.Blue[800]
+        divider: BrandSwatch.Dark.Grey[500],
+        primary: {
+          main: BrandSwatch.Dark.White[50],
+          light: BrandSwatch.Dark.Grey[200]
+          // dark: BrandSwatch.Dark.White[50],
+          // contrastText: BrandSwatch.Dark.White[50]
         }
+        // secondary: {
+        //   main: BrandSwatch.Dark.White[50],
+        //   light: BrandSwatch.Dark.White[50],
+        //   dark: BrandSwatch.Dark.White[50],
+        //   contrastText: BrandSwatch.Dark.White[50]
+        // },
+        // error: {
+        //   main: BrandSwatch.Dark.White[50],
+        //   light: BrandSwatch.Dark.White[50],
+        //   dark: BrandSwatch.Dark.White[50],
+        //   contrastText: BrandSwatch.Light.White[50]
+        // },
+        // warning: {
+        //   main: BrandSwatch.Dark.White[50],
+        //   light: BrandSwatch.Dark.White[50],
+        //   dark: BrandSwatch.Dark.White[50],
+        //   contrastText: BrandSwatch.Light.White[50]
+        // },
+        // info: {
+        //   main: BrandSwatch.Dark.White[50],
+        //   light: BrandSwatch.Dark.White[50],
+        //   dark: BrandSwatch.Dark.White[50],
+        //   contrastText: BrandSwatch.Light.White[50]
+        // },
+        // success: {
+        //   main: BrandSwatch.Dark.White[50],
+        //   light: BrandSwatch.Dark.White[50],
+        //   dark: BrandSwatch.Dark.White[50],
+        //   contrastText: BrandSwatch.Light.White[50]
+        // },
+        // action: {
+        //   active: BrandSwatch.Light.Grey[500],
+        //   hover: BrandSwatch.Light.Grey[500],
+        //   hoverOpacity: 0.04,
+        //   selected: BrandSwatch.Light.Grey[500],
+        //   selectedOpacity: 0.08,
+        //   disabled: BrandSwatch.Light.Grey[500],
+        //   disabledBackground: BrandSwatch.Light.Grey[500],
+        //   disabledOpacity: 0.38,
+        //   focus: BrandSwatch.Light.Grey[500],
+        //   focusOpacity: 0.12,
+        //   activatedOpacity: 0.12
+        // }
       }),
       ...(mode === 'light' && {
         background: {
           default: BrandSwatch.Light.Grey[100]
+        },
+        common: {
+          black: BrandSwatch.Light.Black[50],
+          white: BrandSwatch.Light.White[50]
         },
         text: {
           primary: BrandSwatch.Light.Black[50],
           secondary: BrandSwatch.Light.Grey[900],
           disabled: BrandSwatch.Light.Grey[500]
         },
-        // primary: {},
-        // secondary: {},
-        // error: {},
-        // warning: {},
-        // info: {},
-        // success: {},
         divider: BrandSwatch.Light.Grey[200],
-        svgBg: {
-          base: BrandSwatch.Light.Grey[50],
-          active: BrandSwatch.Light.Grey[50]
-        },
-        svgFilled: {
-          base: BrandSwatch.Light.Grey[500],
-          active: BrandSwatch.Light.Blue[500]
-        },
-        svgStroke: {
-          base: BrandSwatch.Light.Grey[50],
-          active: BrandSwatch.Light.Grey[200]
+        primary: {
+          main: BrandSwatch.Light.White[50],
+          light: BrandSwatch.Light.Grey[700]
+          // dark: BrandSwatch.Light.White[50],
+          // contrastText: BrandSwatch.Light.White[50]
         }
+        // secondary: {
+        //   main: BrandSwatch.Light.White[50],
+        //   light: BrandSwatch.Light.White[50],
+        //   dark: BrandSwatch.Light.White[50],
+        //   contrastText: BrandSwatch.Light.White[50]
+        // },
+        // error: {
+        //   main: BrandSwatch.Light.White[50],
+        //   light: BrandSwatch.Light.White[50],
+        //   dark: BrandSwatch.Light.White[50],
+        //   contrastText: BrandSwatch.Light.White[50]
+        // },
+        // warning: {
+        //   main: BrandSwatch.Light.White[50],
+        //   light: BrandSwatch.Light.White[50],
+        //   dark: BrandSwatch.Light.White[50],
+        //   contrastText: BrandSwatch.Light.White[50]
+        // },
+        // info: {
+        //   main: BrandSwatch.Light.White[50],
+        //   light: BrandSwatch.Light.White[50],
+        //   dark: BrandSwatch.Light.White[50],
+        //   contrastText: BrandSwatch.Light.White[50]
+        // },
+        // success: {
+        //   main: BrandSwatch.Light.White[50],
+        //   light: BrandSwatch.Light.White[50],
+        //   dark: BrandSwatch.Light.White[50],
+        //   contrastText: BrandSwatch.Light.White[50]
+        // },
+        // action: {
+        //   active: BrandSwatch.Light.Grey[500],
+        //   hover: BrandSwatch.Light.Grey[500],
+        //   hoverOpacity: 0.04,
+        //   selected: BrandSwatch.Light.Grey[500],
+        //   selectedOpacity: 0.08,
+        //   disabled: BrandSwatch.Light.Grey[500],
+        //   disabledBackground: BrandSwatch.Light.Grey[500],
+        //   disabledOpacity: 0.38,
+        //   focus: BrandSwatch.Light.Grey[500],
+        //   focusOpacity: 0.12,
+        //   activatedOpacity: 0.12
+        // }
       })
     },
     spacing: 1,

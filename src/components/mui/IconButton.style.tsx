@@ -2,11 +2,12 @@ import IconButton, { IconButtonProps } from '@mui/material/IconButton'
 import { styled } from '@mui/material/styles'
 import { BrandSwatch } from '../../style'
 
-export const IconButtonSxColorMode = styled(IconButton, {
-  name: '',
-  slot: ''
+export const IconButtonSxStyle = styled(IconButton, {
+  name: 'IconButtonSx',
+  slot: 'style'
 })(({ theme }) => ({
-  color: theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[200] : BrandSwatch.Light.Grey[700],
+  // color: theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[200] : BrandSwatch.Light.Grey[700],
+  color: theme.palette.primary.light,
   padding: theme.spacing(10),
   transition: theme.transitions.create(['color'], {
     duration: theme.transitions.duration.standard,
@@ -48,21 +49,6 @@ export const IconButtonSxApiEdit = styled(IconButton, {
   }),
   '&:hover ': {
     color: theme.palette.mode === 'dark' ? theme.palette.grey[50] : theme.palette.grey[900]
-  }
-}))
-
-export const IconButtonSxAppBar = styled(IconButton, {
-  name: '',
-  slot: ''
-})(({ theme }) => ({
-  padding: theme.spacing(10),
-  color: theme.palette.text.secondary,
-  transition: theme.transitions.create(['color'], {
-    duration: theme.transitions.duration.standard,
-    easing: theme.transitions.easing.easeInOut
-  }),
-  '&:hover': {
-    color: theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[50] : BrandSwatch.Light.Grey[900]
   }
 }))
 

@@ -1,26 +1,29 @@
+import useMediaQuery from '@mui/material/useMediaQuery'
 import * as React from 'react'
 import { useRecoilState } from 'recoil'
 import { themeColorAtom } from '../../recoil'
 import { MoonIcon, SunIcon } from '../icons'
-import { IconButtonSxColorMode, ToolTipSx } from '../mui'
-// import useMediaQuery from '@mui/material/useMediaQuery'
+import { IconButtonSxStyle, ToolTipSx } from '../mui'
 
 export function ThemeModeToggle() {
-  //retrieve localStorage theme value
+  // retrieve previously set theme value from localStorage
   const [themeColor, setThemeColor] = useRecoilState(themeColorAtom)
-  // const [userPreference, setUserPreference] = useRecoilState(userPreferenceAtom)
-  // setUserPreference(useMediaQuery('(prefers-color-scheme: dark)'))
+  // retrieve set user preference value from useMediaQuery
+  const [preference] = React.useState(useMediaQuery('(prefers-color-scheme: dark)'))
 
   React.useEffect(() => {
     const localStorageThemeColor = localStorage.getItem('themeColor')
 
     if (localStorageThemeColor) {
       setThemeColor(localStorageThemeColor)
+    } else if (preference) {
+      const preferredMode = preference ? 'dark' : 'light'
+      console.log('ThemeModeToggle preferredMode', preferredMode)
+      setThemeColor(preferredMode)
+    } else {
+      setThemeColor('light')
     }
-    // const preferredMode = userPreference ? 'dark' : 'light'
-    // const preferredMode = 'dark'
-    // setThemeColor(preferredMode)
-  }, [setThemeColor])
+  }, [setThemeColor, preference])
 
   const handleChange = () => {
     setThemeColor(themeColor === 'dark' ? 'light' : 'dark')
@@ -28,9 +31,9 @@ export function ThemeModeToggle() {
 
   return (
     <ToolTipSx tooltipTitle={themeColor === 'dark' ? 'Light mode' : 'Dark mode'}>
-      <IconButtonSxColorMode onClick={handleChange}>
+      <IconButtonSxStyle onClick={handleChange}>
         {themeColor === 'dark' ? <SunIcon /> : <MoonIcon />}
-      </IconButtonSxColorMode>
+      </IconButtonSxStyle>
     </ToolTipSx>
   )
 }

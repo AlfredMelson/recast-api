@@ -1,26 +1,22 @@
 import CheckIcon from '@mui/icons-material/Check'
-import CloseIcon from '@mui/icons-material/Close'
-import ContentCopyIcon from '@mui/icons-material/ContentCopy'
 import DeleteIcon from '@mui/icons-material/Delete'
-import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline'
-import DownloadIcon from '@mui/icons-material/Download'
-import UnfoldLessIcon from '@mui/icons-material/UnfoldLess'
 import { ButtonGroup } from '@mui/material'
 import Box from '@mui/material/Box'
 import saveAs from 'file-saver'
 import * as React from 'react'
-import { useRecoilValue, useResetRecoilState, useSetRecoilState } from 'recoil'
-import { dataDrawerOpenAtom, minifyDialogOpenAtom, userGeneratedJsonAtom } from '../../recoil'
+import { useRecoilValue, useSetRecoilState } from 'recoil'
+import { currentApiQuerySelector, dataDrawerOpenAtom, minifyDialogOpenAtom } from '../../recoil'
 import { BrandSwatch } from '../../style'
 import { SxCircularProgress } from '../action'
-import { IconButtonSxAppBar, ToolTipSx } from '../mui'
+import { CloseIcon, CopyIcon, DeleteOutlineIcon, DownloadIcon, MinifyIcon } from '../icons'
+import { IconButtonSxStyle, ToolTipSx } from '../mui'
 
 export function DrawerIcons() {
   // retrieve localStorage value
-  const userGeneratedJson = useRecoilValue(userGeneratedJsonAtom)
+  const currentApiQuery = useRecoilValue(currentApiQuerySelector)
 
   // reset localStorage value to recoil stored default
-  const resetUserGeneratedJson = useResetRecoilState(userGeneratedJsonAtom)
+  // const resetCurrentApiQuery = useResetRecoilState(currentApiQuerySelector)
 
   // set dialog with minified json visability
   const setMinifyDialogOpen = useSetRecoilState(minifyDialogOpenAtom)
@@ -46,7 +42,7 @@ export function DrawerIcons() {
     if (!loadingCopy) {
       setSuccessCopy(false)
       setLoadingCopy(true)
-      await navigator.clipboard.writeText(userGeneratedJson)
+      await navigator.clipboard.writeText(JSON.stringify(currentApiQuery))
       setJsonCopy(true)
       // set state to success
       interactionTimer.current = window.setTimeout(() => {
@@ -77,7 +73,7 @@ export function DrawerIcons() {
           this.emit('error', 'download', 'Downloading not supported on this browser.')
         }
       }
-      downloadJson(userGeneratedJson)
+      downloadJson(JSON.stringify(currentApiQuery))
       // set state to success
       interactionTimer.current = window.setTimeout(() => {
         setSuccessDownload(true)
@@ -96,17 +92,17 @@ export function DrawerIcons() {
   return (
     <ButtonGroup sx={{ backgroundColor: theme => theme.palette.background.default }}>
       <Box sx={{ position: 'relative', pl: 5 }}>
-        {userGeneratedJson.length === 0 ? (
-          <IconButtonSxAppBar disabled={true}>
-            <ContentCopyIcon />
-          </IconButtonSxAppBar>
+        {!currentApiQuery ? (
+          <IconButtonSxStyle disabled={true}>
+            <CopyIcon />
+          </IconButtonSxStyle>
         ) : (
           <ToolTipSx tooltipTitle={jsonCopy ? 'Copied' : 'Copy json'}>
-            <IconButtonSxAppBar onClick={handleJsonCopy}>
+            <IconButtonSxStyle onClick={handleJsonCopy}>
               {!loadingCopy && !successCopy ? (
-                <ContentCopyIcon />
+                <CopyIcon />
               ) : !successCopy ? (
-                <ContentCopyIcon sx={{ color: 'transparent' }} />
+                <CopyIcon sx={{ color: 'transparent' }} />
               ) : (
                 <CheckIcon
                   sx={{
@@ -117,19 +113,19 @@ export function DrawerIcons() {
                   }}
                 />
               )}
-            </IconButtonSxAppBar>
+            </IconButtonSxStyle>
           </ToolTipSx>
         )}
         {loadingCopy && <SxCircularProgress size='20px' color='green' />}
       </Box>
       <Box sx={{ position: 'relative' }}>
-        {userGeneratedJson.length === 0 ? (
-          <IconButtonSxAppBar disabled={true}>
+        {!currentApiQuery ? (
+          <IconButtonSxStyle disabled={true}>
             <DownloadIcon />
-          </IconButtonSxAppBar>
+          </IconButtonSxStyle>
         ) : (
           <ToolTipSx tooltipTitle={'Download json'}>
-            <IconButtonSxAppBar onClick={handleDownload}>
+            <IconButtonSxStyle onClick={handleDownload}>
               {!loadingDownload && !successDownload ? (
                 <DownloadIcon />
               ) : !successDownload ? (
@@ -144,51 +140,50 @@ export function DrawerIcons() {
                   }}
                 />
               )}
-            </IconButtonSxAppBar>
+            </IconButtonSxStyle>
           </ToolTipSx>
         )}
         {loadingDownload && <SxCircularProgress size='20px' color='green' />}
       </Box>
       <Box sx={{ position: 'relative' }}>
-        {userGeneratedJson.length === 0 ? (
-          <IconButtonSxAppBar disabled={true}>
+        {!currentApiQuery ? (
+          <IconButtonSxStyle disabled={true}>
             <DeleteOutlineIcon />
-          </IconButtonSxAppBar>
+          </IconButtonSxStyle>
         ) : (
           <ToolTipSx tooltipTitle={'Delete json'}>
-            <IconButtonSxAppBar
-              onClick={() => {
-                resetUserGeneratedJson()
-              }}>
-              {userGeneratedJson.length > 0 ? <DeleteIcon /> : <DeleteOutlineIcon />}
-            </IconButtonSxAppBar>
+            <IconButtonSxStyle
+            // onClick={() => {resetCurrentApiQuery()}}
+            >
+              {!currentApiQuery ? <DeleteIcon /> : <DeleteOutlineIcon />}
+            </IconButtonSxStyle>
           </ToolTipSx>
         )}
       </Box>
       <Box sx={{ position: 'relative' }}>
-        {userGeneratedJson.length === 0 ? (
-          <IconButtonSxAppBar disabled={true}>
-            <UnfoldLessIcon />
-          </IconButtonSxAppBar>
+        {!currentApiQuery ? (
+          <IconButtonSxStyle disabled={true}>
+            <MinifyIcon />
+          </IconButtonSxStyle>
         ) : (
           <ToolTipSx tooltipTitle={'Minify json'}>
-            <IconButtonSxAppBar
+            <IconButtonSxStyle
               onClick={() => {
                 setMinifyDialogOpen(true)
               }}>
-              <UnfoldLessIcon />
-            </IconButtonSxAppBar>
+              <MinifyIcon />
+            </IconButtonSxStyle>
           </ToolTipSx>
         )}
       </Box>
       <Box sx={{ position: 'relative', pr: 5 }}>
         <ToolTipSx tooltipTitle={'Close'}>
-          <IconButtonSxAppBar
+          <IconButtonSxStyle
             onClick={() => {
               setDataDrawerOpen(false)
             }}>
             <CloseIcon />
-          </IconButtonSxAppBar>
+          </IconButtonSxStyle>
         </ToolTipSx>
       </Box>
     </ButtonGroup>

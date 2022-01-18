@@ -23,7 +23,7 @@ import {
 type DTypescriptAlias = {
   data?: { [key: string]: any } | undefined
 }
-const DTypescript: React.FC<DTypescriptAlias> = ({ data }: DTypescriptAlias) => {
+const DTypescript: React.FunctionComponent<DTypescriptAlias> = ({ data }: DTypescriptAlias) => {
   const [keys, setKeys] = React.useState<string[]>([])
 
   const [currentData, setCurrentData] = React.useState<DTypescriptAlias['data']>({})
