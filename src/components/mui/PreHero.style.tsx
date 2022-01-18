@@ -2,12 +2,12 @@ import Box from '@mui/material/Box'
 import Button, { ButtonProps } from '@mui/material/Button'
 import { styled } from '@mui/material/styles'
 import Typography from '@mui/material/Typography'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence } from 'framer-motion'
 import * as React from 'react'
 import { useRecoilValue } from 'recoil'
 import { dataDrawerOpenAtom } from '../../recoil'
+import { BrandSwatch } from '../../style'
 import { DrawerIcons } from '../drawer'
-import { FadeAnimation } from '../framer-motion'
 import { SlideUpAnimation } from '../framer-motion/Slideup.animation'
 import { GithubToggle, TerminalToggle, ThemeModeToggle } from '../toggle'
 
@@ -45,6 +45,7 @@ export function PreHeroSx() {
   const dataDrawerOpen = useRecoilValue(dataDrawerOpenAtom)
 
   const [hover, setHover] = React.useState(false)
+  const [disable, setDisable] = React.useState(false)
 
   const hoverTransition = () => {
     setHover(!hover)
@@ -54,11 +55,13 @@ export function PreHeroSx() {
   const interactionTimer = React.useRef<number>()
 
   const hoverOutTransition = () => {
+    setHover(true)
+    setDisable(true)
     // restore state to pre-hover
     interactionTimer.current = window.setTimeout(() => {
-      setHover(!hover)
+      setHover(false)
+      setDisable(false)
     }, 3000)
-    return
   }
 
   return (
@@ -73,17 +76,9 @@ export function PreHeroSx() {
         <Box sx={{ gridColumn: 2, gridRow: 1, alignSelf: 'center', justifySelf: 'start' }}>
           <AnimatePresence>
             {dataDrawerOpen && (
-              <motion.div
-                key={1}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{
-                  delay: 0.5,
-                  duration: 0.5
-                }}>
+              <SlideUpAnimation startY={-90} endY={0}>
                 <DrawerIcons />
-              </motion.div>
+              </SlideUpAnimation>
             )}
           </AnimatePresence>
         </Box>
@@ -96,9 +91,9 @@ export function PreHeroSx() {
           }}>
           <AnimatePresence exitBeforeEnter>
             {!dataDrawerOpen && hover && (
-              <SlideUpAnimation startY={30} endY={0}>
-                <Typography variant='body2'>
-                  Lightweight, interactive tool that visualizes api response, infers type and
+              <SlideUpAnimation startY={30} endY={3}>
+                <Typography variant='code'>
+                  Lightweight, interactive tool that visualizes api responses, infers type and
                   accepts crud operations.
                 </Typography>
               </SlideUpAnimation>
@@ -115,8 +110,12 @@ export function PreHeroSx() {
           }}>
           <AnimatePresence exitBeforeEnter>
             {!hover && (
-              <SlideUpAnimation startY={-30} endY={0}>
-                <Typography variant='body1'>Recast</Typography>
+              <SlideUpAnimation startY={-30} endY={3}>
+                <Typography
+                  variant='code'
+                  sx={{ fontWeight: 700, fontSize: '24px', color: BrandSwatch.Dark.Green[400] }}>
+                  Recast
+                </Typography>
               </SlideUpAnimation>
             )}
           </AnimatePresence>
@@ -124,6 +123,7 @@ export function PreHeroSx() {
         <Box sx={{ gridColumn: 1, gridRow: 1, alignSelf: 'center', justifySelf: 'start' }}>
           {!dataDrawerOpen && (
             <Button
+              disabled={disable}
               disableFocusRipple
               disableRipple
               onMouseOver={hoverTransition}
@@ -141,23 +141,27 @@ export function PreHeroSx() {
           )}
         </Box>
         <Box sx={{ gridColumn: 3, gridRow: 1, placeSelf: 'center end' }}>
-          <FadeAnimation delay={0.5} duration={0.4}>
-            <Box
-              sx={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(3, 1fr)'
-              }}>
-              <Box sx={{ gridColumn: 1, placeSelf: 'center' }}>
-                <TerminalToggle />
-              </Box>
-              <Box sx={{ gridColumn: 2, placeSelf: 'center' }}>
-                <ThemeModeToggle />
-              </Box>
-              <Box sx={{ gridColumn: 3, placeSelf: 'center' }}>
-                <GithubToggle />
-              </Box>
-            </Box>
-          </FadeAnimation>
+          <AnimatePresence>
+            {!dataDrawerOpen && (
+              <SlideUpAnimation startY={-90} endY={0}>
+                <Box
+                  sx={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(3, 1fr)'
+                  }}>
+                  <Box sx={{ gridColumn: 1, placeSelf: 'center' }}>
+                    <TerminalToggle />
+                  </Box>
+                  <Box sx={{ gridColumn: 2, placeSelf: 'center' }}>
+                    <ThemeModeToggle />
+                  </Box>
+                  <Box sx={{ gridColumn: 3, placeSelf: 'center' }}>
+                    <GithubToggle />
+                  </Box>
+                </Box>
+              </SlideUpAnimation>
+            )}
+          </AnimatePresence>
         </Box>
       </Box>
     </HeaderStyle>

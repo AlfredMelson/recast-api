@@ -2,7 +2,7 @@
   "name": "recast-api",
   "version": "1.0.0",
   "private": false,
-  "description": "Lightweight, interactive tool that visualizes api response, infers type and accepts crud operations.",
+  "description": "Lightweight, interactive tool that visualizes api responses, infers type and accepts crud operations.",
   "tags": [
     "editor",
     "format",
@@ -65,7 +65,7 @@
     "@types/eslint-plugin-prettier": "^3.1.0",
     "@types/file-saver": "^2.0.5",
     "@types/lodash": "^4.14.178",
-    "@types/node": "17.0.9",
+    "@types/node": "17.0.10",
     "@types/prettier": "^2.4.3",
     "@types/react": "17.0.38",
     "@types/react-dom": "17.0.11",

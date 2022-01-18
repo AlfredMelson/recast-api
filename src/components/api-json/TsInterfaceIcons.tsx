@@ -2,11 +2,11 @@ import CheckIcon from '@mui/icons-material/Check'
 import ContentCopyIcon from '@mui/icons-material/ContentCopy'
 import DownloadIcon from '@mui/icons-material/Download'
 import Box from '@mui/material/Box'
-import { blue } from '@mui/material/colors'
 import saveAs from 'file-saver'
 import * as React from 'react'
 import { useRecoilValue } from 'recoil'
 import { userGeneratedJsonAtom } from '../../recoil'
+import { BrandSwatch } from '../../style'
 import { SxCircularProgress } from '../action/SxCircularProgress'
 import { ButtonGroupSxTsInterface } from '../mui/ButtonGroup.style'
 import { IconButtonSxTsInterface } from '../mui/IconButton.style'
@@ -93,11 +93,18 @@ export function TsInterfaceIcons() {
             ) : !successCopy ? (
               <ContentCopyIcon sx={{ color: 'transparent' }} />
             ) : (
-              <CheckIcon sx={{ color: blue[500] }} />
+              <CheckIcon
+                sx={{
+                  color: theme =>
+                    theme.palette.mode === 'dark'
+                      ? BrandSwatch.Dark.Green[600]
+                      : BrandSwatch.Light.Green[300]
+                }}
+              />
             )}
           </IconButtonSxTsInterface>
         </ToolTipSx>
-        {loadingCopy && <SxCircularProgress size='20px' color='blue' />}
+        {loadingCopy && <SxCircularProgress size='20px' color='green' />}
       </Box>
       <Box sx={{ position: 'relative', pl: 5 }}>
         <ToolTipSx tooltipTitle={'Download interface'}>
@@ -107,11 +114,18 @@ export function TsInterfaceIcons() {
             ) : !successDownload ? (
               <DownloadIcon sx={{ color: 'transparent' }} />
             ) : (
-              <CheckIcon sx={{ color: blue[500] }} />
+              <CheckIcon
+                sx={{
+                  color: theme =>
+                    theme.palette.mode === 'dark'
+                      ? BrandSwatch.Dark.Green[600]
+                      : BrandSwatch.Light.Green[300]
+                }}
+              />
             )}
           </IconButtonSxTsInterface>
         </ToolTipSx>
-        {loadingDownload && <SxCircularProgress size='20px' color='blue' />}
+        {loadingDownload && <SxCircularProgress size='20px' color='green' />}
       </Box>
     </ButtonGroupSxTsInterface>
   )

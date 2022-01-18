@@ -1,4 +1,3 @@
-import CheckIcon from '@mui/icons-material/Check'
 import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
@@ -7,6 +6,7 @@ import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil'
 import { currentApiStateAtom, selectedApiSelector } from '../../../recoil'
 import { BrandSwatch } from '../../../style'
 import { SxCircularProgress } from '../../action'
+import { CheckIcon } from '../../icons'
 import { ButtonSxStyle, CardSx } from '../../mui'
 
 export default function DataFetch() {
@@ -95,33 +95,21 @@ export default function DataFetch() {
                 {currentApiState === null ? 'Fetch' : 'Refetch'}
               </Typography>
             ) : (
-              successSubmit && <CheckIcon sx={{ color: BrandSwatch.Light.Blue[400] }} />
+              successSubmit && (
+                <CheckIcon
+                  sx={{
+                    color: theme =>
+                      theme.palette.mode === 'dark'
+                        ? BrandSwatch.Dark.Green[600]
+                        : BrandSwatch.Light.Green[300]
+                  }}
+                />
+              )
             )}
           </ButtonSxStyle>
-          {submitting && <SxCircularProgress size='20px' color='blue' />}
+          {submitting && <SxCircularProgress size='20px' color='green' />}
         </Box>
       </Stack>
     </CardSx>
   )
 }
-
-// <Box sx={{ position: 'relative' }}>
-//   {selectedApi === undefined ? (
-//     <ButtonSxStyle aria-label='disbaled fetch api' disabled={true} onClick={handleDataFetching}>
-//       <Typography variant='body2' sx={{ color: theme => theme.palette.text.disabled }}>
-//         Enter url ...
-//       </Typography>
-//     </ButtonSxStyle>
-//   ) : (
-//     <ButtonSxStyle aria-label='fetch api' disabled={!diableUI} onClick={handleDataFetching}>
-//       {!submitting && !successSubmit ? (
-//         <Typography variant='button'>
-//           {Object.getOwnPropertyNames(axiosResponse).length === 0 ? 'Fetch' : 'Refetch'}
-//         </Typography>
-//       ) : (
-//         successSubmit && <CheckIcon sx={{ color: BrandSwatch.Light.Blue[400] }} />
-//       )}
-//     </ButtonSxStyle>
-//   )}
-//   {submitting && <SxCircularProgress size='20px' color='blue' />}
-// </Box>

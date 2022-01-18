@@ -15,10 +15,10 @@ export function TerminalToggle() {
           <TerminalIcon />
         </IconButtonSxStyle>
       ) : (
-        <ToolTipSx tooltipTitle={dataDrawerOpen ? 'close Terminal' : 'open Terminal'}>
+        <ToolTipSx tooltipTitle={dataDrawerOpen ? 'Close terminal' : 'Open terminal'}>
           <IconButtonSxStyle
             onClick={() => {
-              setDataDrawerOpen(!dataDrawerOpen)
+              setDataDrawerOpen(true)
             }}>
             <TerminalIcon />
           </IconButtonSxStyle>

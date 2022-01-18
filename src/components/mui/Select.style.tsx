@@ -29,7 +29,10 @@ const SelectSxStyle = styled(
   },
   '&.Mui-focused ': {
     color: theme.palette.text.primary,
-    backgroundColor: alpha(BrandSwatch.Light.Blue[400], 0.2),
+    backgroundColor:
+      theme.palette.mode === 'dark'
+        ? alpha(BrandSwatch.Dark.Grey[600], 0.8)
+        : alpha(BrandSwatch.Light.Grey[300], 0.6),
     borderRadius: 3
   },
   '&.Mui-selected': {

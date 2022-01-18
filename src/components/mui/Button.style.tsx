@@ -32,10 +32,17 @@ export const ButtonSxStyle = styled(
     duration: theme.transitions.duration.standard,
     easing: theme.transitions.easing.easeInOut
   }),
-  '&:hover, &.Mui-focused ': {
+  '&:hover': {
     color: theme.palette.text.primary,
     backgroundColor:
       theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[700] : BrandSwatch.Light.Grey[200]
+  },
+  '&.Mui-focused ': {
+    color: theme.palette.text.primary,
+    backgroundColor:
+      theme.palette.mode === 'dark'
+        ? alpha(BrandSwatch.Dark.Grey[600], 0.8)
+        : alpha(BrandSwatch.Light.Grey[300], 0.6)
   },
   '&.Mui-disabled': {
     backgroundColor:

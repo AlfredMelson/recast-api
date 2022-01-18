@@ -79,12 +79,13 @@ export function ApiTabs() {
   const setApiTabSelected = useSetRecoilState(apiTabSelectedAtom)
 
   const currentApiQuery = useRecoilValue(currentApiQuerySelector)
+  console.log('currentApiQuery', currentApiQuery)
 
   const ApiTabPanel: ApiTabPanelAlias[] = [
     { index: 0, panel: <DataResponse data={currentApiQuery?.data} /> },
     {
       index: 1,
-      panel: <EditResponse data={currentApiQuery?.data} onDelete={DeleteObj} onEdit={EditObj} />
+      panel: <EditResponse data={currentApiQuery} onDelete={DeleteObj} onEdit={EditObj} />
     },
     { index: 2, panel: <FullResponse data={currentApiQuery} /> },
     { index: 3, panel: <DataHeaders data={currentApiQuery?.headers} /> },
@@ -103,7 +104,7 @@ export function ApiTabs() {
 
   return (
     <>
-      {currentApiQuery && (
+      {currentApiQuery !== undefined && (
         <Box sx={{ mt: 30 }}>
           <TabWrapperSx
             key={local.pathname}

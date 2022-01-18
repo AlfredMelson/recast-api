@@ -39,7 +39,7 @@ export const currentApiStateAtom = atom<string | null>({
  * Utilise useRecoilValue hook to notify components subscribing to re-render.
  *
  */
-const apiQuerySelector = selectorFamily({
+export const apiQuerySelector = selectorFamily({
   key: 'apiQuery',
   get: url => async () => {
     const response = await fetchAxios(url)
@@ -49,6 +49,7 @@ const apiQuerySelector = selectorFamily({
     //   throw response.error
     // }
     //
+
     return response
   }
 })
@@ -72,16 +73,7 @@ export const currentApiQuerySelector = selector({
  * Utilise useRecoilValue hook to notify components subscribing to re-render.
  *
  */
-// type fetchAxiosAlias = {
-//   url:
-//     | string
-//     | number
-//     | boolean
-//     | symbol
-//     | { toJSON: () => string }
-//     | readonly SerializableParam[]
-//     | Readonly<{ [key: string]: SerializableParam }>
-// }
+
 async function fetchAxios(url) {
   if (url === null) {
     return
@@ -94,18 +86,4 @@ async function fetchAxios(url) {
       console.error(error)
     }
   }
-
-  // axios
-  //   .get(url)
-  //   .then(function (response) {
-  //     // handle success
-  //     console.log(response)
-  //   })
-  //   .catch(function (error) {
-  //     // handle error
-  //     console.log(error)
-  //   })
-  //   .then(function () {
-  //     // always executed
-  //   })
 }
