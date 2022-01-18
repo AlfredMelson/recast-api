@@ -22,6 +22,7 @@ export default function DataFetch() {
   // console.log('axiosResponse', axiosResponse)
 
   // return a callback to clear cache
+  const resetCurrentApiState = useResetRecoilState(currentApiStateAtom)
   // const refreshApiQuery = useRecoilRefresher_UNSTABLE(currentApiQuerySelector)
 
   // useRef to avoid re-renders during button handler
@@ -34,6 +35,7 @@ export default function DataFetch() {
 
   // handle submission of user typed url
   const handleDataFetching = () => {
+    resetCurrentApiState()
     if (!submitting) {
       setSuccessfulSubmit(false)
       setSubmitting(true)
@@ -78,6 +80,7 @@ export default function DataFetch() {
           onClick={event => {
             event.preventDefault()
             resetSelectedApi()
+            resetCurrentApiState()
           }}
           disabled={selectedApi.length === 0}>
           <Typography variant='button'>Clear</Typography>
@@ -85,7 +88,7 @@ export default function DataFetch() {
         <Box sx={{ position: 'relative' }}>
           <ButtonSxStyle
             aria-label='fetch api'
-            disabled={selectedApi === undefined}
+            disabled={selectedApi === ''}
             onClick={handleDataFetching}>
             {!submitting && !successSubmit ? (
               <Typography variant='button'>

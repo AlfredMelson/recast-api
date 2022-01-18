@@ -4,7 +4,6 @@ import * as React from 'react'
 import { useLocation } from 'react-router-dom'
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
 import { ApiTabDataAlias, ApiTabPanelAlias } from '../../cms'
-import { ErrorBoundary } from '../../lib'
 import {
   DataHeaders,
   DataResponse,
@@ -103,7 +102,7 @@ export function ApiTabs() {
   ]
 
   return (
-    <ErrorBoundary>
+    <>
       {currentApiQuery && (
         <Box sx={{ mt: 30 }}>
           <TabWrapperSx
@@ -134,6 +133,6 @@ export function ApiTabs() {
           </PanelStyle>
         </Box>
       )}
-    </ErrorBoundary>
+    </>
   )
 }

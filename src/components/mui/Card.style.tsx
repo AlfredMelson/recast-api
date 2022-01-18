@@ -44,12 +44,14 @@ const HeroSxStyle = styled(Card, { name: 'HeroSx', slot: 'style' })(({ theme }) 
 
 const HeroContentSxStyle = styled(CardContent, { name: 'HeroContentSx', slot: 'style' })(
   ({ theme }) => ({
-    padding: theme.spacing(20)
+    padding: theme.spacing(0, 20, 20)
   })
 )
+
 type HeroSxAlias = {
   children: React.ReactNode
 }
+
 export function HeroSx({ children }: HeroSxAlias) {
   return (
     <FadeUpAnimation>
