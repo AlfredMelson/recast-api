@@ -5,6 +5,8 @@ import { styled } from '@mui/material/styles'
 
 const CardSxStyle = styled(Card, { name: 'Card', slot: 'style' })(({ theme }) => ({
   backgroundColor: theme.palette.background.default,
+  boxShadow:
+    theme.palette.mode === 'dark' ? 'none' : 'inset 1px 1px 2px 0px rgba(0, 0, 0, 0.20) !important',
   [theme.breakpoints.down('sm')]: {
     display: { xs: 'block', sm: 'block', md: 'inline', lg: 'inline' },
     width: '100%'

@@ -35,7 +35,7 @@ const InputBaseSxStyle = styled(
     backgroundColor:
       theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[700] : BrandSwatch.Light.Grey[200]
   },
-  '&.Mui-focused ': {
+  '&.Mui-focused': {
     color: theme.palette.text.primary,
     backgroundColor:
       theme.palette.mode === 'dark'

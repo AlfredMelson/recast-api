@@ -1,4 +1,7 @@
 import Box from '@mui/material/Box'
+import Paper, { PaperProps } from '@mui/material/Paper'
+import { styled } from '@mui/material/styles'
+import { AnimatePresence } from 'framer-motion'
 import _ from 'lodash'
 import * as React from 'react'
 import { useLocation } from 'react-router-dom'
@@ -18,8 +21,9 @@ import {
   currentApiQuerySelector,
   userToggledApiAtom
 } from '../../recoil'
+import { BrandSwatch } from '../../style'
 import { SvgTsLogoDtype } from '../icons'
-import { PanelStyle, TabSx, TabWrapperSx } from '../mui'
+import { TabSx, TabWrapperSx } from '../mui'
 
 type TabPanelAlias = {
   index: number
@@ -29,14 +33,15 @@ type TabPanelAlias = {
 
 function TabPanel({ children, value, index, ...other }: TabPanelAlias) {
   return (
-    <div
+    <Box
+      component='div'
       role='tabpanel'
       hidden={value !== index}
       id={`apijson-tabpanel-${index}`}
       aria-labelledby={`apijson-tab-${index}`}
       {...other}>
       {value === index && children}
-    </div>
+    </Box>
   )
 }
 
@@ -124,15 +129,32 @@ export function ApiTabs() {
               />
             ))}
           </TabWrapperSx>
-          <PanelStyle>
-            {ApiTabPanel.map(({ index, panel }) => (
-              <TabPanel key={index} value={value} index={index}>
-                {panel}
-              </TabPanel>
-            ))}
-          </PanelStyle>
+          <PaperSxStyle>
+            <PanelWrapper>
+              <AnimatePresence>
+                {ApiTabPanel.map(({ index, panel }) => (
+                  <TabPanel key={index} value={value} index={index}>
+                    {panel}
+                  </TabPanel>
+                ))}
+              </AnimatePresence>
+            </PanelWrapper>
+          </PaperSxStyle>
         </Box>
       )}
     </>
   )
 }
+
+const PanelWrapper = styled('div')(() => ({
+  position: 'relative',
+  overflow: 'hidden'
+}))
+
+const PaperSxStyle = styled((props?: PaperProps) => <Paper elevation={2} {...props} />, {
+  name: 'Paper',
+  slot: 'style'
+})(({ theme }) => ({
+  backgroundColor:
+    theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[700] : BrandSwatch.Light.Grey[200]
+}))

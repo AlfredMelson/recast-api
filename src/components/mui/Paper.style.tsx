@@ -1,16 +1,16 @@
 import { SxProps } from '@mui/material'
-import Paper from '@mui/material/Paper'
+import Paper, { PaperProps } from '@mui/material/Paper'
 import { styled } from '@mui/material/styles'
 import * as React from 'react'
-import { useRecoilValue } from 'recoil'
-import { apiTabSelectedAtom } from '../../recoil'
-import { BrandSwatch } from '../../style'
-import { FadeAnimation } from '../framer-motion'
+import { NewFadeUpAnimation } from '../framer-motion'
 
-const PaperSxStyle = styled(Paper, { name: '', slot: '' })(({ theme }) => ({
+const PaperSxStyle = styled((props?: PaperProps) => <Paper elevation={2} {...props} />, {
+  name: 'Paper',
+  slot: 'style'
+})(({ theme }) => ({
   padding: theme.spacing(30, 0, 30, 50),
-  backgroundColor:
-    theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[700] : BrandSwatch.Light.Grey[300],
+  backgroundColor: 'transparent',
+
   maxHeight: 'calc(100vh - 539px )',
   overflowX: 'hidden',
   overflowY: 'scroll'
@@ -23,12 +23,11 @@ type PaperSxAlias = {
 }
 
 export const PaperSx = ({ children, onClick, ...props }: PaperSxAlias) => {
-  const apiTabSelected = useRecoilValue(apiTabSelectedAtom)
   return (
-    <FadeAnimation layoutId={apiTabSelected}>
+    <NewFadeUpAnimation>
       <PaperSxStyle onClick={onClick} {...props}>
         {children}
       </PaperSxStyle>
-    </FadeAnimation>
+    </NewFadeUpAnimation>
   )
 }

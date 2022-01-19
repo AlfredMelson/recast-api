@@ -23,7 +23,7 @@ const TabSxStyle = styled(
       {...props}
     />
   ),
-  { name: '', slot: '' }
+  { name: 'Tab', slot: 'style' }
 )(({ theme }) => ({
   ...theme.typography.body2,
   textTransform: 'none',
@@ -44,8 +44,9 @@ type TabSxAlias = {
 
 export const TabSx = ({ label, disabled, onClick, icon, iconPosition, ...props }: TabSxAlias) => {
   return (
-    <motion.div initial={{ x: 0 }} animate={{ x: 20 }}>
+    <motion.div initial={{ x: 0 }} animate={{ x: 20 }} style={{ marginRight: '4px' }}>
       <TabSxStyle
+        sx={{ boxShadow: 2 }}
         label={label}
         disabled={disabled}
         onClick={onClick}

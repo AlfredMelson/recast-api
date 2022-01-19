@@ -15,11 +15,7 @@ export function BrandThemedComponents(theme: Theme) {
         text: {
           fontWeight: theme.palette.mode === 'dark' ? 400 : 600
         }, // Styles applied to the root element if variant="text"
-        outlined: {
-          fontWeight: theme.palette.mode === 'dark' ? 400 : 600,
-          backgroundColor:
-            theme.palette.mode === 'dark' ? BrandSwatch.Dark.Blue[800] : BrandSwatch.Light.Blue[400]
-        }, // Styles applied to the root element if variant="outlined"
+        outlined: {}, // Styles applied to the root element if variant="outlined"
         contained: {}, // Styles applied to the root element if variant="contained"
         disabled: {}, // State class applied to the root element if disabled={true}
         sizeMedium: {} // State class applied to the root element if disabled={true}
@@ -79,7 +75,7 @@ export function BrandThemedComponents(theme: Theme) {
           title: {
             ...theme.typography.body2
           }, // Styles applied to the title Typography element
-          subheader: {} // 	Styles applied to the subheader Typography element
+          subheader: {} // Styles applied to the subheader Typography element
         }
       },
       MuiContainer: {
@@ -115,8 +111,8 @@ export function BrandThemedComponents(theme: Theme) {
         },
         styleOverrides: {
           root: {}, // Styles applied to the root element
-          paperAnchorTop: { boxShadow: 'none' }, // Styles applied to the Paper component if anchor="top"
-          paper: { backgroundColor: 'transparent', backgroundImage: 'none' } // Styles applied to the Paper component
+          // paperAnchorTop: { boxShadow: 'none' }, // Styles applied to the Paper component if anchor="top"
+          paper: { backgroundColor: 'transparent', backgroundImage: 'none', boxShadow: 'none' } // Styles applied to the Paper component
         }
       },
       MuiFormControl: {
@@ -142,14 +138,11 @@ export function BrandThemedComponents(theme: Theme) {
             transition: theme.transitions.create(['all'], {
               duration: theme.transitions.duration.standard,
               easing: theme.transitions.easing.easeInOut
-            }),
-            '&:hover, &.Mui-focused': {
-              color:
-                theme.palette.mode === 'dark'
-                  ? BrandSwatch.Dark.Grey[50]
-                  : BrandSwatch.Light.Grey[900],
-              backgroundColor: 'transparent'
-            }
+            })
+            // '&:hover, &.Mui-focused': {
+            //   color: theme.palette.text.primary,
+            //   backgroundColor: 'transparent'
+            // }
           }, // Styles applied to the root element
           disabled: {}, // State class applied to the root element if disabled={true}
           label: { fontSize: 16 } // Styles applied to the label's Typography component
@@ -185,9 +178,13 @@ export function BrandThemedComponents(theme: Theme) {
         }
       },
       MuiInputBase: {
-        defaultProps: {},
+        defaultProps: {
+          // size: 'small',
+          // fullWidth: true,
+          // disableUnderline: true
+        },
         styleOverrides: {
-          root: {}, // 	Styles applied to the root element
+          root: {}, // Styles applied to the root element
           formControl: {}, // Styles applied to the root element if the component is a descendant of FormControl
           focused: {}, // Styles applied to the root element if the component is focused
           disabled: {}, // Styles applied to the root element if disabled={true}
@@ -228,7 +225,7 @@ export function BrandThemedComponents(theme: Theme) {
       MuiMenu: {
         defaultProps: {},
         styleOverrides: {
-          root: {}, // 	Styles applied to the root element
+          root: {}, // Styles applied to the root element
           paper: {}, // Styles applied to the Paper component
           list: {
             paddingTop: 0,
@@ -250,9 +247,28 @@ export function BrandThemedComponents(theme: Theme) {
               backgroundColor:
                 theme.palette.mode === 'dark'
                   ? BrandSwatch.Dark.Grey[700]
-                  : BrandSwatch.Light.Grey[200]
+                  : BrandSwatch.Light.Grey[300]
+            },
+            '&.Mui-focused': {
+              backgroundColor:
+                theme.palette.mode === 'dark'
+                  ? BrandSwatch.Dark.Grey[600]
+                  : BrandSwatch.Light.Grey[400]
+            },
+            '&.Mui-selected': {
+              cursor: 'default',
+              backgroundColor:
+                theme.palette.mode === 'dark'
+                  ? BrandSwatch.Dark.Grey[600]
+                  : BrandSwatch.Light.Grey[400],
+              '&:hover': {
+                backgroundColor:
+                  theme.palette.mode === 'dark'
+                    ? BrandSwatch.Dark.Grey[600]
+                    : BrandSwatch.Light.Grey[300]
+              }
             }
-          }, // 	Styles applied to the root element
+          }, // Styles applied to the root element
           focusVisible: {}, // State class applied to the root element if keyboard focused
           dense: {}, // Styles applied to the root element if dense
           disabled: {}, // State class applied to the root element if disabled={true}
@@ -263,20 +279,10 @@ export function BrandThemedComponents(theme: Theme) {
       },
       MuiOutlinedInput: {
         defaultProps: {},
-        styleOverrides: {
-          input: {
-            '&:-webkit-autofill': {
-              webkitBoxShadow: '0 0 0 100px #1f2428 inset',
-              borderRadius: 'none'
-            }
-          }
-        }
+        styleOverrides: {}
       },
       MuiPaper: {
-        defaultProps: {
-          elevation: 0
-          // variant: 'elevation',
-        },
+        defaultProps: {},
         styleOverrides: {
           root: {}, // Styles applied to the root element
           rounded: {}, // Styles applied to the root element unless square={true}
@@ -288,7 +294,7 @@ export function BrandThemedComponents(theme: Theme) {
         defaultProps: {},
         styleOverrides: {
           root: {}, // Styles applied to the root element
-          paper: {} // Styles applied to the root element unless square={true}
+          paper: { marginLeft: '-10px' } // Styles applied to the root element unless square={true}
         }
       },
       MuiRadio: {
@@ -405,14 +411,6 @@ export function BrandThemedComponents(theme: Theme) {
           }
         }
       },
-      // MuiStack: {
-      //   defaultProps: {
-      //     spacing: 20,
-      //     direction: { sm: 'column', md: 'row' },
-      //     justifyContent: { sm: 'center', md: 'flex-start' },
-      //     alignItems: { sm: 'flex-start', md: 'center' }
-      //   }
-      // },
       MuiTab: {
         defaultProps: {
           disableFocusRipple: true,
@@ -432,7 +430,9 @@ export function BrandThemedComponents(theme: Theme) {
       },
       MuiTabs: {
         defaultProps: {},
-        styleOverrides: {}
+        styleOverrides: {
+          indicator: { backgroundColor: 'transparent' }
+        }
       },
       MuiTableCell: {
         defaultProps: {},

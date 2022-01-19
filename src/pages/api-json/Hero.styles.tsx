@@ -14,12 +14,12 @@ export const HeroTypography = styled(
   margin: theme.spacing(20, 0, 10, 10)
 }))
 
-const HeroSxStyle = styled(Card, { name: 'HeroSx', slot: 'style' })(({ theme }) => ({
+const HeroSxStyle = styled(Card, { name: 'Hero', slot: 'style' })(({ theme }) => ({
   backgroundColor:
     theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[800] : BrandSwatch.Light.Grey[200]
 }))
 
-const HeroContentSxStyle = styled(CardContent, { name: 'HeroContentSx', slot: 'style' })(
+const HeroContentSxStyle = styled(CardContent, { name: 'HeroContent', slot: 'style' })(
   ({ theme }) => ({
     padding: theme.spacing(0, 20, 20)
   })

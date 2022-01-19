@@ -1,19 +1,11 @@
 import { motion } from 'framer-motion'
 import * as React from 'react'
 
-type FadeAnimationAlias = {
+type NewFadeAnimationAlias = {
   children: React.ReactNode
-  layoutId?: string
-  delay?: number
-  duration?: number
 }
 
-export const FadeAnimation = ({
-  children,
-  layoutId,
-  delay,
-  duration = 0.5
-}: FadeAnimationAlias) => {
+export const NewFadeUpAnimation = ({ children }: NewFadeAnimationAlias) => {
   const animations = {
     initial: { opacity: 0 },
     animate: { opacity: 1 },
@@ -22,15 +14,14 @@ export const FadeAnimation = ({
 
   return (
     <motion.div
-      layoutId={layoutId}
       variants={animations}
       initial='initial'
       animate='animate'
       exit='exit'
       transition={{
         ease: 'easeInOut',
-        delay: delay,
-        duration: duration
+        delay: 0.2,
+        duration: 0.2
       }}>
       {children}
     </motion.div>
