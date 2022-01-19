@@ -2,38 +2,148 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Typed JSON Visualizer</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <link rel="icon" href="%PUBLIC_URL%favicon-196.png" />
+    <title>Recast | Api Visualizer</title>
+    <meta name="viewport" content="initial-scale=1, viewport-fit=cover, user-scalable=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="description" content="Interactive Api Visualizer" />
+    <meta property="og:image" content="apple-icon-180x180.png" />
+    <meta property="og:title" content="Recast" />
     <meta
-      content="Typed JSON Editor and Visualizer, enabling JSON table visualization."
-      name="description"
-    />
-    <meta property="og:title" content="Typed JSON Editor and Visualizer" />
+      property="og:description"
+      content="Lightweight, interactive tool that visualizes api responses, infers type and accepts crud operations." />
+    <meta property="og:site_name" content="Recast" />
+    <meta property="og:title" content="Recast" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://alfredmelson.github.io/typed-json-visualizer/" />
-    <meta property="og:description" content="Typed JSON Editor and Visualizer" />
-    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
-    <meta name="theme-color" content="#000000" />
-    <link rel="canonical" href="https://alfredmelson.github.io/typed-json-visualizer/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400&display=swap"
-    />
-    <!-- <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" /> -->
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet" />
+    <!-- <meta name="theme-color" content="#000000" /> -->
+    <!-- <link rel="canonical" href="https://github.com/AlfredMelson/recast-api.git" /> -->
+
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180.jpg" />
+    <link
+      rel="apple-touch-startup-image"
+      href="apple-splash-dark-2048-2732.jpg"
+      media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link
+      rel="apple-touch-startup-image"
+      href="apple-splash-dark-2732-2048.jpg"
+      media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link
+      rel="apple-touch-startup-image"
+      href="apple-splash-dark-1668-2388.jpg"
+      media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link
+      rel="apple-touch-startup-image"
+      href="apple-splash-dark-2388-1668.jpg"
+      media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link
+      rel="apple-touch-startup-image"
+      href="apple-splash-dark-1536-2048.jpg"
+      media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link
+      rel="apple-touch-startup-image"
+      href="apple-splash-dark-2048-1536.jpg"
+      media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link
+      rel="apple-touch-startup-image"
+      href="apple-splash-dark-1668-2224.jpg"
+      media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link
+      rel="apple-touch-startup-image"
+      href="apple-splash-dark-2224-1668.jpg"
+      media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link
+      rel="apple-touch-startup-image"
+      href="apple-splash-dark-1620-2160.jpg"
+      media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link
+      rel="apple-touch-startup-image"
+      href="apple-splash-dark-2160-1620.jpg"
+      media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link
+      rel="apple-touch-startup-image"
+      href="apple-splash-dark-1284-2778.jpg"
+      media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link
+      rel="apple-touch-startup-image"
+      href="apple-splash-dark-2778-1284.jpg"
+      media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link
+      rel="apple-touch-startup-image"
+      href="apple-splash-dark-1170-2532.jpg"
+      media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link
+      rel="apple-touch-startup-image"
+      href="apple-splash-dark-2532-1170.jpg"
+      media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link
+      rel="apple-touch-startup-image"
+      href="apple-splash-dark-1125-2436.jpg"
+      media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link
+      rel="apple-touch-startup-image"
+      href="apple-splash-dark-2436-1125.jpg"
+      media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link
+      rel="apple-touch-startup-image"
+      href="apple-splash-dark-1242-2688.jpg"
+      media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link
+      rel="apple-touch-startup-image"
+      href="apple-splash-dark-2688-1242.jpg"
+      media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link
+      rel="apple-touch-startup-image"
+      href="apple-splash-dark-828-1792.jpg"
+      media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link
+      rel="apple-touch-startup-image"
+      href="apple-splash-dark-1792-828.jpg"
+      media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link
+      rel="apple-touch-startup-image"
+      href="apple-splash-dark-1242-2208.jpg"
+      media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link
+      rel="apple-touch-startup-image"
+      href="apple-splash-dark-2208-1242.jpg"
+      media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link
+      rel="apple-touch-startup-image"
+      href="apple-splash-dark-750-1334.jpg"
+      media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link
+      rel="apple-touch-startup-image"
+      href="apple-splash-dark-1334-750.jpg"
+      media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link
+      rel="apple-touch-startup-image"
+      href="apple-splash-dark-640-1136.jpg"
+      media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link
+      rel="apple-touch-startup-image"
+      href="apple-splash-dark-1136-640.jpg"
+      media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="manifest" href="manifest.json" />
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
       Only files inside the `public` folder can be referenced from the HTML.
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      Unlike "/favicon.ico" or "favicon.ico", "favicon.ico" will
       work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
+      Learn how to configure a non-root public URL by running `yarn build`.
     -->
-    <title>React App</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

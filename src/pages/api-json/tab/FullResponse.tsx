@@ -1,14 +1,12 @@
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
-import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight'
 import Box from '@mui/material/Box'
 import { blue, green, grey, red } from '@mui/material/colors'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import { motion } from 'framer-motion'
 import * as React from 'react'
-import { IconButtonSxDataIcon } from '../../../components/mui'
-import { PaperSx } from '../../../components/mui/Paper.style'
-import { ErrorBoundary } from '../../../lib/ErrorBoundary'
+import { ArrowDownIcon, ArrowRightIcon } from '../../../components/icons'
+import { IconButtonSxDataIcon, PaperSx } from '../../../components/mui'
+import { ErrorBoundary } from '../../../lib'
 import {
   ApiArrayAlias,
   ApiBooleanAlias,
@@ -102,7 +100,7 @@ function JsonArray({ value, dataKey }: ApiArrayAlias) {
       return (
         <Stack direction='row'>
           <IconButtonSxDataIcon onClick={toggleArray}>
-            <KeyboardArrowRightIcon />
+            <ArrowRightIcon />
           </IconButtonSxDataIcon>
           <Typography variant='code'>
             <Box>
@@ -120,7 +118,7 @@ function JsonArray({ value, dataKey }: ApiArrayAlias) {
     return (
       <Stack direction='row' alignItems='flex-start'>
         <IconButtonSxDataIcon onClick={toggleArray}>
-          <KeyboardArrowDownIcon />
+          <ArrowDownIcon />
         </IconButtonSxDataIcon>
         <Typography variant='code' sx={{ color: blue[500] }}>
           {dataKey}
@@ -196,7 +194,7 @@ function JsonObject({ value, dataKey }: ApiObjectAlias) {
         <React.Fragment>
           <Stack direction='row' sx={{ ml: -16 }}>
             <IconButtonSxDataIcon onClick={toggleObj}>
-              <KeyboardArrowDownIcon />
+              <ArrowDownIcon />
             </IconButtonSxDataIcon>
             <Typography variant='code'>{dataKey}</Typography>
           </Stack>
@@ -206,7 +204,7 @@ function JsonObject({ value, dataKey }: ApiObjectAlias) {
     return (
       <Stack direction='row' sx={{ ml: -16 }}>
         <IconButtonSxDataIcon onClick={toggleObj}>
-          <KeyboardArrowRightIcon />
+          <ArrowRightIcon />
         </IconButtonSxDataIcon>
         <Typography variant='code' sx={{ color: blue[500] }}>
           {keys.length === 0 ? (

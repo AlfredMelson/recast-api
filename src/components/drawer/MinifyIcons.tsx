@@ -1,14 +1,11 @@
-import CheckIcon from '@mui/icons-material/Check'
-import CloseIcon from '@mui/icons-material/Close'
-import ContentCopyIcon from '@mui/icons-material/ContentCopy'
-import DownloadIcon from '@mui/icons-material/Download'
 import Box from '@mui/material/Box'
 import { saveAs } from 'file-saver'
 import * as React from 'react'
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
 import { minifiedTextAtom, minifyDialogOpenAtom, userGeneratedJsonAtom } from '../../recoil'
 import { BrandSwatch } from '../../style'
-import { SxCircularProgress } from '../action/SxCircularProgress'
+import { SxCircularProgress } from '../action'
+import { CheckIcon, CloseIcon, CopyIcon, DownloadIcon } from '../icons'
 import { ButtonGroupSx, IconButtonSxStyle, ToolTipSx } from '../mui'
 
 export function MinifyIcons() {
@@ -108,9 +105,9 @@ export function MinifyIcons() {
             data-clipboard-target='#minified-json-data'
             onClick={handleMinifyCopy}>
             {!loadingCopy && !successCopy ? (
-              <ContentCopyIcon />
+              <CopyIcon />
             ) : !successCopy ? (
-              <ContentCopyIcon sx={{ color: 'transparent' }} />
+              <CopyIcon sx={{ color: 'transparent' }} />
             ) : (
               <CheckIcon
                 sx={{

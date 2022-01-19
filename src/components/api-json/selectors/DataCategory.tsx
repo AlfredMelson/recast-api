@@ -24,8 +24,8 @@ export default function DataCategorySelector() {
   return (
     <Box component='div'>
       {dataSource !== '' && (
-        <CardSx title='Data'>
-          <FormControl>
+        <CardSx title='Category'>
+          <FormControl fullWidth>
             <SelectSx id='provider-url-selector' value={dataCategory} onChange={handleChange}>
               {categoryByProvider.map(item => (
                 <MenuItem key={item.index} value={item.url}>

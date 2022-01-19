@@ -67,7 +67,7 @@ export const BrandDesignTokens = (mode: 'dark' | 'light') =>
         },
         text: {
           primary: BrandSwatch.Dark.White[50],
-          secondary: BrandSwatch.Dark.Grey[50],
+          secondary: BrandSwatch.Dark.Grey[100],
           disabled: BrandSwatch.Dark.Grey[400]
         },
         divider: BrandSwatch.Dark.Grey[500],
@@ -296,7 +296,7 @@ export const BrandDesignTokens = (mode: 'dark' | 'light') =>
         fontFamily: ['"Fira Code"', '"monospace"'].join(','),
         letterSpacing: 0,
         lineHeight: 1.7
-      }
+      } // Fira code available fontWeights: 300, 400, 500, 600, 700
     },
     transitions: {
       duration: {

@@ -1,9 +1,8 @@
-import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight'
 import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import * as React from 'react'
-import { ApiDeleteIcon } from '../../../components/icons'
+import { ApiDeleteIcon, ArrowRightIcon } from '../../../components/icons'
 import { IconButtonSxApiIcons } from '../../../components/mui'
 import { BrandSwatch } from '../../../style'
 import { ApiObjectAlias, getType } from './typeAliases'
@@ -58,7 +57,7 @@ export function ApiObject({ value, dataKey, dataType, onDelete }: ApiObjectAlias
           transform: col ? 'rotate(90deg)' : 'rotate(0deg)',
           mr: 10
         }}>
-        <KeyboardArrowRightIcon />
+        <ArrowRightIcon />
       </IconButtonSxApiIcons>
     )
   }
@@ -122,7 +121,7 @@ export function ApiObject({ value, dataKey, dataType, onDelete }: ApiObjectAlias
 {
   /* <Stack direction='row'>
           <IconButtonSxApiIcons onClick={toggleObj}>
-            <KeyboardArrowRightIcon />
+            <ArrowRightIcon />
           </IconButtonSxApiIcons>
           <Typography variant='code'>&#34;{dataKey}&#34;&#58;&nbsp;</Typography>
           <Stack direction='row'>

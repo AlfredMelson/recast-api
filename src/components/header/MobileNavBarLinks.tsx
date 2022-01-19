@@ -1,4 +1,3 @@
-import KeyboardArrowDownRounded from '@mui/icons-material/KeyboardArrowDownRounded'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import ClickAwayListener from '@mui/material/ClickAwayListener'
@@ -7,7 +6,7 @@ import IconButton from '@mui/material/IconButton'
 import { styled } from '@mui/material/styles'
 import Typography from '@mui/material/Typography'
 import * as React from 'react'
-import { SvgHamburgerMenu } from '../icons'
+import { ArrowDownIcon, SvgHamburgerMenu } from '../icons'
 
 const Anchor = styled('a')<{ component?: React.ElementType; noLinkStyle?: boolean }>(
   ({ theme }) => ({
@@ -123,7 +122,7 @@ export function MobileNavBarLinks() {
                   onClick={() => setProductsOpen(bool => !bool)}
                   sx={{ justifyContent: 'space-between' }}>
                   Products
-                  <KeyboardArrowDownRounded
+                  <ArrowDownIcon
                     color='primary'
                     sx={{
                       transition: '0.3s',

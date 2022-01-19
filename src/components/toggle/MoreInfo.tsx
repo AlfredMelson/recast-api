@@ -1,11 +1,11 @@
-import MoreVertIcon from '@mui/icons-material/MoreVert'
+import { MoreVertIcon } from '../icons'
 import { IconButtonSxStyle, ToolTipSx } from '../mui'
 
 export function MoreInfoToggle() {
   return (
     <ToolTipSx tooltipTitle='Project Notes'>
       <IconButtonSxStyle>
-        <MoreVertIcon fontSize='medium' />
+        <MoreVertIcon />
       </IconButtonSxStyle>
     </ToolTipSx>
   )

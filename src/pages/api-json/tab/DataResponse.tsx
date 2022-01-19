@@ -1,11 +1,10 @@
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
-import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight'
 import Box from '@mui/material/Box'
 import { blue, grey } from '@mui/material/colors'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import { motion } from 'framer-motion'
 import * as React from 'react'
+import { ArrowDownIcon, ArrowRightIcon } from '../../../components/icons'
 import { IconButtonSxDataIcon, PaperSx } from '../../../components/mui'
 import { ErrorBoundary } from '../../../lib'
 import { BrandSwatch } from '../../../style'
@@ -103,7 +102,7 @@ export function JsonArray({ value, dataKey }: ApiArrayAlias) {
             onClick={() => {
               setChildView(!childView)
             }}>
-            <KeyboardArrowRightIcon />
+            <ArrowRightIcon />
           </IconButtonSxDataIcon>
           <Typography variant='code'>
             <Box>
@@ -125,7 +124,7 @@ export function JsonArray({ value, dataKey }: ApiArrayAlias) {
           onClick={() => {
             setChildView(!childView)
           }}>
-          <KeyboardArrowDownIcon />
+          <ArrowDownIcon />
         </IconButtonSxDataIcon>
         <Typography variant='code'>{dataKey}</Typography>
         {renderArrayContent()}
@@ -202,7 +201,7 @@ function JsonObject({ value, dataKey }: ApiObjectAlias) {
               onClick={() => {
                 setChildView(!childView)
               }}>
-              <KeyboardArrowDownIcon />
+              <ArrowDownIcon />
             </IconButtonSxDataIcon>
             <Typography variant='code'>{dataKey}</Typography>
           </Stack>
@@ -215,7 +214,7 @@ function JsonObject({ value, dataKey }: ApiObjectAlias) {
           onClick={() => {
             setChildView(!childView)
           }}>
-          <KeyboardArrowRightIcon />
+          <ArrowRightIcon />
         </IconButtonSxDataIcon>
         <Typography variant='code'>
           {keys.length === 0 ? (

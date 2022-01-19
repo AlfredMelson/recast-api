@@ -20,7 +20,7 @@ export default function DataSourceSelector() {
 
   return (
     <CardSx title='Source'>
-      <FormControl>
+      <FormControl fullWidth>
         <SelectSx id='provider-selector' value={dataSource} onChange={handleChange}>
           {SourceSelector.map(item => (
             <MenuItem key={item.index} value={item.value}>

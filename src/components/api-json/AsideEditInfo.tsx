@@ -1,4 +1,3 @@
-import Add from '@mui/icons-material/Add'
 import Box, { BoxProps } from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Card from '@mui/material/Card'
@@ -10,6 +9,7 @@ import Typography from '@mui/material/Typography'
 import { useRecoilValue } from 'recoil'
 import { selectedElementAtom } from '../../recoil'
 import { BrandSwatch } from '../../style'
+import { AddIcon } from '../icons'
 
 export function AsideEditInfo({ ...props }: BoxProps) {
   const selectedElement = useRecoilValue(selectedElementAtom)
@@ -98,7 +98,7 @@ export function AsideEditInfo({ ...props }: BoxProps) {
                   : BrandSwatch.Light.Blue[200]
             }
           }}>
-          <Add />
+          <AddIcon />
         </IconButton>
 
         {selectedElementCard()}
@@ -127,7 +127,7 @@ export function AsideEditInfo({ ...props }: BoxProps) {
                   : BrandSwatch.Light.Blue[200]
             }
           }}>
-          <Add />
+          <AddIcon />
         </IconButton>
       </Box>
     </Box>

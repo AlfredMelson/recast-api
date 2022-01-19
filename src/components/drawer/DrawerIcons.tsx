@@ -1,14 +1,20 @@
-import CheckIcon from '@mui/icons-material/Check'
-import DeleteIcon from '@mui/icons-material/Delete'
-import { ButtonGroup } from '@mui/material'
 import Box from '@mui/material/Box'
+import ButtonGroup from '@mui/material/ButtonGroup'
 import saveAs from 'file-saver'
 import * as React from 'react'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 import { currentApiQuerySelector, dataDrawerOpenAtom, minifyDialogOpenAtom } from '../../recoil'
 import { BrandSwatch } from '../../style'
 import { SxCircularProgress } from '../action'
-import { CloseIcon, CopyIcon, DeleteOutlineIcon, DownloadIcon, MinifyIcon } from '../icons'
+import {
+  CheckIcon,
+  CloseIcon,
+  CopyIcon,
+  DeleteIcon,
+  DeleteOutlineIcon,
+  DownloadIcon,
+  MinifyIcon
+} from '../icons'
 import { IconButtonSxStyle, ToolTipSx } from '../mui'
 
 export function DrawerIcons() {

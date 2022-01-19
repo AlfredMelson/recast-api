@@ -1,12 +1,11 @@
 import FormControl from '@mui/material/FormControl'
-import FormControlLabel from '@mui/material/FormControlLabel'
 import Radio from '@mui/material/Radio'
 import RadioGroup from '@mui/material/RadioGroup'
 import * as React from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { VolumeSelector } from '../../../cms'
 import { dataCategoryAtom, dataQuantityAtom, dataSourceAtom } from '../../../recoil'
-import { CardSx } from '../../mui'
+import { CardSx, FormControlLabelSx } from '../../mui'
 
 export default function DataQuantitySelector() {
   const dataSource = useRecoilValue(dataSourceAtom)
@@ -40,33 +39,29 @@ export default function DataQuantitySelector() {
 
   return (
     <>
-      {dataSource === 'jsonPlaceholderApi' && (
-        <>
-          {dataCategory !== '' && (
-            <CardSx title='Volume'>
-              <FormControl component='fieldset'>
-                <RadioGroup
-                  row
-                  id='provider-url-selector'
-                  aria-label='api request volume'
-                  name='api request volume'
-                  value={dataQuantity}
-                  onChange={handleChange}
-                  sx={{ pr: 10, pl: 20 }}>
-                  {VolumeSelector.map(item => (
-                    <FormControlLabel
-                      key={item.index}
-                      sx={{ px: 5, py: 0 }}
-                      value={item.value}
-                      control={<Radio />}
-                      label={item.name}
-                    />
-                  ))}
-                </RadioGroup>
-              </FormControl>
-            </CardSx>
-          )}
-        </>
+      {dataSource === 'jsonPlaceholderApi' && dataCategory !== '' && (
+        <CardSx title='Volume'>
+          <FormControl fullWidth>
+            <RadioGroup
+              row
+              id='provider-url-selector'
+              aria-label='api request volume'
+              name='api request volume'
+              value={dataQuantity}
+              onChange={handleChange}
+              sx={{ pr: 10, pl: 20 }}>
+              {VolumeSelector.map(item => (
+                <FormControlLabelSx
+                  key={item.index}
+                  sx={{ px: 5, py: 0 }}
+                  value={item.value}
+                  control={<Radio />}
+                  label={item.name}
+                />
+              ))}
+            </RadioGroup>
+          </FormControl>
+        </CardSx>
       )}
     </>
   )

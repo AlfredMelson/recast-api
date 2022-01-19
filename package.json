@@ -42,7 +42,7 @@
     "react-router-dom": "6.2.1",
     "react-scripts": "^5.0.0",
     "recoil": "^0.5.2",
-    "sass": "^1.48.0"
+    "sass": "^1.49.0"
   },
   "scripts": {
     "build": "react-scripts build",
@@ -69,7 +69,7 @@
     "@types/prettier": "^2.4.3",
     "@types/react": "17.0.38",
     "@types/react-dom": "17.0.11",
-    "@types/react-router-dom": "5.3.2",
+    "@types/react-router-dom": "5.3.3",
     "@types/rimraf": "^3.0.2",
     "@typescript-eslint/eslint-plugin": "^5.10.0",
     "@typescript-eslint/parser": "^5.10.0",

@@ -73,7 +73,7 @@ export default function DataFetch() {
   }, [])
 
   return (
-    <CardSx title='Controls'>
+    <CardSx title='Data Controls'>
       <Stack direction='row' justifyContent='center' alignItems='center' spacing={10}>
         <ButtonSxStyle
           aria-label='clear url'

@@ -1,6 +1,3 @@
-import CheckIcon from '@mui/icons-material/Check'
-import ContentCopyIcon from '@mui/icons-material/ContentCopy'
-import DownloadIcon from '@mui/icons-material/Download'
 import Box from '@mui/material/Box'
 import saveAs from 'file-saver'
 import * as React from 'react'
@@ -8,6 +5,7 @@ import { useRecoilValue } from 'recoil'
 import { userGeneratedJsonAtom } from '../../recoil'
 import { BrandSwatch } from '../../style'
 import { SxCircularProgress } from '../action/SxCircularProgress'
+import { CheckIcon, CopyIcon, DownloadIcon } from '../icons'
 import { ButtonGroupSxTsInterface } from '../mui/ButtonGroup.style'
 import { IconButtonSxTsInterface } from '../mui/IconButton.style'
 import { ToolTipSx } from '../mui/ToolTip.style'
@@ -89,9 +87,9 @@ export function TsInterfaceIcons() {
         <ToolTipSx tooltipTitle={jsonCopy ? 'Copied' : 'Copy interface'}>
           <IconButtonSxTsInterface onClick={handleJsonCopy}>
             {!loadingCopy && !successCopy ? (
-              <ContentCopyIcon />
+              <CopyIcon />
             ) : !successCopy ? (
-              <ContentCopyIcon sx={{ color: 'transparent' }} />
+              <CopyIcon sx={{ color: 'transparent' }} />
             ) : (
               <CheckIcon
                 sx={{

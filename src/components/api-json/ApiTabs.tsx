@@ -79,7 +79,6 @@ export function ApiTabs() {
   const setApiTabSelected = useSetRecoilState(apiTabSelectedAtom)
 
   const currentApiQuery = useRecoilValue(currentApiQuerySelector)
-  console.log('currentApiQuery', currentApiQuery)
 
   const ApiTabPanel: ApiTabPanelAlias[] = [
     { index: 0, panel: <DataResponse data={currentApiQuery?.data} /> },

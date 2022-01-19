@@ -1,17 +1,17 @@
 import Box from '@mui/material/Box'
-import Button, { ButtonProps } from '@mui/material/Button'
+import Button from '@mui/material/Button'
 import { styled } from '@mui/material/styles'
 import Typography from '@mui/material/Typography'
 import { AnimatePresence } from 'framer-motion'
 import * as React from 'react'
 import { useRecoilValue } from 'recoil'
-import { dataDrawerOpenAtom } from '../../recoil'
-import { BrandSwatch } from '../../style'
-import { DrawerIcons } from '../drawer'
-import { SlideUpAnimation } from '../framer-motion/Slideup.animation'
-import { GithubToggle, TerminalToggle, ThemeModeToggle } from '../toggle'
+import { DrawerIcons } from '../components/drawer'
+import { SlideUpAnimation } from '../components/framer-motion'
+import { GithubToggle, TerminalToggle, ThemeModeToggle } from '../components/toggle'
+import { dataDrawerOpenAtom } from '../recoil'
+import { BrandSwatch } from '../style'
 
-export const HeaderStyle = styled('header', { name: 'PreHero', slot: 'header' })(({ theme }) => ({
+export const HeaderStyle = styled('header', { name: 'Header', slot: 'style' })(({ theme }) => ({
   position: 'sticky',
   top: 0,
   height: 70,
@@ -19,29 +19,7 @@ export const HeaderStyle = styled('header', { name: 'PreHero', slot: 'header' })
   zIndex: theme.zIndex.drawer + 1
 }))
 
-export const PreHeroSxStyle = styled(Typography, { name: 'PreHeroSx', slot: 'style' })(
-  ({ theme }) => ({
-    color: theme.palette.text.secondary
-  })
-)
-
-export const ButtonSxPreHero = styled(
-  (props: ButtonProps) => <Button disableRipple disableFocusRipple variant='text' {...props} />,
-  { name: 'PreHero', slot: 'button' }
-)(() => ({
-  width: 20,
-  height: 44,
-  cursor: 'pointer',
-  backgroundColor: 'transparent',
-  '&:hover, .Mui-focused': {
-    backgroundColor: 'transparent'
-  },
-  '&.Mui-selected': {
-    backgroundColor: 'transparent'
-  }
-}))
-
-export function PreHeroSx() {
+export function Header() {
   const dataDrawerOpen = useRecoilValue(dataDrawerOpenAtom)
 
   const [hover, setHover] = React.useState(false)
@@ -87,7 +65,8 @@ export function PreHeroSx() {
             gridColumn: '1 / span 2',
             gridRow: 1,
             alignSelf: 'center',
-            justifySelf: 'start'
+            justifySelf: 'start',
+            display: { sm: 'none', md: 'block' }
           }}>
           <AnimatePresence exitBeforeEnter>
             {!dataDrawerOpen && hover && (
@@ -120,7 +99,14 @@ export function PreHeroSx() {
             )}
           </AnimatePresence>
         </Box>
-        <Box sx={{ gridColumn: 1, gridRow: 1, alignSelf: 'center', justifySelf: 'start' }}>
+        <Box
+          sx={{
+            gridColumn: 1,
+            gridRow: 1,
+            alignSelf: 'center',
+            justifySelf: 'start',
+            display: { sm: 'none', md: 'block' }
+          }}>
           {!dataDrawerOpen && (
             <Button
               disabled={disable}

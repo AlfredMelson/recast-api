@@ -1,8 +1,7 @@
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import * as React from 'react'
+import { ArrowDownIcon, ArrowUpIcon } from '../../../components/icons'
 import { IconButtonSx } from '../../../components/mui'
 import { ApiArrayAlias, getType } from './typeAliases'
 import { ApiDataSort, ApiDataTypeLabel } from '.'
@@ -50,7 +49,7 @@ export function ApiArray({ value, dataKey, dataType }: ApiArrayAlias) {
       return (
         <Stack direction='row'>
           <IconButtonSx onClick={toggleArray}>
-            <KeyboardArrowUpIcon />
+            <ArrowUpIcon />
           </IconButtonSx>
           <Typography variant='code'>&#34;{dataKey}&#34;&#58;&nbsp;</Typography>
           <ApiDataTypeLabel type={dataType} variant='edit' />
@@ -63,7 +62,7 @@ export function ApiArray({ value, dataKey, dataType }: ApiArrayAlias) {
     return (
       <Stack direction='row'>
         <IconButtonSx onClick={toggleArray}>
-          <KeyboardArrowDownIcon />
+          <ArrowDownIcon />
         </IconButtonSx>
         <Typography variant='code'>&#34;{dataKey}&#34;&#58;&nbsp;</Typography>
         <ApiDataTypeLabel type={dataType} variant='edit' />

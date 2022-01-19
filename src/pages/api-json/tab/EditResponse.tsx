@@ -1,10 +1,10 @@
-import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight'
 import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import * as React from 'react'
 import { useRecoilState } from 'recoil'
 import { AsideEditInfo } from '../../../components/api-json'
+import { ArrowRightIcon } from '../../../components/icons'
 import { IconButtonSxApiIcons, PaperSx } from '../../../components/mui'
 import { ErrorBoundary } from '../../../lib'
 import { currentDataAtom, elementStateAtom } from '../../../recoil'
@@ -56,7 +56,7 @@ export default function EditResponse({ data, onDelete, onEdit }: EditResponseAli
           transform: reveal ? 'rotate(90deg)' : 'rotate(0deg)',
           mr: 10
         }}>
-        <KeyboardArrowRightIcon />
+        <ArrowRightIcon />
       </IconButtonSxApiIcons>
     )
   }

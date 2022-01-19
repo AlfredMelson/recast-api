@@ -19,3 +19,7 @@ updated 05 Jan 2022
 - [ ] tsdoc config
 - [ ] testing with Jest
 - [ ] code splitting ?
+
+$ pwa-asset-generator
+npx pwa-asset-generator public/recast.svg public -p 0 -q 100 -m public/manifest.json
+npx pwa-asset-generator public/recast.svg public -p 0 --icon-only --favicon --opaque false --maskable false --type png

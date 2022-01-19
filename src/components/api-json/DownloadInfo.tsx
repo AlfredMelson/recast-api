@@ -1,9 +1,8 @@
-import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft'
-import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight'
 import Box, { BoxProps } from '@mui/material/Box'
 import IconButton from '@mui/material/IconButton'
 import * as React from 'react'
 import { BrandSwatch } from '../../style'
+import { ArrowLeftIcon, ArrowRightIcon } from '../icons'
 
 export function DownloadInfo({
   appeared,
@@ -61,7 +60,7 @@ export function DownloadInfo({
               bgcolor: BrandSwatch.Dark.Grey[800]
             }
           }}>
-          {hidden ? <KeyboardArrowLeftIcon /> : <KeyboardArrowRightIcon />}
+          {hidden ? <ArrowLeftIcon /> : <ArrowRightIcon />}
         </IconButton>
         <Box sx={{ pt: 90 }}>{content}</Box>
       </Box>

@@ -1,9 +1,9 @@
-import KeyboardArrowRightRounded from '@mui/icons-material/KeyboardArrowRightRounded'
 import Box from '@mui/material/Box'
 import Container from '@mui/material/Container'
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import { Link } from 'react-router-dom'
+import { ArrowRightIcon } from '../icons'
 import { ButtonSxStyle } from '../mui'
 import GradientText from '../typography/GradientText'
 
@@ -34,7 +34,7 @@ export default function HeroNoMatch() {
                 <Link to='/' style={{ textDecoration: 'none' }}>
                   <ButtonSxStyle
                     sx={{ px: 20, textTransform: 'capitalize' }}
-                    endIcon={<KeyboardArrowRightRounded />}>
+                    endIcon={<ArrowRightIcon />}>
                     Head back
                   </ButtonSxStyle>
                 </Link>
