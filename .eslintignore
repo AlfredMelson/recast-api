@@ -24,3 +24,5 @@ yarn-error.log*
 jsdoc.conf.json
 lerna.json
 
+# specific files
+NOTES.md

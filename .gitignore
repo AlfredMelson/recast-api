@@ -28,5 +28,4 @@ yarn-debug.log*
 yarn-error.log*
 
 # specific files
-jsdoc.conf.json
-web.config
+NOTES.md

@@ -72,8 +72,8 @@ export function Header() {
             {!dataDrawerOpen && hover && (
               <SlideUpAnimation startY={30} endY={3}>
                 <Typography variant='code'>
-                  Lightweight, interactive tool that visualizes api responses, infers type and
-                  accepts crud operations.
+                  Lightweight, interactive api response visualizer that infers type and accepts crud
+                  operations.
                 </Typography>
               </SlideUpAnimation>
             )}
