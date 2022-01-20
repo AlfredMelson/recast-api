@@ -1,6 +1,5 @@
 import { Box } from '@mui/material'
 import { AnimatePresence } from 'framer-motion'
-import * as React from 'react'
 import { useRecoilState } from 'recoil'
 import { themeColorAtom } from '../../recoil-state'
 import { SlideUpAnimation } from '../framer-motion'
@@ -11,13 +10,17 @@ export function ThemeModeToggle() {
   // retrieve previously set theme value from localStorage
   const [themeColor, setThemeColor] = useRecoilState(themeColorAtom)
 
-  React.useEffect(() => {
-    const localStorageThemeColor = localStorage.getItem('themeColor')
+  const localStorageThemeColor = localStorage.getItem('themeColor')
 
-    if (localStorageThemeColor) {
-      setThemeColor(localStorageThemeColor)
-    }
-  }, [setThemeColor])
+  setThemeColor(localStorageThemeColor)
+
+  // React.useEffect(() => {
+  //   const localStorageThemeColor = localStorage.getItem('themeColor')
+
+  //   if (localStorageThemeColor) {
+  //     setThemeColor(localStorageThemeColor)
+  //   }
+  // }, [setThemeColor])
 
   const handleChange = () => {
     setThemeColor(themeColor === 'dark' ? 'light' : 'dark')
@@ -40,21 +43,19 @@ export function ThemeModeToggle() {
               </SlideUpAnimation>
             )}
           </AnimatePresence>
-          <Box sx={{ zIndex: 5000 }}>
-            <AnimatePresence>
-              {themeColor === 'light' && (
-                <SlideUpAnimation startY={-30} endY={3}>
-                  <MoonIcon
-                    sx={{
-                      position: 'absolute',
-                      marginTop: '-16px',
-                      marginLeft: '-10px'
-                    }}
-                  />
-                </SlideUpAnimation>
-              )}
-            </AnimatePresence>
-          </Box>
+          <AnimatePresence>
+            {themeColor === 'light' && (
+              <SlideUpAnimation startY={-30} endY={3}>
+                <MoonIcon
+                  sx={{
+                    position: 'absolute',
+                    marginTop: '-16px',
+                    marginLeft: '-10px'
+                  }}
+                />
+              </SlideUpAnimation>
+            )}
+          </AnimatePresence>
         </IconButtonSxStyle>
       </ToolTipSx>
     </Box>

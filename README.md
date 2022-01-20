@@ -2,7 +2,7 @@
 
 Lightweight, interactive api response visualizer that infers type and accepts crud operations. Built to experiment with micro-managing the users experience when working with an api and manipulating the response.
 
-Try recast [recast](https://main.d1w0icqzyeydgs.amplifyapp.com/) yourself
+Try [recast](https://hmtgp.com/) yourself
 <br />
 
 [Github repo](https://github.com/AlfredMelson/recast-api.git)
