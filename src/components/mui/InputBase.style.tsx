@@ -20,16 +20,11 @@ const InputBaseSxStyle = styled(
   paddingLeft: 20,
   display: 'flex',
   alignItems: 'center',
-  borderRadius: 3,
+  color: theme.palette.text.secondary,
   backgroundColor:
     theme.palette.mode === 'dark'
       ? alpha(BrandSwatch.Dark.Grey[700], 0.2)
       : alpha(BrandSwatch.Light.Grey[300], 0.2),
-  color: theme.palette.text.secondary,
-  transition: theme.transitions.create(['all'], {
-    duration: theme.transitions.duration.standard,
-    easing: theme.transitions.easing.easeInOut
-  }),
   '&:hover': {
     color: theme.palette.text.primary,
     backgroundColor:
@@ -41,7 +36,7 @@ const InputBaseSxStyle = styled(
       theme.palette.mode === 'dark'
         ? alpha(BrandSwatch.Dark.Grey[600], 0.8)
         : alpha(BrandSwatch.Light.Grey[300], 0.6),
-    borderRadius: 3
+    boxShadow: theme.shadows[1]
   },
   '&.Mui-selected': {
     color: theme.palette.text.primary,

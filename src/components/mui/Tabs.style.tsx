@@ -14,27 +14,15 @@ export const TabWrapperSx = styled(
   { name: '', slot: '' }
 )(({ theme }) => ({
   '.MuiTab-root': {
-    zIndex: 0,
-    borderRadius: '3px 3px 0 0',
-    margin: theme.spacing(0, 2, 0, 0),
-    // backgroundColor:
-    //   theme.palette.mode === 'dark'
-    //     ? alpha(BrandSwatch.Dark.Grey[700], 0.5)
-    //     : alpha(BrandSwatch.Light.Grey[300], 0.7),
+    margin: theme.spacing(0, 6, 0, 0),
     backgroundColor:
       theme.palette.mode === 'dark'
-        ? alpha(BrandSwatch.Dark.Grey[700], 0.5)
-        : alpha(BrandSwatch.Light.Grey[300], 0.7),
+        ? BrandSwatch.Dark.Grey[800]
+        : alpha(BrandSwatch.Light.Grey[200], 0.5),
     color: theme.palette.text.secondary,
-    transition: theme.transitions.create(['all'], {
-      duration: theme.transitions.duration.standard,
-      easing: theme.transitions.easing.easeInOut
-    }),
     '&:hover, &.Mui-focused ': {
       backgroundColor:
-        theme.palette.mode === 'dark'
-          ? alpha(BrandSwatch.Dark.Grey[700], 0.7)
-          : alpha(BrandSwatch.Light.Grey[300], 0.5),
+        theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[700] : BrandSwatch.Light.Grey[200],
       color: theme.palette.text.primary
     },
     '&.Mui-selected': {

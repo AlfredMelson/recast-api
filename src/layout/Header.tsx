@@ -82,7 +82,7 @@ export function Header() {
           <AnimatePresence exitBeforeEnter>
             {!dataDrawerOpen && hover && (
               <SlideUpAnimation startY={30} endY={3}>
-                <Typography variant='code'>
+                <Typography variant='code' sx={{ fontWeight: 600 }}>
                   Lightweight, interactive api response visualizer that infers type and accepts crud
                   operations.
                 </Typography>

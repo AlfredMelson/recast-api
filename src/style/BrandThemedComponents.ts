@@ -13,6 +13,10 @@ export function BrandThemedComponents(theme: Theme) {
           msTouchAction: 'manipulation',
           touchAction: 'manipulation',
           webkitTapHighlightColor: 'transparent',
+          transition: theme.transitions.create(['all'], {
+            duration: theme.transitions.duration.standard,
+            easing: theme.transitions.easing.easeInOut
+          }),
           '&:hover': { backgroundColor: 'transparent' }
         }, // Styles applied to the root element
         text: {
@@ -47,7 +51,13 @@ export function BrandThemedComponents(theme: Theme) {
       MuiCard: {
         defaultProps: {},
         styleOverrides: {
-          root: {} // Styles applied to the root element
+          root: {
+            backgroundImage: 'none',
+            transition: theme.transitions.create(['all'], {
+              duration: theme.transitions.duration.standard,
+              easing: theme.transitions.easing.easeInOut
+            })
+          } // Styles applied to the root element
         }
       },
       MuiCardActionArea: {
@@ -59,19 +69,34 @@ export function BrandThemedComponents(theme: Theme) {
       MuiCardActions: {
         defaultProps: {},
         styleOverrides: {
-          root: {} // Styles applied to the root element
+          root: {
+            transition: theme.transitions.create(['all'], {
+              duration: theme.transitions.duration.standard,
+              easing: theme.transitions.easing.easeInOut
+            })
+          } // Styles applied to the root element
         }
       },
       MuiCardContent: {
         defaultProps: {},
         styleOverrides: {
-          root: {} // Styles applied to the root element
+          root: {
+            transition: theme.transitions.create(['all'], {
+              duration: theme.transitions.duration.standard,
+              easing: theme.transitions.easing.easeInOut
+            })
+          } // Styles applied to the root element
         }
       },
       MuiCardHeader: {
         defaultProps: {},
         styleOverrides: {
-          root: {}, // Styles applied to the root element
+          root: {
+            transition: theme.transitions.create(['all'], {
+              duration: theme.transitions.duration.standard,
+              easing: theme.transitions.easing.easeInOut
+            })
+          }, // Styles applied to the root element
           avatar: {}, // Styles applied to the avatar element
           action: {}, // Styles applied to the action element
           content: {}, // Styles applied to the content wrapper element
@@ -190,7 +215,13 @@ export function BrandThemedComponents(theme: Theme) {
           // disableUnderline: true
         },
         styleOverrides: {
-          root: {}, // Styles applied to the root element
+          root: {
+            borderRadius: theme.spacing(3),
+            transition: theme.transitions.create(['all'], {
+              duration: theme.transitions.duration.standard,
+              easing: theme.transitions.easing.easeInOut
+            })
+          }, // Styles applied to the root element
           formControl: {}, // Styles applied to the root element if the component is a descendant of FormControl
           focused: {}, // Styles applied to the root element if the component is focused
           disabled: {}, // Styles applied to the root element if disabled={true}
@@ -346,7 +377,11 @@ export function BrandThemedComponents(theme: Theme) {
         styleOverrides: {
           select: {
             fontSize: 16,
-            borderRadius: 3
+            borderRadius: theme.spacing(3),
+            transition: theme.transitions.create(['all'], {
+              duration: theme.transitions.duration.standard,
+              easing: theme.transitions.easing.easeInOut
+            })
           }, // Styles applied to the select component `select` class
           icon: {
             margin: theme.spacing(0, 10),
@@ -424,7 +459,11 @@ export function BrandThemedComponents(theme: Theme) {
         },
         styleOverrides: {
           root: {
-            borderRadius: theme.spacing(3, 3, 0, 0)
+            borderRadius: theme.spacing(3, 3, 0, 0),
+            transition: theme.transitions.create(['all'], {
+              duration: theme.transitions.duration.standard,
+              easing: theme.transitions.easing.easeInOut
+            })
           }, // Styles applied to the root element
           labelIcon: {}, // Styles applied to the root element if both icon and label are provided
           selected: {}, // State class applied to the root element if selected={true} (controlled by the Tabs component)
@@ -492,12 +531,7 @@ export function BrandThemedComponents(theme: Theme) {
           placement: 'bottom' // position the tooltip will appear, 'bottom' is default
         },
         styleOverrides: {
-          popper: {
-            // color:
-            //   theme.palette.mode === 'dark'
-            //     ? BrandSwatch.Dark.Grey[50]
-            //     : BrandSwatch.Light.Grey[900],
-          }, // Styles applied to the Popper component.
+          popper: {}, // Styles applied to the Popper component.
           popperInteractive: {}, // Styles applied to the Popper component unless disableInteractive={true}
           popperArrow: {}, // Styles applied to the Popper component if arrow={true}
           popperClose: {}, // Styles applied to the Popper component unless the tooltip is open
@@ -555,7 +589,12 @@ export function BrandThemedComponents(theme: Theme) {
         // https://mui.com/api/typography/
         defaultProps: {},
         styleOverrides: {
-          root: {}, // Styles applied to the root element if variant="root"
+          root: {
+            transition: theme.transitions.create(['all'], {
+              duration: theme.transitions.duration.standard,
+              easing: theme.transitions.easing.easeInOut
+            })
+          }, // Styles applied to the root element if variant="root"
           body1: {}, // Styles applied to the root element if variant="body1"
           body2: {}, // Styles applied to the root element if variant="body2"
           caption: {}, // Styles applied to the root element if variant="caption"

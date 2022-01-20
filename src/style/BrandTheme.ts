@@ -123,7 +123,7 @@ export const BrandDesignTokens = (mode: 'dark' | 'light') =>
       }),
       ...(mode === 'light' && {
         background: {
-          default: BrandSwatch.Light.Grey[100]
+          default: BrandSwatch.Light.Grey[50]
         },
         common: {
           black: BrandSwatch.Light.Black[50],

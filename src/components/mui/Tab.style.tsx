@@ -29,8 +29,7 @@ const TabSxStyle = styled(
   textTransform: 'none',
   minWidth: 130,
   height: 50,
-  minHeight: 50,
-  padding: theme.spacing(0, 10)
+  minHeight: 50
 }))
 
 type TabSxAlias = {
@@ -44,7 +43,7 @@ type TabSxAlias = {
 
 export const TabSx = ({ label, disabled, onClick, icon, iconPosition, ...props }: TabSxAlias) => {
   return (
-    <motion.div initial={{ x: 0 }} animate={{ x: 20 }} style={{ marginRight: '4px' }}>
+    <motion.div initial={{ x: 0 }} animate={{ x: 20 }}>
       <TabSxStyle
         sx={{ boxShadow: 2 }}
         label={label}

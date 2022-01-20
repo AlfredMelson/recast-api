@@ -17,11 +17,17 @@ import { atom, AtomEffect, DefaultValue } from 'recoil'
 const themePersist: AtomEffect<any> = ({ onSet, setSelf, node }) => {
   // local data retreived from themeColorAtom key, defined as node.key
   const storedJsonData = localStorage.getItem(node.key)
+
+  // if (localStorage.getItem(storageKey)) return localStorage.getItem(storageKey)
+  // else return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+
   if (storedJsonData === 'themeColor') {
     // Callbacks to set or reset the value of the atom.
     // This can be called from the atom effect function directly to initialize the
     // initial value of the atom, or asynchronously called later to change it.
     setSelf(storedJsonData)
+  } else if (window.matchMedia('(prefers-color-scheme: dark)')) {
+    setSelf(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
   }
   // Subscribe to changes in the atom value.
   // The callback is not called due to changes from this effect's own setSelf().

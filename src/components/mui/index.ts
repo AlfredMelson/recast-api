@@ -10,8 +10,6 @@ export * from './IconButton.style'
 export * from './Input.style'
 export * from './InputBase.style'
 
-export * from './Navigation.style'
-
 export * from './Paper.style'
 export * from './Panel.style'
 

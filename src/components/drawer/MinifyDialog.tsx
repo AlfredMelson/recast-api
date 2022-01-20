@@ -15,10 +15,6 @@ const TypographyRoot = styled(Typography)(({ theme }) => ({
   ...theme.typography.code,
   fontWeight: theme.typography.fontWeightRegular,
   color: theme.palette.text.secondary,
-  transition: theme.transitions.create(['all'], {
-    duration: theme.transitions.duration.standard,
-    easing: theme.transitions.easing.easeInOut
-  }),
   '&:hover': {
     color: theme.palette.text.primary
   }

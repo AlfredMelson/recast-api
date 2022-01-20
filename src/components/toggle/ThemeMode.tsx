@@ -1,5 +1,6 @@
 import { Box } from '@mui/material'
 import { AnimatePresence } from 'framer-motion'
+import * as React from 'react'
 import { useRecoilState } from 'recoil'
 import { themeColorAtom } from '../../recoil-state'
 import { SlideUpAnimation } from '../framer-motion'
@@ -10,17 +11,14 @@ export function ThemeModeToggle() {
   // retrieve previously set theme value from localStorage
   const [themeColor, setThemeColor] = useRecoilState(themeColorAtom)
 
-  const localStorageThemeColor = localStorage.getItem('themeColor')
+  React.useEffect(() => {
+    const localStorageThemeColor = localStorage.getItem('themeColor')
 
-  setThemeColor(localStorageThemeColor)
-
-  // React.useEffect(() => {
-  //   const localStorageThemeColor = localStorage.getItem('themeColor')
-
-  //   if (localStorageThemeColor) {
-  //     setThemeColor(localStorageThemeColor)
-  //   }
-  // }, [setThemeColor])
+    if (localStorageThemeColor) {
+      setThemeColor(localStorageThemeColor)
+    }
+    return
+  }, [setThemeColor])
 
   const handleChange = () => {
     setThemeColor(themeColor === 'dark' ? 'light' : 'dark')

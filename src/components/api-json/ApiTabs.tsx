@@ -1,5 +1,5 @@
 import Box from '@mui/material/Box'
-import Paper, { PaperProps } from '@mui/material/Paper'
+import Paper from '@mui/material/Paper'
 import { styled } from '@mui/material/styles'
 import { AnimatePresence } from 'framer-motion'
 import _ from 'lodash'
@@ -129,7 +129,13 @@ export function ApiTabs() {
               />
             ))}
           </TabWrapperSx>
-          <PaperSxStyle>
+          <Paper
+            sx={{
+              backgroundColor: theme =>
+                theme.palette.mode === 'dark'
+                  ? BrandSwatch.Dark.Grey[800]
+                  : BrandSwatch.Light.Grey[200]
+            }}>
             <PanelWrapper>
               <AnimatePresence>
                 {ApiTabPanel.map(({ index, panel }) => (
@@ -139,7 +145,7 @@ export function ApiTabs() {
                 ))}
               </AnimatePresence>
             </PanelWrapper>
-          </PaperSxStyle>
+          </Paper>
         </Box>
       )}
     </>
@@ -149,12 +155,4 @@ export function ApiTabs() {
 const PanelWrapper = styled('div')(() => ({
   position: 'relative',
   overflow: 'hidden'
-}))
-
-const PaperSxStyle = styled((props?: PaperProps) => <Paper elevation={2} {...props} />, {
-  name: 'Paper',
-  slot: 'style'
-})(({ theme }) => ({
-  backgroundColor:
-    theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[700] : BrandSwatch.Light.Grey[200]
 }))

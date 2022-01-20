@@ -12,20 +12,16 @@ const SelectSxStyle = styled(
   paddingLeft: 20,
   display: 'flex',
   alignItems: 'center',
+  borderRadius: 3,
   backgroundColor:
     theme.palette.mode === 'dark'
       ? alpha(BrandSwatch.Dark.Grey[700], 0.2)
       : alpha(BrandSwatch.Light.Grey[300], 0.2),
   color: theme.palette.text.secondary,
-  transition: theme.transitions.create(['all'], {
-    duration: theme.transitions.duration.standard,
-    easing: theme.transitions.easing.easeInOut
-  }),
   '&:hover': {
     color: theme.palette.text.primary,
     backgroundColor:
-      theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[700] : BrandSwatch.Light.Grey[200],
-    borderRadius: 3
+      theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[700] : BrandSwatch.Light.Grey[200]
   },
   '&.Mui-focused ': {
     color: theme.palette.text.primary,
@@ -33,7 +29,7 @@ const SelectSxStyle = styled(
       theme.palette.mode === 'dark'
         ? alpha(BrandSwatch.Dark.Grey[600], 0.8)
         : alpha(BrandSwatch.Light.Grey[300], 0.6),
-    borderRadius: 3
+    boxShadow: theme.shadows[1]
   },
   '&.Mui-selected': {
     color: theme.palette.text.primary,
@@ -57,7 +53,7 @@ export const SelectSx = ({ id, value, onChange, onClick, children, ...props }: S
     PaperProps: {
       style: {
         maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-        width: 220
+        width: 240
       }
     }
   }

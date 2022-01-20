@@ -28,10 +28,6 @@ export const ButtonSxStyle = styled(
       ? alpha(BrandSwatch.Dark.Grey[700], 0.2)
       : alpha(BrandSwatch.Light.Grey[300], 0.2),
   color: theme.palette.text.secondary,
-  transition: theme.transitions.create(['all'], {
-    duration: theme.transitions.duration.standard,
-    easing: theme.transitions.easing.easeInOut
-  }),
   '&:hover': {
     color: theme.palette.text.primary,
     backgroundColor:
@@ -49,13 +45,5 @@ export const ButtonSxStyle = styled(
       theme.palette.mode === 'dark'
         ? alpha(BrandSwatch.Dark.Grey[700], 0.2)
         : alpha(BrandSwatch.Light.Grey[300], 0.2)
-  },
-  '&.Mui-selected': {
-    color: theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[50] : BrandSwatch.Light.Grey[900],
-    backgroundColor: theme.palette.background.default
-  },
-  '&.Mui-active': {
-    color: theme.palette.mode === 'dark' ? BrandSwatch.Dark.Red[50] : BrandSwatch.Light.Grey[900],
-    backgroundColor: 'red'
   }
 }))

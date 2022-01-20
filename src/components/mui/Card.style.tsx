@@ -1,15 +1,20 @@
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import CardHeader from '@mui/material/CardHeader'
-import { styled } from '@mui/material/styles'
+import { alpha, styled } from '@mui/material/styles'
+import { BrandSwatch } from '../../style'
 
 const CardSxStyle = styled(Card, { name: 'Card', slot: 'style' })(({ theme }) => ({
-  backgroundColor: theme.palette.background.default,
+  backgroundColor:
+    theme.palette.mode === 'dark'
+      ? alpha(theme.palette.background.default, 0.5)
+      : alpha(BrandSwatch.Light.Grey[100], 0.8),
   boxShadow:
-    theme.palette.mode === 'dark' ? 'none' : 'inset 1px 1px 2px 0px rgba(0, 0, 0, 0.20) !important',
+    theme.palette.mode === 'dark'
+      ? 'inset 1px 1px 2px 0px rgba(0, 0, 0, 0.40)'
+      : 'inset 1px 1px 2px 0px rgba(0, 0, 0, 0.30)',
   [theme.breakpoints.down('sm')]: {
-    display: { xs: 'block', sm: 'block', md: 'inline', lg: 'inline' },
-    width: '100%'
+    display: { xs: 'block', md: 'inline' }
   }
 }))
 
