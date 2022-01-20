@@ -21,7 +21,7 @@ import {
 } from '../icons'
 import { IconButtonSxStyle, ToolTipSx } from '../mui'
 
-export function DrawerIcons() {
+export function DrawerIcons(sx) {
   // retrieve localStorage value
   const currentApiQuery = useRecoilValue(currentApiQuerySelector)
 
@@ -100,7 +100,7 @@ export function DrawerIcons() {
   const setDataDrawerOpen = useSetRecoilState(dataDrawerOpenAtom)
 
   return (
-    <ButtonGroup sx={{ backgroundColor: theme => theme.palette.background.default }}>
+    <ButtonGroup sx={sx}>
       <Box sx={{ position: 'relative', pl: 5 }}>
         {!currentApiQuery ? (
           <IconButtonSxStyle disabled={true}>

@@ -2,18 +2,19 @@ import { SxProps } from '@mui/material'
 import Paper, { PaperProps } from '@mui/material/Paper'
 import { styled } from '@mui/material/styles'
 import * as React from 'react'
+import { BrandSwatch } from '../../style'
 import { NewFadeUpAnimation } from '../framer-motion'
 
 const PaperSxStyle = styled((props?: PaperProps) => <Paper {...props} />, {
   name: 'Paper',
   slot: 'style'
 })(({ theme }) => ({
-  backgroundColor: 'transparent',
+  // backgroundColor: 'transparent',
+  backgroundColor:
+    theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[700] : BrandSwatch.Light.Grey[200],
   backgroundImage: 'none',
   padding: theme.spacing(30, 0, 30, 50),
-  maxHeight: 'calc(100vh - 539px )',
-  overflowX: 'hidden',
-  overflowY: 'scroll'
+  overflow: 'hidden'
 }))
 
 type PaperSxAlias = {

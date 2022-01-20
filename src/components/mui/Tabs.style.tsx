@@ -11,26 +11,29 @@ type TabWrapperSxAlias = {
 
 export const TabWrapperSx = styled(
   (props: TabWrapperSxAlias) => <Tabs allowScrollButtonsMobile selectionFollowsFocus {...props} />,
-  { name: '', slot: '' }
+  { name: 'Tab', slot: 'style' }
 )(({ theme }) => ({
   '.MuiTab-root': {
-    margin: theme.spacing(0, 6, 0, 0),
+    marginRight: theme.spacing(6),
+    color: theme.palette.text.secondary,
     backgroundColor:
       theme.palette.mode === 'dark'
         ? BrandSwatch.Dark.Grey[800]
         : alpha(BrandSwatch.Light.Grey[200], 0.5),
-    color: theme.palette.text.secondary,
+    boxShadow: theme.shadows[0],
     '&:hover, &.Mui-focused ': {
+      color: theme.palette.text.primary,
       backgroundColor:
         theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[700] : BrandSwatch.Light.Grey[200],
-      color: theme.palette.text.primary
+      boxShadow: theme.shadows[1]
     },
     '&.Mui-selected': {
       transform: 'translateY(1px)',
       cursor: 'default',
       color: theme.palette.text.primary,
       backgroundColor:
-        theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[700] : BrandSwatch.Light.Grey[200]
+        theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[700] : BrandSwatch.Light.Grey[200],
+      boxShadow: theme.shadows[2]
     }
   }
 }))

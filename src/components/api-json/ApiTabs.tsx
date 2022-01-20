@@ -1,5 +1,4 @@
 import Box from '@mui/material/Box'
-import Paper from '@mui/material/Paper'
 import { styled } from '@mui/material/styles'
 import { AnimatePresence } from 'framer-motion'
 import _ from 'lodash'
@@ -21,7 +20,6 @@ import {
   currentApiQuerySelector,
   userToggledApiAtom
 } from '../../recoil-state'
-import { BrandSwatch } from '../../style'
 import { SvgTsLogoDtype } from '../icons'
 import { TabSx, TabWrapperSx } from '../mui'
 
@@ -109,7 +107,7 @@ export function ApiTabs() {
   return (
     <>
       {currentApiQuery !== undefined && (
-        <Box sx={{ mt: 30 }}>
+        <Box sx={{ pt: 30, pb: 1, overflowX: 'hidden' }}>
           <TabWrapperSx
             key={local.pathname}
             aria-label='api data tabs'
@@ -129,23 +127,16 @@ export function ApiTabs() {
               />
             ))}
           </TabWrapperSx>
-          <Paper
-            sx={{
-              backgroundColor: theme =>
-                theme.palette.mode === 'dark'
-                  ? BrandSwatch.Dark.Grey[800]
-                  : BrandSwatch.Light.Grey[200]
-            }}>
-            <PanelWrapper>
-              <AnimatePresence>
-                {ApiTabPanel.map(({ index, panel }) => (
-                  <TabPanel key={index} value={value} index={index}>
-                    {panel}
-                  </TabPanel>
-                ))}
-              </AnimatePresence>
-            </PanelWrapper>
-          </Paper>
+
+          <PanelWrapper>
+            <AnimatePresence>
+              {ApiTabPanel.map(({ index, panel }) => (
+                <TabPanel key={index} value={value} index={index}>
+                  {panel}
+                </TabPanel>
+              ))}
+            </AnimatePresence>
+          </PanelWrapper>
         </Box>
       )}
     </>
@@ -153,6 +144,6 @@ export function ApiTabs() {
 }
 
 const PanelWrapper = styled('div')(() => ({
-  position: 'relative',
-  overflow: 'hidden'
+  position: 'relative'
+  // overflow: 'hidden'
 }))

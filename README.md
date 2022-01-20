@@ -16,11 +16,9 @@ updated 05 Jan 2022
 
 ### Features to be implemented
 
-updated 18 Jan 2022
+updated 20 Jan 2022
 
-- [ ] user preferred color mode (ThemeModeToggle).
-- [ ] micro-manage state changes (FetchButtonState).
-- [ ] define background color levels.
 - [ ] keyboard navigation (folder: action).
+- [ ] dark/light monaco-editor and scrollbar.
 - [ ] testing with Jest
 - [ ] tsdoc config

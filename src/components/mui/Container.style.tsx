@@ -9,6 +9,6 @@ export const EditorContainer = styled(
   }
 )(({ theme }) => ({
   backgroundColor: theme.palette.background.default,
-  marginTop: 70,
+  marginTop: theme.spacing(65),
   overflow: 'hidden'
 }))

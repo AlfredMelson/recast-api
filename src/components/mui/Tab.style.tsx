@@ -27,7 +27,8 @@ const TabSxStyle = styled(
 )(({ theme }) => ({
   ...theme.typography.body2,
   textTransform: 'none',
-  minWidth: 130,
+  minWidth: 140,
+  padding: theme.spacing(0, 20),
   height: 50,
   minHeight: 50
 }))

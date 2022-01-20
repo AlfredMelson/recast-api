@@ -2,8 +2,7 @@ import { styled } from '@mui/material/styles'
 import * as React from 'react'
 
 const PanelWrapper = styled('div')(() => ({
-  position: 'relative',
-  overflow: 'hidden'
+  position: 'relative'
 }))
 
 type PanelStyleAlias = {

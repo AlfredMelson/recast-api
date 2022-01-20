@@ -7,8 +7,8 @@ import { Header } from './Header'
 
 const LayoutWrapper = styled(Box, { name: 'Layout', slot: 'wrapper' })(({ theme }) => ({
   backgroundColor: theme.palette.background.default,
-  height: '100vh',
-  overflow: 'hidden'
+  height: '100vh'
+  // overflow: 'hidden'
 }))
 
 export function Layout() {
