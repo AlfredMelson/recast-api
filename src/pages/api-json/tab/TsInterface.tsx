@@ -7,7 +7,7 @@ import { useRecoilValue } from 'recoil'
 import { DownloadInfo, TsInterfaceIcons } from '../../../components/api-json'
 import { PaperSx } from '../../../components/mui'
 import { ErrorBoundary } from '../../../lib'
-import { selectedApiSelector } from '../../../recoil'
+import { selectedApiSelector } from '../../../recoil-state'
 import { ApiDataTypeLabel } from '../data-types'
 import {
   ApiArrayAlias,

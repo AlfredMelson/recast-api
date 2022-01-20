@@ -2,7 +2,7 @@ import MonacoEditor from '@monaco-editor/react'
 import { debounce } from 'lodash'
 import * as React from 'react'
 import { useRecoilValue } from 'recoil'
-import { currentApiQuerySelector, monacoThemeAtom } from '../../recoil'
+import { currentApiQuerySelector, monacoThemeAtom } from '../../recoil-state'
 import { EditorContainer } from '../mui'
 
 export function Editor() {

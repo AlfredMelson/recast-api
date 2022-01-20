@@ -1,4 +1,4 @@
-import { UserToggledApiAtomOptions } from '../recoil'
+import { UserToggledApiAtomOptions } from '../recoil-state'
 
 export type SourceSelectorAlias = {
   index: number

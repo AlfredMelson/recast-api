@@ -3,7 +3,11 @@ import ButtonGroup from '@mui/material/ButtonGroup'
 import saveAs from 'file-saver'
 import * as React from 'react'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
-import { currentApiQuerySelector, dataDrawerOpenAtom, minifyDialogOpenAtom } from '../../recoil'
+import {
+  currentApiQuerySelector,
+  dataDrawerOpenAtom,
+  minifyDialogOpenAtom
+} from '../../recoil-state'
 import { BrandSwatch } from '../../style'
 import { SxCircularProgress } from '../action'
 import {

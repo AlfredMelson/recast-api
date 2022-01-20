@@ -7,7 +7,7 @@ import CardContent from '@mui/material/CardContent'
 import IconButton from '@mui/material/IconButton'
 import Typography from '@mui/material/Typography'
 import { useRecoilValue } from 'recoil'
-import { selectedElementAtom } from '../../recoil'
+import { selectedElementAtom } from '../../recoil-state'
 import { BrandSwatch } from '../../style'
 import { AddIcon } from '../icons'
 

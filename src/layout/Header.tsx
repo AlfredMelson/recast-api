@@ -8,7 +8,7 @@ import { useRecoilValue } from 'recoil'
 import { DrawerIcons } from '../components/drawer'
 import { SlideUpAnimation } from '../components/framer-motion'
 import { GithubToggle, TerminalToggle, ThemeModeToggle } from '../components/toggle'
-import { dataDrawerOpenAtom } from '../recoil'
+import { dataDrawerOpenAtom } from '../recoil-state'
 import { BrandSwatch } from '../style'
 
 export const HeaderStyle = styled('header', { name: 'Header', slot: 'style' })(({ theme }) => ({
@@ -47,38 +47,10 @@ export function Header() {
       <Box
         sx={{
           display: 'grid',
-          gridTemplateColumns: '1fr 1fr 150px',
+          gridTemplateColumns: { xs: 'repeat(2, 1fr)', md: '1fr 1fr 150px' },
           minHeight: 70,
-          mx: 20
+          mx: { xs: 10, sm: 20 }
         }}>
-        <Box sx={{ gridColumn: 2, gridRow: 1, alignSelf: 'center', justifySelf: 'start' }}>
-          <AnimatePresence>
-            {dataDrawerOpen && (
-              <SlideUpAnimation startY={-90} endY={0}>
-                <DrawerIcons />
-              </SlideUpAnimation>
-            )}
-          </AnimatePresence>
-        </Box>
-        <Box
-          sx={{
-            gridColumn: '1 / span 2',
-            gridRow: 1,
-            alignSelf: 'center',
-            justifySelf: 'start',
-            display: { sm: 'none', md: 'block' }
-          }}>
-          <AnimatePresence exitBeforeEnter>
-            {!dataDrawerOpen && hover && (
-              <SlideUpAnimation startY={30} endY={3}>
-                <Typography variant='code'>
-                  Lightweight, interactive api response visualizer that infers type and accepts crud
-                  operations.
-                </Typography>
-              </SlideUpAnimation>
-            )}
-          </AnimatePresence>
-        </Box>
         <Box
           sx={{
             gridColumn: '1 / span 2',
@@ -101,11 +73,47 @@ export function Header() {
         </Box>
         <Box
           sx={{
+            gridColumn: '1 / span 2',
+            gridRow: 1,
+            alignSelf: 'center',
+            justifySelf: 'start',
+            display: { xs: 'none', md: 'block' }
+          }}>
+          <AnimatePresence exitBeforeEnter>
+            {!dataDrawerOpen && hover && (
+              <SlideUpAnimation startY={30} endY={3}>
+                <Typography variant='code'>
+                  Lightweight, interactive api response visualizer that infers type and accepts crud
+                  operations.
+                </Typography>
+              </SlideUpAnimation>
+            )}
+          </AnimatePresence>
+        </Box>
+
+        <Box
+          sx={{
+            gridColumn: 2,
+            gridRow: 1,
+            alignSelf: 'center',
+            justifySelf: { xs: 'end', sm: 'center', md: 'start' }
+          }}>
+          <AnimatePresence>
+            {dataDrawerOpen && (
+              <SlideUpAnimation startY={-90} endY={0}>
+                <DrawerIcons />
+              </SlideUpAnimation>
+            )}
+          </AnimatePresence>
+        </Box>
+
+        <Box
+          sx={{
             gridColumn: 1,
             gridRow: 1,
             alignSelf: 'center',
             justifySelf: 'start',
-            display: { sm: 'none', md: 'block' }
+            display: { xs: 'none', md: 'block' }
           }}>
           {!dataDrawerOpen && (
             <Button

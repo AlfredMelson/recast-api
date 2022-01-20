@@ -23,6 +23,6 @@
     "target": "esnext",
     "types": ["react/next", "react-dom/next"]
   },
-  "include": ["src"],
+  "include": ["src", "src/postcss.config.js"],
   "exclude": ["node_modules", "src/state"]
 }

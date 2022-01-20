@@ -10,6 +10,9 @@ export function BrandThemedComponents(theme: Theme) {
       },
       styleOverrides: {
         root: {
+          msTouchAction: 'manipulation',
+          touchAction: 'manipulation',
+          webkitTapHighlightColor: 'transparent',
           '&:hover': { backgroundColor: 'transparent' }
         }, // Styles applied to the root element
         text: {
@@ -158,6 +161,9 @@ export function BrandThemedComponents(theme: Theme) {
         defaultProps: {},
         styleOverrides: {
           root: {
+            msTouchAction: 'manipulation',
+            touchAction: 'manipulation',
+            webkitTapHighlightColor: 'transparent',
             textDecoration: 'none',
             backgroundColor: 'transparent',
             '&:hover, & .Mui-focused': {

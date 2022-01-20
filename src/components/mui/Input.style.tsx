@@ -3,7 +3,7 @@ import InputAdornment from '@mui/material/InputAdornment'
 import Typography from '@mui/material/Typography'
 import * as React from 'react'
 import { useRecoilState, useSetRecoilState } from 'recoil'
-import { keyCodeAtom, selectedElementAtom } from '../../recoil'
+import { keyCodeAtom, selectedElementAtom } from '../../recoil-state'
 
 type InputSxEditApiAlias = {
   currentValue: any

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { useSetRecoilState } from 'recoil'
-import { dataDrawerOpenAtom } from '../../recoil'
+import { dataDrawerOpenAtom } from '../../recoil-state'
 
 export const toggleDrawer = (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
   const setDataDrawerOpen = useSetRecoilState(dataDrawerOpenAtom)

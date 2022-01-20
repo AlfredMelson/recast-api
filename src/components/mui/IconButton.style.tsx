@@ -6,7 +6,6 @@ export const IconButtonSxStyle = styled(IconButton, {
   name: 'IconButtonSx',
   slot: 'style'
 })(({ theme }) => ({
-  // color: theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[200] : BrandSwatch.Light.Grey[700],
   color: theme.palette.primary.light,
   padding: theme.spacing(10),
   transition: theme.transitions.create(['color'], {

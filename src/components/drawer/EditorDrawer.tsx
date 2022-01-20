@@ -2,21 +2,24 @@ import Drawer from '@mui/material/Drawer'
 import { AnimatePresence } from 'framer-motion'
 import * as React from 'react'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
-import { dataDrawerOpenAtom, monacoThemeAtom, themeColorAtom } from '../../recoil'
+import { dataDrawerOpenAtom, monacoThemeAtom } from '../../recoil-state'
 import { toggleDrawer } from '../action'
 import { FadeAnimation } from '../framer-motion'
 import { Editor, EditorTheme } from '../monaco-editor'
 import { MinifyDialog } from '.'
 
 export function EditorDrawer() {
-  const themeColor = useRecoilValue(themeColorAtom)
   // set editor theme value
   const setMonacoTheme = useSetRecoilState(monacoThemeAtom)
 
   React.useEffect(() => {
-    const theme = themeColor === 'dark' ? 'cobalt' : 'katzenmilch'
-    EditorTheme(theme).then(() => setMonacoTheme(theme))
-  }, [themeColor, setMonacoTheme])
+    const localStorageThemeColor = localStorage.getItem('themeColor')
+
+    if (localStorageThemeColor) {
+      const theme = localStorageThemeColor === 'dark' ? 'cobalt' : 'katzenmilch'
+      EditorTheme(theme).then(() => setMonacoTheme(theme))
+    }
+  }, [setMonacoTheme])
   // set visability of user json drawer
   const dataDrawerOpen = useRecoilValue(dataDrawerOpenAtom)
 

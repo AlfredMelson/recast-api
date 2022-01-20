@@ -11,7 +11,7 @@ import {
   IconButtonSxApiEdit,
   InputSxEditApi
 } from '../../../components/mui'
-import { selectedElementAtom } from '../../../recoil'
+import { selectedElementAtom } from '../../../recoil-state'
 import { BrandSwatch } from '../../../style'
 import { ApiStringAlias } from './typeAliases'
 import { ApiDataTypeLabel } from '.'

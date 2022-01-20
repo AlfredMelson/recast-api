@@ -4,7 +4,7 @@ import MenuItem from '@mui/material/MenuItem'
 import { SelectChangeEvent } from '@mui/material/Select'
 import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil'
 import { JsonPlaceholderData, RandomData } from '../../../cms'
-import { dataCategoryAtom, dataQuantityAtom, dataSourceAtom } from '../../../recoil'
+import { dataCategoryAtom, dataQuantityAtom, dataSourceAtom } from '../../../recoil-state'
 import { CardSx, SelectSx } from '../../mui'
 
 export default function DataCategorySelector() {
