@@ -1,3 +1,5 @@
+export { default as Header } from './Header'
+export { default as HeaderMobile } from './HeaderMobile'
 export { default as HeaderIcons } from './HeaderIcons'
 export { default as HeaderMobileIcons } from './HeaderMobileIcons'
 export { default as HeaderLogo } from './HeaderLogo'

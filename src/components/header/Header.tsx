@@ -3,12 +3,12 @@ import Button from '@mui/material/Button'
 import { AnimatePresence } from 'framer-motion'
 import * as React from 'react'
 import { useRecoilValue } from 'recoil'
-import { DrawerIcons } from '../components/drawer'
-import { SlideUpAnimation } from '../components/framer-motion'
-import { HeaderIcons, HeaderLogo, HeaderTitle } from '../components/header'
-import { dataDrawerOpenAtom } from '../recoil-state'
+import { dataDrawerOpenAtom } from '../../recoil-state'
+import { DrawerIcons } from '../drawer'
+import { SlideUpAnimation } from '../framer-motion'
+import { HeaderIcons, HeaderLogo, HeaderTitle } from '.'
 
-export function Header() {
+export default function Header() {
   const dataDrawerOpen = useRecoilValue(dataDrawerOpenAtom)
 
   const [hover, setHover] = React.useState(false)

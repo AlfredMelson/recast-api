@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box'
-import { HeaderLogo, HeaderMobileIcons } from '../components/header'
+import { HeaderLogo, HeaderMobileIcons } from '.'
 
-export function HeaderMobile() {
+export default function HeaderMobile() {
   return (
     <Box
       sx={{

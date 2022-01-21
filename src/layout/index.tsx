@@ -3,8 +3,7 @@ import Container from '@mui/material/Container'
 import { styled } from '@mui/material/styles'
 import { Outlet } from 'react-router-dom'
 import { EditorDrawer } from '../components/drawer'
-import { Header } from './Header'
-import { HeaderMobile } from './HeaderMobile'
+import { Header, HeaderMobile } from '../components/header'
 
 const LayoutWrapper = styled(Box, { name: 'Layout', slot: 'wrapper' })(({ theme }) => ({
   backgroundColor: theme.palette.background.default,
