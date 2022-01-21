@@ -4,11 +4,10 @@ import * as React from 'react'
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
 import { minifiedTextAtom, minifyDialogOpenAtom, userGeneratedJsonAtom } from '../../recoil-state'
 import { BrandSwatch } from '../../style'
-import { SxCircularProgress } from '../action'
 import { CheckIcon, CloseIcon, CopyIcon, DownloadIcon } from '../icons'
-import { ButtonGroupSx, IconButtonSxStyle, ToolTipSx } from '../mui'
+import { ButtonGroupSx, CircularProgressStyle, IconButtonSxStyle, ToolTipSx } from '../mui'
 
-export function MinifyIcons() {
+export default function MinifyIcons() {
   //set dialog with minified json visability
   const setMinifyDialogOpen = useSetRecoilState(minifyDialogOpenAtom)
 
@@ -120,7 +119,7 @@ export function MinifyIcons() {
             )}
           </IconButtonSxStyle>
         </ToolTipSx>
-        {loadingCopy && <SxCircularProgress size='20px' color='green' />}
+        {loadingCopy && <CircularProgressStyle />}
       </Box>
       <Box sx={{ position: 'relative' }}>
         <ToolTipSx tooltipTitle={minifiedCopy ? 'Downloaded' : 'Download minified json'}>
@@ -141,7 +140,7 @@ export function MinifyIcons() {
             )}
           </IconButtonSxStyle>
         </ToolTipSx>
-        {loadingDownload && <SxCircularProgress size='20px' color='green' />}
+        {loadingDownload && <CircularProgressStyle />}
       </Box>
       <Box sx={{ position: 'relative', pr: 5 }}>
         <ToolTipSx tooltipTitle={'Close'}>

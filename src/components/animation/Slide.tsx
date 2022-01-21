@@ -5,7 +5,7 @@ type SlideAlias = {
   keyframes: any
 }
 
-export function Slide({ animationName, keyframes, ...props }: BoxProps & SlideAlias) {
+export default function Slide({ animationName, keyframes, ...props }: BoxProps & SlideAlias) {
   return (
     <Box
       {...props}

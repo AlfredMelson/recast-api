@@ -1,7 +1,7 @@
 import { Theme } from '@mui/material/styles'
-import { BrandSwatch } from './BrandSwatch'
+import BrandSwatch from './BrandSwatch'
 
-export function BrandThemedComponents(theme: Theme) {
+export default function BrandThemedComponents(theme: Theme) {
   return {
     components: {
       // https://mui.com/api/button/

@@ -3,7 +3,7 @@ import { userToggledApiAtom } from '../../recoil-state'
 import { BrandSwatch } from '../../style'
 import RootSvg, { RootSvgProps } from './RootSvg'
 
-export function SvgTsLogoTs(props: RootSvgProps) {
+export default function SvgTsLogoTs(props: RootSvgProps) {
   const userToggledApi = useRecoilValue(userToggledApiAtom)
 
   return (

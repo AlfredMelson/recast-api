@@ -1,5 +1,5 @@
 import HeroNoMatch from '../../components/no-match/Hero'
 
-export function NoMatch() {
+export default function NoMatch() {
   return <HeroNoMatch />
 }

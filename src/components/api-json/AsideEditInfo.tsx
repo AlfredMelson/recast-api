@@ -11,7 +11,7 @@ import { selectedElementAtom } from '../../recoil-state'
 import { BrandSwatch } from '../../style'
 import { AddIcon } from '../icons'
 
-export function AsideEditInfo({ ...props }: BoxProps) {
+export default function AsideEditInfo({ ...props }: BoxProps) {
   const selectedElement = useRecoilValue(selectedElementAtom)
 
   const selectedElementCard = () => {

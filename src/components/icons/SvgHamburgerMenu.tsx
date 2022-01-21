@@ -1,6 +1,6 @@
 import RootSvg, { RootSvgProps } from './RootSvg'
 
-export function SvgHamburgerMenu(props: RootSvgProps) {
+export default function SvgHamburgerMenu(props: RootSvgProps) {
   return (
     <RootSvg
       xmlns='http://www.w3.org/2000/svg'

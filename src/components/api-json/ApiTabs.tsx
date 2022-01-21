@@ -20,7 +20,7 @@ import {
   currentApiQuerySelector,
   userToggledApiAtom
 } from '../../recoil-state'
-import { SvgTsLogoDtype } from '../icons'
+import { SvgTsLogoDtype } from '../icons/SvgTsLogoTs'
 import { TabSx, TabWrapperSx } from '../mui'
 
 type TabPanelAlias = {
@@ -50,7 +50,7 @@ function a11yProps(index: number) {
   }
 }
 
-export function ApiTabs() {
+export default function ApiTabs() {
   // state of user toggled api response
   const setUserToggledApi = useSetRecoilState(userToggledApiAtom)
   // state of full response returned from Axios api call

@@ -8,7 +8,7 @@ import { FadeAnimation } from '../framer-motion'
 import { Editor, EditorTheme } from '../monaco-editor'
 import { MinifyDialog } from '.'
 
-export function EditorDrawer() {
+export default function EditorDrawer() {
   // set editor theme value
   const setMonacoTheme = useSetRecoilState(monacoThemeAtom)
 

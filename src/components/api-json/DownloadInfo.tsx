@@ -4,7 +4,7 @@ import * as React from 'react'
 import { BrandSwatch } from '../../style'
 import { ArrowLeftIcon, ArrowRightIcon } from '../icons'
 
-export function DownloadInfo({
+export default function DownloadInfo({
   appeared,
   content,
   ...props

@@ -1,5 +1,5 @@
 import { createTheme, ThemeOptions } from '@mui/material/styles'
-import { BrandSwatch } from './BrandSwatch'
+import BrandSwatch from './BrandSwatch'
 
 /**
  * Adding & disabling typography variants
@@ -52,7 +52,7 @@ function round(value: number) {
 
 const theme = createTheme()
 
-export const BrandDesignTokens = (mode: 'dark' | 'light') =>
+const BrandDesignTokens = (mode: 'dark' | 'light') =>
   ({
     breakpoints: {},
     palette: {
@@ -320,3 +320,5 @@ export const BrandDesignTokens = (mode: 'dark' | 'light') =>
       }
     }
   } as ThemeOptions)
+
+export default BrandDesignTokens

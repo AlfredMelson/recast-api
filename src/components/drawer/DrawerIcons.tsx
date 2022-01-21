@@ -9,7 +9,6 @@ import {
   minifyDialogOpenAtom
 } from '../../recoil-state'
 import { BrandSwatch } from '../../style'
-import { SxCircularProgress } from '../action'
 import {
   CheckIcon,
   CloseIcon,
@@ -19,9 +18,9 @@ import {
   DownloadIcon,
   MinifyIcon
 } from '../icons'
-import { IconButtonSxStyle, ToolTipSx } from '../mui'
+import { CircularProgressStyle, IconButtonSxStyle, ToolTipSx } from '../mui'
 
-export function DrawerIcons(sx) {
+export default function DrawerIcons(sx) {
   // retrieve localStorage value
   const currentApiQuery = useRecoilValue(currentApiQuerySelector)
 
@@ -126,7 +125,7 @@ export function DrawerIcons(sx) {
             </IconButtonSxStyle>
           </ToolTipSx>
         )}
-        {loadingCopy && <SxCircularProgress size='20px' color='green' />}
+        {loadingCopy && <CircularProgressStyle />}
       </Box>
       <Box sx={{ position: 'relative' }}>
         {!currentApiQuery ? (
@@ -153,7 +152,7 @@ export function DrawerIcons(sx) {
             </IconButtonSxStyle>
           </ToolTipSx>
         )}
-        {loadingDownload && <SxCircularProgress size='20px' color='green' />}
+        {loadingDownload && <CircularProgressStyle />}
       </Box>
       <Box sx={{ position: 'relative' }}>
         {!currentApiQuery ? (

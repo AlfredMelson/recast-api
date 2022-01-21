@@ -1,5 +1,2 @@
-export * from './ApiEditHighlighter'
+export { default as ApiEditHighlighter } from './ApiEditHighlighter'
 export * from './KeyboardFunctions'
-export * from './KeyboardLeftRightArrow'
-export * from './KeyboardToggleDrawer'
-export * from './SxCircularProgress'

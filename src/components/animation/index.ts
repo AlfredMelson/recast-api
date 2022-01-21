@@ -1,2 +1,2 @@
-export * from './FadeDelay'
-export * from './Slide'
+export { default as FadeDelay } from './FadeDelay'
+export { default as Slide } from './Slide'

@@ -4,7 +4,7 @@ type ApiEditHighlighterAlias = {
   selected?: boolean
 }
 
-export function ApiEditHighlighter({
+export default function ApiEditHighlighter({
   selected = false,
   ...props
 }: ApiEditHighlighterAlias & StackProps) {

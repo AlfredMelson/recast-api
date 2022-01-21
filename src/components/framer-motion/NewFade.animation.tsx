@@ -5,7 +5,7 @@ type NewFadeAnimationAlias = {
   children: React.ReactNode
 }
 
-export const NewFadeUpAnimation = ({ children }: NewFadeAnimationAlias) => {
+export default function NewFadeUpAnimation({ children }: NewFadeAnimationAlias) {
   const animations = {
     initial: { opacity: 0 },
     animate: { opacity: 1 },

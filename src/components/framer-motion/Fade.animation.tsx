@@ -8,12 +8,12 @@ type FadeAnimationAlias = {
   duration?: number
 }
 
-export const FadeAnimation = ({
+export default function FadeAnimation({
   children,
   layoutId,
   delay,
   duration = 0.5
-}: FadeAnimationAlias) => {
+}: FadeAnimationAlias) {
   const animations = {
     initial: { opacity: 0 },
     animate: { opacity: 1 },

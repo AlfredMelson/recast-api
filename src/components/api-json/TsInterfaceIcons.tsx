@@ -4,13 +4,13 @@ import * as React from 'react'
 import { useRecoilValue } from 'recoil'
 import { userGeneratedJsonAtom } from '../../recoil-state'
 import { BrandSwatch } from '../../style'
-import { SxCircularProgress } from '../action/SxCircularProgress'
 import { CheckIcon, CopyIcon, DownloadIcon } from '../icons'
+import { CircularProgressStyle } from '../mui'
 import { ButtonGroupSxTsInterface } from '../mui/ButtonGroup.style'
 import { IconButtonSxTsInterface } from '../mui/IconButton.style'
 import { ToolTipSx } from '../mui/ToolTip.style'
 
-export function TsInterfaceIcons() {
+export default function TsInterfaceIcons() {
   // retrieve localStorage value
   const userGeneratedJson = useRecoilValue(userGeneratedJsonAtom)
   //
@@ -102,7 +102,7 @@ export function TsInterfaceIcons() {
             )}
           </IconButtonSxTsInterface>
         </ToolTipSx>
-        {loadingCopy && <SxCircularProgress size='20px' color='green' />}
+        {loadingCopy && <CircularProgressStyle />}
       </Box>
       <Box sx={{ position: 'relative', pl: 5 }}>
         <ToolTipSx tooltipTitle={'Download interface'}>
@@ -123,7 +123,7 @@ export function TsInterfaceIcons() {
             )}
           </IconButtonSxTsInterface>
         </ToolTipSx>
-        {loadingDownload && <SxCircularProgress size='20px' color='green' />}
+        {loadingDownload && <CircularProgressStyle />}
       </Box>
     </ButtonGroupSxTsInterface>
   )

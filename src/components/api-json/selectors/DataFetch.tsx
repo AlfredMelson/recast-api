@@ -5,9 +5,8 @@ import * as React from 'react'
 import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil'
 import { currentApiStateAtom, selectedApiSelector } from '../../../recoil-state'
 import { BrandSwatch } from '../../../style'
-import { SxCircularProgress } from '../../action'
 import { CheckIcon } from '../../icons'
-import { ButtonSxStyle, CardSx } from '../../mui'
+import { ButtonSxStyle, CardSx, CircularProgressStyle } from '../../mui'
 
 export default function DataFetch() {
   const resetSelectedApi = useResetRecoilState(selectedApiSelector)
@@ -107,7 +106,7 @@ export default function DataFetch() {
               )
             )}
           </ButtonSxStyle>
-          {submitting && <SxCircularProgress size='20px' color='green' />}
+          {submitting && <CircularProgressStyle />}
         </Box>
       </Stack>
     </CardSx>

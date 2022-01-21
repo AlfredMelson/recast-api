@@ -7,7 +7,7 @@
  *
  * @return The cookie value
  */
-export function getCookie(name: string): string | undefined {
+export default function getCookie(name: string): string | undefined {
   if (typeof document === 'undefined') {
     throw new Error(
       'getCookie() is not supported on the server. Fallback to a different value when rendering on the server.'

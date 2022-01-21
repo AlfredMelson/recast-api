@@ -29,7 +29,7 @@ const MinifyHeaderWrapper = styled(Box, { name: 'MinifyHeader', slot: 'wrapper' 
   zIndex: theme.zIndex.drawer + 1
 }))
 
-export function MinifyDialog() {
+export default function MinifyDialog() {
   // set dialog with minified json visability
   const [minifyDialogOpen, setMinifyDialogOpen] = useRecoilState(minifyDialogOpenAtom)
   // retrieve localStorage value

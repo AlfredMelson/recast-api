@@ -3,7 +3,7 @@
 import { styled } from '@mui/material/styles'
 import SvgIcon, { SvgIconProps } from '@mui/material/SvgIcon'
 
-export function SunAndMoonIcon(props: SvgIconProps): JSX.Element {
+export default function SunAndMoonIcon(props: SvgIconProps): JSX.Element {
   // aria-hidden="true"
   // viewBox="0 0 24 24"
   return (

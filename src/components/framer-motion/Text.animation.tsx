@@ -6,7 +6,7 @@ type TextAnimationAlias = {
   layoutId: string
 }
 
-export const TextAnimation = ({ text, layoutId }: TextAnimationAlias) => {
+export default function TextAnimation({ text, layoutId }: TextAnimationAlias) {
   const sentence = {
     hidden: {
       opacity: 1

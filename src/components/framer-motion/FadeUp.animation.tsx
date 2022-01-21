@@ -6,7 +6,7 @@ type FadeAnimationAlias = {
   layoutId?: string
 }
 
-export const FadeUpAnimation = ({ children, layoutId }: FadeAnimationAlias) => {
+export default function FadeUpAnimation({ children, layoutId }: FadeAnimationAlias) {
   const animations = {
     initial: { opacity: 0, y: 100 },
     animate: { opacity: 1, y: 0 },

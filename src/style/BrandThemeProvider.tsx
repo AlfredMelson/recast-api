@@ -3,14 +3,14 @@ import { deepmerge } from '@mui/utils'
 import * as React from 'react'
 import { useRecoilValue } from 'recoil'
 import { themeColorAtom } from '../recoil-state'
-import { BrandDesignTokens } from './BrandTheme'
-import { BrandThemedComponents } from './BrandThemedComponents'
+import BrandDesignTokens from './BrandTheme'
+import BrandThemedComponents from './BrandThemedComponents'
 
 type BrandThemeProviderAlias = {
   children: React.ReactNode
 }
 
-export function BrandThemeProvider({ children }: BrandThemeProviderAlias) {
+export default function BrandThemeProvider({ children }: BrandThemeProviderAlias) {
   // color mode value managed globally via recoil
   const themeColor = useRecoilValue(themeColorAtom)
   // color mode value passed as string

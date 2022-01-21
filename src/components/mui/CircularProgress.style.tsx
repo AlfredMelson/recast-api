@@ -1,0 +1,17 @@
+import CircularProgress from '@mui/material/CircularProgress'
+import { styled } from '@mui/material/styles'
+import { BrandSwatch } from '../../style'
+
+const CircularProgressStyle = styled(CircularProgress, {
+  name: 'CircularProgress',
+  slot: 'style'
+})(() => ({
+  color: BrandSwatch.Light.Green[500],
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  marginTop: '-9px',
+  marginLeft: '-9px'
+}))
+
+export default CircularProgressStyle

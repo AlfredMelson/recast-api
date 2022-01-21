@@ -3,7 +3,7 @@ import { ApiTabs } from '../../components/api-json'
 import { ErrorBoundary } from '../../lib'
 import { Hero } from './Hero'
 
-export function ApiJson() {
+export default function ApiJson() {
   return (
     <>
       <Hero />

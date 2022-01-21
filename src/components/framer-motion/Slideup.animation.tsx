@@ -8,7 +8,12 @@ type SlideUpAnimationAlias = {
   endY?: number
 }
 
-export const SlideUpAnimation = ({ children, layoutId, startY, endY }: SlideUpAnimationAlias) => {
+export default function SlideUpAnimation({
+  children,
+  layoutId,
+  startY,
+  endY
+}: SlideUpAnimationAlias) {
   const animations = {
     initial: { opacity: 0, y: startY },
     animate: { opacity: 1, y: endY },

@@ -33,7 +33,7 @@
 //   data?: { [key: string]: any } | undefined
 // }
 
-export const BrandSwatch = {
+const BrandSwatch = {
   Dark: {
     Pink: {
       50: '#ffdaec',
@@ -259,3 +259,5 @@ export const BrandSwatch = {
     Black: { 50: '#1b1f24' }
   }
 }
+
+export default BrandSwatch
