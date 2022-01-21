@@ -2,9 +2,9 @@ import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import * as React from 'react'
-import { ApiDeleteIcon, ArrowRightIcon } from '../../../components/icons'
-import { IconButtonSxApiIcons } from '../../../components/mui'
 import { BrandSwatch } from '../../../style'
+import { ApiDeleteIcon, ArrowRightIcon } from '../../icons'
+import { IconButtonSxApiIcons } from '../../mui'
 import { ApiObjectAlias, getType } from './typeAliases'
 import { ApiDataSort, ApiDataTypeLabel } from '.'
 
@@ -65,7 +65,7 @@ export function ApiObject({ value, dataKey, dataType, onDelete }: ApiObjectAlias
   const renderObjContent = () => {
     if (col)
       return (
-        <React.Fragment>
+        <>
           <Stack direction='row'>
             <IconToggle />
             <Typography variant='code'>&#34;{dataKey}&#34;&#58;&nbsp;</Typography>
@@ -82,18 +82,18 @@ export function ApiObject({ value, dataKey, dataType, onDelete }: ApiObjectAlias
           <Typography variant='code' sx={{ ml: 84 }}>
             &#125;
           </Typography>
-        </React.Fragment>
+        </>
       )
 
     return (
-      <React.Fragment>
+      <>
         <Stack direction='row'>
           <IconToggle />
           <Typography variant='code'>
             {keys.length === 0 ? (
               ''
             ) : (
-              <React.Fragment>
+              <>
                 &#34;{dataKey}&#34;&#58;&nbsp;&#123;&#46;&#46;&#46;&#125;&nbsp;
                 <Box
                   component='span'
@@ -107,11 +107,11 @@ export function ApiObject({ value, dataKey, dataType, onDelete }: ApiObjectAlias
                   {keys.length}&nbsp;
                   {keys.length === 1 ? 'item' : 'items'}
                 </Box>
-              </React.Fragment>
+              </>
             )}
           </Typography>
         </Stack>
-      </React.Fragment>
+      </>
     )
   }
 

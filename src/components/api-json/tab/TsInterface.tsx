@@ -4,10 +4,10 @@ import Typography from '@mui/material/Typography'
 import { motion } from 'framer-motion'
 import * as React from 'react'
 import { useRecoilValue } from 'recoil'
-import { DownloadInfo, TsInterfaceIcons } from '../../../components/api-json'
-import { PaperSx } from '../../../components/mui'
+import { DownloadInfo, TsInterfaceIcons } from '..'
 import { ErrorBoundary } from '../../../lib'
 import { selectedApiSelector } from '../../../recoil-state'
+import { PaperSx } from '../../mui'
 import { ApiDataTypeLabel } from '../data-types'
 import {
   ApiArrayAlias,
@@ -69,7 +69,7 @@ const TsInterface: React.FC<TsInterfaceAlias> = ({ data }: TsInterfaceAlias) => 
         <DownloadInfo
           appeared={true}
           content={
-            <React.Fragment>
+            <>
               <Typography fontWeight='bold' color='grey.300' variant='body2'>
                 {`${formLastSegment}Props`}
               </Typography>
@@ -79,7 +79,7 @@ const TsInterface: React.FC<TsInterfaceAlias> = ({ data }: TsInterfaceAlias) => 
               <Box sx={{ my: 10, textAlign: 'center' }}>
                 <TsInterfaceIcons />
               </Box>
-            </React.Fragment>
+            </>
           }
         />
       </ErrorBoundary>

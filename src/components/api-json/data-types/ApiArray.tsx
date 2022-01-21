@@ -1,8 +1,8 @@
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import * as React from 'react'
-import { ArrowDownIcon, ArrowUpIcon } from '../../../components/icons'
-import { IconButtonSx } from '../../../components/mui'
+import { ArrowDownIcon, ArrowUpIcon } from '../../icons'
+import { IconButtonSx } from '../../mui'
 import { ApiArrayAlias, getType } from './typeAliases'
 import { ApiDataSort, ApiDataTypeLabel } from '.'
 

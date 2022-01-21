@@ -7,14 +7,6 @@ import { useLocation } from 'react-router-dom'
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
 import { ApiTabDataAlias, ApiTabPanelAlias } from '../../cms'
 import {
-  DataHeaders,
-  DataResponse,
-  DTypescript,
-  EditResponse,
-  FullResponse,
-  TsInterface
-} from '../../pages/api-json/tab'
-import {
   apiTabSelectedAtom,
   axiosResponseAtom,
   currentApiQuerySelector,
@@ -22,6 +14,14 @@ import {
 } from '../../recoil-state'
 import { SvgTsLogoDtype } from '../icons/SvgTsLogoTs'
 import { TabSx, TabWrapperSx } from '../mui'
+import {
+  DataHeaders,
+  DataResponse,
+  DTypescript,
+  EditResponse,
+  FullResponse,
+  TsInterface
+} from './tab'
 
 type TabPanelAlias = {
   index: number
@@ -87,7 +87,7 @@ export default function ApiTabs() {
     { index: 0, panel: <DataResponse data={currentApiQuery?.data} /> },
     {
       index: 1,
-      panel: <EditResponse data={currentApiQuery} onDelete={DeleteObj} onEdit={EditObj} />
+      panel: <EditResponse data={currentApiQuery?.data} onDelete={DeleteObj} onEdit={EditObj} />
     },
     { index: 2, panel: <FullResponse data={currentApiQuery} /> },
     { index: 3, panel: <DataHeaders data={currentApiQuery?.headers} /> },
@@ -107,7 +107,7 @@ export default function ApiTabs() {
   return (
     <>
       {currentApiQuery !== undefined && (
-        <Box sx={{ pt: 30, pb: 1, overflowX: 'hidden' }}>
+        <Box sx={{ pt: 30, overflowX: 'hidden' }}>
           <TabWrapperSx
             key={local.pathname}
             aria-label='api data tabs'

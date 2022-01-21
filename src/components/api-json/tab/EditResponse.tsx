@@ -3,12 +3,12 @@ import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import * as React from 'react'
 import { useRecoilState } from 'recoil'
-import { AsideEditInfo } from '../../../components/api-json'
-import { ArrowRightIcon } from '../../../components/icons'
-import { IconButtonSxApiIcons, PaperSx } from '../../../components/mui'
+import { AsideEditInfo } from '..'
 import { ErrorBoundary } from '../../../lib'
 import { currentDataAtom, elementStateAtom } from '../../../recoil-state'
 import { BrandSwatch } from '../../../style'
+import { ArrowRightIcon } from '../../icons'
+import { IconButtonSxApiIcons, PaperSx } from '../../mui'
 import { ApiDataSort } from '../data-types'
 import { EditResponseAlias, getType } from '../data-types/typeAliases'
 
@@ -64,7 +64,7 @@ export default function EditResponse({ data, onDelete, onEdit }: EditResponseAli
   const renderEditResponseContent = () => {
     if (reveal)
       return (
-        <React.Fragment>
+        <>
           <Stack direction='row'>
             <IconToggle />
             <Typography variant='code'>data&#58;&nbsp;&#123;</Typography>
@@ -73,18 +73,18 @@ export default function EditResponse({ data, onDelete, onEdit }: EditResponseAli
           <Typography variant='code' sx={{ pl: 5 }}>
             &#125;
           </Typography>
-        </React.Fragment>
+        </>
       )
 
     return (
-      <React.Fragment>
+      <>
         <Stack direction='row'>
           <IconToggle />
           <Typography variant='code'>
             {elementState.length === 0 ? (
               ''
             ) : (
-              <React.Fragment>
+              <>
                 data&#58;&nbsp;&#123;&#46;&#46;&#46;&#125;&nbsp;
                 <Box
                   component='span'
@@ -98,11 +98,11 @@ export default function EditResponse({ data, onDelete, onEdit }: EditResponseAli
                   {elementState.length}&nbsp;
                   {elementState.length === 1 ? 'item' : 'items'}
                 </Box>
-              </React.Fragment>
+              </>
             )}
           </Typography>
         </Stack>
-      </React.Fragment>
+      </>
     )
   }
 

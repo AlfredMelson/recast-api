@@ -1,23 +1,15 @@
 import Box from '@mui/material/Box'
-import { blue, grey } from '@mui/material/colors'
+import { grey } from '@mui/material/colors'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import { motion } from 'framer-motion'
 import * as React from 'react'
-import { ArrowDownIcon, ArrowRightIcon } from '../../../components/icons'
-import { IconButtonSxDataIcon, PaperSx } from '../../../components/mui'
 import { ErrorBoundary } from '../../../lib'
-import { BrandSwatch } from '../../../style'
-import {
-  ApiArrayAlias,
-  ApiBooleanAlias,
-  ApiDataSortAlias,
-  ApiFunctionAlias,
-  ApiNumberAlias,
-  ApiObjectAlias,
-  ApiStringAlias,
-  getType
-} from '../data-types/typeAliases'
+import { ArrowDownIcon, ArrowRightIcon } from '../../icons'
+import { IconButtonSxDataIcon, PaperSx } from '../../mui'
+import { ApiArrayAlias, ApiDataSortAlias, ApiObjectAlias, getType } from '../data-types/typeAliases'
+import { TypeBoolean, TypeFunction, TypeNumber, TypeString } from '../primitive-styles'
+import { ArrayTypography } from '../primitive-styles/Array.styles'
 
 type DataResponseAlias = {
   data?: { [key: string]: any } | undefined
@@ -59,15 +51,15 @@ function ApiDataSort({ index, dataType, dataValue, dataKey }: ApiDataSortAlias) 
       case 'array':
         return <JsonArray index={index} key={index} value={dataValue} dataKey={dataKey} />
       case 'boolean':
-        return <JsonBoolean index={index} key={index} value={dataValue} dataKey={dataKey} />
+        return <TypeBoolean index={index} key={index} value={dataValue} dataKey={dataKey} />
       case 'function':
-        return <JsonFunction index={index} key={index} value={dataValue} dataKey={dataKey} />
+        return <TypeFunction index={index} key={index} value={dataValue} dataKey={dataKey} />
       case 'number':
-        return <JsonNumber index={index} key={index} value={dataValue} dataKey={dataKey} />
+        return <TypeNumber index={index} key={index} value={dataValue} dataKey={dataKey} />
       case 'object':
         return <JsonObject index={index} key={index} value={dataValue} dataKey={dataKey} />
       case 'string':
-        return <JsonString index={index} key={index} value={dataValue} dataKey={dataKey} />
+        return <TypeString index={index} key={index} value={dataValue} dataKey={dataKey} />
       default:
         return null
     }
@@ -104,16 +96,14 @@ export function JsonArray({ value, dataKey }: ApiArrayAlias) {
             }}>
             <ArrowRightIcon />
           </IconButtonSxDataIcon>
-          <Typography variant='code'>
-            <Box>
-              {dataKey}&#58;&nbsp;&#123;&#46;&#46;&#46;&#125;&nbsp;
-              <span style={{ color: grey[500] }}>
-                &#47;&#47;&nbsp;
-                {childView && value ? Object.keys(value).length : ''}&nbsp;
-                {Object.keys(value).length === 1 ? 'item' : 'items'}
-              </span>
-            </Box>
-          </Typography>
+          <ArrayTypography>
+            {dataKey}&#58;&nbsp;&#123;&#46;&#46;&#46;&#125;&nbsp;
+            <span>
+              &#47;&#47;&nbsp;
+              {childView && value ? Object.keys(value).length : ''}&nbsp;
+              {Object.keys(value).length === 1 ? 'item' : 'items'}
+            </span>
+          </ArrayTypography>
         </Stack>
       )
     }
@@ -133,41 +123,6 @@ export function JsonArray({ value, dataKey }: ApiArrayAlias) {
   }
 
   return renderContent()
-}
-
-export function JsonBoolean({ value, dataKey }: ApiBooleanAlias) {
-  return (
-    <Typography variant='code' sx={{ color: blue[400] }}>
-      &#34;{dataKey}&#34;&#58;&nbsp;
-      <Box
-        component='span'
-        sx={{ color: value ? BrandSwatch.Dark.Green[300] : BrandSwatch.Dark.Red[300] }}>
-        {value}
-      </Box>
-    </Typography>
-  )
-}
-
-export function JsonFunction({ dataKey }: ApiFunctionAlias) {
-  return (
-    <Typography variant='code' sx={{ color: blue[500] }}>
-      &#34;{dataKey}&#34;&#58;&nbsp;
-      <Box component='span' sx={{ color: '#ffffff' }}>
-        &#91;&nbsp;&#402;&nbsp;&#93;
-      </Box>
-    </Typography>
-  )
-}
-
-function JsonNumber({ value, dataKey }: ApiNumberAlias) {
-  return (
-    <Typography variant='code'>
-      &#34;{dataKey}&#34;&#58;&nbsp;
-      <Box component='span' sx={{ color: '#9980FF' }}>
-        {value}
-      </Box>
-    </Typography>
-  )
 }
 
 function JsonObject({ value, dataKey }: ApiObjectAlias) {
@@ -195,7 +150,7 @@ function JsonObject({ value, dataKey }: ApiObjectAlias) {
   const renderObjContent = () => {
     if (childView)
       return (
-        <React.Fragment>
+        <>
           <Stack direction='row' sx={{ ml: -16 }}>
             <IconButtonSxDataIcon
               onClick={() => {
@@ -206,7 +161,7 @@ function JsonObject({ value, dataKey }: ApiObjectAlias) {
             <Typography variant='code'>{dataKey}</Typography>
           </Stack>
           <Box sx={{ ml: '32px' }}>{renderObject()}</Box>
-        </React.Fragment>
+        </>
       )
     return (
       <Stack direction='row' sx={{ ml: -16 }}>
@@ -220,28 +175,17 @@ function JsonObject({ value, dataKey }: ApiObjectAlias) {
           {keys.length === 0 ? (
             ''
           ) : (
-            <React.Fragment>
+            <>
               {dataKey}&#58;&nbsp;&#123;&#46;&#46;&#46;&#125;&nbsp;
               <Box component='span' sx={{ color: grey[500] }}>
                 &#47;&#47;&nbsp;{keys.length}&nbsp;
                 {keys.length === 1 ? 'item' : 'items'}
               </Box>
-            </React.Fragment>
+            </>
           )}
         </Typography>
       </Stack>
     )
   }
   return renderObjContent()
-}
-
-function JsonString({ value, dataKey }: ApiStringAlias) {
-  return (
-    <Typography variant='code'>
-      &#34;{dataKey}&#34;&#58;&nbsp;
-      <Box component='span' sx={{ color: BrandSwatch.Dark.Green[300] }}>
-        &#34;{value}&#34;
-      </Box>
-    </Typography>
-  )
 }

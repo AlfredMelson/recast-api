@@ -4,9 +4,9 @@ import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import { motion } from 'framer-motion'
 import * as React from 'react'
-import { ArrowDownIcon, ArrowRightIcon } from '../../../components/icons'
-import { IconButtonSxDataIcon, PaperSx } from '../../../components/mui'
 import { ErrorBoundary } from '../../../lib'
+import { ArrowDownIcon, ArrowRightIcon } from '../../icons'
+import { IconButtonSxDataIcon, PaperSx } from '../../mui'
 import {
   ApiArrayAlias,
   ApiBooleanAlias,
@@ -191,7 +191,7 @@ function JsonObject({ value, dataKey }: ApiObjectAlias) {
   const renderObjContent = () => {
     if (col)
       return (
-        <React.Fragment>
+        <>
           <Stack direction='row' sx={{ ml: -16 }}>
             <IconButtonSxDataIcon onClick={toggleObj}>
               <ArrowDownIcon />
@@ -199,7 +199,7 @@ function JsonObject({ value, dataKey }: ApiObjectAlias) {
             <Typography variant='code'>{dataKey}</Typography>
           </Stack>
           <Box sx={{ ml: 32 }}>{renderObject()}</Box>
-        </React.Fragment>
+        </>
       )
     return (
       <Stack direction='row' sx={{ ml: -16 }}>

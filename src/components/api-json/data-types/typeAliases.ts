@@ -29,7 +29,7 @@ export type ApiDataSortAlias = {
   onEdit?: (newValue: any, key: string | number) => void
 }
 
-type ApiValueProp = {
+export type ApiValueProp = {
   [index: number]: any
 }
 
@@ -77,7 +77,7 @@ export type ApiNumberAlias = {
 export type ApiStringAlias = {
   index: number
   dataKey: string | number
-  value?: number
+  value?: string
   dataType?: string
   onEdit?: (newVale: any, key: string | number) => void
   onDelete?: (dataKey: string | number) => void

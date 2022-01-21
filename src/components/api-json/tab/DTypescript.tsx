@@ -4,10 +4,10 @@ import Typography from '@mui/material/Typography'
 import { motion } from 'framer-motion'
 import * as React from 'react'
 import { useRecoilValue } from 'recoil'
-import { DownloadInfo, TsInterfaceIcons } from '../../../components/api-json'
-import { PaperSx } from '../../../components/mui'
+import { DownloadInfo, TsInterfaceIcons } from '..'
 import { ErrorBoundary } from '../../../lib'
 import { selectedApiSelector } from '../../../recoil-state'
+import { PaperSx } from '../../mui'
 import { ApiDataTypeLabel } from '../data-types'
 import {
   ApiArrayAlias,

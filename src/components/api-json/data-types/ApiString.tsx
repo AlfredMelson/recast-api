@@ -4,15 +4,11 @@ import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import * as React from 'react'
 import { useRecoilState } from 'recoil'
-import { ApiEditHighlighter } from '../../../components/action'
-import { ApiApplyIcon, ApiCloseIcon, ApiDeleteIcon } from '../../../components/icons'
-import {
-  ButtonSxApiJsonEditItem,
-  IconButtonSxApiEdit,
-  InputSxEditApi
-} from '../../../components/mui'
 import { selectedElementAtom } from '../../../recoil-state'
 import { BrandSwatch } from '../../../style'
+import { ApiEditHighlighter } from '../../action'
+import { ApiApplyIcon, ApiCloseIcon, ApiDeleteIcon } from '../../icons'
+import { ButtonSxApiJsonEditItem, IconButtonSxApiEdit, InputSxEditApi } from '../../mui'
 import { ApiStringAlias } from './typeAliases'
 import { ApiDataTypeLabel } from '.'
 
