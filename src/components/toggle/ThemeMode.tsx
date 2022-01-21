@@ -30,11 +30,11 @@ export function ThemeModeToggle() {
         <IconButtonSxStyle onClick={handleChange} id='theme-toggle'>
           <AnimatePresence>
             {themeColor === 'dark' && (
-              <SlideUpAnimation startY={30} endY={3}>
+              <SlideUpAnimation startY={30} endY={0}>
                 <SunIcon
                   sx={{
                     position: 'absolute',
-                    marginTop: '-16px',
+                    marginTop: '-13px',
                     marginLeft: '-10px'
                   }}
                 />
@@ -43,11 +43,11 @@ export function ThemeModeToggle() {
           </AnimatePresence>
           <AnimatePresence>
             {themeColor === 'light' && (
-              <SlideUpAnimation startY={-30} endY={3}>
+              <SlideUpAnimation startY={-30} endY={0}>
                 <MoonIcon
                   sx={{
                     position: 'absolute',
-                    marginTop: '-16px',
+                    marginTop: '-13px',
                     marginLeft: '-10px'
                   }}
                 />

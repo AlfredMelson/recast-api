@@ -18,7 +18,7 @@ export function HeaderMobile() {
           justifySelf: 'start',
           pl: 20
         }}>
-        <HeaderLogo sx={{ transform: 'translateY(3px)' }} />
+        <HeaderLogo />
       </Box>
       <Box
         sx={{

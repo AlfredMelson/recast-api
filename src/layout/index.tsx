@@ -12,6 +12,7 @@ const LayoutWrapper = styled(Box, { name: 'Layout', slot: 'wrapper' })(({ theme 
 }))
 
 const HeaderWrapper = styled('header', { name: 'Header', slot: 'wrapper' })(({ theme }) => ({
+  position: 'static',
   top: 0,
   transition: theme.transitions.create('top'),
   zIndex: theme.zIndex.drawer + 1

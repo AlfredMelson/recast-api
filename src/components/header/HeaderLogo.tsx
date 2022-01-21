@@ -1,4 +1,3 @@
-import { SxProps } from '@mui/material'
 import { styled } from '@mui/material/styles'
 import Typography, { TypographyProps } from '@mui/material/Typography'
 import { BrandSwatch } from '../../style'
@@ -12,10 +11,6 @@ const HeaderLogoStyle = styled(
   color: BrandSwatch.Dark.Green[400]
 }))
 
-type HeaderLogoAlias = {
-  sx?: SxProps
-}
-
-export default function HeaderLogo({ ...props }: HeaderLogoAlias) {
-  return <HeaderLogoStyle {...props}>Recast</HeaderLogoStyle>
+export default function HeaderLogo() {
+  return <HeaderLogoStyle>Recast</HeaderLogoStyle>
 }
