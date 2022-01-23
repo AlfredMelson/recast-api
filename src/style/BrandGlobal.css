@@ -1,12 +1,3 @@
-@import 'https://unpkg.com/open-props/easings.min.css';
-
-@media screen and (display-mode: standalone) {
-  header {
-    /* height: 88px !important; */
-    height: 90px !important;
-  }
-}
-
 /**
  * Chrome transitions bug: Preventa "pop" of content by disabling all
  * transitions until page load is complete. https://lab.laukstein.com/bug/input

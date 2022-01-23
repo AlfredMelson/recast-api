@@ -35,6 +35,7 @@
 
 const BrandSwatch = {
   Dark: {
+    Axios: { 50: '#5A29E4', 100: '#5024C9' },
     Pink: {
       50: '#ffdaec',
       100: '#ffbedd',

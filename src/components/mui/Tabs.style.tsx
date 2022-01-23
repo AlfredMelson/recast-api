@@ -16,6 +16,8 @@ export const TabWrapperSx = styled(
   { name: 'Tab', slot: 'style' }
 )(({ theme }) => ({
   '.MuiTab-root': {
+    ...theme.typography.body2,
+    fontWeight: theme.typography.fontWeightMedium,
     marginRight: theme.spacing(6),
     color: theme.palette.text.secondary,
     backgroundColor:

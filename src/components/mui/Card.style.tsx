@@ -22,7 +22,12 @@ const CardSxStyle = styled(Card, { name: 'Card', slot: 'style' })(({ theme }) =>
 const CardHeaderSxStyle = styled(CardHeader, { name: 'CardHeader', slot: 'style' })(
   ({ theme }) => ({
     padding: theme.spacing(10, 16, 0),
-    color: theme.palette.text.primary
+    '.MuiCardHeader-title': {
+      ...theme.typography.body2,
+      fontWeight: theme.typography.fontWeightMedium,
+      color:
+        theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[300] : BrandSwatch.Light.Grey[700]
+    }
   })
 )
 const CardContentSxStyle = styled(CardContent, { name: 'CardContent', slot: 'style' })(

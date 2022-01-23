@@ -4,7 +4,6 @@ import BrandSwatch from './BrandSwatch'
 export default function BrandThemedComponents(theme: Theme) {
   return {
     components: {
-      // https://mui.com/api/button/
       MuiButton: {
         defaultProps: {}
       },
@@ -28,7 +27,6 @@ export default function BrandThemedComponents(theme: Theme) {
         sizeMedium: {} // State class applied to the root element if disabled={true}
       },
       MuiButtonBase: {
-        // https://mui.com/api/button-base/
         defaultProps: {
           disableTouchRipple: true
         },
@@ -133,10 +131,7 @@ export default function BrandThemedComponents(theme: Theme) {
         }
       },
       MuiDrawer: {
-        // https://mui.com/api/drawer/
-        defaultProps: {
-          hideBackdrop: true
-        },
+        defaultProps: {},
         styleOverrides: {
           root: {}, // Styles applied to the root element
           // paperAnchorTop: { boxShadow: 'none' }, // Styles applied to the Paper component if anchor="top"
@@ -144,7 +139,6 @@ export default function BrandThemedComponents(theme: Theme) {
         }
       },
       MuiFormControl: {
-        // https://mui.com/api/form-control/
         defaultProps: {},
         styleOverrides: {
           root: { minWidth: 240 }, // Styles applied to the root element
@@ -152,7 +146,6 @@ export default function BrandThemedComponents(theme: Theme) {
         }
       },
       MuiFormControlLabel: {
-        // https://mui.com/api/form-control-label/
         defaultProps: {},
         styleOverrides: {
           root: {
@@ -507,7 +500,6 @@ export default function BrandThemedComponents(theme: Theme) {
         }
       },
       MuiToggleButtonGroup: {
-        // https://mui.com/api/toggle-button-group/
         defaultProps: {
           size: 'small'
         },
@@ -579,14 +571,12 @@ export default function BrandThemedComponents(theme: Theme) {
         }
       },
       MuiTreeView: {
-        // https://mui.com/api/tree-view/
         defaultProps: {},
         styleOverrides: {
           root: {} // Styles applied to the root element
         }
       },
       MuiTypography: {
-        // https://mui.com/api/typography/
         defaultProps: {},
         styleOverrides: {
           root: {

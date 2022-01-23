@@ -9,10 +9,7 @@ import { atom } from 'recoil'
  * Utilise hooks to manage state changes and notify components subscribing to re-render.
  *
  */
-export const userToggledApiAtom = atom<UserToggledApiAtomOptions>({
-  key: 'userToggledApi',
-  default: 'data'
-})
+
 export type UserToggledApiAtomOptions =
   | 'axios'
   | 'data'
@@ -21,6 +18,11 @@ export type UserToggledApiAtomOptions =
   | 'edit'
   | 'ts'
   | 'dtype'
+
+export const userToggledApiAtom = atom<UserToggledApiAtomOptions>({
+  key: 'userToggledApi',
+  default: 'data'
+})
 // const [userToggledApi, setUserToggledApi] = useRecoilState(userToggledApiAtom)
 // const setUserToggledApi = useSetRecoilState(userToggledApiAtom)
 // const userToggledApi = useRecoilValue(userToggledApiAtom)

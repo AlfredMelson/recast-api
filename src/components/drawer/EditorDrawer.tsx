@@ -26,6 +26,8 @@ export default function EditorDrawer() {
   return (
     <AnimatePresence>
       <Drawer
+        // elevation={localStorageThemeColor === 'dark' ? 0 : 2}
+        elevation={4}
         transitionDuration={0}
         anchor='top'
         open={dataDrawerOpen}
