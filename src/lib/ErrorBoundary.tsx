@@ -1,10 +1,27 @@
+import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline'
+import { Stack, Typography } from '@mui/material'
 import * as React from 'react'
+import { BrandSwatch } from '../style'
 
 interface Props {
   children: React.ReactNode
 }
 interface State {
   hasError: boolean
+}
+
+export default function Error({ children }: Props) {
+  return (
+    <Stack
+      direction='row'
+      justifyContent='center'
+      alignItems='center'
+      spacing={10}
+      sx={{ color: BrandSwatch.Dark.Red[500], my: 20 }}>
+      <ErrorOutlineIcon fontSize='medium' />
+      <Typography variant='body2'>{children}</Typography>
+    </Stack>
+  )
 }
 
 /**
@@ -30,7 +47,7 @@ export class ErrorBoundary extends React.Component<Props, State> {
 
   public render() {
     if (this.state.hasError) {
-      return <h6 style={{ color: 'orange' }}>Sorry.. there was an error</h6>
+      return <Error>Could not fetch data.</Error>
     }
 
     return this.props.children

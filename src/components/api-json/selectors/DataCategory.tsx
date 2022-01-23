@@ -1,4 +1,3 @@
-import Box from '@mui/material/Box'
 import FormControl from '@mui/material/FormControl'
 import MenuItem from '@mui/material/MenuItem'
 import { SelectChangeEvent } from '@mui/material/Select'
@@ -22,7 +21,7 @@ export default function DataCategorySelector() {
   }
 
   return (
-    <Box component='div'>
+    <>
       {dataSource !== '' && (
         <CardSx title='Category'>
           <FormControl fullWidth>
@@ -36,6 +35,6 @@ export default function DataCategorySelector() {
           </FormControl>
         </CardSx>
       )}
-    </Box>
+    </>
   )
 }

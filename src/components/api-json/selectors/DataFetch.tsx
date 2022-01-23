@@ -53,7 +53,7 @@ export default function DataFetch() {
         // } else {
         //   refreshApiQuery()
         // }
-      }, 1000)
+      }, 1250)
       //restore state to pre-interaction
       interactionTimer.current = window.setTimeout(() => {
         setSuccessfulSubmit(false)

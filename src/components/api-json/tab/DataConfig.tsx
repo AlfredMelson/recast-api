@@ -6,14 +6,13 @@ import { PaperSx } from '../../mui'
 import { getType } from '../data-types/typeAliases'
 import { TypeSort } from '../primitive-styles'
 
-export default function DataResponse() {
+export default function DataConfig() {
   const currentApiQuery = useRecoilValue(currentApiQuerySelector)
 
-  const data = currentApiQuery?.data
+  const data = currentApiQuery?.config
 
   const [keys, setKeys] = React.useState<string[]>([])
   const [currentData, setCurrentData] = React.useState<AxiosResponseAlias>({})
-
   React.useEffect(() => {
     if (!currentApiQuery) {
       return

@@ -4,9 +4,8 @@ import Typography from '@mui/material/Typography'
 import { motion } from 'framer-motion'
 import * as React from 'react'
 import { useRecoilValue } from 'recoil'
-import { DownloadInfo, TsInterfaceIcons } from '..'
 import { ErrorBoundary } from '../../../lib'
-import { selectedApiSelector } from '../../../recoil-state'
+import { AxiosResponseAlias, currentApiQuerySelector } from '../../../recoil-state'
 import { PaperSx } from '../../mui'
 import { ApiDataTypeLabel } from '../data-types'
 import {
@@ -20,19 +19,24 @@ import {
   getType
 } from '../data-types/typeAliases'
 
-type TsInterfaceAlias = {
-  data?: { [key: string]: any } | undefined
-}
-const TsInterface: React.FC<TsInterfaceAlias> = ({ data }: TsInterfaceAlias) => {
+const TsInterface: React.FC<AxiosResponseAlias> = () => {
+  const currentApiQuery = useRecoilValue(currentApiQuerySelector)
+
+  const data = currentApiQuery
+
   const [keys, setKeys] = React.useState<string[]>([])
 
-  const [currentData, setCurrentData] = React.useState<TsInterfaceAlias['data']>({})
+  const [currentData, setCurrentData] = React.useState<AxiosResponseAlias>({})
 
   React.useEffect(() => {
-    const newkeys: string[] | undefined = Object.getOwnPropertyNames(data)
-    setKeys(newkeys)
-    setCurrentData(data)
-  }, [data])
+    if (!currentApiQuery) {
+      return
+    } else {
+      const newkeys: string[] | undefined = Object.getOwnPropertyNames(data)
+      setKeys(newkeys)
+      setCurrentData(data)
+    }
+  }, [currentApiQuery, data])
 
   const renderData = () => {
     return keys.map((key: string, index: number) => {
@@ -49,11 +53,11 @@ const TsInterface: React.FC<TsInterfaceAlias> = ({ data }: TsInterfaceAlias) => 
   }
 
   // state when url is submitted
-  const selectedApi = useRecoilValue(selectedApiSelector)
+  // const selectedApi = useRecoilValue(selectedApiSelector)
   // split and pop to isolate interface name
-  const lastSegment = selectedApi.split('/').pop()
+  // const lastSegment = selectedApi.split('/').pop()
   // remove underscore and uppercase following character
-  const formLastSegment = lastSegment.replace(/(^|_)./g, s => s.slice(-1).toUpperCase())
+  // const formLastSegment = lastSegment.replace(/(^|_)./g, s => s.slice(-1).toUpperCase())
   // substring and landIndexOf to verify last segment
   // const lastSegmentVerified = apiUrl.substring(apiUrl.lastIndexOf('/') + 1)
 
@@ -66,7 +70,7 @@ const TsInterface: React.FC<TsInterfaceAlias> = ({ data }: TsInterfaceAlias) => 
           {'}'}
         </Typography>
         {/* <DownloadInfo appeared={true} title={`${formLastSegment}Props`} /> */}
-        <DownloadInfo
+        {/* <DownloadInfo
           appeared={true}
           content={
             <>
@@ -81,7 +85,7 @@ const TsInterface: React.FC<TsInterfaceAlias> = ({ data }: TsInterfaceAlias) => 
               </Box>
             </>
           }
-        />
+        /> */}
       </ErrorBoundary>
     </PaperSx>
   )

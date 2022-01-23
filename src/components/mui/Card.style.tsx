@@ -3,6 +3,7 @@ import CardContent from '@mui/material/CardContent'
 import CardHeader from '@mui/material/CardHeader'
 import { alpha, styled } from '@mui/material/styles'
 import { BrandSwatch } from '../../style'
+import { NewFadeUpAnimation } from '../framer-motion'
 
 const CardSxStyle = styled(Card, { name: 'Card', slot: 'style' })(({ theme }) => ({
   backgroundColor:
@@ -39,9 +40,11 @@ type CardSxAlias = {
 
 export function CardSx({ title, children }: CardSxAlias) {
   return (
-    <CardSxStyle>
-      <CardHeaderSxStyle title={title} />
-      <CardContentSxStyle>{children}</CardContentSxStyle>
-    </CardSxStyle>
+    <NewFadeUpAnimation>
+      <CardSxStyle>
+        <CardHeaderSxStyle title={title} />
+        <CardContentSxStyle>{children}</CardContentSxStyle>
+      </CardSxStyle>
+    </NewFadeUpAnimation>
   )
 }

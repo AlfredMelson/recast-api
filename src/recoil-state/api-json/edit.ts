@@ -5,9 +5,9 @@ import { EditResponseAlias } from '../../components/api-json/data-types/typeAlia
  * State representing an array of element ids
  *
  */
-export const currentDataAtom = atom<EditResponseAlias['data']>({
+export const currentDataAtom = atom<EditResponseAlias | null>({
   key: 'currentData',
-  default: {}
+  default: null
 })
 // const [currentData, setCurrentData] = useRecoilState(currentDataAtom)
 // const setCurrentData = useSetRecoilState(currentDataAtom)

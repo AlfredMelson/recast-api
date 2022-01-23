@@ -3,14 +3,19 @@ import Radio from '@mui/material/Radio'
 import RadioGroup from '@mui/material/RadioGroup'
 import * as React from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil'
-import { VolumeSelector } from '../../../cms'
-import { dataCategoryAtom, dataQuantityAtom, dataSourceAtom } from '../../../recoil-state'
+import { HttpClients } from '../../../cms'
+import {
+  dataCategoryAtom,
+  dataQuantityAtom,
+  dataSourceAtom,
+  httpClientAtom
+} from '../../../recoil-state'
 import { CardSx, FormControlLabelSx } from '../../mui'
 
-export default function DataQuantitySelector() {
+export default function HttpClientSelector() {
   const dataSource = useRecoilValue(dataSourceAtom)
-
   const dataCategory = useRecoilValue(dataCategoryAtom)
+  const dataQuantity = useRecoilValue(dataQuantityAtom)
 
   // filter base from BaseUrlData using selected provider (apiProvider)
   // const baseUrl = BaseUrlData.filter(base => base.index === apiProvider)[0].base
@@ -31,27 +36,28 @@ export default function DataQuantitySelector() {
   // filter base from BaseUrlData using selected provider (dataSource)
   // const baseUrl = BaseUrlData.filter(base => base.index === dataSource)[0].base
 
-  const [dataQuantity, setDataQuantity] = useRecoilState(dataQuantityAtom)
+  const [httpClient, setHttpClient] = useRecoilState(httpClientAtom)
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setDataQuantity((event.target as HTMLInputElement).value)
+    setHttpClient((event.target as HTMLInputElement).value)
   }
 
   return (
     <>
-      {dataSource === 'jsonPlaceholderApi' && dataCategory !== '' && (
-        <CardSx title='Quantity'>
+      {((dataSource === 'randomDataApi' && dataCategory !== '') || dataQuantity !== '') && (
+        <CardSx title='Http Client'>
           <FormControl fullWidth>
             <RadioGroup
               row
               id='provider-url-selector'
               aria-label='api request volume'
               name='api request volume'
-              value={dataQuantity}
+              value={httpClient}
               onChange={handleChange}
-              sx={{ pr: 0, pl: 10 }}>
-              {VolumeSelector.map(item => (
+              sx={{ pr: 0, pl: 10, justifyContent: 'space-around' }}>
+              {HttpClients.map(item => (
                 <FormControlLabelSx
+                  disabled={item.value === '2'}
                   key={item.index}
                   value={item.value}
                   control={<Radio />}

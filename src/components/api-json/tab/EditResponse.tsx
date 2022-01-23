@@ -2,17 +2,21 @@ import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import * as React from 'react'
-import { useRecoilState } from 'recoil'
-import { AsideEditInfo } from '..'
+import { useRecoilState, useRecoilValue } from 'recoil'
+// import { AsideEditInfo } from '..'
 import { ErrorBoundary } from '../../../lib'
-import { currentDataAtom, elementStateAtom } from '../../../recoil-state'
+import { currentApiQuerySelector, currentDataAtom, elementStateAtom } from '../../../recoil-state'
 import { BrandSwatch } from '../../../style'
 import { ArrowRightIcon } from '../../icons'
 import { IconButtonSxApiIcons, PaperSx } from '../../mui'
 import { ApiDataSort } from '../data-types'
 import { EditResponseAlias, getType } from '../data-types/typeAliases'
 
-export default function EditResponse({ data, onDelete, onEdit }: EditResponseAlias) {
+export default function EditResponse({ onDelete, onEdit }: EditResponseAlias) {
+  const currentApiQuery = useRecoilValue(currentApiQuerySelector)
+
+  const data = currentApiQuery?.data
+
   // state representing an array of element ids
   const [elementState, setElementState] = useRecoilState(elementStateAtom)
   // state representing...
@@ -22,15 +26,17 @@ export default function EditResponse({ data, onDelete, onEdit }: EditResponseAli
 
   // const [keys, setKeys] = React.useState<string[]>([])
 
-  // const [currentData, setCurrentData] = React.useState<EditResponseAlias['data']>({})
+  // const [currentData, setCurrentData] = React.useState<EditResponseAlias>({})
 
   React.useEffect(() => {
-    const newkeys: string[] | undefined = Object.getOwnPropertyNames(data)
-    // console.log('newkeys', newkeys)
-
-    setElementState(newkeys)
-    setCurrentData(data)
-  }, [data, setElementState, setCurrentData])
+    if (!currentApiQuery) {
+      return
+    } else {
+      const newkeys: string[] | undefined = Object.getOwnPropertyNames(data)
+      setElementState(newkeys)
+      setCurrentData(data)
+    }
+  }, [currentApiQuery, data, setCurrentData, setElementState])
 
   const renderData = () => {
     return elementState.map((key: string, index: number) => {
@@ -110,7 +116,7 @@ export default function EditResponse({ data, onDelete, onEdit }: EditResponseAli
     <PaperSx sx={{ pl: 30, pr: 70 }}>
       <ErrorBoundary>
         {renderEditResponseContent()}
-        <AsideEditInfo />
+        {/* <AsideEditInfo /> */}
       </ErrorBoundary>
     </PaperSx>
   )

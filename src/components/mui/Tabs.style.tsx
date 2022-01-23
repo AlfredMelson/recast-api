@@ -10,7 +10,9 @@ type TabWrapperSxAlias = {
 }
 
 export const TabWrapperSx = styled(
-  (props: TabWrapperSxAlias) => <Tabs allowScrollButtonsMobile selectionFollowsFocus {...props} />,
+  (props: TabWrapperSxAlias) => (
+    <Tabs variant='scrollable' scrollButtons='auto' selectionFollowsFocus {...props} />
+  ),
   { name: 'Tab', slot: 'style' }
 )(({ theme }) => ({
   '.MuiTab-root': {
@@ -34,6 +36,13 @@ export const TabWrapperSx = styled(
       backgroundColor:
         theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[700] : BrandSwatch.Light.Grey[200],
       boxShadow: theme.shadows[2]
+    },
+    '&.Mui-disabled': {
+      transform: 'translateY(1px)',
+      cursor: 'default',
+      color: theme.palette.text.primary,
+      backgroundColor: 'transparent',
+      boxShadow: theme.shadows[0]
     }
   }
 }))

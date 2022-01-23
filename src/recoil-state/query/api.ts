@@ -60,7 +60,7 @@ export const apiQuerySelector = selectorFamily({
  * Utilise useRecoilValue hook to notify components subscribing to re-render.
  *
  */
-export const currentApiQuerySelector = selector({
+export const currentApiQuerySelector = selector<{ [key: string]: any }>({
   key: 'currentApiQuery',
   get: ({ get }) => get(apiQuerySelector(get(currentApiStateAtom)))
 })
@@ -74,7 +74,11 @@ export const currentApiQuerySelector = selector({
  *
  */
 
-async function fetchAxios(url) {
+export type AxiosResponseAlias = {
+  data?: { [key: string]: any }
+}
+
+async function fetchAxios(url): Promise<AxiosResponseAlias> {
   if (url === null) {
     return
   } else {
@@ -87,3 +91,21 @@ async function fetchAxios(url) {
     }
   }
 }
+
+/**
+ * Recoil managed state representing the selected request quantity
+ *
+ * @return {Object} a writeable RecoilState object
+ * @bug Objects stored in atoms will freeze in development mode when bugs are detected
+ *
+ * Utilise hooks to manage state changes and notify components subscribing to re-render.
+ *
+ */
+export const httpClientAtom = atom<string>({
+  key: 'httpClient',
+  default: '1'
+})
+// const [httpClient, setHttpClient] = useRecoilState(httpClientAtom)
+// const setHttpClient = useSetRecoilState(httpClientAtom)
+// const httpClient = useRecoilValue(httpClientAtom)
+// const resetHttpClient = useResetRecoilState(httpClientAtom)

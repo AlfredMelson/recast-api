@@ -4,9 +4,8 @@ import Typography from '@mui/material/Typography'
 import { motion } from 'framer-motion'
 import * as React from 'react'
 import { useRecoilValue } from 'recoil'
-import { DownloadInfo, TsInterfaceIcons } from '..'
 import { ErrorBoundary } from '../../../lib'
-import { selectedApiSelector } from '../../../recoil-state'
+import { AxiosResponseAlias, currentApiQuerySelector } from '../../../recoil-state'
 import { PaperSx } from '../../mui'
 import { ApiDataTypeLabel } from '../data-types'
 import {
@@ -20,19 +19,24 @@ import {
   getType
 } from '../data-types/typeAliases'
 
-type DTypescriptAlias = {
-  data?: { [key: string]: any } | undefined
-}
-const DTypescript: React.FunctionComponent<DTypescriptAlias> = ({ data }: DTypescriptAlias) => {
+const DTypescript: React.FunctionComponent<AxiosResponseAlias> = () => {
+  const currentApiQuery = useRecoilValue(currentApiQuerySelector)
+
+  const data = currentApiQuery
+
   const [keys, setKeys] = React.useState<string[]>([])
 
-  const [currentData, setCurrentData] = React.useState<DTypescriptAlias['data']>({})
+  const [currentData, setCurrentData] = React.useState<AxiosResponseAlias>({})
 
   React.useEffect(() => {
-    const newkeys: string[] | undefined = Object.getOwnPropertyNames(data)
-    setKeys(newkeys)
-    setCurrentData(data)
-  }, [data])
+    if (!currentApiQuery) {
+      return
+    } else {
+      const newkeys: string[] | undefined = Object.getOwnPropertyNames(data)
+      setKeys(newkeys)
+      setCurrentData(data)
+    }
+  }, [currentApiQuery, data])
 
   const renderData = () => {
     return keys.map((key: string, index: number) => {
@@ -49,11 +53,11 @@ const DTypescript: React.FunctionComponent<DTypescriptAlias> = ({ data }: DTypes
   }
 
   // state when url is submitted
-  const selectedApi = useRecoilValue(selectedApiSelector)
+  // const selectedApi = useRecoilValue(selectedApiSelector)
   // split and pop to isolate d.ts file name
-  const lastSegment = selectedApi.split('/').pop()
+  // const lastSegment = selectedApi.split('/').pop()
   // remove underscore and uppercase following character
-  const cleanLastSegment = lastSegment.replace(/(^|_)./g, s => s.slice(-1))
+  // const cleanLastSegment = lastSegment.replace(/(^|_)./g, s => s.slice(-1))
   // substring and landIndexOf to verify last segment
   // const lastSegmentVerified = apiUrl.substring(apiUrl.lastIndexOf('/') + 1)
 
@@ -65,7 +69,7 @@ const DTypescript: React.FunctionComponent<DTypescriptAlias> = ({ data }: DTypes
           <Box sx={{ ml: 30 }}>{renderData()}</Box>
           &#125;
         </Typography>
-        <DownloadInfo
+        {/* <DownloadInfo
           appeared={true}
           content={
             <>
@@ -80,7 +84,7 @@ const DTypescript: React.FunctionComponent<DTypescriptAlias> = ({ data }: DTypes
               </Box>
             </>
           }
-        />
+        /> */}
       </ErrorBoundary>
     </PaperSx>
   )

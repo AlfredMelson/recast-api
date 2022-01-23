@@ -8,8 +8,19 @@ export type SourceSelectorAlias = {
 
 export const SourceSelector: SourceSelectorAlias[] = [
   { index: 0, name: '', value: '' },
-  { index: 1, name: 'Random Data API', value: 'randomDataApi' },
-  { index: 2, name: 'Json Placeholder API', value: 'jsonPlaceholderApi' }
+  { index: 1, name: 'Random Data', value: 'randomDataApi' },
+  { index: 2, name: 'Json Placeholder', value: 'jsonPlaceholderApi' }
+]
+
+export type HttpClientsAlias = {
+  index: number
+  name: string
+  value: string
+}
+
+export const HttpClients: HttpClientsAlias[] = [
+  { index: 0, name: 'Axios', value: '1' },
+  { index: 1, name: 'useSWR', value: '2' }
 ]
 
 export type BaseUrlDataAlias = {
@@ -96,24 +107,6 @@ export const VolumeSelector: VolumeSelectorAlias[] = [
   { index: 1, name: 'two', value: '2' },
   { index: 2, name: 'five', value: '5' },
   { index: 3, name: 'ten', value: '10' }
-]
-
-export type FetchButtonStateAlias = {
-  index: number
-  state: string
-  label: string
-  icon: boolean
-  iconName: string
-  background: string
-}
-
-export const FetchButtonState: FetchButtonStateAlias[] = [
-  { index: 0, state: 'idle', label: 'Fetch', icon: false, iconName: '', background: '' },
-  { index: 1, state: 'initialClick', label: '', icon: false, iconName: '', background: '' },
-  { index: 2, state: 'submitting', label: '', icon: true, iconName: '', background: '' },
-  { index: 3, state: 'received', label: '', icon: true, iconName: '', background: '' },
-  { index: 4, state: 'failed', label: '', icon: true, iconName: '', background: '' },
-  { index: 5, state: 'success', label: 'Refetch', icon: false, iconName: '', background: '' }
 ]
 
 export type ApiTabDataAlias = {

@@ -4,7 +4,6 @@ import * as ReactDOM from 'react-dom'
 import { RecoilRoot } from 'recoil'
 import App from './app'
 import './style/BrandGlobal.css'
-import './style/BrandGlobal.scss'
 import { BrandThemeProvider } from './style'
 
 // create entry point using unique id from Document

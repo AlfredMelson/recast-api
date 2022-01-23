@@ -36,19 +36,18 @@ const TabSxStyle = styled(
 type TabSxAlias = {
   label: string
   index?: string
-  disabled?: any
   icon?: JSX.Element
   iconPosition?: 'bottom' | 'top' | 'end' | 'start'
   onClick?: React.MouseEventHandler
 }
 
-export const TabSx = ({ label, disabled, onClick, icon, iconPosition, ...props }: TabSxAlias) => {
+export const TabSx = ({ label, index, onClick, icon, iconPosition, ...props }: TabSxAlias) => {
   return (
     <motion.div initial={{ x: 0 }} animate={{ x: 20 }}>
       <TabSxStyle
-        sx={{ boxShadow: 2 }}
+        sx={{ boxShadow: 2, fontWeight: index === '0' && 800 }}
         label={label}
-        disabled={disabled}
+        disabled={index === '0'}
         onClick={onClick}
         icon={icon}
         iconPosition={iconPosition}

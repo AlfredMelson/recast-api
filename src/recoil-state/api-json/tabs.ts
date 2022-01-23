@@ -13,7 +13,14 @@ export const userToggledApiAtom = atom<UserToggledApiAtomOptions>({
   key: 'userToggledApi',
   default: 'data'
 })
-export type UserToggledApiAtomOptions = 'data' | 'edit' | 'full' | 'ts' | 'headers' | 'dtype'
+export type UserToggledApiAtomOptions =
+  | 'axios'
+  | 'data'
+  | 'headers'
+  | 'config'
+  | 'edit'
+  | 'ts'
+  | 'dtype'
 // const [userToggledApi, setUserToggledApi] = useRecoilState(userToggledApiAtom)
 // const setUserToggledApi = useSetRecoilState(userToggledApiAtom)
 // const userToggledApi = useRecoilValue(userToggledApiAtom)

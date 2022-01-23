@@ -17,7 +17,7 @@ export function getType(
 export type EditResponseAlias = {
   onEdit: (newValue: any, key: string | number) => void
   onDelete: (key: number | string) => void
-  data?: { [key: string]: any } | undefined
+  // data?: { [key: string]: any } | undefined
 }
 
 export type ApiDataSortAlias = {
