@@ -1,42 +1,33 @@
 import Box from '@mui/material/Box'
-import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import { motion } from 'framer-motion'
 import * as React from 'react'
 import { useRecoilValue } from 'recoil'
 import { ErrorBoundary } from '../../../lib'
-import { AxiosResponseAlias, currentApiQuerySelector } from '../../../recoil-state'
+import { currentApiQuerySelector } from '../../../recoil-state'
 import { PaperSx } from '../../mui'
-import { ApiDataTypeLabel } from '../data-types'
+import { ApiDataSortAlias, getType } from '../data-types'
 import {
-  ApiArrayAlias,
-  ApiBooleanAlias,
-  ApiDataSortAlias,
-  ApiFunctionAlias,
-  ApiNumberAlias,
-  ApiObjectAlias,
-  ApiStringAlias,
-  getType
-} from '../data-types/typeAliases'
+  TypeArraySx,
+  TypeBooleanSx,
+  TypeFunctionSx,
+  TypeNumberSx,
+  TypeObjectSx,
+  TypeStringSx
+} from '../primitive-styles'
 
-const DTypescript: React.FunctionComponent<AxiosResponseAlias> = () => {
+export default function DTypescript() {
   const currentApiQuery = useRecoilValue(currentApiQuerySelector)
 
-  const data = currentApiQuery
+  const [keys, setKeys] = React.useState([])
 
-  const [keys, setKeys] = React.useState<string[]>([])
-
-  const [currentData, setCurrentData] = React.useState<AxiosResponseAlias>({})
+  const [currentData, setCurrentData] = React.useState({})
 
   React.useEffect(() => {
-    if (!currentApiQuery) {
-      return
-    } else {
-      const newkeys: string[] | undefined = Object.getOwnPropertyNames(data)
-      setKeys(newkeys)
-      setCurrentData(data)
-    }
-  }, [currentApiQuery, data])
+    const newkeys = Object.getOwnPropertyNames(currentApiQuery.data)
+    setKeys(newkeys)
+    setCurrentData(currentApiQuery.data)
+  }, [currentApiQuery])
 
   const renderData = () => {
     return keys.map((key: string, index: number) => {
@@ -90,69 +81,73 @@ const DTypescript: React.FunctionComponent<AxiosResponseAlias> = () => {
   )
 }
 
-export default DTypescript
-
 function ApiDataSort({ index, dataKey, dataType, dataValue }: ApiDataSortAlias) {
   const renderValue = () => {
     switch (dataType) {
       case 'array':
         return (
-          <JsonArray
+          <TypeArraySx
             index={index}
             key={index}
             dataKey={dataKey}
             dataType={dataType}
             value={dataValue}
+            variant='typescript'
           />
         )
       case 'boolean':
         return (
-          <JsonBoolean
+          <TypeBooleanSx
             index={index}
             key={index}
             dataKey={dataKey}
             dataType={dataType}
             value={dataValue}
+            variant='typescript'
           />
         )
       case 'function':
         return (
-          <JsonFunction
+          <TypeFunctionSx
             index={index}
             key={index}
             dataKey={dataKey}
             dataType={dataType}
             value={dataValue}
+            variant='typescript'
           />
         )
       case 'number':
         return (
-          <JsonNumber
+          <TypeNumberSx
             index={index}
             key={index}
             dataKey={dataKey}
             dataType={dataType}
             value={dataValue}
+            variant='typescript'
           />
         )
       case 'object':
         return (
-          <JsonObject
+          <TypeObjectSx
             index={index}
             key={index}
             dataKey={dataKey}
             dataType={dataType}
             value={dataValue}
+            variant='typescript'
           />
         )
       case 'string':
         return (
-          <JsonString
+          <TypeStringSx
             index={index}
             key={index}
             dataKey={dataKey}
             dataType={dataType}
             value={dataValue}
+            variant='typescript'
           />
         )
       default:
@@ -168,93 +163,5 @@ function ApiDataSort({ index, dataKey, dataType, dataValue }: ApiDataSortAlias) 
       custom={index}>
       {renderValue()}
     </motion.div>
-  )
-}
-
-function JsonArray({ value, dataKey }: ApiArrayAlias) {
-  const renderArrayContent = () => {
-    return value.map((v: any, index: number) => {
-      const type: string = getType(v)
-      return <ApiDataSort index={index} key={index} dataType={type} dataKey={index} />
-    })
-  }
-
-  const renderContent = () => {
-    return (
-      <Stack direction='row' alignItems='flex-start'>
-        <Typography variant='code'>{dataKey}</Typography>
-        {renderArrayContent()}
-      </Stack>
-    )
-  }
-  return renderContent()
-}
-
-function JsonBoolean({ dataKey, dataType }: ApiBooleanAlias) {
-  return (
-    <Stack direction='row'>
-      <Typography variant='code'>{dataKey}&#58;&nbsp;</Typography>
-      <ApiDataTypeLabel type={dataType} variant='ts' />
-    </Stack>
-  )
-}
-
-function JsonFunction({ dataKey, dataType }: ApiFunctionAlias) {
-  return (
-    <Stack direction='row'>
-      <Typography variant='code'>{dataKey}&#58;&nbsp;</Typography>
-      <ApiDataTypeLabel type={dataType} variant='ts' />
-    </Stack>
-  )
-}
-
-function JsonNumber({ dataKey, dataType }: ApiNumberAlias) {
-  return (
-    <Stack direction='row'>
-      <Typography variant='code'>{dataKey}&#58;&nbsp;</Typography>
-      <ApiDataTypeLabel type={dataType} variant='ts' />
-    </Stack>
-  )
-}
-
-function JsonObject({ value, dataKey }: ApiObjectAlias) {
-  const [keys, setKeys] = React.useState<string[]>([])
-  const [currentValue, setCurrentValue] = React.useState<ApiObjectAlias['value']>({})
-  React.useEffect(() => {
-    setCurrentValue(value)
-    setKeys(Object.keys(value ? value : ''))
-  }, [value])
-
-  const renderObject = () => {
-    return keys.map((k: string, index: number) => {
-      return (
-        <ApiDataSort
-          index={index}
-          key={index}
-          dataType={currentValue ? getType(currentValue[k]) : ''}
-          dataValue={currentValue ? currentValue[k] : ''}
-          dataKey={k}
-        />
-      )
-    })
-  }
-  const renderObjContent = () => {
-    return (
-      <Typography variant='code'>
-        {dataKey}&#58;&nbsp;&#123;
-        <Box sx={{ ml: 30 }}>{renderObject()}</Box>
-        &#125;&#59;
-      </Typography>
-    )
-  }
-  return renderObjContent()
-}
-
-function JsonString({ dataKey, dataType }: ApiStringAlias) {
-  return (
-    <Stack direction='row'>
-      <Typography variant='code'>{dataKey}&#58;&nbsp;</Typography>
-      <ApiDataTypeLabel type={dataType} variant='ts' />
-    </Stack>
   )
 }

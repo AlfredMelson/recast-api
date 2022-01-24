@@ -4,7 +4,7 @@ import { ErrorBoundary } from '../../../lib'
 import { AxiosResponseAlias, currentApiQuerySelector } from '../../../recoil-state'
 import { PaperSx } from '../../mui'
 import { getType } from '../data-types/typeAliases'
-import { TypeSort } from '../primitive-styles'
+import { SortByType } from '../primitive-styles'
 
 export default function DataHeaders() {
   const currentApiQuery = useRecoilValue(currentApiQuerySelector)
@@ -13,7 +13,7 @@ export default function DataHeaders() {
 
   const [keys, setKeys] = React.useState<string[]>([])
 
-  const [currentData, setCurrentData] = React.useState<AxiosResponseAlias>({})
+  const [currentData, setCurrentData] = React.useState<AxiosResponseAlias>(null)
 
   React.useEffect(() => {
     if (!currentApiQuery) {
@@ -28,7 +28,7 @@ export default function DataHeaders() {
   const renderData = () => {
     return keys.map((key: string, index: number) => {
       return (
-        <TypeSort
+        <SortByType
           index={index}
           key={index}
           dataType={currentData && getType(currentData[key])}

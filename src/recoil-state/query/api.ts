@@ -53,6 +53,7 @@ export const apiQuerySelector = selectorFamily({
     return response
   }
 })
+// const apiQuery = useRecoilValue(apiQuerySelector)
 
 /**
  * Recoil managed state selector representing...
@@ -67,24 +68,22 @@ export const currentApiQuerySelector = selector<{ [key: string]: any }>({
 // const currentApiQuery = useRecoilValue(currentApiQuerySelector)
 // const refreshApiQuery = useRecoilRefresher_UNSTABLE(currentApiQuerySelector)
 
-/**
- * Recoil managed state selector representing...
- *
- * Utilise useRecoilValue hook to notify components subscribing to re-render.
- *
- */
-
 export type AxiosResponseAlias = {
-  data?: { [key: string]: any }
+  data: {
+    [key: string]: any
+  }
 }
 
 async function fetchAxios(url): Promise<AxiosResponseAlias> {
+  console.log('fetchAxios url type: ', typeof url)
+
   if (url === null) {
     return
   } else {
     try {
       const response = await axios.get(url)
-      console.log(response)
+      console.log('Axios Response: ', response)
+      console.log('Axios Response type: ', typeof response)
       return response
     } catch (error) {
       console.error(error)
@@ -109,3 +108,24 @@ export const httpClientAtom = atom<string>({
 // const setHttpClient = useSetRecoilState(httpClientAtom)
 // const httpClient = useRecoilValue(httpClientAtom)
 // const resetHttpClient = useResetRecoilState(httpClientAtom)
+
+const localStorageEffect =
+  key =>
+  ({ setSelf, onSet }) => {
+    const savedValue = localStorage.getItem(key)
+    if (savedValue != null) {
+      setSelf(JSON.parse(savedValue))
+    }
+
+    onSet((newValue, _, isReset) => {
+      isReset ? localStorage.removeItem(key) : localStorage.setItem(key, JSON.stringify(newValue))
+    })
+  }
+
+export const currentJsonDataAtom = atom<AxiosResponseAlias[]>({
+  key: 'currentJsonData',
+  default: [],
+  effects_UNSTABLE: [localStorageEffect('current_json')]
+})
+
+// const currentJsonData = useRecoilValue(currentJsonDataAtom)

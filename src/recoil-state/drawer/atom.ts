@@ -51,3 +51,46 @@ export const minifiedTextAtom = atom<string>({
   key: 'minifiedText',
   default: ''
 })
+
+/**
+ * localStorageEffect
+ *
+ *
+ * Hooks to manage state changes and notify components subscribing to re-render:
+ */
+const localStorageEffect =
+  (key: string) =>
+  ({ setSelf, onSet }) => {
+    const savedValue = localStorage.getItem(key)
+    if (savedValue != null) {
+      setSelf(JSON.parse(savedValue))
+    }
+
+    onSet((newValue: string, _, isReset) => {
+      isReset ? localStorage.removeItem(key) : localStorage.setItem(key, JSON.stringify(newValue))
+    })
+  }
+
+export const currentEditorTextState = atom<{ [key: string]: any | null }>({
+  key: 'currentEditorText',
+  default: null,
+  effects_UNSTABLE: [localStorageEffect('editorText')]
+})
+
+// const [currentEditorText, setCurrentEditorText] = useRecoilState(currentEditorTextState)
+// const setCurrentEditorText = useSetRecoilState(currentEditorTextState)
+// const currentEditorText = useRecoilValue(currentEditorTextState)
+// const resetCurrentEditorText = useResetRecoilState(currentEditorTextState)
+
+// Update state within Editor
+// export const updateEditorTextState = atom<string | null>({
+//   key: 'updateEditorText',
+//   default: null,
+//   effects_UNSTABLE: [
+//     ({ onSet }) => {
+//       onSet(newValue => {
+//         console.debug('Current user ID:', newValue)
+//       })
+//     }
+//   ]
+// })

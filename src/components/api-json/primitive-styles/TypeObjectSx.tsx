@@ -6,9 +6,9 @@ import * as React from 'react'
 import { ArrowDownIcon, ArrowRightIcon } from '../../icons'
 import { IconButtonSxDataIcon } from '../../mui'
 import { ApiObjectAlias, getType } from '../data-types/typeAliases'
-import { TypeSort } from '.'
+import { SortByType } from '.'
 
-export function TypeObject({ value, dataKey }: ApiObjectAlias) {
+export default function TypeObjectSx({ value, dataKey }: ApiObjectAlias) {
   const [childView, setChildView] = React.useState(true)
   const [keys, setKeys] = React.useState<string[]>([])
   const [currentValue, setCurrentValue] = React.useState<ApiObjectAlias['value']>({})
@@ -20,7 +20,7 @@ export function TypeObject({ value, dataKey }: ApiObjectAlias) {
   const renderObject = () => {
     return keys.map((k: string, index: number) => {
       return (
-        <TypeSort
+        <SortByType
           index={index}
           key={index}
           dataType={currentValue ? getType(currentValue[k]) : ''}

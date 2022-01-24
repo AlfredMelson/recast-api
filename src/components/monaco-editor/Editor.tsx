@@ -1,39 +1,59 @@
 import MonacoEditor from '@monaco-editor/react'
 import { debounce } from 'lodash'
 import * as React from 'react'
-import { useRecoilValue } from 'recoil'
-import { currentApiQuerySelector, monacoThemeAtom } from '../../recoil-state'
+import { useRecoilState, useRecoilValue } from 'recoil'
+import { currentApiQuerySelector, currentEditorTextState } from '../../recoil-state'
 import { EditorContainer } from '../mui'
 
-export function Editor() {
-  //retrieve editor theme value
-  const monacoTheme = useRecoilValue(monacoThemeAtom)
-
+export default function Editor() {
   const currentApiQuery = useRecoilValue(currentApiQuerySelector)
+  console.log('currentApiQuery', currentApiQuery)
+  console.log('typeof currentApiQuery', typeof currentApiQuery)
+
+  const [currentEditorText, setCurrentEditorText] = useRecoilState(currentEditorTextState)
 
   //retrieve localStorage value
-  const [formattedJson, setFormattedJson] = React.useState('')
-  console.log('Editor formattedJson', formattedJson)
+  const [formattedJson, setFormattedJson] = React.useState<{ [key: string]: any }>([])
+  console.log('formattedJson', formattedJson)
 
-  // load from local storage
+  // handle localstorage value
   React.useEffect(() => {
-    const localStorageJson = localStorage.getItem('userGeneratedJson')
-    if (localStorageJson) {
-      const strData = JSON.stringify(localStorageJson, null, 2)
-      setFormattedJson(strData)
-      //   setUserGeneratedJson(localStorageJson)
+    if (currentApiQuery) {
+      setFormattedJson(currentApiQuery)
+    } else {
+      setFormattedJson(currentEditorText)
     }
-    const strData = JSON.stringify(currentApiQuery, null, 2)
-    setFormattedJson(strData)
-  }, [currentApiQuery, setFormattedJson])
+    return
+  }, [currentApiQuery, currentEditorText, setFormattedJson])
+  // React.useEffect(() => {
+  //   const localStorageJson = localStorage.getItem('formattedJson')
 
-  //lodash debounced() delays updating local text file for 750ms after user edit
+  //   if (!localStorageJson) {
+  //     // save formatedJson to localStorage
+  //     function saveToLocalStorage(formattedJson: string) {
+  //       localStorage.setItem('formattedJson', formattedJson)
+  //     }
+  //     return saveToLocalStorage(formattedJson)
+  //   }
+  //   if (localStorageJson) {
+  //     // get localStorage value and setFormattedJson
+  //     const localStorageJson = localStorage.getItem('formattedJson')
+  //     return setFormattedJson(localStorageJson)
+  //   } else {
+  //     return setFormattedJson('')
+  //   }
+  // }, [formattedJson, setFormattedJson])
+
+  // lodash debounced() delays updating local text file for 750ms after user edit
   const onChange = debounce(
     React.useCallback(
       newValue => {
+        // save formatedJson to localStorage
         setFormattedJson(newValue)
+        setCurrentEditorText(newValue)
+        return
       },
-      [setFormattedJson]
+      [setCurrentEditorText]
     ),
     750
   )
@@ -42,9 +62,9 @@ export function Editor() {
     <EditorContainer>
       <MonacoEditor
         height='92vh'
-        value={formattedJson}
+        value={formattedJson.toString()}
         language='json'
-        theme={monacoTheme}
+        theme='vs-dark'
         onChange={onChange}
         options={{
           acceptSuggestionOnCommitCharacter: true,

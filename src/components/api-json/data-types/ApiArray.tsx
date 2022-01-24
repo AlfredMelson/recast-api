@@ -4,7 +4,7 @@ import * as React from 'react'
 import { ArrowDownIcon, ArrowUpIcon } from '../../icons'
 import { IconButtonSx } from '../../mui'
 import { ApiArrayAlias, getType } from './typeAliases'
-import { ApiDataSort, ApiDataTypeLabel } from '.'
+import { ApiDataSort, DataTypeLabelSx } from '.'
 
 export function ApiArray({ value, dataKey, dataType }: ApiArrayAlias) {
   const [col, setCol] = React.useState(false)
@@ -52,7 +52,7 @@ export function ApiArray({ value, dataKey, dataType }: ApiArrayAlias) {
             <ArrowUpIcon />
           </IconButtonSx>
           <Typography variant='code'>&#34;{dataKey}&#34;&#58;&nbsp;</Typography>
-          <ApiDataTypeLabel type={dataType} variant='edit' />
+          <DataTypeLabelSx type={dataType} association='edit' />
           <Typography variant='code' sx={{ color: theme => theme.palette.text.primary }}>
             &#91;&nbsp;{currentValue.length}&nbsp;&#93;
           </Typography>
@@ -65,7 +65,7 @@ export function ApiArray({ value, dataKey, dataType }: ApiArrayAlias) {
           <ArrowDownIcon />
         </IconButtonSx>
         <Typography variant='code'>&#34;{dataKey}&#34;&#58;&nbsp;</Typography>
-        <ApiDataTypeLabel type={dataType} variant='edit' />
+        <DataTypeLabelSx type={dataType} association='edit' />
         <Stack direction='row'>
           <Typography variant='code' sx={{ color: theme => theme.palette.text.primary }}>
             &#91;

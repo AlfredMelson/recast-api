@@ -5,9 +5,9 @@ import { motion } from 'framer-motion'
 import * as React from 'react'
 import { useRecoilValue } from 'recoil'
 import { ErrorBoundary } from '../../../lib'
-import { AxiosResponseAlias, currentApiQuerySelector } from '../../../recoil-state'
+import { currentApiQuerySelector } from '../../../recoil-state'
 import { PaperSx } from '../../mui'
-import { ApiDataTypeLabel } from '../data-types'
+import { DataTypeLabelSx } from '../data-types'
 import {
   ApiArrayAlias,
   ApiBooleanAlias,
@@ -19,24 +19,18 @@ import {
   getType
 } from '../data-types/typeAliases'
 
-const TsInterface: React.FC<AxiosResponseAlias> = () => {
+export default function TsInterface() {
   const currentApiQuery = useRecoilValue(currentApiQuerySelector)
 
-  const data = currentApiQuery
+  const [keys, setKeys] = React.useState([])
 
-  const [keys, setKeys] = React.useState<string[]>([])
-
-  const [currentData, setCurrentData] = React.useState<AxiosResponseAlias>({})
+  const [currentData, setCurrentData] = React.useState({})
 
   React.useEffect(() => {
-    if (!currentApiQuery) {
-      return
-    } else {
-      const newkeys: string[] | undefined = Object.getOwnPropertyNames(data)
-      setKeys(newkeys)
-      setCurrentData(data)
-    }
-  }, [currentApiQuery, data])
+    const newkeys = Object.getOwnPropertyNames(currentApiQuery)
+    setKeys(newkeys)
+    setCurrentData(currentApiQuery)
+  }, [currentApiQuery])
 
   const renderData = () => {
     return keys.map((key: string, index: number) => {
@@ -90,8 +84,6 @@ const TsInterface: React.FC<AxiosResponseAlias> = () => {
     </PaperSx>
   )
 }
-
-export default TsInterface
 
 function ApiDataSort({ index, dataKey, dataType, dataValue }: ApiDataSortAlias) {
   const renderValue = () => {
@@ -195,7 +187,7 @@ function JsonBoolean({ dataKey, dataType }: ApiBooleanAlias) {
   return (
     <Stack direction='row'>
       <Typography variant='code'>{dataKey}&#58;&nbsp;</Typography>
-      <ApiDataTypeLabel type={dataType} variant='ts' />
+      <DataTypeLabelSx type={dataType} association='typescript' />
     </Stack>
   )
 }
@@ -204,7 +196,7 @@ function JsonFunction({ dataKey, dataType }: ApiFunctionAlias) {
   return (
     <Stack direction='row'>
       <Typography variant='code'>{dataKey}&#58;&nbsp;</Typography>
-      <ApiDataTypeLabel type={dataType} variant='ts' />
+      <DataTypeLabelSx type={dataType} association='typescript' />
     </Stack>
   )
 }
@@ -213,7 +205,7 @@ function JsonNumber({ dataKey, dataType }: ApiNumberAlias) {
   return (
     <Stack direction='row'>
       <Typography variant='code'>{dataKey}&#58;&nbsp;</Typography>
-      <ApiDataTypeLabel type={dataType} variant='ts' />
+      <DataTypeLabelSx type={dataType} association='typescript' />
     </Stack>
   )
 }
@@ -259,7 +251,7 @@ function JsonString({ dataKey, dataType }: ApiStringAlias) {
   return (
     <Stack direction='row'>
       <Typography variant='code'>{dataKey}&#58;&nbsp;</Typography>
-      <ApiDataTypeLabel type={dataType} variant='ts' />
+      <DataTypeLabelSx type={dataType} association='typescript' />
     </Stack>
   )
 }

@@ -1,4 +1,4 @@
-import { Box } from '@mui/material'
+import Box from '@mui/material/Box'
 import { AnimatePresence } from 'framer-motion'
 import * as React from 'react'
 import { useRecoilState } from 'recoil'

@@ -210,13 +210,13 @@ const BrandDesignTokens = (mode: 'dark' | 'light') =>
         '"Segoe UI Symbol"'
       ].join(','),
       ...(mode === 'dark' && {
-        fontWeightLightregular: 300,
+        fontWeightLight: 300,
         fontWeightRegular: 400,
         fontWeightMedium: 500,
         fontWeightBold: 600
       }),
       ...(mode === 'light' && {
-        fontWeightLightregular: 400,
+        fontWeightLight: 400,
         fontWeightRegular: 500,
         fontWeightMedium: 600,
         fontWeightBold: 700
@@ -290,12 +290,11 @@ const BrandDesignTokens = (mode: 'dark' | 'light') =>
         lineHeight: 18 / 12
       },
       code: {
-        display: 'block',
-        // fontSize: theme.typography.pxToRem(14),
+        fontWeight: mode === 'dark' ? 400 : 500,
         fontSize: 'clamp(0.88rem, 0.83rem + 0.24vw, 1rem)',
         fontFamily: ['"Fira Code"', '"monospace"'].join(','),
         letterSpacing: 0,
-        lineHeight: 1.7
+        lineHeight: 21 / 14
       } // Fira code available fontWeights: 300, 400, 500, 600, 700
     },
     transitions: {

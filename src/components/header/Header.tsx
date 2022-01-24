@@ -3,8 +3,8 @@ import Button from '@mui/material/Button'
 import { AnimatePresence } from 'framer-motion'
 import * as React from 'react'
 import { useRecoilValue } from 'recoil'
-import { dataDrawerOpenAtom } from '../../recoil-state'
-import { DrawerIcons } from '../drawer'
+import { dataDrawerOpenAtom, minifyDialogOpenAtom } from '../../recoil-state'
+import { DrawerIcons, MinifyIcons } from '../drawer'
 import { SlideUpAnimation } from '../framer-motion'
 import { HeaderIcons, HeaderLogo, HeaderTitle } from '.'
 
@@ -30,10 +30,11 @@ export default function Header() {
       setDisable(false)
     }, 3000)
   }
+  const minifyDialogOpen = useRecoilValue(minifyDialogOpenAtom)
 
   return (
     <Box sx={{ display: { xs: 'none', md: 'initial' } }}>
-      {dataDrawerOpen ? (
+      {/* {dataDrawerOpen ? (
         <Box
           sx={{
             minHeight: 60,
@@ -46,7 +47,8 @@ export default function Header() {
               gridRow: 1,
               alignSelf: 'center',
               justifySelf: 'start',
-              pl: 20
+              pl: 20,
+              zIndex: theme => theme.zIndex.drawer + 2
             }}>
             <HeaderLogo />
           </Box>
@@ -58,89 +60,135 @@ export default function Header() {
               justifySelf: 'center',
               zIndex: theme => theme.zIndex.drawer + 2
             }}>
-            <AnimatePresence exitBeforeEnter>
+            <AnimatePresence>
               <SlideUpAnimation startY={-30} endY={3}>
                 <DrawerIcons />
               </SlideUpAnimation>
             </AnimatePresence>
           </Box>
         </Box>
-      ) : (
+      ) :  */}
+      <Box
+        sx={{
+          minHeight: 60,
+          display: 'grid',
+          gridTemplateColumns: 'auto 200px'
+        }}>
         <Box
           sx={{
-            minHeight: 60,
-            display: 'grid',
-            gridTemplateColumns: 'auto 200px'
+            gridColumn: 1,
+            gridRow: 1
           }}>
           <Box
             sx={{
-              gridColumn: 1,
-              gridRow: 1,
-              alignSelf: 'center',
-              justifySelf: 'start',
-              pl: 20
+              display: 'grid',
+              gridTemplateColumns: 'repeat(2, 1fr)'
             }}>
+            <Box
+              sx={{
+                gridColumn: 1,
+                gridRow: 1,
+                alignSelf: 'center',
+                justifySelf: 'start',
+                pl: 20,
+                zIndex: theme => theme.zIndex.drawer + 2
+              }}>
+              <AnimatePresence>
+                {!hover && (
+                  <SlideUpAnimation startY={-30} endY={3}>
+                    <HeaderLogo />
+                  </SlideUpAnimation>
+                )}
+              </AnimatePresence>
+            </Box>
+            <Box
+              sx={{
+                gridColumn: '1 / 3',
+                gridRow: 1,
+                alignSelf: 'center',
+                justifySelf: 'start',
+                pl: 20
+              }}>
+              <AnimatePresence>
+                {!dataDrawerOpen && hover && (
+                  <SlideUpAnimation startY={30} endY={3}>
+                    <HeaderTitle />
+                  </SlideUpAnimation>
+                )}
+              </AnimatePresence>
+            </Box>
             <AnimatePresence>
-              {!hover && (
-                <SlideUpAnimation startY={-30} endY={3}>
-                  <HeaderLogo />
-                </SlideUpAnimation>
+              {dataDrawerOpen && !minifyDialogOpen && (
+                <Box
+                  sx={{
+                    height: 60,
+                    gridColumn: 2,
+                    gridRow: 1,
+                    alignSelf: 'center',
+                    justifySelf: 'start',
+                    zIndex: theme => theme.zIndex.drawer + 2
+                  }}>
+                  <SlideUpAnimation startY={-30} endY={12}>
+                    <DrawerIcons />
+                  </SlideUpAnimation>
+                </Box>
               )}
             </AnimatePresence>
-          </Box>
-          <Box
-            sx={{
-              gridColumn: 1,
-              gridRow: 1,
-              alignSelf: 'center',
-              justifySelf: 'start',
-              pl: 20
-            }}>
             <AnimatePresence>
-              {!dataDrawerOpen && hover && (
-                <SlideUpAnimation startY={30} endY={3}>
-                  <HeaderTitle />
-                </SlideUpAnimation>
+              {minifyDialogOpen && (
+                <Box
+                  sx={{
+                    height: 60,
+                    gridColumn: 2,
+                    gridRow: 1,
+                    alignSelf: 'center',
+                    justifySelf: 'start',
+                    zIndex: theme => theme.zIndex.drawer + 2
+                  }}>
+                  <SlideUpAnimation startY={-30} endY={12}>
+                    <MinifyIcons />
+                  </SlideUpAnimation>
+                </Box>
               )}
             </AnimatePresence>
-          </Box>
-          <Box
-            sx={{
-              gridColumn: 1,
-              gridRow: 1,
-              alignSelf: 'center',
-              justifySelf: 'start'
-            }}>
             {!dataDrawerOpen && (
-              <Button
-                disabled={disable}
-                disableFocusRipple
-                disableRipple
-                onMouseOver={hoverTransition}
-                onFocus={hoverTransition}
-                onMouseOut={hoverOutTransition}
-                onBlur={hoverTransition}
+              <Box
                 sx={{
-                  height: 60,
-                  width: 110,
-                  '&:hover, .Mui-focused': {
-                    backgroundColor: 'transparent'
-                  }
-                }}
-              />
+                  gridColumn: 1,
+                  gridRow: 1,
+                  alignSelf: 'center',
+                  justifySelf: 'start'
+                }}>
+                <Button
+                  disabled={disable}
+                  disableFocusRipple
+                  disableRipple
+                  onMouseOver={hoverTransition}
+                  onFocus={hoverTransition}
+                  onMouseOut={hoverOutTransition}
+                  onBlur={hoverTransition}
+                  sx={{
+                    height: 60,
+                    width: 110,
+                    '&:hover, .Mui-focused': {
+                      backgroundColor: 'transparent'
+                    }
+                  }}
+                />
+              </Box>
             )}
           </Box>
-          <Box sx={{ gridColumn: 2, gridRow: 1, placeSelf: 'center' }}>
-            <AnimatePresence>
-              {!dataDrawerOpen && (
-                <SlideUpAnimation startY={-90} endY={0}>
-                  <HeaderIcons />
-                </SlideUpAnimation>
-              )}
-            </AnimatePresence>
-          </Box>
         </Box>
-      )}
+        <Box sx={{ gridColumn: 2, gridRow: 1, placeSelf: 'center' }}>
+          <AnimatePresence>
+            {!dataDrawerOpen && (
+              <SlideUpAnimation startY={-90} endY={0}>
+                <HeaderIcons />
+              </SlideUpAnimation>
+            )}
+          </AnimatePresence>
+        </Box>
+      </Box>
     </Box>
   )
 }

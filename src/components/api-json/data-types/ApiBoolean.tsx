@@ -2,7 +2,7 @@ import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import { BrandSwatch } from '../../../style'
 import { ApiBooleanAlias } from './typeAliases'
-import { ApiDataTypeLabel } from '.'
+import { DataTypeLabelSx } from '.'
 
 export function ApiBoolean({ value, dataKey, dataType }: ApiBooleanAlias) {
   // // state representing the selected element
@@ -11,7 +11,7 @@ export function ApiBoolean({ value, dataKey, dataType }: ApiBooleanAlias) {
   return (
     <Stack direction='row'>
       <Typography variant='code'>&#34;{dataKey}&#34;&#58;&nbsp;</Typography>
-      <ApiDataTypeLabel type={dataType} variant='edit' />
+      <DataTypeLabelSx type={dataType} association='edit' />
       <Typography variant='code' sx={{ color: BrandSwatch.Dark.Green[300] }}>
         {value ? `${value}` : <span style={{ color: BrandSwatch.Dark.Red[300] }}>{value}</span>}
       </Typography>

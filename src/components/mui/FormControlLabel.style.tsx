@@ -1,16 +1,19 @@
 import FormControlLabel, { FormControlLabelProps } from '@mui/material/FormControlLabel'
 import { useRadioGroup } from '@mui/material/RadioGroup'
 import { styled } from '@mui/material/styles'
+import { BrandSwatch } from '../../style'
 
 interface FormControlLabelStyleProps extends FormControlLabelProps {
   checked: boolean
 }
 
-const FormControlLabelStyle = styled((props: FormControlLabelStyleProps) => (
-  <FormControlLabel {...props} />
-))(({ theme, checked }) => ({
+const FormControlLabelStyle = styled(
+  (props: FormControlLabelStyleProps) => <FormControlLabel {...props} />,
+  { name: 'FormControlLabel', slot: 'style' }
+)(({ theme, checked }) => ({
   '.MuiFormControlLabel-label': checked && {
-    color: theme.palette.text.primary
+    color: theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[200] : BrandSwatch.Light.Grey[700],
+    cursor: 'default'
   }
 }))
 

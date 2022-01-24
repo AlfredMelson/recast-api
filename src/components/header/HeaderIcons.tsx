@@ -1,6 +1,6 @@
 import Box from '@mui/material/Box'
 import { styled } from '@mui/material/styles'
-import { GithubToggle, TerminalToggle, ThemeModeToggle } from '../toggle'
+import { GithubToggle, MoreInfoToggle, TerminalToggle, ThemeModeToggle } from '../toggle'
 
 const HeaderIconGrid = styled(Box, { name: 'HeaderIcon', slot: 'grid' })(() => ({
   placeSelf: 'center'
@@ -8,7 +8,7 @@ const HeaderIconGrid = styled(Box, { name: 'HeaderIcon', slot: 'grid' })(() => (
 
 export default function HeaderIcons() {
   return (
-    <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)' }}>
+    <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)' }}>
       <HeaderIconGrid>
         <TerminalToggle />
       </HeaderIconGrid>
@@ -17,6 +17,9 @@ export default function HeaderIcons() {
       </HeaderIconGrid>
       <HeaderIconGrid>
         <GithubToggle />
+      </HeaderIconGrid>
+      <HeaderIconGrid>
+        <MoreInfoToggle />
       </HeaderIconGrid>
     </Box>
   )

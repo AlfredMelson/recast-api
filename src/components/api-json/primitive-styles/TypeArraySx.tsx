@@ -1,4 +1,4 @@
-import { Stack } from '@mui/material'
+import Stack from '@mui/material/Stack'
 import { styled } from '@mui/material/styles'
 import Typography, { TypographyProps } from '@mui/material/Typography'
 import React from 'react'
@@ -6,22 +6,23 @@ import { BrandSwatch } from '../../../style'
 import { ArrowDownIcon, ArrowRightIcon } from '../../icons'
 import { IconButtonSxDataIcon } from '../../mui'
 import { ApiArrayAlias, ApiValueProp, getType } from '../data-types/typeAliases'
-import { TypeSort } from '.'
+import { SortByType } from '.'
 
 export const ArrayTypography = styled(
   (props: TypographyProps) => <Typography variant='code' {...props} />,
   {
-    name: 'Array',
-    slot: 'typography'
+    name: 'TypeArray',
+    slot: 'style'
   }
 )(({ theme }) => ({
   color: theme.palette.text.primary
 }))
 
 const ArraySpanStyle = styled('span', {
-  name: 'Array',
-  slot: 'typography-span'
+  name: 'ArraySpan',
+  slot: 'style'
 })(({ theme }) => ({
+  ...theme.typography.code,
   color: theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[400] : BrandSwatch.Light.Grey[600]
 }))
 
@@ -34,13 +35,13 @@ export function ArraySpanSx({ text }: ArraySpanSxAlias) {
   return <ArraySpanStyle>&#47;&#47;&nbsp;{text}</ArraySpanStyle>
 }
 
-export function TypeArray({ value, dataKey }: ApiArrayAlias) {
+export default function TypeArraySx({ value, dataKey }: ApiArrayAlias) {
   const [childView, setChildView] = React.useState(true)
 
   const renderArrayContent = () => {
     return value.map((v: any, index: number) => {
       const type: string = getType(v)
-      return <TypeSort index={index} key={index} dataValue={v} dataType={type} dataKey={index} />
+      return <SortByType index={index} key={index} dataValue={v} dataType={type} dataKey={index} />
     })
   }
 

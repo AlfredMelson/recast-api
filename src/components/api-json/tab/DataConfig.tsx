@@ -1,18 +1,25 @@
 import * as React from 'react'
 import { useRecoilValue } from 'recoil'
 import { ErrorBoundary } from '../../../lib'
-import { AxiosResponseAlias, currentApiQuerySelector } from '../../../recoil-state'
+import {
+  AxiosResponseAlias,
+  currentApiQuerySelector,
+  currentJsonDataAtom
+} from '../../../recoil-state'
 import { PaperSx } from '../../mui'
 import { getType } from '../data-types/typeAliases'
-import { TypeSort } from '../primitive-styles'
+import { SortByType } from '../primitive-styles'
 
 export default function DataConfig() {
   const currentApiQuery = useRecoilValue(currentApiQuerySelector)
+  console.log('currentApiQuery', currentApiQuery)
+  const currentJsonData = useRecoilValue(currentJsonDataAtom)
+  console.log('currentJsonData', currentJsonData)
 
   const data = currentApiQuery?.config
 
   const [keys, setKeys] = React.useState<string[]>([])
-  const [currentData, setCurrentData] = React.useState<AxiosResponseAlias>({})
+  const [currentData, setCurrentData] = React.useState<AxiosResponseAlias>(null)
   React.useEffect(() => {
     if (!currentApiQuery) {
       return
@@ -26,7 +33,7 @@ export default function DataConfig() {
   const renderData = () => {
     return keys.map((key: string, index: number) => {
       return (
-        <TypeSort
+        <SortByType
           index={index}
           key={index}
           dataType={currentData && getType(currentData[key])}

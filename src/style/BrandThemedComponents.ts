@@ -4,6 +4,15 @@ import BrandSwatch from './BrandSwatch'
 export default function BrandThemedComponents(theme: Theme) {
   return {
     components: {
+      MuiBackdrop: {
+        defaultProps: {
+          invisible: true
+        },
+        styleOverrides: {
+          root: {}, // Styles applied to the root element
+          invisible: {} // Styles applied to the root element if invisible={true}
+        }
+      },
       MuiButton: {
         defaultProps: {}
       },
@@ -149,7 +158,8 @@ export default function BrandThemedComponents(theme: Theme) {
         defaultProps: {},
         styleOverrides: {
           root: {
-            fontSize: 14,
+            // fontSize: 14,
+            ...theme.typography.body2,
             textDecoration: 'none',
             backgroundColor: 'transparent',
             color:
@@ -166,7 +176,13 @@ export default function BrandThemedComponents(theme: Theme) {
             // }
           }, // Styles applied to the root element
           disabled: {}, // State class applied to the root element if disabled={true}
-          label: { fontSize: 16 } // Styles applied to the label's Typography component
+          label: {
+            ...theme.typography.body2,
+            color:
+              theme.palette.mode === 'dark'
+                ? BrandSwatch.Dark.Grey[200]
+                : BrandSwatch.Light.Grey[700]
+          } // Styles applied to the label's Typography component
         }
       },
       MuiIcon: {
@@ -307,6 +323,15 @@ export default function BrandThemedComponents(theme: Theme) {
           selected: {} // State class applied to the root element if selected={true}
         }
       },
+      MuiModal: {
+        defaultProps: {
+          hideBackdrop: true
+        },
+        styleOverrides: {
+          root: {}, // Styles applied to the root element
+          hidden: {} // Styles applied to the root element if the Modal has exited.
+        }
+      },
       MuiOutlinedInput: {
         defaultProps: {},
         styleOverrides: {}
@@ -333,7 +358,8 @@ export default function BrandThemedComponents(theme: Theme) {
         },
         styleOverrides: {
           root: {
-            fontSize: 14,
+            // fontSize: 14,
+            ...theme.typography.body2,
             textDecoration: 'none',
             backgroundColor: 'transparent',
             color:
@@ -354,9 +380,10 @@ export default function BrandThemedComponents(theme: Theme) {
             '&.Mui-checked': {
               color:
                 theme.palette.mode === 'dark'
-                  ? BrandSwatch.Dark.Grey[50]
-                  : BrandSwatch.Light.Grey[900],
-              backgroundColor: 'transparent'
+                  ? BrandSwatch.Dark.Grey[200]
+                  : BrandSwatch.Light.Grey[700],
+              backgroundColor: 'transparent',
+              cursor: 'default'
             }
           }, // Styles applied to the root element
           checked: {}, // State class applied to the root element if checked={true}

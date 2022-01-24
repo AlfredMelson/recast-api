@@ -13,11 +13,11 @@ const SelectSxStyle = styled(
   display: 'flex',
   alignItems: 'center',
   borderRadius: 3,
+  color: theme.palette.text.secondary,
   backgroundColor:
     theme.palette.mode === 'dark'
       ? alpha(BrandSwatch.Dark.Grey[700], 0.2)
       : alpha(BrandSwatch.Light.Grey[300], 0.2),
-  color: theme.palette.text.secondary,
   '&:hover': {
     color: theme.palette.text.primary,
     backgroundColor:

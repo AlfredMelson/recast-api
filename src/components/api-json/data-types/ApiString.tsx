@@ -10,7 +10,7 @@ import { ApiEditHighlighter } from '../../action'
 import { ApiApplyIcon, ApiCloseIcon, ApiDeleteIcon } from '../../icons'
 import { ButtonSxApiJsonEditItem, IconButtonSxApiEdit, InputSxEditApi } from '../../mui'
 import { ApiStringAlias } from './typeAliases'
-import { ApiDataTypeLabel } from '.'
+import { DataTypeLabelSx } from '.'
 
 export function ApiString({ index, value, dataKey, dataType, onEdit, onDelete }: ApiStringAlias) {
   const [selectedElement, setSelectedElement] = useRecoilState(selectedElementAtom)
@@ -41,7 +41,7 @@ export function ApiString({ index, value, dataKey, dataType, onEdit, onDelete }:
         {selectedElement === index ? (
           <Stack direction='row' justifyContent='center' alignItems='flex-end'>
             <Typography variant='code'>&#34;{dataKey}&#34;&#58;&nbsp;</Typography>
-            <ApiDataTypeLabel type={dataType} variant='edit' />
+            <DataTypeLabelSx type={dataType} association='edit' />
             <InputSxEditApi
               currentValue={currentValue}
               dataKey={dataKey}
@@ -80,7 +80,7 @@ export function ApiString({ index, value, dataKey, dataType, onEdit, onDelete }:
               variant='code'>
               &#34;{dataKey}&#34;&#58;&nbsp;
             </Typography>
-            <ApiDataTypeLabel type={dataType} variant='edit' />
+            <DataTypeLabelSx type={dataType} association='edit' />
             <Typography
               variant='code'
               sx={{

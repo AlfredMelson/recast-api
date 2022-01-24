@@ -6,7 +6,7 @@ import { BrandSwatch } from '../../../style'
 import { ApiDeleteIcon, ArrowRightIcon } from '../../icons'
 import { IconButtonSxApiIcons } from '../../mui'
 import { ApiObjectAlias, getType } from './typeAliases'
-import { ApiDataSort, ApiDataTypeLabel } from '.'
+import { ApiDataSort, DataTypeLabelSx } from '.'
 
 export function ApiObject({ value, dataKey, dataType, onDelete }: ApiObjectAlias) {
   const [col, setCol] = React.useState(true)
@@ -69,7 +69,7 @@ export function ApiObject({ value, dataKey, dataType, onDelete }: ApiObjectAlias
           <Stack direction='row'>
             <IconToggle />
             <Typography variant='code'>&#34;{dataKey}&#34;&#58;&nbsp;</Typography>
-            <ApiDataTypeLabel type={dataType ? dataType : ''} variant='edit' />
+            <DataTypeLabelSx type={dataType ? dataType : ''} association='edit' />
             <IconButtonSxApiIcons
               onClick={() => {
                 onDelete(dataKey)
@@ -125,7 +125,7 @@ export function ApiObject({ value, dataKey, dataType, onDelete }: ApiObjectAlias
           </IconButtonSxApiIcons>
           <Typography variant='code'>&#34;{dataKey}&#34;&#58;&nbsp;</Typography>
           <Stack direction='row'>
-            <ApiDataTypeLabel type={dataType ? dataType : ''} variant='edit' />
+            <DataTypeLabelSx type={dataType ? dataType : ''} variant='edit' />
             <Typography variant='body1'>{`{ ${keys.length} }`}</Typography>
           </Stack>
         </Stack> */

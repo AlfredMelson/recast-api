@@ -1,25 +1,25 @@
-import { atom, AtomEffect, DefaultValue, selector } from 'recoil'
+import { atom, selector } from 'recoil'
 
-/**
- * @name localPersist
- * @description
- * @return
- * @bug
- */
-export const localPersist: AtomEffect<any> = ({ onSet, setSelf, node }) => {
-  const storedJsonData = localStorage.getItem(node.key)
-  if (storedJsonData === 'userGeneratedJson') {
-    setSelf(storedJsonData)
-  }
+// /**
+//  * @name localPersist
+//  * @description
+//  * @return
+//  * @bug
+//  */
+// export const localPersist: AtomEffect<any> = ({ onSet, setSelf, node }) => {
+//   const storedJsonData = localStorage.getItem(node.key)
+//   if (storedJsonData === 'userGeneratedJson') {
+//     setSelf(storedJsonData)
+//   }
 
-  onSet(newItems => {
-    if (newItems instanceof DefaultValue) {
-      localStorage.removeItem(node.key)
-    } else {
-      localStorage.setItem(node.key, newItems)
-    }
-  })
-}
+//   onSet(newItems => {
+//     if (newItems instanceof DefaultValue) {
+//       localStorage.removeItem(node.key)
+//     } else {
+//       localStorage.setItem(node.key, newItems)
+//     }
+//   })
+// }
 
 // const idsState = atom<number[]>({
 //   key: 'ids',
@@ -41,8 +41,8 @@ export const localPersist: AtomEffect<any> = ({ onSet, setSelf, node }) => {
  */
 export const userGeneratedJsonAtom = atom<string>({
   key: 'userGeneratedJson',
-  default: '',
-  effects_UNSTABLE: [localPersist]
+  default: ''
+  // effects_UNSTABLE: [localPersist]
 })
 
 /**
