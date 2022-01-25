@@ -1,6 +1,5 @@
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
-import { motion } from 'framer-motion'
 import * as React from 'react'
 import { useRecoilValue } from 'recoil'
 import { ErrorBoundary } from '../../../lib'
@@ -55,11 +54,9 @@ export default function DTypescript() {
   return (
     <PaperSx>
       <ErrorBoundary>
-        <Typography variant='code'>
-          declare module namespace&nbsp;&#123;
-          <Box sx={{ ml: 30 }}>{renderData()}</Box>
-          &#125;
-        </Typography>
+        <Typography variant='code'>declare module namespace&nbsp;&#123;</Typography>
+        <Box sx={{ ml: 30 }}>{renderData()}</Box>
+        <Typography variant='code'>&#125;</Typography>
         {/* <DownloadInfo
           appeared={true}
           content={
@@ -92,7 +89,7 @@ function ApiDataSort({ index, dataKey, dataType, dataValue }: ApiDataSortAlias) 
             dataKey={dataKey}
             dataType={dataType}
             value={dataValue}
-            variant='typescript'
+            association='typescript'
           />
         )
       case 'boolean':
@@ -103,7 +100,7 @@ function ApiDataSort({ index, dataKey, dataType, dataValue }: ApiDataSortAlias) 
             dataKey={dataKey}
             dataType={dataType}
             value={dataValue}
-            variant='typescript'
+            association='typescript'
           />
         )
       case 'function':
@@ -114,7 +111,7 @@ function ApiDataSort({ index, dataKey, dataType, dataValue }: ApiDataSortAlias) 
             dataKey={dataKey}
             dataType={dataType}
             value={dataValue}
-            variant='typescript'
+            association='typescript'
           />
         )
       case 'number':
@@ -125,7 +122,7 @@ function ApiDataSort({ index, dataKey, dataType, dataValue }: ApiDataSortAlias) 
             dataKey={dataKey}
             dataType={dataType}
             value={dataValue}
-            variant='typescript'
+            association='typescript'
           />
         )
       case 'object':
@@ -136,7 +133,7 @@ function ApiDataSort({ index, dataKey, dataType, dataValue }: ApiDataSortAlias) 
             dataKey={dataKey}
             dataType={dataType}
             value={dataValue}
-            variant='typescript'
+            association='typescript'
           />
         )
       case 'string':
@@ -147,21 +144,12 @@ function ApiDataSort({ index, dataKey, dataType, dataValue }: ApiDataSortAlias) 
             dataKey={dataKey}
             dataType={dataType}
             value={dataValue}
-            variant='typescript'
+            association='typescript'
           />
         )
       default:
         return null
     }
   }
-  return (
-    <motion.div
-      initial={{ opacity: 0, translateX: 4 }}
-      animate={{ opacity: 1, translateX: 0 }}
-      transition={{ duration: 0.3, delay: index * 0.02 }}
-      exit='removed'
-      custom={index}>
-      {renderValue()}
-    </motion.div>
-  )
+  return <>{renderValue()}</>
 }

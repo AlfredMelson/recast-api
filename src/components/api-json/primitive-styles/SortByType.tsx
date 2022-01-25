@@ -18,7 +18,7 @@ export default function SortByType({ index, dataType, dataValue, dataKey }: ApiD
             key={index}
             value={dataValue}
             dataKey={dataKey}
-            variant='json'
+            association='json'
           />
         )
       case 'boolean':
@@ -28,7 +28,7 @@ export default function SortByType({ index, dataType, dataValue, dataKey }: ApiD
             key={index}
             value={dataValue}
             dataKey={dataKey}
-            variant='json'
+            association='json'
           />
         )
       case 'function':
@@ -38,7 +38,7 @@ export default function SortByType({ index, dataType, dataValue, dataKey }: ApiD
             key={index}
             value={dataValue}
             dataKey={dataKey}
-            variant='json'
+            association='json'
           />
         )
       case 'number':
@@ -48,7 +48,7 @@ export default function SortByType({ index, dataType, dataValue, dataKey }: ApiD
             key={index}
             value={dataValue}
             dataKey={dataKey}
-            variant='json'
+            association='json'
           />
         )
       case 'object':
@@ -58,7 +58,7 @@ export default function SortByType({ index, dataType, dataValue, dataKey }: ApiD
             key={index}
             value={dataValue}
             dataKey={dataKey}
-            variant='json'
+            association='json'
           />
         )
       case 'string':
@@ -68,7 +68,7 @@ export default function SortByType({ index, dataType, dataValue, dataKey }: ApiD
             key={index}
             value={dataValue}
             dataKey={dataKey}
-            variant='json'
+            association='json'
           />
         )
       default:

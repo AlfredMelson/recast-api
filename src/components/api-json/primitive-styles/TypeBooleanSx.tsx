@@ -57,7 +57,7 @@ export default function TypeBooleanSx({
   value,
   dataKey,
   dataType,
-  variant
+  association
 }: ApiBooleanAlias) {
   return (
     <motion.div
@@ -65,7 +65,7 @@ export default function TypeBooleanSx({
       animate={{ opacity: 1 }}
       transition={{ duration: 0.3, delay: index * 0.035 }}
       exit='removed'>
-      {variant === 'json' ? (
+      {association === 'json' ? (
         <Stack direction='row'>
           <BooleanTypography dataKey={dataKey} />
           {value ? <BooleanSpanTrue text={value} /> : <BooleanSpanFalse text={value} />}

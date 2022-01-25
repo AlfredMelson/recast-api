@@ -36,14 +36,14 @@ const TabStyle = styled(
   color: theme.palette.text.secondary,
   backgroundColor:
     theme.palette.mode === 'dark'
-      ? alpha(BrandSwatch.Dark.Grey[700], 0.4)
+      ? alpha(BrandSwatch.Dark.Grey[700], 0.2)
       : alpha(BrandSwatch.Light.Grey[200], 0.5),
   boxShadow: theme.shadows[0],
   '&:hover, &.Mui-focused': {
     color: theme.palette.text.primary,
     backgroundColor:
       theme.palette.mode === 'dark'
-        ? alpha(BrandSwatch.Dark.Grey[700], 0.6)
+        ? alpha(BrandSwatch.Dark.Grey[700], 0.8)
         : alpha(BrandSwatch.Light.Grey[200], 0.8),
     boxShadow: theme.shadows[1]
   },
@@ -52,7 +52,7 @@ const TabStyle = styled(
     cursor: 'default',
     color: theme.palette.text.primary,
     backgroundColor:
-      theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[700] : BrandSwatch.Light.Grey[200],
+      theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[800] : BrandSwatch.Light.Grey[200],
     boxShadow: theme.shadows[1]
   },
   '&.Mui-disabled': {

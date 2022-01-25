@@ -11,7 +11,7 @@ const PaperStyle = styled((props?: PaperProps) => <Paper {...props} />, {
 })(({ theme }) => ({
   backgroundImage: 'none',
   backgroundColor:
-    theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[700] : BrandSwatch.Light.Grey[200],
+    theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[800] : BrandSwatch.Light.Grey[200],
   padding: theme.spacing(30, 0, 30, 50),
   overflow: 'hidden'
 }))

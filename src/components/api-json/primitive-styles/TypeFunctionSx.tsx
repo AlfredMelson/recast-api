@@ -47,7 +47,7 @@ export default function TypeFunctionSx({
   value,
   dataKey,
   dataType,
-  variant
+  association
 }: ApiFunctionAlias) {
   return (
     <motion.div
@@ -55,7 +55,7 @@ export default function TypeFunctionSx({
       animate={{ opacity: 1 }}
       transition={{ duration: 0.3, delay: index * 0.035 }}
       exit='removed'>
-      {variant === 'json' ? (
+      {association === 'json' ? (
         <Stack direction='row'>
           <FunctionTypography dataKey={dataKey} />
           <FunctionSpan text={value} />

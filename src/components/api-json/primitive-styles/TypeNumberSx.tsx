@@ -40,14 +40,20 @@ function NumberSpan({ text }: NumberSpan) {
   return <NumberSpanStyle>{text}</NumberSpanStyle>
 }
 
-export default function TypeNumberSx({ index, value, dataKey, dataType, variant }: ApiNumberAlias) {
+export default function TypeNumberSx({
+  index,
+  value,
+  dataKey,
+  dataType,
+  association
+}: ApiNumberAlias) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.3, delay: index * 0.035 }}
       exit='removed'>
-      {variant === 'json' ? (
+      {association === 'json' ? (
         <>
           <NumberTypography dataKey={dataKey} />
           <NumberSpan text={value} />

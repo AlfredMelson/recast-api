@@ -1,7 +1,5 @@
 import { Tabs } from '@mui/material'
 import Box from '@mui/material/Box'
-import { styled } from '@mui/material/styles'
-// import { AnimatePresence } from 'framer-motion'
 import _ from 'lodash'
 import * as React from 'react'
 import { useLocation } from 'react-router-dom'
@@ -138,13 +136,13 @@ export default function ApiTabs() {
           <Box>
             <ErrorBoundary>
               <React.Suspense fallback={<CircularProgressStyle />}>
-                <PanelWrapper>
+                <Box sx={{ position: 'relative' }}>
                   {ApiTabPanel.map(({ index, panel }) => (
                     <TabPanel key={index} value={value} index={index}>
                       {panel}
                     </TabPanel>
                   ))}
-                </PanelWrapper>
+                </Box>
               </React.Suspense>
             </ErrorBoundary>
           </Box>
@@ -153,7 +151,3 @@ export default function ApiTabs() {
     </>
   )
 }
-
-const PanelWrapper = styled('div')(() => ({
-  position: 'relative'
-}))

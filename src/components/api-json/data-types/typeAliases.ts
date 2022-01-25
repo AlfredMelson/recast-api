@@ -25,7 +25,7 @@ export type ApiDataSortAlias = {
   dataType: string | undefined
   dataKey: string | number
   dataValue?: any
-  variant?: 'json' | 'typescript'
+  association?: 'json' | 'typescript'
   onDelete?: (key: number | string) => void
   onEdit?: (newValue: any, key: string | number) => void
 }
@@ -39,7 +39,7 @@ export type ApiArrayAlias = {
   dataKey: number | string
   value?: Array<ApiValueProp>
   dataType?: string
-  variant?: 'json' | 'typescript'
+  association?: 'json' | 'typescript'
   onEdit?: (newvalue: any, key: string | number) => void
   onDelete?: (dataKey: string | number) => void
 }
@@ -49,7 +49,7 @@ export type ApiObjectAlias = {
   dataKey: string | number
   value?: { [key: string]: any } | undefined
   dataType?: string | undefined
-  variant?: 'json' | 'typescript'
+  association?: 'json' | 'typescript'
   onEdit?: (newVale: any, key: string | number) => void
   onDelete?: (dataKey: string | number) => void
 }
@@ -58,7 +58,7 @@ export type ApiBooleanAlias = {
   index: number
   dataKey: string | number
   dataType?: string
-  variant?: 'json' | 'typescript'
+  association?: 'json' | 'typescript'
   value?: []
 }
 
@@ -66,7 +66,7 @@ export type ApiFunctionAlias = {
   index: number
   dataKey: string | number
   dataType?: string
-  variant?: 'json' | 'typescript'
+  association?: 'json' | 'typescript'
   value?: any
 }
 
@@ -75,7 +75,7 @@ export type ApiNumberAlias = {
   dataKey: string | number
   value?: number
   dataType?: string
-  variant?: 'json' | 'typescript'
+  association?: 'json' | 'typescript'
   onEdit?: (newVale: any, key: string | number) => void
   onDelete?: (dataKey: string | number) => void
 }
@@ -85,7 +85,7 @@ export type ApiStringAlias = {
   dataKey: string | number
   value?: string
   dataType?: string
-  variant?: 'json' | 'typescript'
+  association?: 'json' | 'typescript'
   onEdit?: (newVale: any, key: string | number) => void
   onDelete?: (dataKey: string | number) => void
 }
@@ -94,6 +94,6 @@ export type ApiUndefinedAlias = {
   index: number
   dataKey: string | number
   dataType: string
-  variant?: 'json' | 'typescript'
+  association?: 'json' | 'typescript'
   value?: []
 }

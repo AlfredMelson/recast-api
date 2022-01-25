@@ -39,13 +39,19 @@ function StringSpan({ text }: StringSpan) {
   return <StringSpanStyle>&#34;{text}&#34;</StringSpanStyle>
 }
 
-export default function TypeStringSx({ index, value, dataKey, variant, dataType }: ApiStringAlias) {
+export default function TypeStringSx({
+  index,
+  value,
+  dataKey,
+  association,
+  dataType
+}: ApiStringAlias) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.3, delay: index * 0.035 }}>
-      {variant === 'json' ? (
+      {association === 'json' ? (
         <>
           <StringTypography dataKey={dataKey} />
           <StringSpan text={value} />
