@@ -15,8 +15,7 @@ import {
 } from '../../recoil-state'
 import { AxiosIcon, TypescriptIcon, UseSWRIcon } from '../icons'
 import { CircularProgressStyle, TabSx } from '../mui'
-import { DataHeaders, DataResponse, DTypescript, EditResponse } from './tab-panels'
-import DataConfig from './tab-panels/DataConfig'
+import { DataConfig, DataHeaders, DataResponse, DTypescript, EditResponse } from './tab-panels'
 
 type TabPanelAlias = {
   index: number

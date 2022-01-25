@@ -1,12 +1,12 @@
 import { UserToggledApiAtomOptions } from '../recoil-state'
 
-export type SourceSelectorAlias = {
+export type SourceSelectionAlias = {
   index: number
   name: string
   value: string
 }
 
-export const SourceSelector: SourceSelectorAlias[] = [
+export const SourceSelection: SourceSelectionAlias[] = [
   { index: 0, name: '', value: '' },
   { index: 1, name: 'Random Data', value: 'randomDataApi' },
   { index: 2, name: 'Json Placeholder', value: 'jsonPlaceholderApi' }

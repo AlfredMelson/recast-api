@@ -19,6 +19,9 @@ const CardStyle = styled((props: CardProps) => <Card {...props} />, {
       : 'inset 1px 1px 2px 0px rgba(0, 0, 0, 0.30)',
   '&:last-child': {
     marginRight: theme.spacing(30)
+  },
+  [theme.breakpoints.down('sm')]: {
+    marginLeft: theme.spacing(30)
   }
 }))
 

@@ -1,3 +1,4 @@
+export { default as DataConfig } from './DataConfig'
 export { default as DataHeaders } from './DataHeaders'
 export { default as DataResponse } from './DataResponse'
 export { default as DTypescript } from './DTypescript'

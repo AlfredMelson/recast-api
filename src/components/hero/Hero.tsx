@@ -1,17 +1,15 @@
 import Stack, { StackProps } from '@mui/material/Stack'
 import { styled } from '@mui/material/styles'
 import Typography, { TypographyProps } from '@mui/material/Typography'
-import { useRecoilValue } from 'recoil'
-import { HeroSx } from '../../components/api-json'
 import {
-  DataCategorySelector,
-  DataFetch,
-  DataQuantitySelector,
-  DataSearchBar,
-  DataSourceSelector
-} from '../../components/api-json/selectors'
-import HttpClientSelector from '../../components/api-json/selectors/HttpClient'
-import { dataSourceAtom } from '../../recoil-state'
+  CategorySelector,
+  DataControls,
+  HttpClientSelector,
+  QuantitySelector,
+  SearchBar,
+  SourceSelector
+} from '../api-json/selectors'
+import HeroSx from './Hero.styles'
 
 const HeroTypography = styled(
   (props: TypographyProps) => <Typography variant='body2' {...props} />,
@@ -19,14 +17,16 @@ const HeroTypography = styled(
 )(({ theme }) => ({
   fontStyle: 'italic',
   color: theme.palette.text.secondary,
-  margin: theme.spacing(20, 0, 0, 20),
+  margin: theme.spacing(20, 0, 20),
   [theme.breakpoints.down('sm')]: {
-    margin: theme.spacing(10, 10, 10, 30)
+    margin: theme.spacing(20, 10, 10)
   }
 }))
 
 const HeroStack = styled(
-  (props: StackProps) => <Stack direction={{ xs: 'column', sm: 'row' }} {...props} />,
+  (props: StackProps) => (
+    <Stack direction={{ xs: 'column', sm: 'row' }} spacing={{ xs: 20, sm: 0 }} {...props} />
+  ),
   { name: 'Hero', slot: 'stack' }
 )(({ theme }) => ({
   justifyContent: 'start',
@@ -40,22 +40,19 @@ const HeroStack = styled(
 }))
 
 export function Hero() {
-  const dataSource = useRecoilValue(dataSourceAtom)
-  console.log('dataSource', dataSource)
-
   return (
     <HeroSx>
       <HeroTypography>Select API</HeroTypography>
       <HeroStack>
-        <DataSourceSelector />
-        <DataCategorySelector />
-        <DataQuantitySelector />
+        <SourceSelector />
+        <CategorySelector />
+        <QuantitySelector />
         <HttpClientSelector />
       </HeroStack>
       <HeroTypography>or Enter API</HeroTypography>
       <HeroStack>
-        <DataSearchBar />
-        <DataFetch />
+        <SearchBar />
+        <DataControls />
       </HeroStack>
     </HeroSx>
   )

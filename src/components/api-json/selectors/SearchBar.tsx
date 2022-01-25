@@ -4,7 +4,7 @@ import { useRecoilState, useSetRecoilState } from 'recoil'
 import { dataUrlAtom, selectedApiSelector } from '../../../recoil-state'
 import { CardSx, InputBaseSx } from '../../mui'
 
-export default function DataSearchBar() {
+export default function SearchBar() {
   // user entered url is set on enter or submit
   const handleTextFieldChanges = (event: React.FormEvent<HTMLInputElement>) => {
     // setUserTypedUrl(event.currentTarget.value),
@@ -20,7 +20,7 @@ export default function DataSearchBar() {
   // ref = { inputField }
 
   return (
-    <Box sx={{ flex: 1 }}>
+    <Box sx={{ width: '100%' }}>
       <CardSx title={selectedApi ? 'Selected Url ' : 'Typed Url'}>
         <InputBaseSx
           sx={{

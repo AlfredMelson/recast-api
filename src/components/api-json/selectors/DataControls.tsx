@@ -8,7 +8,7 @@ import { BrandSwatch } from '../../../style'
 import { CheckIcon } from '../../icons'
 import { ButtonStyle, CardSx, CircularProgressStyle } from '../../mui'
 
-export default function DataFetch() {
+export default function DataControls() {
   const resetSelectedApi = useResetRecoilState(selectedApiSelector)
 
   const [currentApiState, setCurrentApiState] = useRecoilState(currentApiStateAtom)
@@ -33,7 +33,7 @@ export default function DataFetch() {
   // const [diableUI, setDiableUI] = React.useState(false)
 
   // handle submission of user typed url
-  const handleDataFetching = () => {
+  const handleDataControlsing = () => {
     resetCurrentApiState()
     if (!submitting) {
       setSuccessfulSubmit(false)
@@ -72,43 +72,45 @@ export default function DataFetch() {
   }, [])
 
   return (
-    <CardSx title='Data Controls'>
-      <Stack direction='row' justifyContent='center' alignItems='center' spacing={10}>
-        <ButtonStyle
-          aria-label='clear url'
-          onClick={event => {
-            event.preventDefault()
-            resetSelectedApi()
-            resetCurrentApiState()
-          }}
-          disabled={selectedApi.length === 0}>
-          <Typography variant='button'>Clear</Typography>
-        </ButtonStyle>
-        <Box sx={{ position: 'relative' }}>
+    <Box sx={{ width: '100%' }}>
+      <CardSx title='Data Controls'>
+        <Stack direction='row' justifyContent='center' alignItems='center' spacing={10}>
           <ButtonStyle
-            aria-label='fetch api'
-            disabled={selectedApi === ''}
-            onClick={handleDataFetching}>
-            {!submitting && !successSubmit ? (
-              <Typography variant='button'>
-                {currentApiState === null ? 'Fetch' : 'Refetch'}
-              </Typography>
-            ) : (
-              successSubmit && (
-                <CheckIcon
-                  sx={{
-                    color: theme =>
-                      theme.palette.mode === 'dark'
-                        ? BrandSwatch.Dark.Green[500]
-                        : BrandSwatch.Light.Green[500]
-                  }}
-                />
-              )
-            )}
+            aria-label='clear url'
+            onClick={event => {
+              event.preventDefault()
+              resetSelectedApi()
+              resetCurrentApiState()
+            }}
+            disabled={selectedApi.length === 0}>
+            <Typography variant='button'>Clear</Typography>
           </ButtonStyle>
-          {submitting && <CircularProgressStyle />}
-        </Box>
-      </Stack>
-    </CardSx>
+          <Box sx={{ position: 'relative' }}>
+            <ButtonStyle
+              aria-label='fetch api'
+              disabled={selectedApi === ''}
+              onClick={handleDataControlsing}>
+              {!submitting && !successSubmit ? (
+                <Typography variant='button'>
+                  {currentApiState === null ? 'Fetch' : 'Refetch'}
+                </Typography>
+              ) : (
+                successSubmit && (
+                  <CheckIcon
+                    sx={{
+                      color: theme =>
+                        theme.palette.mode === 'dark'
+                          ? BrandSwatch.Dark.Green[500]
+                          : BrandSwatch.Light.Green[500]
+                    }}
+                  />
+                )
+              )}
+            </ButtonStyle>
+            {submitting && <CircularProgressStyle />}
+          </Box>
+        </Stack>
+      </CardSx>
+    </Box>
   )
 }

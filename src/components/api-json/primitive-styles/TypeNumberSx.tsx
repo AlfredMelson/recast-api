@@ -29,7 +29,7 @@ const NumberSpanStyle = styled('span', {
 })(({ theme }) => ({
   ...theme.typography.code,
   color:
-    theme.palette.mode === 'dark' ? BrandSwatch.Dark.Purple[400] : BrandSwatch.Light.Purple[500]
+    theme.palette.mode === 'dark' ? BrandSwatch.Dark.Purple[400] : BrandSwatch.Light.Purple[700]
 }))
 
 interface NumberSpan {
@@ -51,7 +51,7 @@ export default function TypeNumberSx({
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.3, delay: index * 0.035 }}
+      transition={{ duration: 0.3, delay: index * 0.03 }}
       exit='removed'>
       {association === 'json' ? (
         <>

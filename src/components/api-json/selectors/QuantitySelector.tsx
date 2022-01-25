@@ -7,7 +7,7 @@ import { VolumeSelector } from '../../../cms'
 import { dataCategoryAtom, dataQuantityAtom, dataSourceAtom } from '../../../recoil-state'
 import { CardSx, FormControlLabelSx } from '../../mui'
 
-export default function DataQuantitySelector() {
+export default function QuantitySelector() {
   const dataSource = useRecoilValue(dataSourceAtom)
 
   const dataCategory = useRecoilValue(dataCategoryAtom)

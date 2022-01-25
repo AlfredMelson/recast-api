@@ -1,3 +1,4 @@
+import { Box } from '@mui/material'
 import FormControl from '@mui/material/FormControl'
 import Radio from '@mui/material/Radio'
 import RadioGroup from '@mui/material/RadioGroup'
@@ -43,7 +44,7 @@ export default function HttpClientSelector() {
   }
 
   return (
-    <>
+    <Box sx={{ width: '100%' }}>
       {((dataSource === 'randomDataApi' && dataCategory !== '') || dataQuantity !== '') && (
         <CardSx title='Http Client'>
           <FormControl fullWidth>
@@ -68,6 +69,6 @@ export default function HttpClientSelector() {
           </FormControl>
         </CardSx>
       )}
-    </>
+    </Box>
   )
 }

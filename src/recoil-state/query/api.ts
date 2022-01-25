@@ -75,8 +75,6 @@ export type AxiosResponseAlias = {
 }
 
 async function fetchAxios(url): Promise<AxiosResponseAlias> {
-  console.log('fetchAxios url type: ', typeof url)
-
   if (url === null) {
     return
   } else {

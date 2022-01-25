@@ -6,7 +6,7 @@ import { JsonPlaceholderData, RandomData } from '../../../cms'
 import { dataCategoryAtom, dataQuantityAtom, dataSourceAtom } from '../../../recoil-state'
 import { CardSx, SelectSx } from '../../mui'
 
-export default function DataCategorySelector() {
+export default function CategorySelector() {
   const [dataCategory, setDataCategory] = useRecoilState(dataCategoryAtom)
 
   const dataSource = useRecoilValue(dataSourceAtom)

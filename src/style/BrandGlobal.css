@@ -1,3 +1,10 @@
+@media screen and (display-mode: standalone) {
+  .standalone-header,
+  .standalone-nav-header {
+    padding-top: 40px;
+  }
+}
+
 /**
  * Chrome transitions bug: Preventa "pop" of content by disabling all
  * transitions until page load is complete. https://lab.laukstein.com/bug/input
