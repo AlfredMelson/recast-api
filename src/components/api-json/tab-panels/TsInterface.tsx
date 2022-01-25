@@ -7,7 +7,6 @@ import { useRecoilValue } from 'recoil'
 import { ErrorBoundary } from '../../../lib'
 import { currentApiQuerySelector } from '../../../recoil-state'
 import { PaperSx } from '../../mui'
-import { DataTypeLabelSx } from '../data-types'
 import {
   ApiArrayAlias,
   ApiBooleanAlias,
@@ -18,6 +17,7 @@ import {
   ApiStringAlias,
   getType
 } from '../data-types/typeAliases'
+import { DataTypeLabelSx } from '../primitive-styles'
 
 export default function TsInterface() {
   const currentApiQuery = useRecoilValue(currentApiQuerySelector)

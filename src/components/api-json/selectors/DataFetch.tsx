@@ -6,7 +6,7 @@ import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil'
 import { currentApiStateAtom, selectedApiSelector } from '../../../recoil-state'
 import { BrandSwatch } from '../../../style'
 import { CheckIcon } from '../../icons'
-import { ButtonSxStyle, CardSx, CircularProgressStyle } from '../../mui'
+import { ButtonStyle, CardSx, CircularProgressStyle } from '../../mui'
 
 export default function DataFetch() {
   const resetSelectedApi = useResetRecoilState(selectedApiSelector)
@@ -74,7 +74,7 @@ export default function DataFetch() {
   return (
     <CardSx title='Data Controls'>
       <Stack direction='row' justifyContent='center' alignItems='center' spacing={10}>
-        <ButtonSxStyle
+        <ButtonStyle
           aria-label='clear url'
           onClick={event => {
             event.preventDefault()
@@ -83,9 +83,9 @@ export default function DataFetch() {
           }}
           disabled={selectedApi.length === 0}>
           <Typography variant='button'>Clear</Typography>
-        </ButtonSxStyle>
+        </ButtonStyle>
         <Box sx={{ position: 'relative' }}>
-          <ButtonSxStyle
+          <ButtonStyle
             aria-label='fetch api'
             disabled={selectedApi === ''}
             onClick={handleDataFetching}>
@@ -99,13 +99,13 @@ export default function DataFetch() {
                   sx={{
                     color: theme =>
                       theme.palette.mode === 'dark'
-                        ? BrandSwatch.Dark.Green[600]
-                        : BrandSwatch.Light.Green[300]
+                        ? BrandSwatch.Dark.Green[500]
+                        : BrandSwatch.Light.Green[500]
                   }}
                 />
               )
             )}
-          </ButtonSxStyle>
+          </ButtonStyle>
           {submitting && <CircularProgressStyle />}
         </Box>
       </Stack>

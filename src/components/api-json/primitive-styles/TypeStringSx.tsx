@@ -1,8 +1,9 @@
 import { styled } from '@mui/material/styles'
 import Typography, { TypographyProps } from '@mui/material/Typography'
+import { motion } from 'framer-motion'
 import { BrandSwatch } from '../../../style'
-import { DataTypeLabelSx } from '../data-types'
 import { ApiStringAlias } from '../data-types/typeAliases'
+import { DataTypeLabelSx } from '../primitive-styles'
 
 const StringTypographyStyle = styled(
   (props: TypographyProps) => <Typography variant='code' {...props} />,
@@ -38,9 +39,12 @@ function StringSpan({ text }: StringSpan) {
   return <StringSpanStyle>&#34;{text}&#34;</StringSpanStyle>
 }
 
-export default function TypeStringSx({ value, dataKey, variant, dataType }: ApiStringAlias) {
+export default function TypeStringSx({ index, value, dataKey, variant, dataType }: ApiStringAlias) {
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.3, delay: index * 0.035 }}>
       {variant === 'json' ? (
         <>
           <StringTypography dataKey={dataKey} />
@@ -52,6 +56,6 @@ export default function TypeStringSx({ value, dataKey, variant, dataType }: ApiS
           <DataTypeLabelSx type={dataType} association='typescript' />
         </>
       )}
-    </>
+    </motion.div>
   )
 }

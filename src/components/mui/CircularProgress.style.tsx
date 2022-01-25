@@ -8,8 +8,8 @@ const CircularProgressStyle = styled(
     name: 'CircularProgress',
     slot: 'style'
   }
-)(() => ({
-  color: BrandSwatch.Light.Green[500],
+)(({ theme }) => ({
+  color: theme.palette.mode === 'dark' ? BrandSwatch.Dark.Green[500] : BrandSwatch.Light.Green[500],
   position: 'absolute',
   top: '50%',
   left: '50%',

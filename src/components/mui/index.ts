@@ -16,6 +16,5 @@ export * from './Panel.style'
 
 export * from './Select.style'
 
-export * from './Tab.style'
-export * from './Tabs.style'
+export { default as TabSx } from './Tab.style'
 export * from './ToolTip.style'

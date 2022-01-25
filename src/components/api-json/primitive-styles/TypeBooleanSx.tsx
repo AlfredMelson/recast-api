@@ -1,9 +1,10 @@
 import Stack from '@mui/material/Stack'
 import { styled } from '@mui/material/styles'
 import Typography, { TypographyProps } from '@mui/material/Typography'
+import { motion } from 'framer-motion'
 import { BrandSwatch } from '../../../style'
-import { DataTypeLabelSx } from '../data-types'
 import { ApiBooleanAlias } from '../data-types/typeAliases'
+import { DataTypeLabelSx } from '.'
 
 const BooleanTypographyStyle = styled(
   (props: TypographyProps) => <Typography variant='code' {...props} />,
@@ -51,9 +52,19 @@ function BooleanSpanFalse({ text }: BooleanSpan) {
   return <BooleanSpanFalseStyle>{text}</BooleanSpanFalseStyle>
 }
 
-export default function TypeBooleanSx({ value, dataKey, dataType, variant }: ApiBooleanAlias) {
+export default function TypeBooleanSx({
+  index,
+  value,
+  dataKey,
+  dataType,
+  variant
+}: ApiBooleanAlias) {
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.3, delay: index * 0.035 }}
+      exit='removed'>
       {variant === 'json' ? (
         <Stack direction='row'>
           <BooleanTypography dataKey={dataKey} />
@@ -65,6 +76,6 @@ export default function TypeBooleanSx({ value, dataKey, dataType, variant }: Api
           <DataTypeLabelSx type={dataType} association='typescript' />
         </Stack>
       )}
-    </>
+    </motion.div>
   )
 }

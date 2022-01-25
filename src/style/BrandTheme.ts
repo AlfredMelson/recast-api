@@ -187,9 +187,6 @@ const BrandDesignTokens = (mode: 'dark' | 'light') =>
       })
     },
     spacing: 1,
-    shape: {
-      borderRadius: 3
-    },
     mixins: {
       toolbar: {
         '@media (min-width:0px) and (orientation: landscape)': {},

@@ -1,8 +1,9 @@
 import { styled } from '@mui/material/styles'
 import Typography, { TypographyProps } from '@mui/material/Typography'
+import { motion } from 'framer-motion'
 import { BrandSwatch } from '../../../style'
-import { DataTypeLabelSx } from '../data-types'
 import { ApiNumberAlias } from '../data-types/typeAliases'
+import { DataTypeLabelSx } from '.'
 
 const NumberTypographyStyle = styled(
   (props: TypographyProps) => <Typography variant='code' {...props} />,
@@ -39,9 +40,13 @@ function NumberSpan({ text }: NumberSpan) {
   return <NumberSpanStyle>{text}</NumberSpanStyle>
 }
 
-export default function TypeNumberSx({ value, dataKey, dataType, variant }: ApiNumberAlias) {
+export default function TypeNumberSx({ index, value, dataKey, dataType, variant }: ApiNumberAlias) {
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.3, delay: index * 0.035 }}
+      exit='removed'>
       {variant === 'json' ? (
         <>
           <NumberTypography dataKey={dataKey} />
@@ -53,6 +58,6 @@ export default function TypeNumberSx({ value, dataKey, dataType, variant }: ApiN
           <DataTypeLabelSx type={dataType} association='typescript' />
         </>
       )}
-    </>
+    </motion.div>
   )
 }

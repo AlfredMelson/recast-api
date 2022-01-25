@@ -1,4 +1,4 @@
-import { Theme } from '@mui/material/styles'
+import { alpha, Theme } from '@mui/material/styles'
 import BrandSwatch from './BrandSwatch'
 
 export default function BrandThemedComponents(theme: Theme) {
@@ -40,7 +40,13 @@ export default function BrandThemedComponents(theme: Theme) {
           disableTouchRipple: true
         },
         styleOverrides: {
-          root: { fontSize: theme.typography.body1 }, // Styles applied to the root element
+          root: {
+            borderRadius: theme.spacing(3),
+            transition: theme.transitions.create(['all'], {
+              duration: theme.transitions.duration.standard,
+              easing: theme.transitions.easing.easeInOut
+            })
+          }, // Styles applied to the root element
           disabled: {}, // State class applied to the root element if disabled={true}
           focusVisible: {} // State class applied to the root element if keyboard focused
         }
@@ -158,7 +164,6 @@ export default function BrandThemedComponents(theme: Theme) {
         defaultProps: {},
         styleOverrides: {
           root: {
-            // fontSize: 14,
             ...theme.typography.body2,
             textDecoration: 'none',
             backgroundColor: 'transparent',
@@ -211,6 +216,7 @@ export default function BrandThemedComponents(theme: Theme) {
         styleOverrides: {
           root: {},
           input: {
+            padding: theme.spacing(5, 0),
             '&:focus': {
               backgroundColor: 'transparent'
             }
@@ -218,11 +224,7 @@ export default function BrandThemedComponents(theme: Theme) {
         }
       },
       MuiInputBase: {
-        defaultProps: {
-          // size: 'small',
-          // fullWidth: true,
-          // disableUnderline: true
-        },
+        defaultProps: {},
         styleOverrides: {
           root: {
             borderRadius: theme.spacing(3),
@@ -246,28 +248,6 @@ export default function BrandThemedComponents(theme: Theme) {
           root: {}
         }
       },
-      MuiLink: {
-        defaultProps: {
-          underline: 'none'
-        },
-        styleOverrides: {
-          root: {
-            color:
-              theme.palette.mode === 'dark'
-                ? BrandSwatch.Dark.Blue[500]
-                : BrandSwatch.Light.Blue[600],
-            fontWeight: 600,
-            display: 'inline-flex',
-            alignItems: 'center',
-            '&.MuiTypography-body1 > svg': {
-              marginTop: 2
-            },
-            '& svg:last-child': {
-              marginLeft: 2
-            }
-          }
-        }
-      },
       MuiMenu: {
         defaultProps: {},
         styleOverrides: {
@@ -280,6 +260,48 @@ export default function BrandThemedComponents(theme: Theme) {
         }
       },
       MuiMenuItem: {
+        defaultProps: {
+          dense: { sm: false, md: true }
+        },
+        styleOverrides: {
+          root: {
+            borderRadius: theme.spacing(0),
+            backgroundColor:
+              theme.palette.mode === 'dark'
+                ? BrandSwatch.Dark.Grey[800]
+                : BrandSwatch.Light.Grey[200],
+            '&:hover, &.Mui-focused': {
+              color: theme.palette.text.primary,
+              backgroundColor:
+                theme.palette.mode === 'dark'
+                  ? alpha(BrandSwatch.Dark.Grey[700], 0.6)
+                  : alpha(BrandSwatch.Light.Grey[300], 0.8)
+            },
+            '&.Mui-selected': {
+              cursor: 'default',
+              backgroundColor:
+                theme.palette.mode === 'dark'
+                  ? BrandSwatch.Dark.Grey[700]
+                  : BrandSwatch.Light.Grey[300],
+              '&:hover': {
+                backgroundColor:
+                  theme.palette.mode === 'dark'
+                    ? BrandSwatch.Dark.Grey[700]
+                    : BrandSwatch.Light.Grey[300]
+              }
+            }
+          }, // Styles applied to the root element
+          //  MuiButtonBase-root-MuiMenuItem-root.Mui-selected
+          focusVisible: {}, // State class applied to the root element if keyboard focused
+          dense: {}, // Styles applied to the root element if dense
+          disabled: {}, // State class applied to the root element if disabled={true}
+          divider: {}, // Styles applied to the root element if divider={true}
+          gutters: {}, // Styles applied to the inner `component` element unless disableGutters={true}
+          selected: {} // State class applied to the root element if selected={true}
+        }
+      },
+
+      MuiMenuList: {
         defaultProps: {
           dense: true
         },
@@ -358,7 +380,6 @@ export default function BrandThemedComponents(theme: Theme) {
         },
         styleOverrides: {
           root: {
-            // fontSize: 14,
             ...theme.typography.body2,
             textDecoration: 'none',
             backgroundColor: 'transparent',
@@ -414,10 +435,10 @@ export default function BrandThemedComponents(theme: Theme) {
               easing: theme.transitions.easing.easeInOut
             }),
             '&:hover': {
-              color:
-                theme.palette.mode === 'dark'
-                  ? BrandSwatch.Dark.Grey[50]
-                  : BrandSwatch.Light.Grey[900]
+              // color:
+              //   theme.palette.mode === 'dark'
+              //     ? BrandSwatch.Dark.Grey[50]
+              //     : BrandSwatch.Light.Grey[900]
             }
           }, // Styles applied to the icon component
           iconOpen: {
@@ -459,7 +480,6 @@ export default function BrandThemedComponents(theme: Theme) {
           },
           track: {
             opacity: 1,
-            borderRadius: theme.shape.borderRadius,
             backgroundColor:
               theme.palette.mode === 'dark'
                 ? BrandSwatch.Dark.Grey[800]
@@ -479,11 +499,7 @@ export default function BrandThemedComponents(theme: Theme) {
         },
         styleOverrides: {
           root: {
-            borderRadius: theme.spacing(3, 3, 0, 0),
-            transition: theme.transitions.create(['all'], {
-              duration: theme.transitions.duration.standard,
-              easing: theme.transitions.easing.easeInOut
-            })
+            borderRadius: theme.spacing(3, 3, 0, 0)
           }, // Styles applied to the root element
           labelIcon: {}, // Styles applied to the root element if both icon and label are provided
           selected: {}, // State class applied to the root element if selected={true} (controlled by the Tabs component)
@@ -555,23 +571,23 @@ export default function BrandThemedComponents(theme: Theme) {
           popperArrow: {}, // Styles applied to the Popper component if arrow={true}
           popperClose: {}, // Styles applied to the Popper component unless the tooltip is open
           tooltip: {
-            boxShadow:
-              theme.palette.mode === 'dark'
-                ? '0px 0px 6px 0px rgba(0,0,0,0.5)'
-                : '0px 0px 3px 0px rgba(0,0,0,0.25)',
-            fontWeight: theme.palette.mode === 'dark' ? 400 : 600,
             fontSize: 13,
+            fontWeight: theme.palette.mode === 'dark' ? 400 : 600,
             color: theme.palette.text.primary,
             backgroundColor:
               theme.palette.mode === 'dark'
-                ? BrandSwatch.Dark.Green[600]
-                : BrandSwatch.Light.Green[300]
+                ? BrandSwatch.Dark.Green[500]
+                : BrandSwatch.Light.Green[300],
+            boxShadow:
+              theme.palette.mode === 'dark'
+                ? '0px 0px 6px 0px rgba(0,0,0,0.5)'
+                : '0px 0px 3px 0px rgba(0,0,0,0.25)'
           }, // Styles applied to the tooltip (label wrapper) element
           tooltipArrow: {}, // Styles applied to the tooltip (label wrapper) element if arrow={true}
           arrow: {
             color:
               theme.palette.mode === 'dark'
-                ? BrandSwatch.Dark.Green[600]
+                ? BrandSwatch.Dark.Green[500]
                 : BrandSwatch.Light.Green[300]
           }, // Styles applied to the arrow element
           touch: {}, // Styles applied to the tooltip (label wrapper) element if the tooltip is opened by touch
@@ -593,7 +609,7 @@ export default function BrandThemedComponents(theme: Theme) {
           disabled: {}, // State class applied to the element when disabled
           iconContainer: {}, // Styles applied to the tree node icon
           label: {
-            fontSize: 16
+            ...theme.typography.body2
           } // Styles applied to the label element
         }
       },

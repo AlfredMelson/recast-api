@@ -9,13 +9,8 @@ import { CardSx, SelectSx } from '../../mui/'
 export default function DataSourceSelector() {
   const [dataSource, setDataSource] = useRecoilState(dataSourceAtom)
 
-  // const resetDataQuantity = useResetRecoilState(dataQuantityAtom)
-  // const resetDataCategory = useResetRecoilState(dataCategoryAtom)
-
-  const handleChange = (event: SelectChangeEvent) => {
-    setDataSource(event.target.value as string)
-    // resetDataCategory()
-    // resetDataQuantity()
+  const handleChange = (event: SelectChangeEvent<string>) => {
+    setDataSource(event.target.value)
   }
 
   return (

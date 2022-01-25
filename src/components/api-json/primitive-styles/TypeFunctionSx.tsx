@@ -1,9 +1,10 @@
 import Stack from '@mui/material/Stack'
 import { styled } from '@mui/material/styles'
 import Typography, { TypographyProps } from '@mui/material/Typography'
+import { motion } from 'framer-motion'
 import { BrandSwatch } from '../../../style'
-import { DataTypeLabelSx } from '../data-types'
 import { ApiFunctionAlias } from '../data-types/typeAliases'
+import { DataTypeLabelSx } from '.'
 
 const FunctionTypographyStyle = styled(
   (props: TypographyProps) => <Typography variant='code' {...props} />,
@@ -41,9 +42,19 @@ function FunctionSpan({ text }: FunctionSpan) {
   return <FunctionSpanStyle>&#34;{text}&#34;</FunctionSpanStyle>
 }
 
-export default function TypeFunctionSx({ value, dataKey, dataType, variant }: ApiFunctionAlias) {
+export default function TypeFunctionSx({
+  index,
+  value,
+  dataKey,
+  dataType,
+  variant
+}: ApiFunctionAlias) {
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.3, delay: index * 0.035 }}
+      exit='removed'>
       {variant === 'json' ? (
         <Stack direction='row'>
           <FunctionTypography dataKey={dataKey} />
@@ -55,6 +66,6 @@ export default function TypeFunctionSx({ value, dataKey, dataType, variant }: Ap
           <DataTypeLabelSx type={dataType} association='typescript' />
         </Stack>
       )}
-    </>
+    </motion.div>
   )
 }

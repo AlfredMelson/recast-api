@@ -4,7 +4,7 @@ import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import { Link } from 'react-router-dom'
 import { ArrowRightIcon } from '../icons'
-import { ButtonSxStyle } from '../mui'
+import { ButtonStyle } from '../mui'
 import GradientText from '../typography/GradientText'
 
 export default function HeroNoMatch() {
@@ -31,11 +31,11 @@ export default function HeroNoMatch() {
                 '&& > *': { minWidth: 'clamp(0px, (492px - 100%) * 999 ,100%)' }
               }}>
               <Link to='/' style={{ textDecoration: 'none' }}>
-                <ButtonSxStyle
+                <ButtonStyle
                   sx={{ px: 20, textTransform: 'capitalize' }}
                   endIcon={<ArrowRightIcon />}>
                   Head back
-                </ButtonSxStyle>
+                </ButtonStyle>
               </Link>
             </Box>
           </Box>

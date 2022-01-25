@@ -9,8 +9,8 @@ import { BrandSwatch } from '../../../style'
 import { ApiEditHighlighter } from '../../action'
 import { ApiApplyIcon, ApiCloseIcon, ApiDeleteIcon } from '../../icons'
 import { ButtonSxApiJsonEditItem, IconButtonSxApiEdit, InputSxEditApi } from '../../mui'
+import { DataTypeLabelSx } from '../primitive-styles'
 import { ApiNumberAlias } from './typeAliases'
-import { DataTypeLabelSx } from '.'
 
 export function ApiNumber({ index, value, dataKey, dataType, onEdit, onDelete }: ApiNumberAlias) {
   const [selectedElement, setSelectedElement] = useRecoilState(selectedElementAtom)

@@ -1,5 +1,4 @@
-import { motion } from 'framer-motion'
-import { ApiDataSortAlias } from '../data-types/typeAliases'
+import { ApiDataSortAlias } from '../data-types'
 import {
   TypeArraySx,
   TypeBooleanSx,
@@ -76,14 +75,5 @@ export default function SortByType({ index, dataType, dataValue, dataKey }: ApiD
         return null
     }
   }
-  return (
-    <motion.div
-      initial={{ opacity: 0, translateX: 4 }}
-      animate={{ opacity: 1, translateX: 0 }}
-      transition={{ duration: 0.3, delay: index * 0.02 }}
-      exit='removed'
-      custom={index}>
-      {renderValue()}
-    </motion.div>
-  )
+  return <>{renderValue()}</>
 }

@@ -5,14 +5,21 @@ import * as React from 'react'
 import { BrandSwatch } from '../../style'
 import { FadeUpAnimation } from '../framer-motion'
 
-const HeroSxStyle = styled(Card, { name: 'Hero', slot: 'style' })(({ theme }) => ({
+const HeroStyle = styled(Card, { name: 'Hero', slot: 'style' })(({ theme }) => ({
   backgroundColor:
-    theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[800] : BrandSwatch.Light.Grey[200]
+    theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[800] : BrandSwatch.Light.Grey[200],
+  [theme.breakpoints.down('sm')]: {
+    borderRadius: theme.spacing(0)
+  }
 }))
 
-const HeroContentSxStyle = styled(CardContent, { name: 'HeroContent', slot: 'style' })(
+const HeroContainerStyle = styled(CardContent, { name: 'HeroContainer', slot: 'style' })(
   ({ theme }) => ({
-    padding: theme.spacing(0, 20, 20)
+    padding: theme.spacing(0, 0, 20, 20),
+    [theme.breakpoints.down('sm')]: {
+      borderRadius: theme.spacing(0),
+      padding: theme.spacing(10)
+    }
   })
 )
 
@@ -23,9 +30,9 @@ type HeroSxAlias = {
 export default function HeroSx({ children }: HeroSxAlias) {
   return (
     <FadeUpAnimation>
-      <HeroSxStyle>
-        <HeroContentSxStyle>{children}</HeroContentSxStyle>
-      </HeroSxStyle>
+      <HeroStyle>
+        <HeroContainerStyle>{children}</HeroContainerStyle>
+      </HeroStyle>
     </FadeUpAnimation>
   )
 }

@@ -1,8 +1,8 @@
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import { BrandSwatch } from '../../../style'
+import { DataTypeLabelSx } from '../primitive-styles'
 import { ApiBooleanAlias } from './typeAliases'
-import { DataTypeLabelSx } from '.'
 
 export function ApiBoolean({ value, dataKey, dataType }: ApiBooleanAlias) {
   // // state representing the selected element

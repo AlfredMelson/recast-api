@@ -6,42 +6,31 @@ import { useRecoilState, useSetRecoilState } from 'recoil'
 import { keyCodeAtom, selectedElementAtom } from '../../recoil-state'
 import { BrandSwatch } from '../../style'
 
-const InputBaseSxStyle = styled(
+const InputBaseStyle = styled(
   (props?: InputProps) => (
     <InputBase size='small' autoComplete='off' fullWidth disableUnderline={true} {...props} />
   ),
   {
-    name: 'SearchBar',
-    slot: 'input'
+    name: 'InputBase',
+    slot: 'style'
   }
 )(({ theme }) => ({
-  fontSize: 16,
+  ...theme.typography.body2,
   height: 50,
-  paddingLeft: 20,
-  display: 'flex',
-  alignItems: 'center',
+  paddingLeft: theme.spacing(20),
   color: theme.palette.text.secondary,
   backgroundColor:
     theme.palette.mode === 'dark'
       ? alpha(BrandSwatch.Dark.Grey[700], 0.2)
-      : alpha(BrandSwatch.Light.Grey[300], 0.2),
-  '&:hover': {
-    color: theme.palette.text.primary,
-    backgroundColor:
-      theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[700] : BrandSwatch.Light.Grey[200]
-  },
-  '&.Mui-focused': {
+      : alpha(BrandSwatch.Light.Grey[200], 0.5),
+  boxShadow: theme.shadows[0],
+  '&:hover, &.Mui-focused': {
     color: theme.palette.text.primary,
     backgroundColor:
       theme.palette.mode === 'dark'
-        ? alpha(BrandSwatch.Dark.Grey[600], 0.8)
-        : alpha(BrandSwatch.Light.Grey[300], 0.6),
+        ? alpha(BrandSwatch.Dark.Grey[700], 0.8)
+        : alpha(BrandSwatch.Light.Grey[200], 0.8),
     boxShadow: theme.shadows[1]
-  },
-  '&.Mui-selected': {
-    color: theme.palette.text.primary,
-    backgroundColor:
-      theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[900] : BrandSwatch.Light.Grey[200]
   }
 }))
 
@@ -94,7 +83,7 @@ export const InputBaseSx = ({
   )
 
   return (
-    <InputBaseSxStyle
+    <InputBaseStyle
       placeholder={placeholder}
       value={value}
       // defaultValue={currentValue}

@@ -1,4 +1,4 @@
-import Stack from '@mui/material/Stack'
+import Stack, { StackProps } from '@mui/material/Stack'
 import { styled } from '@mui/material/styles'
 import Typography, { TypographyProps } from '@mui/material/Typography'
 import { useRecoilValue } from 'recoil'
@@ -19,37 +19,44 @@ const HeroTypography = styled(
 )(({ theme }) => ({
   fontStyle: 'italic',
   color: theme.palette.text.secondary,
-  margin: theme.spacing(20, 0, 10, 10)
+  margin: theme.spacing(20, 0, 0, 20),
+  [theme.breakpoints.down('sm')]: {
+    margin: theme.spacing(10, 10, 10, 30)
+  }
+}))
+
+const HeroStack = styled(
+  (props: StackProps) => <Stack direction={{ xs: 'column', sm: 'row' }} {...props} />,
+  { name: 'Hero', slot: 'stack' }
+)(({ theme }) => ({
+  justifyContent: 'start',
+  alignItems: 'center',
+  margin: theme.spacing(10, 0, 10, 10),
+  [theme.breakpoints.down('sm')]: {
+    margin: theme.spacing(0),
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
 }))
 
 export function Hero() {
   const dataSource = useRecoilValue(dataSourceAtom)
+  console.log('dataSource', dataSource)
 
   return (
     <HeroSx>
-      <HeroTypography>Select API from dropdown</HeroTypography>
-      <Stack
-        direction={{ xs: 'column', md: 'row' }}
-        spacing={20}
-        justifyContent={{
-          xs: 'center',
-          md: dataSource === 'jsonPlaceholderApi' ? 'space-between' : 'start'
-        }}
-        alignItems={{ xs: 'flex-start', md: 'center' }}>
+      <HeroTypography>Select API</HeroTypography>
+      <HeroStack>
         <DataSourceSelector />
         <DataCategorySelector />
         <DataQuantitySelector />
         <HttpClientSelector />
-      </Stack>
+      </HeroStack>
       <HeroTypography>or Enter API</HeroTypography>
-      <Stack
-        direction={{ xs: 'column', md: 'row' }}
-        spacing={20}
-        justifyContent={{ xs: 'center', md: 'flex-start' }}
-        alignItems={{ xs: 'flex-start', md: 'center' }}>
+      <HeroStack>
         <DataSearchBar />
         <DataFetch />
-      </Stack>
+      </HeroStack>
     </HeroSx>
   )
 }

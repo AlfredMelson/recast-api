@@ -34,40 +34,6 @@ export default function Header() {
 
   return (
     <Box sx={{ display: { xs: 'none', md: 'initial' } }}>
-      {/* {dataDrawerOpen ? (
-        <Box
-          sx={{
-            minHeight: 60,
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)'
-          }}>
-          <Box
-            sx={{
-              gridColumn: 1,
-              gridRow: 1,
-              alignSelf: 'center',
-              justifySelf: 'start',
-              pl: 20,
-              zIndex: theme => theme.zIndex.drawer + 2
-            }}>
-            <HeaderLogo />
-          </Box>
-          <Box
-            sx={{
-              gridColumn: 2,
-              gridRow: 1,
-              alignSelf: 'center',
-              justifySelf: 'center',
-              zIndex: theme => theme.zIndex.drawer + 2
-            }}>
-            <AnimatePresence>
-              <SlideUpAnimation startY={-30} endY={3}>
-                <DrawerIcons />
-              </SlideUpAnimation>
-            </AnimatePresence>
-          </Box>
-        </Box>
-      ) :  */}
       <Box
         sx={{
           minHeight: 60,

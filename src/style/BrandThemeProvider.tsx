@@ -22,6 +22,5 @@ export default function BrandThemeProvider({ children }: BrandThemeProviderAlias
   // merge predefined mui components into appTheme
   const theme = createTheme(deepmerge(appTheme, BrandThemedComponents(appTheme)))
   // note: ThemeProvider provides theme prop down the React tree via context
-  // note: CssBaseline is a css reset component similar to normalize.css
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>
 }

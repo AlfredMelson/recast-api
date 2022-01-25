@@ -5,8 +5,9 @@ import * as React from 'react'
 import { BrandSwatch } from '../../../style'
 import { ApiDeleteIcon, ArrowRightIcon } from '../../icons'
 import { IconButtonSxApiIcons } from '../../mui'
+import { DataTypeLabelSx } from '../primitive-styles'
 import { ApiObjectAlias, getType } from './typeAliases'
-import { ApiDataSort, DataTypeLabelSx } from '.'
+import { ApiDataSort } from '.'
 
 export function ApiObject({ value, dataKey, dataType, onDelete }: ApiObjectAlias) {
   const [col, setCol] = React.useState(true)

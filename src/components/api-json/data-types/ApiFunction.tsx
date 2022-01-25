@@ -1,8 +1,8 @@
 import { blue } from '@mui/material/colors'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
+import { DataTypeLabelSx } from '../primitive-styles'
 import { ApiFunctionAlias } from './typeAliases'
-import { DataTypeLabelSx } from '.'
 
 export function ApiFunction({ dataKey, dataType }: ApiFunctionAlias) {
   return (
