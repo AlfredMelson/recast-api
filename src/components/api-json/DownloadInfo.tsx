@@ -1,6 +1,6 @@
 import Box, { BoxProps } from '@mui/material/Box'
 import IconButton from '@mui/material/IconButton'
-import * as React from 'react'
+import { ReactElement, useState } from 'react'
 import { BrandSwatch } from '../../style'
 import { ArrowLeftIcon, ArrowRightIcon } from '../icons'
 
@@ -8,8 +8,8 @@ export default function DownloadInfo({
   appeared,
   content,
   ...props
-}: { appeared: boolean; content?: React.ReactElement } & BoxProps) {
-  const [hidden, setHidden] = React.useState(true)
+}: { appeared: boolean; content?: ReactElement } & BoxProps) {
+  const [hidden, setHidden] = useState(true)
   return (
     <Box
       {...props}

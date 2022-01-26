@@ -1,7 +1,7 @@
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import { styled } from '@mui/material/styles'
-import * as React from 'react'
+import { ReactNode } from 'react'
 import { BrandSwatch } from '../../style'
 import { FadeUpAnimation } from '../framer-motion'
 
@@ -24,7 +24,7 @@ const HeroContainerStyle = styled(CardContent, { name: 'HeroContainer', slot: 's
 )
 
 type HeroSxAlias = {
-  children: React.ReactNode
+  children: ReactNode
 }
 
 export default function HeroSx({ children }: HeroSxAlias) {

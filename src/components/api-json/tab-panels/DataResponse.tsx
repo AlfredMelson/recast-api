@@ -1,4 +1,4 @@
-import * as React from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import { useRecoilValue } from 'recoil'
 import { ErrorBoundary } from '../../../lib'
 import { AxiosResponseAlias, currentApiQuerySelector } from '../../../recoil-state'
@@ -11,10 +11,10 @@ export default function DataResponse() {
 
   const data = currentApiQuery?.data
 
-  const [keys, setKeys] = React.useState<string[]>([])
-  const [currentData, setCurrentData] = React.useState<AxiosResponseAlias>(null)
+  const [keys, setKeys] = useState<string[]>([])
+  const [currentData, setCurrentData] = useState<AxiosResponseAlias>(null)
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!currentApiQuery) {
       return
     } else {
@@ -40,9 +40,9 @@ export default function DataResponse() {
 
   return (
     <PaperSx>
-      <React.Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div>Loading...</div>}>
         <ErrorBoundary>{renderData()}</ErrorBoundary>
-      </React.Suspense>
+      </Suspense>
     </PaperSx>
   )
 }

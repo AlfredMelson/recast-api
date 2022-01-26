@@ -8,7 +8,7 @@ export const IconButtonSxStyle = styled(IconButton, {
 })(({ theme }) => ({
   color: theme.palette.primary.light,
   padding: theme.spacing(10),
-  transition: theme.transitions.create(['color'], {
+  transition: theme.transitions.create(['all'], {
     duration: theme.transitions.duration.standard,
     easing: theme.transitions.easing.easeInOut
   }),

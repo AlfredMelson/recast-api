@@ -2,7 +2,7 @@ import { SxProps } from '@mui/material'
 import Paper, { PaperProps } from '@mui/material/Paper'
 import { styled } from '@mui/material/styles'
 import { motion } from 'framer-motion'
-import * as React from 'react'
+import { MouseEventHandler, ReactNode } from 'react'
 import { BrandSwatch } from '../../style'
 
 const PaperStyle = styled((props?: PaperProps) => <Paper {...props} />, {
@@ -12,14 +12,14 @@ const PaperStyle = styled((props?: PaperProps) => <Paper {...props} />, {
   backgroundImage: 'none',
   backgroundColor:
     theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[800] : BrandSwatch.Light.Grey[200],
-  padding: theme.spacing(30, 0, 30, 50),
-  overflow: 'hidden'
+  padding: theme.spacing(30, 0, 30, 50)
+  // overflow: 'hidden'
 }))
 
 type PaperSxAlias = {
-  children: React.ReactNode
+  children: ReactNode
   sx?: SxProps
-  onClick?: React.MouseEventHandler
+  onClick?: MouseEventHandler
 }
 
 export const PaperSx = ({ children, onClick, ...props }: PaperSxAlias) => {

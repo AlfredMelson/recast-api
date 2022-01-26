@@ -2,7 +2,7 @@ import Box from '@mui/material/Box'
 import ButtonGroup from '@mui/material/ButtonGroup'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
-import * as React from 'react'
+import { useEffect, useState } from 'react'
 import { useRecoilState } from 'recoil'
 import { selectedElementAtom } from '../../../recoil-state'
 import { BrandSwatch } from '../../../style'
@@ -15,9 +15,9 @@ import { ApiNumberAlias } from './typeAliases'
 export function ApiNumber({ index, value, dataKey, dataType, onEdit, onDelete }: ApiNumberAlias) {
   const [selectedElement, setSelectedElement] = useRecoilState(selectedElementAtom)
 
-  const [currentValue, setCurrentValue] = React.useState<ApiNumberAlias['value'] | any>()
+  const [currentValue, setCurrentValue] = useState<ApiNumberAlias['value'] | any>()
 
-  React.useEffect(() => {
+  useEffect(() => {
     setCurrentValue(value)
   }, [value])
 

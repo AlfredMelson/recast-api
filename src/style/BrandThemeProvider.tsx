@@ -1,13 +1,13 @@
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import { deepmerge } from '@mui/utils'
-import * as React from 'react'
+import { ReactNode } from 'react'
 import { useRecoilValue } from 'recoil'
 import { themeColorAtom } from '../recoil-state'
 import BrandDesignTokens from './BrandTheme'
 import BrandThemedComponents from './BrandThemedComponents'
 
 type BrandThemeProviderAlias = {
-  children: React.ReactNode
+  children: ReactNode
 }
 
 export default function BrandThemeProvider({ children }: BrandThemeProviderAlias) {

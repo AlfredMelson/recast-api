@@ -1,7 +1,7 @@
 import FormControl from '@mui/material/FormControl'
 import Radio from '@mui/material/Radio'
 import RadioGroup from '@mui/material/RadioGroup'
-import * as React from 'react'
+import { ChangeEvent } from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { VolumeSelector } from '../../../cms'
 import { dataCategoryAtom, dataQuantityAtom, dataSourceAtom } from '../../../recoil-state'
@@ -21,7 +21,7 @@ export default function QuantitySelector() {
   // const maxRequests = 10
   // const initialPostRequest = '1'
 
-  // const [postRequests, setPostRequests] = React.useState<string>(initialPostRequest)
+  // const [postRequests, setPostRequests] = useState<string>(initialPostRequest)
 
   // const handleChange = (event: SelectChangeEvent) => {
   //   setPostRequests(event.target.value as string)
@@ -33,7 +33,7 @@ export default function QuantitySelector() {
 
   const [dataQuantity, setDataQuantity] = useRecoilState(dataQuantityAtom)
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setDataQuantity((event.target as HTMLInputElement).value)
   }
 

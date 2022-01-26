@@ -132,9 +132,17 @@ export default function BrandThemedComponents(theme: Theme) {
       MuiDialog: {
         defaultProps: {},
         styleOverrides: {
-          root: {}, // Styles applied to the root element
+          root: { marginTop: theme.spacing(60) }, // Styles applied to the root element
           paperAnchorTop: {}, // Styles applied to the Paper component if anchor="top"
-          paper: { backgroundColor: 'transparent', backgroundImage: 'none' } // Styles applied to the Paper component
+          paper: {
+            backgroundColor: '#21262d',
+            backgroundImage: 'none',
+            margin: 0,
+            padding: 0,
+            borderRadius: 3,
+            maxHeight: '100vh',
+            bottom: '13px'
+          } // Styles applied to the Paper component
         }
       },
       MuiDivider: {

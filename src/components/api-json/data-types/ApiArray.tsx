@@ -1,6 +1,6 @@
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
-import * as React from 'react'
+import { useEffect, useState } from 'react'
 import { ArrowDownIcon, ArrowUpIcon } from '../../icons'
 import { IconButtonSx } from '../../mui'
 import { DataTypeLabelSx } from '../primitive-styles'
@@ -8,11 +8,11 @@ import { ApiArrayAlias, getType } from './typeAliases'
 import { ApiDataSort } from '.'
 
 export function ApiArray({ value, dataKey, dataType }: ApiArrayAlias) {
-  const [col, setCol] = React.useState(false)
+  const [col, setCol] = useState(false)
 
-  const [currentValue, setCurrentValue] = React.useState<ApiArrayAlias['value']>([])
+  const [currentValue, setCurrentValue] = useState<ApiArrayAlias['value']>([])
 
-  React.useEffect(() => {
+  useEffect(() => {
     setCurrentValue(value)
   }, [value])
 

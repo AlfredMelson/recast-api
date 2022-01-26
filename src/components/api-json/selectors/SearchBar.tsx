@@ -1,12 +1,12 @@
 import Box from '@mui/material/Box'
-import * as React from 'react'
+import { FormEvent } from 'react'
 import { useRecoilState, useSetRecoilState } from 'recoil'
 import { dataUrlAtom, selectedApiSelector } from '../../../recoil-state'
 import { CardSx, InputBaseSx } from '../../mui'
 
 export default function SearchBar() {
   // user entered url is set on enter or submit
-  const handleTextFieldChanges = (event: React.FormEvent<HTMLInputElement>) => {
+  const handleTextFieldChanges = (event: FormEvent<HTMLInputElement>) => {
     // setUserTypedUrl(event.currentTarget.value),
     setDataUrl(event.currentTarget.value)
     setSelectedApi(event.currentTarget.value)
@@ -16,7 +16,7 @@ export default function SearchBar() {
 
   const [selectedApi, setSelectedApi] = useRecoilState(selectedApiSelector)
 
-  // const inputField = React.useRef<HTMLInputElement>(null)
+  // const inputField = useRef<HTMLInputElement>(null)
   // ref = { inputField }
 
   return (

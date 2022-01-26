@@ -1,7 +1,7 @@
 import { SxProps } from '@mui/material'
 import InputBase, { InputProps } from '@mui/material/Input'
 import { alpha, styled } from '@mui/material/styles'
-import * as React from 'react'
+import { ChangeEvent, useCallback } from 'react'
 import { useRecoilState, useSetRecoilState } from 'recoil'
 import { keyCodeAtom, selectedElementAtom } from '../../recoil-state'
 import { BrandSwatch } from '../../style'
@@ -40,7 +40,7 @@ type InputBaseSxAlias = {
   onEdit?: (dataKey: string, value: string) => void
   placeholder: string
   value: string
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void
   sx?: SxProps
   props?: InputProps
 }
@@ -60,13 +60,13 @@ export const InputBaseSx = ({
   // Keyboard interaction
   const [keyCode, setKeyCode] = useRecoilState(keyCodeAtom)
 
-  const onKeyDown = React.useCallback(
+  const onKeyDown = useCallback(
     event => {
       setKeyCode(event.keyCode)
     },
     [setKeyCode]
   )
-  const onKeyUp = React.useCallback(
+  const onKeyUp = useCallback(
     event => {
       if ((event.key === 'Enter' || event.keyCode === 13) && keyCode === event.keyCode) {
         event.preventDefault()

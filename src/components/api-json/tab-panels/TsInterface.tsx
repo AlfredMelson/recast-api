@@ -2,7 +2,7 @@ import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import { motion } from 'framer-motion'
-import * as React from 'react'
+import { useEffect, useState } from 'react'
 import { useRecoilValue } from 'recoil'
 import { ErrorBoundary } from '../../../lib'
 import { currentApiQuerySelector } from '../../../recoil-state'
@@ -22,11 +22,11 @@ import { DataTypeLabelSx } from '../primitive-styles'
 export default function TsInterface() {
   const currentApiQuery = useRecoilValue(currentApiQuerySelector)
 
-  const [keys, setKeys] = React.useState([])
+  const [keys, setKeys] = useState([])
 
-  const [currentData, setCurrentData] = React.useState({})
+  const [currentData, setCurrentData] = useState({})
 
-  React.useEffect(() => {
+  useEffect(() => {
     const newkeys = Object.getOwnPropertyNames(currentApiQuery)
     setKeys(newkeys)
     setCurrentData(currentApiQuery)
@@ -211,9 +211,9 @@ function JsonNumber({ dataKey, dataType }: ApiNumberAlias) {
 }
 
 function JsonObject({ value, dataKey }: ApiObjectAlias) {
-  const [keys, setKeys] = React.useState<string[]>([])
-  const [currentValue, setCurrentValue] = React.useState<ApiObjectAlias['value']>({})
-  React.useEffect(() => {
+  const [keys, setKeys] = useState<string[]>([])
+  const [currentValue, setCurrentValue] = useState<ApiObjectAlias['value']>({})
+  useEffect(() => {
     setCurrentValue(value)
     setKeys(Object.keys(value ? value : ''))
   }, [value])

@@ -3,7 +3,7 @@ import DialogContent from '@mui/material/DialogContent'
 import { styled } from '@mui/material/styles'
 import Typography from '@mui/material/Typography'
 import { AnimatePresence } from 'framer-motion'
-import * as React from 'react'
+import { useEffect } from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { currentApiQuerySelector, minifiedTextAtom, minifyDialogOpenAtom } from '../../recoil-state'
 import { BrandSwatch } from '../../style'
@@ -35,7 +35,7 @@ export default function MinifyDialog() {
   // store minified json in recoil
   const [minifiedText, setMinifiedText] = useRecoilState(minifiedTextAtom)
   // handle minification of json & move to recoil
-  React.useEffect(() => {
+  useEffect(() => {
     async function Minify(json: string) {
       const typeJson = typeof JSON === 'undefined' || null
       if (typeJson) {

@@ -2,7 +2,7 @@ import { Box } from '@mui/material'
 import FormControl from '@mui/material/FormControl'
 import Radio from '@mui/material/Radio'
 import RadioGroup from '@mui/material/RadioGroup'
-import * as React from 'react'
+import { ChangeEvent } from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { HttpClients } from '../../../cms'
 import {
@@ -27,7 +27,7 @@ export default function HttpClientSelector() {
   // const maxRequests = 10
   // const initialPostRequest = '1'
 
-  // const [postRequests, setPostRequests] = React.useState<string>(initialPostRequest)
+  // const [postRequests, setPostRequests] = useState<string>(initialPostRequest)
 
   // const handleChange = (event: SelectChangeEvent) => {
   //   setPostRequests(event.target.value as string)
@@ -39,7 +39,7 @@ export default function HttpClientSelector() {
 
   const [httpClient, setHttpClient] = useRecoilState(httpClientAtom)
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setHttpClient((event.target as HTMLInputElement).value)
   }
 

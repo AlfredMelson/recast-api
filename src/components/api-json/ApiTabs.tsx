@@ -1,7 +1,7 @@
 import { Tabs } from '@mui/material'
 import Box from '@mui/material/Box'
 import _ from 'lodash'
-import * as React from 'react'
+import { ReactNode, Suspense, SyntheticEvent, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
 import { ApiTabDataAlias, ApiTabPanelAlias } from '../../cms'
@@ -20,7 +20,7 @@ import { DataConfig, DataHeaders, DataResponse, DTypescript, EditResponse } from
 type TabPanelAlias = {
   index: number
   value: number
-  children?: React.ReactNode
+  children?: ReactNode
 }
 
 function TabPanel({ children, value, index, ...other }: TabPanelAlias) {
@@ -51,9 +51,9 @@ export default function ApiTabs() {
   const [axiosResponse, setAxiosResponse] = useRecoilState(axiosResponseAtom)
 
   // dispatch tab panel
-  const [value, setValue] = React.useState<number>(1)
+  const [value, setValue] = useState<number>(1)
 
-  const handleDataTabs = (_event: React.SyntheticEvent, newResponse: number) => {
+  const handleDataTabs = (_event: SyntheticEvent, newResponse: number) => {
     setValue(newResponse)
   }
 
@@ -107,7 +107,7 @@ export default function ApiTabs() {
         <>
           <Box sx={{ pt: 30, overflowX: 'hidden' }}>
             <ErrorBoundary>
-              <React.Suspense fallback={<CircularProgressStyle />}>
+              <Suspense fallback={<CircularProgressStyle />}>
                 <Tabs
                   variant='scrollable'
                   scrollButtons='auto'
@@ -129,12 +129,12 @@ export default function ApiTabs() {
                     />
                   ))}
                 </Tabs>
-              </React.Suspense>
+              </Suspense>
             </ErrorBoundary>
           </Box>
           <Box>
             <ErrorBoundary>
-              <React.Suspense fallback={<CircularProgressStyle />}>
+              <Suspense fallback={<CircularProgressStyle />}>
                 <Box sx={{ position: 'relative' }}>
                   {ApiTabPanel.map(({ index, panel }) => (
                     <TabPanel key={index} value={value} index={index}>
@@ -142,7 +142,7 @@ export default function ApiTabs() {
                     </TabPanel>
                   ))}
                 </Box>
-              </React.Suspense>
+              </Suspense>
             </ErrorBoundary>
           </Box>
         </>

@@ -1,4 +1,4 @@
-import * as React from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 function loadHistory() {
   let historicalData: { history: string }
@@ -18,12 +18,12 @@ function saveHistory(history: string) {
 }
 
 export function usePersistedHistory(onLoad: (arg0: string) => void) {
-  const [history, setHistory] = React.useState<string>()
+  const [history, setHistory] = useState<string>()
 
-  const loadedRef = React.useRef(false)
+  const loadedRef = useRef(false)
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  React.useEffect(() => {
+  useEffect(() => {
     if (loadedRef.current) {
       return
     }
@@ -35,7 +35,7 @@ export function usePersistedHistory(onLoad: (arg0: string) => void) {
     }
   })
 
-  React.useEffect(() => {
+  useEffect(() => {
     saveHistory(history)
   }, [history])
 

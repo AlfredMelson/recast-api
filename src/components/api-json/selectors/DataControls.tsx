@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
-import * as React from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil'
 import { currentApiStateAtom, selectedApiSelector } from '../../../recoil-state'
 import { BrandSwatch } from '../../../style'
@@ -25,12 +25,12 @@ export default function DataControls() {
   // const refreshApiQuery = useRecoilRefresher_UNSTABLE(currentApiQuerySelector)
 
   // useRef to avoid re-renders during button handler
-  const interactionTimer = React.useRef<number>()
+  const interactionTimer = useRef<number>()
 
   // useState hooks to handle submit button transitions
-  const [submitting, setSubmitting] = React.useState(false)
-  const [successSubmit, setSuccessfulSubmit] = React.useState(false)
-  // const [diableUI, setDiableUI] = React.useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [successSubmit, setSuccessfulSubmit] = useState(false)
+  // const [diableUI, setDiableUI] = useState(false)
 
   // handle submission of user typed url
   const handleDataControlsing = () => {
@@ -64,7 +64,7 @@ export default function DataControls() {
   }
 
   // useEffect to handle side effect proceeding button handler
-  React.useEffect(() => {
+  useEffect(() => {
     return () => {
       // cancel the timeout established by setTimeout()
       clearTimeout(interactionTimer.current)

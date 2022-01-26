@@ -1,6 +1,6 @@
 import Box from '@mui/material/Box'
 import { saveAs } from 'file-saver'
-import * as React from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
 import { minifiedTextAtom, minifyDialogOpenAtom, userGeneratedJsonAtom } from '../../recoil-state'
 import { BrandSwatch } from '../../style'
@@ -18,7 +18,7 @@ export default function MinifyIcons() {
   const [minifiedText, setMinifiedText] = useRecoilState(minifiedTextAtom)
 
   // minify json
-  React.useEffect(() => {
+  useEffect(() => {
     async function Minify(text) {
       if (typeof JSON === 'undefined' || null) {
         return text
@@ -32,10 +32,10 @@ export default function MinifyIcons() {
   }, [userGeneratedJson, setMinifiedText])
 
   //useRef to avoid re-renders during button interactions
-  const interactionTimer = React.useRef<number>()
+  const interactionTimer = useRef<number>()
 
   //useEffect to handle side effect proceeding button interactions
-  React.useEffect(() => {
+  useEffect(() => {
     return () => {
       //cancel the timeout established by setTimeout()
       clearTimeout(interactionTimer.current)
@@ -43,9 +43,9 @@ export default function MinifyIcons() {
   }, [])
 
   //useState hooks to handle button transitions during copy interaction
-  const [minifiedCopy, setMinifiedCopy] = React.useState(false)
-  const [loadingCopy, setLoadingCopy] = React.useState(false)
-  const [successCopy, setSuccessCopy] = React.useState(false)
+  const [minifiedCopy, setMinifiedCopy] = useState(false)
+  const [loadingCopy, setLoadingCopy] = useState(false)
+  const [successCopy, setSuccessCopy] = useState(false)
 
   // handle copy of minified json to clipboard
   async function handleMinifyCopy() {
@@ -67,8 +67,8 @@ export default function MinifyIcons() {
   }
 
   //useState hooks to handle button transitions during download interaction
-  const [loadingDownload, setLoadingDownload] = React.useState(false)
-  const [successDownload, setSuccessDownload] = React.useState(false)
+  const [loadingDownload, setLoadingDownload] = useState(false)
+  const [successDownload, setSuccessDownload] = useState(false)
 
   const handleMinifiedDownload = () => {
     if (!loadingDownload) {

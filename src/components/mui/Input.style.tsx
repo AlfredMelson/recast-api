@@ -1,7 +1,7 @@
 import InputBase from '@mui/material/Input'
 import InputAdornment from '@mui/material/InputAdornment'
 import Typography from '@mui/material/Typography'
-import * as React from 'react'
+import { useCallback } from 'react'
 import { useRecoilState, useSetRecoilState } from 'recoil'
 import { keyCodeAtom, selectedElementAtom } from '../../recoil-state'
 
@@ -24,13 +24,13 @@ export const InputSxEditApi = ({
 
   // keyboard interaction
   const [keyCode, setKeyCode] = useRecoilState(keyCodeAtom)
-  const onKeyDown = React.useCallback(
+  const onKeyDown = useCallback(
     event => {
       setKeyCode(event.keyCode)
     },
     [setKeyCode]
   )
-  const onKeyUp = React.useCallback(
+  const onKeyUp = useCallback(
     event => {
       if ((event.key === 'Enter' || event.keyCode === 13) && keyCode === event.keyCode) {
         event.preventDefault()

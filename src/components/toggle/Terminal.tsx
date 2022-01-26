@@ -10,7 +10,7 @@ export function TerminalToggle() {
 
   return (
     <>
-      {currentApiState === null ? (
+      {dataDrawerOpen || currentApiState === null ? (
         <IconButtonSxStyle disabled={true}>
           <TerminalIcon />
         </IconButtonSxStyle>

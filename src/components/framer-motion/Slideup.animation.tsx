@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion'
-import * as React from 'react'
+import { ReactNode } from 'react'
 
 type SlideUpAnimationAlias = {
-  children: React.ReactNode
+  children: ReactNode
   layoutId?: string
   startY?: number
   endY?: number

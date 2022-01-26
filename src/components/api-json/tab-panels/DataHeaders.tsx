@@ -1,4 +1,4 @@
-import * as React from 'react'
+import { useEffect, useState } from 'react'
 import { useRecoilValue } from 'recoil'
 import { ErrorBoundary } from '../../../lib'
 import { AxiosResponseAlias, currentApiQuerySelector } from '../../../recoil-state'
@@ -11,11 +11,11 @@ export default function DataHeaders() {
 
   const data = currentApiQuery?.headers
 
-  const [keys, setKeys] = React.useState<string[]>([])
+  const [keys, setKeys] = useState<string[]>([])
 
-  const [currentData, setCurrentData] = React.useState<AxiosResponseAlias>(null)
+  const [currentData, setCurrentData] = useState<AxiosResponseAlias>(null)
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!currentApiQuery) {
       return
     } else {

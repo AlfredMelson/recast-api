@@ -1,17 +1,18 @@
 import Box from '@mui/material/Box'
 import { AnimatePresence } from 'framer-motion'
-import * as React from 'react'
+import { useEffect } from 'react'
 import { useRecoilState } from 'recoil'
 import { themeColorAtom } from '../../recoil-state'
 import { SlideUpAnimation } from '../framer-motion'
 import { MoonIcon, SunIcon } from '../icons'
 import { IconButtonSxStyle, ToolTipSx } from '../mui'
+// import useMediaQuery from '@mui/material/useMediaQuery'
 
 export function ThemeModeToggle() {
   // retrieve previously set theme value from localStorage
   const [themeColor, setThemeColor] = useRecoilState(themeColorAtom)
 
-  React.useEffect(() => {
+  useEffect(() => {
     const localStorageThemeColor = localStorage.getItem('themeColor')
 
     if (localStorageThemeColor) {
@@ -23,6 +24,24 @@ export function ThemeModeToggle() {
   const handleChange = () => {
     setThemeColor(themeColor === 'dark' ? 'light' : 'dark')
   }
+
+  // const changeTheme = useChangeTheme()
+
+  // const [mode, setMode] = useState<string | null>(null)
+
+  // const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)')
+  // useEffect(() => {
+  //   const initialMode = getCookie('paletteMode') || 'system'
+  //   setMode(initialMode)
+  // }, [])
+
+  // const handleChangeThemeMode = (checked: boolean) => {
+  //   const paletteMode = checked ? 'dark' : 'light'
+  //   setMode(paletteMode)
+
+  //   document.cookie = `paletteMode=${paletteMode};path=/;max-age=31536000`
+  //   changeTheme({ paletteMode })
+  // }
 
   return (
     <Box sx={{ position: 'relative' }}>

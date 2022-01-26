@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion'
-import * as React from 'react'
+import { ReactNode } from 'react'
 
 type NewFadeAnimationAlias = {
-  children: React.ReactNode
+  children: ReactNode
 }
 
 export default function NewFadeUpAnimation({ children }: NewFadeAnimationAlias) {

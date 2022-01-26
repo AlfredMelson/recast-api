@@ -1,8 +1,9 @@
 import MonacoEditor from '@monaco-editor/react'
 import { debounce } from 'lodash'
-import * as React from 'react'
+import { useCallback, useEffect } from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil'
-import { currentApiQuerySelector, currentEditorTextState } from '../../recoil-state'
+import { currentApiQuerySelector } from '../../recoil-state'
+import { localEditorTextAtom } from '../../recoil-state/editor/atom'
 import { EditorContainer } from '../mui'
 
 export default function Editor() {
@@ -10,50 +11,25 @@ export default function Editor() {
   console.log('currentApiQuery', currentApiQuery)
   console.log('typeof currentApiQuery', typeof currentApiQuery)
 
-  const [currentEditorText, setCurrentEditorText] = useRecoilState(currentEditorTextState)
-
   //retrieve localStorage value
-  const [formattedJson, setFormattedJson] = React.useState<{ [key: string]: any }>([])
-  console.log('formattedJson', formattedJson)
-
-  // handle localstorage value
-  React.useEffect(() => {
-    if (currentApiQuery) {
-      setFormattedJson(currentApiQuery)
+  const [localEditorText, setLocalEditorText] = useRecoilState(localEditorTextAtom)
+  // load from local storage
+  useEffect(() => {
+    const localStorageJson = localStorage.getItem('localJsonText')
+    if (localStorageJson) {
+      setLocalEditorText(localStorageJson)
     } else {
-      setFormattedJson(currentEditorText)
+      const jsonFromApi = JSON.stringify(currentApiQuery.data, null, 2)
+      setLocalEditorText(jsonFromApi)
     }
-    return
-  }, [currentApiQuery, currentEditorText, setFormattedJson])
-  // React.useEffect(() => {
-  //   const localStorageJson = localStorage.getItem('formattedJson')
-
-  //   if (!localStorageJson) {
-  //     // save formatedJson to localStorage
-  //     function saveToLocalStorage(formattedJson: string) {
-  //       localStorage.setItem('formattedJson', formattedJson)
-  //     }
-  //     return saveToLocalStorage(formattedJson)
-  //   }
-  //   if (localStorageJson) {
-  //     // get localStorage value and setFormattedJson
-  //     const localStorageJson = localStorage.getItem('formattedJson')
-  //     return setFormattedJson(localStorageJson)
-  //   } else {
-  //     return setFormattedJson('')
-  //   }
-  // }, [formattedJson, setFormattedJson])
-
-  // lodash debounced() delays updating local text file for 750ms after user edit
+  }, [currentApiQuery.data, setLocalEditorText])
+  //lodash debounced() delays updating local text file for 750ms after user edit
   const onChange = debounce(
-    React.useCallback(
+    useCallback(
       newValue => {
-        // save formatedJson to localStorage
-        setFormattedJson(newValue)
-        setCurrentEditorText(newValue)
-        return
+        setLocalEditorText(newValue)
       },
-      [setCurrentEditorText]
+      [setLocalEditorText]
     ),
     750
   )
@@ -62,7 +38,7 @@ export default function Editor() {
     <EditorContainer>
       <MonacoEditor
         height='92vh'
-        value={formattedJson.toString()}
+        value={localEditorText}
         language='json'
         theme='vs-dark'
         onChange={onChange}
@@ -128,3 +104,51 @@ export default function Editor() {
     </EditorContainer>
   )
 }
+
+// const [formattedJson, setFormattedJson] = useState('')
+// console.log('formattedJson', formattedJson)
+
+// const [currentEditorText, setCurrentEditorText] = useRecoilState(currentEditorTextState)
+
+// handle localstorage value
+// useEffect(() => {
+//   if (currentApiQuery) {
+//     const convertToString: string = JSON.stringify(currentApiQuery.data)
+//     setFormattedJson(convertToString)
+//   }
+// else {
+//   setFormattedJson(currentEditorText)
+// }
+//   return
+// }, [currentApiQuery, setFormattedJson])
+// useEffect(() => {
+//   const localStorageJson = localStorage.getItem('formattedJson')
+
+//   if (!localStorageJson) {
+//     // save formatedJson to localStorage
+//     function saveToLocalStorage(formattedJson: string) {
+//       localStorage.setItem('formattedJson', formattedJson)
+//     }
+//     return saveToLocalStorage(formattedJson)
+//   }
+//   if (localStorageJson) {
+//     // get localStorage value and setFormattedJson
+//     const localStorageJson = localStorage.getItem('formattedJson')
+//     return setFormattedJson(localStorageJson)
+//   } else {
+//     return setFormattedJson('')
+//   }
+// }, [formattedJson, setFormattedJson])
+
+// lodash debounced() delays updating local text file for 750ms after user edit
+// const onChange = debounce(
+//   useCallback(newValue => {
+//     console.log('newValue', newValue)
+//     console.log('typeof newValue', typeof newValue)
+//     // save formatedJson to localStorage
+//     setFormattedJson(newValue)
+//     // setCurrentEditorText(newValue)
+//     return
+//   }, []),
+//   750
+// )

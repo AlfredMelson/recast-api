@@ -1,4 +1,4 @@
-import * as React from 'react'
+import { Suspense } from 'react'
 import { ApiTabs } from '../../components/api-json'
 import { Hero } from '../../components/hero/Hero'
 import { CircularProgressStyle } from '../../components/mui'
@@ -9,9 +9,9 @@ export default function ApiJson() {
     <>
       <Hero />
       <ErrorBoundary>
-        <React.Suspense fallback={<CircularProgressStyle />}>
+        <Suspense fallback={<CircularProgressStyle />}>
           <ApiTabs />
-        </React.Suspense>
+        </Suspense>
       </ErrorBoundary>
     </>
   )

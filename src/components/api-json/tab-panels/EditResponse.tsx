@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
-import * as React from 'react'
+import { useEffect, useState } from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil'
 // import { AsideEditInfo } from '..'
 import { ErrorBoundary } from '../../../lib'
@@ -22,13 +22,13 @@ export default function EditResponse({ onDelete, onEdit }: EditResponseAlias) {
   // state representing...
   const [currentData, setCurrentData] = useRecoilState(currentDataAtom)
   // state of data reveal toggle
-  const [reveal, setReveal] = React.useState(true)
+  const [reveal, setReveal] = useState(true)
 
-  // const [keys, setKeys] = React.useState<string[]>([])
+  // const [keys, setKeys] = useState<string[]>([])
 
-  // const [currentData, setCurrentData] = React.useState<EditResponseAlias>({})
+  // const [currentData, setCurrentData] = useState<EditResponseAlias>({})
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!currentApiQuery) {
       return
     } else {

@@ -2,14 +2,14 @@ import { Box } from '@mui/material'
 import { alpha, styled } from '@mui/material/styles'
 import Tab from '@mui/material/Tab'
 import { motion } from 'framer-motion'
-import * as React from 'react'
+import { MouseEventHandler } from 'react'
 import { BrandSwatch } from '../../style'
 
 type TabStyleAlias = {
   label: string
   disabled?: any
   icon?: JSX.Element
-  onClick?: React.MouseEventHandler
+  onClick?: MouseEventHandler
 }
 
 const TabStyle = styled(
@@ -70,7 +70,7 @@ type TabSxAlias = {
   label: string
   index?: string
   icon?: JSX.Element
-  onClick?: React.MouseEventHandler
+  onClick?: MouseEventHandler
 }
 
 export default function TabSx({ label, index, onClick, icon, ...props }: TabSxAlias) {

@@ -2,17 +2,17 @@ import Box from '@mui/material/Box'
 import { grey } from '@mui/material/colors'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
-import * as React from 'react'
+import { useEffect, useState } from 'react'
 import { ArrowDownIcon, ArrowRightIcon } from '../../icons'
 import { IconButtonSxDataIcon } from '../../mui'
 import { ApiObjectAlias, getType } from '../data-types/typeAliases'
 import { SortByType } from '.'
 
 export default function TypeObjectSx({ value, dataKey }: ApiObjectAlias) {
-  const [childView, setChildView] = React.useState(true)
-  const [keys, setKeys] = React.useState<string[]>([])
-  const [currentValue, setCurrentValue] = React.useState<ApiObjectAlias['value']>({})
-  React.useEffect(() => {
+  const [childView, setChildView] = useState(true)
+  const [keys, setKeys] = useState<string[]>([])
+  const [currentValue, setCurrentValue] = useState<ApiObjectAlias['value']>({})
+  useEffect(() => {
     setCurrentValue(value)
     setKeys(Object.keys(value ? value : ''))
   }, [value])

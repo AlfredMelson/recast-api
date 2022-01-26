@@ -1,10 +1,10 @@
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline'
 import { Stack, Typography } from '@mui/material'
-import * as React from 'react'
+import { Component, ErrorInfo, ReactNode } from 'react'
 import { BrandSwatch } from '../style'
 
 interface Props {
-  children: React.ReactNode
+  children: ReactNode
 }
 interface State {
   hasError: boolean
@@ -30,7 +30,7 @@ export default function Error({ children }: Props) {
  * (source: https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/error_boundaries/)
  *
  */
-export class ErrorBoundary extends React.Component<Props, State> {
+export class ErrorBoundary extends Component<Props, State> {
   public state: State = {
     hasError: false
   }
@@ -41,7 +41,7 @@ export class ErrorBoundary extends React.Component<Props, State> {
     return { hasError: true }
   }
 
-  public componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+  public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     console.error('Uncaught error:', error, errorInfo)
   }
 
@@ -58,7 +58,7 @@ export class ErrorBoundary extends React.Component<Props, State> {
  * Generic promise connecting to Suspense & ErrorBoundary
  *
  * - error state is handled in ErrorBoundary
- * - pending state is handled in React.Suspense
+ * - pending state is handled in Suspense
  * - success state is handled in renderData()
  *
  * Returns an object with a read function that relays different states to Suspense & ErrorBoundary in order for the fallback and error to take effect.

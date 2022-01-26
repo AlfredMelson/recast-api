@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
-import * as React from 'react'
+import { useEffect, useState } from 'react'
 import { BrandSwatch } from '../../../style'
 import { ApiDeleteIcon, ArrowRightIcon } from '../../icons'
 import { IconButtonSxApiIcons } from '../../mui'
@@ -10,13 +10,13 @@ import { ApiObjectAlias, getType } from './typeAliases'
 import { ApiDataSort } from '.'
 
 export function ApiObject({ value, dataKey, dataType, onDelete }: ApiObjectAlias) {
-  const [col, setCol] = React.useState(true)
+  const [col, setCol] = useState(true)
 
-  const [keys, setKeys] = React.useState<string[]>([])
+  const [keys, setKeys] = useState<string[]>([])
 
-  const [currentValue, setCurrentValue] = React.useState<ApiObjectAlias['value']>({})
+  const [currentValue, setCurrentValue] = useState<ApiObjectAlias['value']>({})
 
-  React.useEffect(() => {
+  useEffect(() => {
     setCurrentValue(value)
     setKeys(Object.keys(value ? value : ''))
   }, [value])

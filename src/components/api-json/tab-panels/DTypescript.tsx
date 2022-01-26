@@ -1,6 +1,6 @@
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
-import * as React from 'react'
+import { useEffect, useState } from 'react'
 import { useRecoilValue } from 'recoil'
 import { ErrorBoundary } from '../../../lib'
 import { currentApiQuerySelector } from '../../../recoil-state'
@@ -18,11 +18,11 @@ import {
 export default function DTypescript() {
   const currentApiQuery = useRecoilValue(currentApiQuerySelector)
 
-  const [keys, setKeys] = React.useState([])
+  const [keys, setKeys] = useState([])
 
-  const [currentData, setCurrentData] = React.useState({})
+  const [currentData, setCurrentData] = useState({})
 
-  React.useEffect(() => {
+  useEffect(() => {
     const newkeys = Object.getOwnPropertyNames(currentApiQuery.data)
     setKeys(newkeys)
     setCurrentData(currentApiQuery.data)

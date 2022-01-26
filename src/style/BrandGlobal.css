@@ -30,7 +30,7 @@ body.loading * {
   }
   .monaco-editor .overflow-guard {
     position: relative;
-    overflow: hidden;
+    /* overflow: hidden; */
     border-radius: 3px !important;
   }
   .monaco-editor .monaco-editor-background {
@@ -125,7 +125,7 @@ body.loading * {
   }
   .monaco-editor .overflow-guard {
     position: relative;
-    overflow: hidden;
+    /* overflow: hidden; */
     border-radius: 3px !important;
   }
   .monaco-editor .monaco-editor-background {

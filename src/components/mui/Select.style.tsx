@@ -1,8 +1,7 @@
+import { SxProps } from '@mui/material'
 import Select, { SelectChangeEvent, SelectProps } from '@mui/material/Select'
 import { alpha, styled } from '@mui/material/styles'
-import * as React from 'react'
-// import { useRecoilState } from 'recoil'
-// import { screenWidthAtom } from '../../recoil-state/utilities/atom'
+import { MouseEvent, ReactNode, useState } from 'react'
 import { BrandSwatch } from '../../style'
 
 const SelectStyle = styled(
@@ -31,10 +30,10 @@ const SelectStyle = styled(
 type SelectSxAlias = {
   id: string
   value: string
-  children: React.ReactNode
-  onChange?: (event: SelectChangeEvent<unknown>, child: React.ReactNode) => void
-  onClick?: (event: React.MouseEvent<HTMLElement>) => void
-  sx?: React.CSSProperties
+  children: ReactNode
+  onChange?: (event: SelectChangeEvent<unknown>, child: ReactNode) => void
+  onClick?: (event: MouseEvent<HTMLElement>) => void
+  sx?: SxProps
   props?: SelectProps
 }
 
@@ -50,21 +49,16 @@ export const SelectSx = ({ id, value, onChange, onClick, children, ...props }: S
     }
   }
 
-  const [screenWidth, setScreenWidth] = React.useState<number>()
+  const [screenWidth, setScreenWidth] = useState<number>()
   // mobile width calc for select input subtracting margin(s) and padding(s)
-  React.useEffect(() => {
-    const handleResize = () => {
-      const currentScreenWidth = window.innerWidth
-      const xsMarginAndPadding = 110
-      const properSize = currentScreenWidth - xsMarginAndPadding
-      setScreenWidth(properSize)
-      // setScreenWidth(window.innerWidth)
-    }
-    window.addEventListener('resize', handleResize)
-    return () => {
-      window.removeEventListener('resize', handleResize)
-    }
-  }, [setScreenWidth])
+  const handleResize = () => {
+    const currentScreenWidth = window.innerWidth
+    const xsMarginAndPadding = 110
+    const properSize = currentScreenWidth - xsMarginAndPadding
+    setScreenWidth(properSize)
+    // setScreenWidth(window.innerWidth)
+  }
+  window.addEventListener('resize', handleResize)
 
   return (
     <SelectStyle
