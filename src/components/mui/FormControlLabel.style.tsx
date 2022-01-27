@@ -11,6 +11,10 @@ const FormControlLabelStyle = styled(
   (props: FormControlLabelStyleProps) => <FormControlLabel {...props} />,
   { name: 'FormControlLabel', slot: 'style' }
 )(({ theme, checked }) => ({
+  paddingRight: theme.spacing(20),
+  '&:last-child': {
+    paddingRight: theme.spacing(0)
+  },
   '.MuiFormControlLabel-label': checked && {
     color: theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[200] : BrandSwatch.Light.Grey[700],
     cursor: 'default'

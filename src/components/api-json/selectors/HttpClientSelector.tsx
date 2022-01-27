@@ -1,23 +1,13 @@
-import { Box } from '@mui/material'
 import FormControl from '@mui/material/FormControl'
 import Radio from '@mui/material/Radio'
 import RadioGroup from '@mui/material/RadioGroup'
 import { ChangeEvent } from 'react'
-import { useRecoilState, useRecoilValue } from 'recoil'
+import { useRecoilState } from 'recoil'
 import { HttpClients } from '../../../cms'
-import {
-  dataCategoryAtom,
-  dataQuantityAtom,
-  dataSourceAtom,
-  httpClientAtom
-} from '../../../recoil-state'
+import { httpClientAtom } from '../../../recoil-state'
 import { CardSx, FormControlLabelSx } from '../../mui'
 
 export default function HttpClientSelector() {
-  const dataSource = useRecoilValue(dataSourceAtom)
-  const dataCategory = useRecoilValue(dataCategoryAtom)
-  const dataQuantity = useRecoilValue(dataQuantityAtom)
-
   // filter base from BaseUrlData using selected provider (apiProvider)
   // const baseUrl = BaseUrlData.filter(base => base.index === apiProvider)[0].base
 
@@ -44,31 +34,27 @@ export default function HttpClientSelector() {
   }
 
   return (
-    <Box sx={{ width: '100%' }}>
-      {((dataSource === 'randomDataApi' && dataCategory !== '') || dataQuantity !== '') && (
-        <CardSx title='Http Client'>
-          <FormControl fullWidth>
-            <RadioGroup
-              row
-              id='provider-url-selector'
-              aria-label='api request volume'
-              name='api request volume'
-              value={httpClient}
-              onChange={handleChange}
-              sx={{ pr: 0, pl: 10, justifyContent: 'space-around' }}>
-              {HttpClients.map(item => (
-                <FormControlLabelSx
-                  disabled={item.value === '2'}
-                  key={item.index}
-                  value={item.value}
-                  control={<Radio />}
-                  label={item.name}
-                />
-              ))}
-            </RadioGroup>
-          </FormControl>
-        </CardSx>
-      )}
-    </Box>
+    <CardSx title='Http Client'>
+      <FormControl fullWidth>
+        <RadioGroup
+          row
+          id='provider-url-selector'
+          aria-label='api request volume'
+          name='api request volume'
+          value={httpClient}
+          onChange={handleChange}
+          sx={{ pr: 0, pl: 10, justifyContent: 'space-around' }}>
+          {HttpClients.map(item => (
+            <FormControlLabelSx
+              // disabled={item.value === '2'}
+              key={item.index}
+              value={item.value}
+              control={<Radio />}
+              label={item.name}
+            />
+          ))}
+        </RadioGroup>
+      </FormControl>
+    </CardSx>
   )
 }

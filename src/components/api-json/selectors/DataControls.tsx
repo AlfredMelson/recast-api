@@ -72,7 +72,7 @@ export default function DataControls() {
   }, [])
 
   return (
-    <Box sx={{ width: '100%' }}>
+    <>
       <CardSx title='Data Controls'>
         <Stack direction='row' justifyContent='center' alignItems='center' spacing={10}>
           <ButtonStyle
@@ -111,6 +111,6 @@ export default function DataControls() {
           </Box>
         </Stack>
       </CardSx>
-    </Box>
+    </>
   )
 }

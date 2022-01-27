@@ -8,6 +8,7 @@ import { CardSx, SelectSx } from '../../mui'
 
 export default function CategorySelector() {
   const [dataCategory, setDataCategory] = useRecoilState(dataCategoryAtom)
+  console.log('dataCategory', dataCategory)
 
   const dataSource = useRecoilValue(dataSourceAtom)
 

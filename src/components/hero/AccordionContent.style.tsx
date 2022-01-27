@@ -3,9 +3,8 @@ import CardContent from '@mui/material/CardContent'
 import { styled } from '@mui/material/styles'
 import { ReactNode } from 'react'
 import { BrandSwatch } from '../../style'
-import { FadeUpAnimation } from '../framer-motion'
 
-const HeroStyle = styled(Card, { name: 'Hero', slot: 'style' })(({ theme }) => ({
+const AccordionContentStyle = styled(Card, { name: 'Hero', slot: 'style' })(({ theme }) => ({
   backgroundColor:
     theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[800] : BrandSwatch.Light.Grey[200],
   [theme.breakpoints.down('sm')]: {
@@ -13,7 +12,7 @@ const HeroStyle = styled(Card, { name: 'Hero', slot: 'style' })(({ theme }) => (
   }
 }))
 
-const HeroContainerStyle = styled(CardContent, { name: 'HeroContainer', slot: 'style' })(
+const ContentContainerStyle = styled(CardContent, { name: 'HeroContainer', slot: 'style' })(
   ({ theme }) => ({
     padding: theme.spacing(0, 0, 20, 20),
     [theme.breakpoints.down('sm')]: {
@@ -27,12 +26,10 @@ type HeroSxAlias = {
   children: ReactNode
 }
 
-export default function HeroSx({ children }: HeroSxAlias) {
+export default function AccordionContentSx({ children }: HeroSxAlias) {
   return (
-    <FadeUpAnimation>
-      <HeroStyle>
-        <HeroContainerStyle>{children}</HeroContainerStyle>
-      </HeroStyle>
-    </FadeUpAnimation>
+    <AccordionContentStyle>
+      <ContentContainerStyle>{children}</ContentContainerStyle>
+    </AccordionContentStyle>
   )
 }

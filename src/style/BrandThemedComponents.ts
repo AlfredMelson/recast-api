@@ -33,7 +33,11 @@ export default function BrandThemedComponents(theme: Theme) {
         outlined: {}, // Styles applied to the root element if variant="outlined"
         contained: {}, // Styles applied to the root element if variant="contained"
         disabled: {}, // State class applied to the root element if disabled={true}
-        sizeMedium: {} // State class applied to the root element if disabled={true}
+        endIcon: {
+          '& .MuiButton-iconSizeSmall': {
+            margin: 0
+          }
+        } // Styles applied to the endIcon element if supplied.
       },
       MuiButtonBase: {
         defaultProps: {

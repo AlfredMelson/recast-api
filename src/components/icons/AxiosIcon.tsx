@@ -2,14 +2,19 @@ import { useRecoilValue } from 'recoil'
 import { themeColorAtom } from '../../recoil-state'
 import RootSvg, { RootSvgProps } from './RootSvg'
 
-export default function AxiosIcon(props: RootSvgProps) {
+interface AxiosIcon {
+  fontSize?: number
+  props?: RootSvgProps
+}
+
+export default function AxiosIcon({ fontSize, props }: AxiosIcon) {
   // width='188' height='28' viewBox='0 0 188 28' fill='none'
   const themeColor = useRecoilValue(themeColorAtom)
 
   return (
     <RootSvg
       xmlns='http://www.w3.org/2000/svg'
-      height='16'
+      height={fontSize}
       viewBox='0 0 188 28'
       fill='none'
       {...props}>
