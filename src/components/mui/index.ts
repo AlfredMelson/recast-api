@@ -4,7 +4,6 @@ export * from './ButtonGroup.style'
 export * from './Card.style'
 export { default as CircularProgressStyle } from './CircularProgress.style'
 export { default as HeroButtonSx } from './HeroButton.style'
-export * from './Container.style'
 
 export * from './FormControlLabel.style'
 

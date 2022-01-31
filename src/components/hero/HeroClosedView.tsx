@@ -1,49 +1,24 @@
-import Card, { CardProps } from '@mui/material/Card'
-import CardContent from '@mui/material/CardContent'
+import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
 import { styled } from '@mui/material/styles'
-import { ReactNode } from 'react'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 import { JsonPlaceholderData, RandomData, SourceSelection } from '../../cms'
 import {
   condensedHeroAtom,
+  currentApiQuerySelector,
   dataCategoryAtom,
   dataSourceAtom,
   httpClientAtom
 } from '../../recoil-state'
 import { HeroClosedViewButton } from '../mui'
 
-const ClosedViewStyle = styled((props: CardProps) => <Card elevation={0} {...props} />, {
-  name: 'ClosedView',
-  slot: 'style'
-})(({ theme }) => ({
-  backgroundColor: 'transparent',
+const ClosedViewContainer = styled(Box, { name: 'ClosedView', slot: 'container' })(({ theme }) => ({
+  paddingLeft: theme.spacing(20),
   [theme.breakpoints.down('sm')]: {
-    borderRadius: theme.spacing(0)
+    borderRadius: theme.spacing(0),
+    padding: theme.spacing(10)
   }
 }))
-
-const ContentContainer = styled(CardContent, { name: 'ContentContainer', slot: 'style' })(
-  ({ theme }) => ({
-    padding: theme.spacing(10, 0, 0, 20),
-    [theme.breakpoints.down('sm')]: {
-      borderRadius: theme.spacing(0),
-      padding: theme.spacing(10)
-    }
-  })
-)
-
-type ClosedViewSxAlias = {
-  children: ReactNode
-}
-
-function ClosedViewSx({ children }: ClosedViewSxAlias) {
-  return (
-    <ClosedViewStyle>
-      <ContentContainer>{children}</ContentContainer>
-    </ClosedViewStyle>
-  )
-}
 
 type ClosedViewButtonsAlias = {
   selector: string
@@ -64,14 +39,19 @@ export default function HeroClosedView() {
 
   const httpClient = useRecoilValue(httpClientAtom)
 
+  const currentApiQuery = useRecoilValue(currentApiQuerySelector)
+
+  const apiStatus = currentApiQuery?.status
+
   const ClosedViewButtons: ClosedViewButtonsAlias[] = [
     { selector: 'Api:', value: sourceName },
     { selector: 'Category:', value: categoryName },
-    { selector: 'Client:', value: httpClient }
+    { selector: 'Client:', value: httpClient },
+    { selector: 'Status:', value: apiStatus }
   ]
 
   return (
-    <ClosedViewSx>
+    <ClosedViewContainer>
       <Stack direction='row' justifyContent='flex-start' alignItems='center'>
         {ClosedViewButtons.map(button => (
           <HeroClosedViewButton
@@ -84,6 +64,6 @@ export default function HeroClosedView() {
           </HeroClosedViewButton>
         ))}
       </Stack>
-    </ClosedViewSx>
+    </ClosedViewContainer>
   )
 }

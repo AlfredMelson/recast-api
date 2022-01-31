@@ -1,5 +1,6 @@
 import { Tabs } from '@mui/material'
 import Box from '@mui/material/Box'
+import { AnimatePresence, motion } from 'framer-motion'
 import _ from 'lodash'
 import { ReactNode, Suspense, SyntheticEvent, useState } from 'react'
 import { useLocation } from 'react-router-dom'
@@ -136,11 +137,28 @@ export default function ResponseTabs() {
             <ErrorBoundary>
               <Suspense fallback={<CircularProgressStyle />}>
                 <Box sx={{ position: 'relative' }}>
-                  {ApiTabPanel.map(({ index, panel }) => (
-                    <TabPanel key={index} value={value} index={index}>
-                      {panel}
-                    </TabPanel>
-                  ))}
+                  <AnimatePresence initial={true}>
+                    <motion.section
+                      key='content'
+                      initial='collapsed'
+                      animate='open'
+                      exit='collapsed'
+                      variants={{
+                        open: { opacity: 1, height: 'auto' },
+                        collapsed: { opacity: 0, height: 0 }
+                      }}
+                      transition={{ duration: 0.5, ease: [0.04, 0.62, 0.23, 0.98] }}>
+                      {ApiTabPanel.map(({ index, panel }) => (
+                        <TabPanel key={index} value={value} index={index}>
+                          <motion.div
+                            variants={{ collapsed: { opacity: 0 }, open: { opacity: 1 } }}
+                            transition={{ duration: 0.5 }}>
+                            {panel}
+                          </motion.div>
+                        </TabPanel>
+                      ))}
+                    </motion.section>
+                  </AnimatePresence>
                 </Box>
               </Suspense>
             </ErrorBoundary>

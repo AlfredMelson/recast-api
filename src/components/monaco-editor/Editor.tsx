@@ -4,7 +4,6 @@ import { useCallback, useEffect } from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { currentApiQuerySelector } from '../../recoil-state'
 import { localEditorTextAtom } from '../../recoil-state/editor/atom'
-import { EditorContainer } from '../mui'
 
 export default function Editor() {
   const currentApiQuery = useRecoilValue(currentApiQuerySelector)
@@ -33,73 +32,71 @@ export default function Editor() {
   )
 
   return (
-    <EditorContainer>
-      <MonacoEditor
-        height='92vh'
-        value={localEditorText}
-        language='json'
-        theme='vs-dark'
-        onChange={onChange}
-        options={{
-          acceptSuggestionOnCommitCharacter: true,
-          acceptSuggestionOnEnter: 'on',
-          accessibilitySupport: 'off',
-          autoClosingOvertype: 'always',
-          autoIndent: 'advanced',
-          automaticLayout: true,
-          codeLens: true,
-          colorDecorators: false,
-          contextmenu: false,
-          lineNumbers: 'on',
-          cursorBlinking: 'blink',
-          cursorSmoothCaretAnimation: false,
-          cursorStyle: 'line',
-          disableLayerHinting: false,
-          disableMonospaceOptimizations: false,
-          dragAndDrop: false,
-          fixedOverflowWidgets: false,
-          folding: true,
-          foldingStrategy: 'auto',
-          fontLigatures: true,
-          formatOnPaste: true,
-          formatOnType: true,
-          hideCursorInOverviewRuler: false,
-          links: true,
-          minimap: {
-            enabled: false,
-            renderCharacters: false
-          },
-          mouseWheelZoom: true,
-          multiCursorMergeOverlapping: true,
-          multiCursorModifier: 'alt',
-          overviewRulerBorder: false,
-          overviewRulerLanes: 1,
-          quickSuggestions: true,
-          quickSuggestionsDelay: 100,
-          readOnly: false,
-          renderControlCharacters: false,
-          renderFinalNewline: true,
-          renderLineHighlight: 'all',
-          renderWhitespace: 'none',
-          revealHorizontalRightPadding: 30,
-          roundedSelection: true,
-          scrollBeyondLastLine: false,
-          scrollBeyondLastColumn: 1,
-          selectOnLineNumbers: true,
-          selectionClipboard: false,
-          selectionHighlight: true,
-          showFoldingControls: 'mouseover',
-          smoothScrolling: true,
-          suggestOnTriggerCharacters: true,
-          wordBasedSuggestions: true,
-          wordSeparators: '~!@#$%^&*()-=+[{]}|;:\'",.<>/?',
-          wordWrap: 'on',
-          wordWrapBreakAfterCharacters: '\t})]?|&,;',
-          wordWrapBreakBeforeCharacters: '{([+',
-          wordWrapColumn: 100
-        }}
-      />
-    </EditorContainer>
+    <MonacoEditor
+      height='92vh'
+      value={localEditorText}
+      language='json'
+      theme='vs-dark'
+      onChange={onChange}
+      options={{
+        acceptSuggestionOnCommitCharacter: true,
+        acceptSuggestionOnEnter: 'on',
+        accessibilitySupport: 'off',
+        autoClosingOvertype: 'always',
+        autoIndent: 'advanced',
+        automaticLayout: true,
+        codeLens: true,
+        colorDecorators: false,
+        contextmenu: false,
+        lineNumbers: 'on',
+        cursorBlinking: 'blink',
+        cursorSmoothCaretAnimation: false,
+        cursorStyle: 'line',
+        disableLayerHinting: false,
+        disableMonospaceOptimizations: false,
+        dragAndDrop: false,
+        fixedOverflowWidgets: false,
+        folding: true,
+        foldingStrategy: 'auto',
+        fontLigatures: true,
+        formatOnPaste: true,
+        formatOnType: true,
+        hideCursorInOverviewRuler: false,
+        links: true,
+        minimap: {
+          enabled: false,
+          renderCharacters: false
+        },
+        mouseWheelZoom: true,
+        multiCursorMergeOverlapping: true,
+        multiCursorModifier: 'alt',
+        overviewRulerBorder: false,
+        overviewRulerLanes: 1,
+        quickSuggestions: true,
+        quickSuggestionsDelay: 100,
+        readOnly: false,
+        renderControlCharacters: false,
+        renderFinalNewline: true,
+        renderLineHighlight: 'all',
+        renderWhitespace: 'none',
+        revealHorizontalRightPadding: 30,
+        roundedSelection: true,
+        scrollBeyondLastLine: false,
+        scrollBeyondLastColumn: 1,
+        selectOnLineNumbers: true,
+        selectionClipboard: false,
+        selectionHighlight: true,
+        showFoldingControls: 'mouseover',
+        smoothScrolling: true,
+        suggestOnTriggerCharacters: true,
+        wordBasedSuggestions: true,
+        wordSeparators: '~!@#$%^&*()-=+[{]}|;:\'",.<>/?',
+        wordWrap: 'on',
+        wordWrapBreakAfterCharacters: '\t})]?|&,;',
+        wordWrapBreakBeforeCharacters: '{([+',
+        wordWrapColumn: 100
+      }}
+    />
   )
 }
 

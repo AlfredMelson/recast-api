@@ -18,10 +18,6 @@ export default function DataControls() {
   // state when user submits user entered url
   const selectedApi = useRecoilValue(selectedApiSelector)
 
-  // state of full response returned from the api call
-  // const [axiosResponse, setAxiosResponse] = useRecoilState(axiosResponseAtom)
-  // console.log('axiosResponse', axiosResponse)
-
   // return a callback to clear cache
   const resetCurrentApiState = useResetRecoilState(currentApiStateAtom)
   // const refreshApiQuery = useRecoilRefresher_UNSTABLE(currentApiQuerySelector)
@@ -56,7 +52,7 @@ export default function DataControls() {
         //   refreshApiQuery()
         // }
       }, 1250)
-      //restore state to pre-interaction
+      // intialize state
       interactionTimer.current = window.setTimeout(() => {
         setSuccessfulSubmit(false)
         setCondensedHero(true)
@@ -67,7 +63,7 @@ export default function DataControls() {
     }
   }
 
-  // useEffect to handle side effect proceeding button handler
+  // handle side effect proceeding button handler
   useEffect(() => {
     return () => {
       // cancel the timeout established by setTimeout()
@@ -76,45 +72,43 @@ export default function DataControls() {
   }, [])
 
   return (
-    <>
-      <CardSx title='Data Controls'>
-        <Stack direction='row' justifyContent='center' alignItems='center' spacing={10}>
+    <CardSx title='Data Controls'>
+      <Stack direction='row' justifyContent='center' alignItems='center' spacing={10}>
+        <ButtonStyle
+          aria-label='clear url'
+          onClick={event => {
+            event.preventDefault()
+            resetSelectedApi()
+            resetCurrentApiState()
+          }}
+          disabled={selectedApi.length === 0}>
+          <Typography variant='button'>Clear</Typography>
+        </ButtonStyle>
+        <Box sx={{ position: 'relative' }}>
           <ButtonStyle
-            aria-label='clear url'
-            onClick={event => {
-              event.preventDefault()
-              resetSelectedApi()
-              resetCurrentApiState()
-            }}
-            disabled={selectedApi.length === 0}>
-            <Typography variant='button'>Clear</Typography>
+            aria-label='fetch api'
+            disabled={selectedApi === ''}
+            onClick={handleDataControls}>
+            {!submitting && !successSubmit ? (
+              <Typography variant='button'>
+                {currentApiState === null ? 'Fetch' : 'Refetch'}
+              </Typography>
+            ) : (
+              successSubmit && (
+                <CheckIcon
+                  sx={{
+                    color: theme =>
+                      theme.palette.mode === 'dark'
+                        ? BrandSwatch.Dark.Green[500]
+                        : BrandSwatch.Light.Green[500]
+                  }}
+                />
+              )
+            )}
           </ButtonStyle>
-          <Box sx={{ position: 'relative' }}>
-            <ButtonStyle
-              aria-label='fetch api'
-              disabled={selectedApi === ''}
-              onClick={handleDataControls}>
-              {!submitting && !successSubmit ? (
-                <Typography variant='button'>
-                  {currentApiState === null ? 'Fetch' : 'Refetch'}
-                </Typography>
-              ) : (
-                successSubmit && (
-                  <CheckIcon
-                    sx={{
-                      color: theme =>
-                        theme.palette.mode === 'dark'
-                          ? BrandSwatch.Dark.Green[500]
-                          : BrandSwatch.Light.Green[500]
-                    }}
-                  />
-                )
-              )}
-            </ButtonStyle>
-            {submitting && <CircularProgressStyle />}
-          </Box>
-        </Stack>
-      </CardSx>
-    </>
+          {submitting && <CircularProgressStyle />}
+        </Box>
+      </Stack>
+    </CardSx>
   )
 }
