@@ -59,8 +59,9 @@ export default function DataControls() {
       //restore state to pre-interaction
       interactionTimer.current = window.setTimeout(() => {
         setSuccessfulSubmit(false)
+        setCondensedHero(true)
       }, 3000)
-      setCondensedHero(true)
+
       // setDiableUI(false)
       return
     }

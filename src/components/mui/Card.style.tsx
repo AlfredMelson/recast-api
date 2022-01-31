@@ -26,7 +26,7 @@ const CardStyle = styled((props: CardProps) => <Card {...props} />, {
 }))
 
 const CardHeaderStyle = styled(CardHeader, { name: 'CardHeader', slot: 'style' })(({ theme }) => ({
-  padding: theme.spacing(10, 16),
+  padding: theme.spacing(10, 20),
   '.MuiCardHeader-title': {
     paddingLeft: theme.spacing(10),
     ...theme.typography.body2,

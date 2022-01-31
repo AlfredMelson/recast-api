@@ -107,6 +107,7 @@ export default function BrandThemedComponents(theme: Theme) {
         defaultProps: {},
         styleOverrides: {
           root: {
+            padding: theme.spacing(0),
             transition: theme.transitions.create(['all'], {
               duration: theme.transitions.duration.standard,
               easing: theme.transitions.easing.easeInOut
