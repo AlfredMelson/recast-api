@@ -18,7 +18,7 @@ export const localPersist: AtomEffect<any> = ({ onSet, setSelf, node }) => {
 export const localEditorTextAtom = atom<string>({
   key: 'localJsonText',
   default: '',
-  effects_UNSTABLE: [localPersist]
+  effects: [localPersist]
 })
 // const [localEditorText, setLocalEditorText] = useRecoilState(localEditorTextAtom)
 // const setLocalEditorText = useSetRecoilState(localEditorTextAtom)

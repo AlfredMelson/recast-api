@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 import { useRecoilValue } from 'recoil'
-import { ErrorBoundary } from '../../../lib'
-import { AxiosResponseAlias, currentApiQuerySelector } from '../../../recoil-state'
-import { PaperSx } from '../../mui'
-import { getType } from '../data-types/typeAliases'
-import { SortByType } from '../primitive-styles'
+import { ErrorBoundary } from '../../lib'
+import { AxiosResponseAlias, currentApiQuerySelector } from '../../recoil-state'
+import { PaperSx } from '../mui'
+import { getType } from './data-types'
+import { SortByType } from './primitive-styles'
 
 export default function DataHeaders() {
   const currentApiQuery = useRecoilValue(currentApiQuerySelector)

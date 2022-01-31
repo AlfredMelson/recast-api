@@ -1,8 +1,8 @@
 import Box from '@mui/material/Box'
 import { FormEvent } from 'react'
 import { useRecoilState, useSetRecoilState } from 'recoil'
-import { dataUrlAtom, selectedApiSelector } from '../../../recoil-state'
-import { CardSx, InputBaseSx } from '../../mui'
+import { dataUrlAtom, selectedApiSelector } from '../../recoil-state'
+import { CardSx, InputBaseSx } from '../mui'
 
 export default function SearchBar() {
   // user entered url is set on enter or submit

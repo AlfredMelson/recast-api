@@ -74,7 +74,7 @@ const localStorageEffect =
 export const currentEditorTextState = atom<{ [key: string]: any | null }>({
   key: 'currentEditorText',
   default: null,
-  effects_UNSTABLE: [localStorageEffect('editorText')]
+  effects: [localStorageEffect('editorText')]
 })
 
 // const [currentEditorText, setCurrentEditorText] = useRecoilState(currentEditorTextState)
@@ -86,7 +86,7 @@ export const currentEditorTextState = atom<{ [key: string]: any | null }>({
 // export const updateEditorTextState = atom<string | null>({
 //   key: 'updateEditorText',
 //   default: null,
-//   effects_UNSTABLE: [
+//   effects: [
 //     ({ onSet }) => {
 //       onSet(newValue => {
 //         console.debug('Current user ID:', newValue)

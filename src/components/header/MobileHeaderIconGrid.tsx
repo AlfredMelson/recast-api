@@ -1,6 +1,8 @@
 import Box from '@mui/material/Box'
 import { styled } from '@mui/material/styles'
-import { GithubToggle, MoreInfoToggle, ThemeModeToggle } from '../toggle'
+import GithubToggle from '../toggle/Github'
+import MoreInfoToggle from '../toggle/MoreInfo'
+import ThemeModeToggle from '../toggle/ThemeMode'
 
 const MobileHeaderIconGridItem = styled(Box, { name: 'MobileHeaderIconGrid', slot: 'item' })(
   () => ({

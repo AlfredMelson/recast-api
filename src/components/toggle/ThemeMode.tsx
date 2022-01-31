@@ -8,7 +8,7 @@ import { MoonIcon, SunIcon } from '../icons'
 import { IconButtonSxStyle, ToolTipSx } from '../mui'
 // import useMediaQuery from '@mui/material/useMediaQuery'
 
-export function ThemeModeToggle() {
+export default function ThemeModeToggle() {
   // retrieve previously set theme value from localStorage
   const [themeColor, setThemeColor] = useRecoilState(themeColorAtom)
 

@@ -15,7 +15,7 @@ import {
 } from '../../recoil-state'
 import { AxiosIcon, TypescriptIcon, UseSWRIcon } from '../icons'
 import { CircularProgressStyle, TabSx } from '../mui'
-import { DataConfig, DataHeaders, DataResponse, DTypescript, EditResponse } from './tab-panels'
+import { DataConfig, DataHeaders, DataResponse, DTypescript, EditResponse } from '../tab-panels'
 
 type TabPanelAlias = {
   index: number
@@ -44,7 +44,7 @@ function a11yProps(index: number) {
   }
 }
 
-export default function ApiTabs() {
+export default function ResponseTabs() {
   // state of user toggled api response
   const setUserToggledApi = useSetRecoilState(userToggledApiAtom)
   // state of full response returned from Axios api call
@@ -86,8 +86,8 @@ export default function ApiTabs() {
     {
       index: '0',
       num: 0,
-      label: httpClient === '1' ? '' : 'SWR',
-      icon: httpClient === '1' ? <AxiosIcon /> : <UseSWRIcon sx={{ pr: 10 }} />,
+      label: httpClient === 'Axios' ? '' : 'SWR',
+      icon: httpClient === 'Axios' ? <AxiosIcon /> : <UseSWRIcon sx={{ pr: 10 }} />,
       value: 'axios'
     },
     { index: '1', num: 1, label: 'Response', icon: null, value: 'data' },

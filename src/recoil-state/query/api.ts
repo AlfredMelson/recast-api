@@ -80,8 +80,6 @@ async function fetchAxios(url): Promise<AxiosResponseAlias> {
   } else {
     try {
       const response = await axios.get(url)
-      console.log('Axios Response: ', response)
-      console.log('Axios Response type: ', typeof response)
       return response
     } catch (error) {
       console.error(error)
@@ -100,7 +98,7 @@ async function fetchAxios(url): Promise<AxiosResponseAlias> {
  */
 export const httpClientAtom = atom<string>({
   key: 'httpClient',
-  default: '1'
+  default: 'Axios'
 })
 // const [httpClient, setHttpClient] = useRecoilState(httpClientAtom)
 // const setHttpClient = useSetRecoilState(httpClientAtom)
@@ -123,7 +121,7 @@ const localStorageEffect =
 export const currentJsonDataAtom = atom<AxiosResponseAlias[]>({
   key: 'currentJsonData',
   default: [],
-  effects_UNSTABLE: [localStorageEffect('current_json')]
+  effects: [localStorageEffect('current_json')]
 })
 
 // const currentJsonData = useRecoilValue(currentJsonDataAtom)

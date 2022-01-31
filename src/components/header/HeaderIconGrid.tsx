@@ -1,7 +1,10 @@
 import Box from '@mui/material/Box'
 import { styled } from '@mui/material/styles'
 import { motion } from 'framer-motion'
-import { GithubToggle, MoreInfoToggle, TerminalToggle, ThemeModeToggle } from '../toggle'
+import GithubToggle from '../toggle/Github'
+import MoreInfoToggle from '../toggle/MoreInfo'
+import TerminalToggle from '../toggle/Terminal'
+import ThemeModeToggle from '../toggle/ThemeMode'
 
 const HeaderIconGridItem = styled(Box, { name: 'HeaderIconGrid', slot: 'item' })(() => ({
   placeSelf: 'center'

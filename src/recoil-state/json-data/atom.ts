@@ -24,7 +24,7 @@ import { atom, selector } from 'recoil'
 // const idsState = atom<number[]>({
 //   key: 'ids',
 //   default: [],
-//   effects_UNSTABLE: [localPersist],
+//   effects: [localPersist],
 // })
 
 /**
@@ -42,7 +42,7 @@ import { atom, selector } from 'recoil'
 export const userGeneratedJsonAtom = atom<string>({
   key: 'userGeneratedJson',
   default: ''
-  // effects_UNSTABLE: [localPersist]
+  // effects: [localPersist]
 })
 
 /**

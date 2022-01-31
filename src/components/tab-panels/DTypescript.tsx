@@ -2,10 +2,10 @@ import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import { useEffect, useState } from 'react'
 import { useRecoilValue } from 'recoil'
-import { ErrorBoundary } from '../../../lib'
-import { currentApiQuerySelector } from '../../../recoil-state'
-import { PaperSx } from '../../mui'
-import { ApiDataSortAlias, getType } from '../data-types'
+import { ErrorBoundary } from '../../lib'
+import { currentApiQuerySelector } from '../../recoil-state'
+import { PaperSx } from '../mui'
+import { ApiDataSortAlias, getType } from './data-types'
 import {
   TypeArraySx,
   TypeBooleanSx,
@@ -13,7 +13,7 @@ import {
   TypeNumberSx,
   TypeObjectSx,
   TypeStringSx
-} from '../primitive-styles'
+} from './primitive-styles'
 
 export default function DTypescript() {
   const currentApiQuery = useRecoilValue(currentApiQuerySelector)

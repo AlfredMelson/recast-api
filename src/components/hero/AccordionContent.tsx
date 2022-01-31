@@ -10,7 +10,7 @@ import {
   QuantitySelector,
   SearchBar,
   SourceSelector
-} from '../api-json/selectors'
+} from '../selectors'
 import AccordionContentSx from './AccordionContent.style'
 
 const AccordionContentTypography = styled(
@@ -58,7 +58,7 @@ export function AccordionContent() {
       <AccordionContentStack>
         <SearchBar />
       </AccordionContentStack>
-      {((dataSource === 'randomDataApi' && dataCategory !== '') || dataQuantity !== '') && (
+      {((dataSource === '2' && dataCategory !== '') || dataQuantity !== '') && (
         <>
           <AccordionContentTypography>Select Http Client</AccordionContentTypography>
           <AccordionContentStack>

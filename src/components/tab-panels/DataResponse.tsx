@@ -1,25 +1,19 @@
 import { Suspense, useEffect, useState } from 'react'
 import { useRecoilValue } from 'recoil'
-import { ErrorBoundary } from '../../../lib'
-import {
-  AxiosResponseAlias,
-  currentApiQuerySelector,
-  currentJsonDataAtom
-} from '../../../recoil-state'
-import { PaperSx } from '../../mui'
-import { getType } from '../data-types/typeAliases'
-import { SortByType } from '../primitive-styles'
+import { ErrorBoundary } from '../../lib'
+import { AxiosResponseAlias, currentApiQuerySelector } from '../../recoil-state'
+import { PaperSx } from '../mui'
+import { getType } from './data-types'
+import { SortByType } from './primitive-styles'
 
-export default function DataConfig() {
+export default function DataResponse() {
   const currentApiQuery = useRecoilValue(currentApiQuerySelector)
-  console.log('currentApiQuery', currentApiQuery)
-  const currentJsonData = useRecoilValue(currentJsonDataAtom)
-  console.log('currentJsonData', currentJsonData)
 
-  const data = currentApiQuery?.config
+  const data = currentApiQuery?.data
 
   const [keys, setKeys] = useState<string[]>([])
   const [currentData, setCurrentData] = useState<AxiosResponseAlias>(null)
+
   useEffect(() => {
     if (!currentApiQuery) {
       return

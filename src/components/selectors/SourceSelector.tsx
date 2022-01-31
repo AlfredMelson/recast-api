@@ -2,9 +2,9 @@ import FormControl from '@mui/material/FormControl'
 import MenuItem from '@mui/material/MenuItem'
 import { SelectChangeEvent } from '@mui/material/Select'
 import { useRecoilState } from 'recoil'
-import { SourceSelection } from '../../../cms'
-import { dataSourceAtom } from '../../../recoil-state'
-import { CardSx, SelectSx } from '../../mui'
+import { SourceSelection } from '../../cms'
+import { dataSourceAtom } from '../../recoil-state'
+import { CardSx, SelectSx } from '../mui'
 
 export default function SourceSelector() {
   const [dataSource, setDataSource] = useRecoilState(dataSourceAtom)
@@ -18,8 +18,8 @@ export default function SourceSelector() {
       <FormControl fullWidth>
         <SelectSx id='provider-selector' value={dataSource} onChange={handleChange}>
           {SourceSelection.map(item => (
-            <MenuItem key={item.index} value={item.value}>
-              {item.name}
+            <MenuItem key={item.source} value={item.value}>
+              {item.source}
             </MenuItem>
           ))}
         </SelectSx>

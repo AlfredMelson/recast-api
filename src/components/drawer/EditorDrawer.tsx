@@ -4,6 +4,7 @@ import { useRecoilState } from 'recoil'
 import { dataDrawerOpenAtom } from '../../recoil-state'
 import { FadeAnimation } from '../framer-motion'
 import { Editor } from '../monaco-editor'
+
 // import { MinifyDialog } from '.'
 
 // export const toggleDrawer = (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {

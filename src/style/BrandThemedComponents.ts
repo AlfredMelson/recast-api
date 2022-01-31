@@ -33,6 +33,7 @@ export default function BrandThemedComponents(theme: Theme) {
         outlined: {}, // Styles applied to the root element if variant="outlined"
         contained: {}, // Styles applied to the root element if variant="contained"
         disabled: {}, // State class applied to the root element if disabled={true}
+        textSizeSmall: { borderRadius: theme.spacing(3) }, // State class applied to the root element if disabled={true}
         endIcon: {
           '& .MuiButton-iconSizeSmall': {
             margin: 0
@@ -62,7 +63,15 @@ export default function BrandThemedComponents(theme: Theme) {
           disableRipple: true
         },
         styleOverrides: {
-          root: {} // Styles applied to the root element
+          root: {}, // Styles applied to the root element
+          grouped: {
+            '&:not(:last-of-type)': {
+              borderTopRightRadius: 0,
+              borderBottomRightRadius: 0,
+              borderRight: '1px solid',
+              borderColor: theme.palette.divider
+            }
+          } // Styles applied to the root element
         }
       },
       MuiCard: {

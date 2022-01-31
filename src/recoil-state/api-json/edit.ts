@@ -1,5 +1,5 @@
 import { atom } from 'recoil'
-import { EditResponseAlias } from '../../components/api-json/data-types/typeAliases'
+import { EditResponseAlias } from '../../components/tab-panels/data-types/typeAliases'
 
 /**
  * State representing an array of element ids

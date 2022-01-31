@@ -2,16 +2,18 @@ import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import { useEffect, useRef, useState } from 'react'
-import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil'
-import { currentApiStateAtom, selectedApiSelector } from '../../../recoil-state'
-import { BrandSwatch } from '../../../style'
-import { CheckIcon } from '../../icons'
-import { ButtonStyle, CardSx, CircularProgressStyle } from '../../mui'
+import { useRecoilState, useRecoilValue, useResetRecoilState, useSetRecoilState } from 'recoil'
+import { condensedHeroAtom, currentApiStateAtom, selectedApiSelector } from '../../recoil-state'
+import { BrandSwatch } from '../../style'
+import { CheckIcon } from '../icons'
+import { ButtonStyle, CardSx, CircularProgressStyle } from '../mui'
 
 export default function DataControls() {
   const resetSelectedApi = useResetRecoilState(selectedApiSelector)
 
   const [currentApiState, setCurrentApiState] = useRecoilState(currentApiStateAtom)
+
+  const setCondensedHero = useSetRecoilState(condensedHeroAtom)
 
   // state when user submits user entered url
   const selectedApi = useRecoilValue(selectedApiSelector)
@@ -33,7 +35,7 @@ export default function DataControls() {
   // const [diableUI, setDiableUI] = useState(false)
 
   // handle submission of user typed url
-  const handleDataControlsing = () => {
+  const handleDataControls = () => {
     resetCurrentApiState()
     if (!submitting) {
       setSuccessfulSubmit(false)
@@ -58,6 +60,7 @@ export default function DataControls() {
       interactionTimer.current = window.setTimeout(() => {
         setSuccessfulSubmit(false)
       }, 3000)
+      setCondensedHero(true)
       // setDiableUI(false)
       return
     }
@@ -89,7 +92,7 @@ export default function DataControls() {
             <ButtonStyle
               aria-label='fetch api'
               disabled={selectedApi === ''}
-              onClick={handleDataControlsing}>
+              onClick={handleDataControls}>
               {!submitting && !successSubmit ? (
                 <Typography variant='button'>
                   {currentApiState === null ? 'Fetch' : 'Refetch'}

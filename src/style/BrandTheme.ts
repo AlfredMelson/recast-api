@@ -70,7 +70,7 @@ const BrandDesignTokens = (mode: 'dark' | 'light') =>
           secondary: BrandSwatch.Dark.Grey[100],
           disabled: BrandSwatch.Dark.Grey[400]
         },
-        divider: BrandSwatch.Dark.Grey[500],
+        divider: BrandSwatch.Dark.Grey[900],
         primary: {
           main: BrandSwatch.Dark.White[50],
           light: BrandSwatch.Dark.Grey[200]

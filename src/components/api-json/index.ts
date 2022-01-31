@@ -1,5 +1,3 @@
-export { default as APIIconToggle } from './APIIconToggle'
-export { default as ApiTabs } from './ApiTabs'
 export { default as AsideEditInfo } from './AsideEditInfo'
 export { default as DownloadInfo } from './DownloadInfo'
 export { default as TsInterfaceIcons } from './TsInterfaceIcons'

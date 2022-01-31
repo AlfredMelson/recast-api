@@ -3,7 +3,7 @@ import Typography, { TypographyProps } from '@mui/material/Typography'
 import { motion } from 'framer-motion'
 import { BrandSwatch } from '../../../style'
 import { ApiStringAlias } from '../data-types/typeAliases'
-import { DataTypeLabelSx } from '../primitive-styles'
+import { DataTypeLabelSx } from '.'
 
 const StringTypographyStyle = styled(
   (props: TypographyProps) => <Typography variant='code' {...props} />,

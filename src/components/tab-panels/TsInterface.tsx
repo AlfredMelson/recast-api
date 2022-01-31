@@ -4,9 +4,9 @@ import Typography from '@mui/material/Typography'
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { useRecoilValue } from 'recoil'
-import { ErrorBoundary } from '../../../lib'
-import { currentApiQuerySelector } from '../../../recoil-state'
-import { PaperSx } from '../../mui'
+import { ErrorBoundary } from '../../lib'
+import { currentApiQuerySelector } from '../../recoil-state'
+import { PaperSx } from '../mui'
 import {
   ApiArrayAlias,
   ApiBooleanAlias,
@@ -16,8 +16,8 @@ import {
   ApiObjectAlias,
   ApiStringAlias,
   getType
-} from '../data-types/typeAliases'
-import { DataTypeLabelSx } from '../primitive-styles'
+} from './data-types'
+import { DataTypeLabelSx } from './primitive-styles'
 
 export default function TsInterface() {
   const currentApiQuery = useRecoilValue(currentApiQuerySelector)
@@ -235,7 +235,6 @@ function JsonObject({ value, dataKey }: ApiObjectAlias) {
     // {typeof dataKey === }
     // const str: string = dataKey
     // const upperCaseDataKey = str.charAt(0).toUpperCase() + str.slice(1)
-    console.log('dataKey', dataKey)
     return (
       <Typography variant='code'>
         export interface&nbsp;{dataKey}&nbsp;&#123;

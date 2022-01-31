@@ -8,8 +8,6 @@ import { EditorContainer } from '../mui'
 
 export default function Editor() {
   const currentApiQuery = useRecoilValue(currentApiQuerySelector)
-  console.log('currentApiQuery', currentApiQuery)
-  console.log('typeof currentApiQuery', typeof currentApiQuery)
 
   //retrieve localStorage value
   const [localEditorText, setLocalEditorText] = useRecoilState(localEditorTextAtom)
@@ -106,7 +104,6 @@ export default function Editor() {
 }
 
 // const [formattedJson, setFormattedJson] = useState('')
-// console.log('formattedJson', formattedJson)
 
 // const [currentEditorText, setCurrentEditorText] = useRecoilState(currentEditorTextState)
 
@@ -143,8 +140,6 @@ export default function Editor() {
 // lodash debounced() delays updating local text file for 750ms after user edit
 // const onChange = debounce(
 //   useCallback(newValue => {
-//     console.log('newValue', newValue)
-//     console.log('typeof newValue', typeof newValue)
 //     // save formatedJson to localStorage
 //     setFormattedJson(newValue)
 //     // setCurrentEditorText(newValue)

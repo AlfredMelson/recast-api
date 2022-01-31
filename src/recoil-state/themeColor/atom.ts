@@ -9,7 +9,7 @@ import { atom, AtomEffect, DefaultValue } from 'recoil'
  *
  * This API is still evolving, and thus marked as _UNSTABLE.
  *
- * Atom effects are attached to atoms via the effects_UNSTABLE option. Each atom can reference an array of these atom effect functions which are called in priority order when the atom is initialized. Atoms are initialized when they are used for the first time within a <RecoilRoot>, but may be re-initialized again if they were unused and cleaned up. The atom effect function may return an optional cleanup handler to manage cleanup side-effects.
+ * Atom effects are attached to atoms via the effects option. Each atom can reference an array of these atom effect functions which are called in priority order when the atom is initialized. Atoms are initialized when they are used for the first time within a <RecoilRoot>, but may be re-initialized again if they were unused and cleaned up. The atom effect function may return an optional cleanup handler to manage cleanup side-effects.
  *
  * guide: https://recoiljs.org/docs/guides/atom-effects/
  *
@@ -52,7 +52,7 @@ const themePersist: AtomEffect<any> = ({ onSet, setSelf, node }) => {
 export const themeColorAtom = atom<string | null>({
   key: 'themeColor',
   default: null,
-  effects_UNSTABLE: [themePersist]
+  effects: [themePersist]
 })
 // const [themeColor, setThemeColor] = useRecoilState(themeColorAtom)
 // const setThemeColor  = useSetRecoilState(themeColorAtom)

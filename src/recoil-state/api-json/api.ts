@@ -1,6 +1,6 @@
 // import axios from 'axios'
 import { atom, selector } from 'recoil'
-import { BaseUrlData } from '../../cms'
+import { SourceSelection } from '../../cms'
 
 /**
  * Recoil managed state representing the selected api provider, category and quantity
@@ -16,26 +16,32 @@ export const selectedApiSelector = selector<string>({
   get: ({ get }) => {
     // pull in the selected api source
     const provider = get(dataSourceAtom)
-    if (dataSourceAtom) {
-      // filter base from BaseUrlData using selected provider (apiProvider)
-      const selectedSource = BaseUrlData.filter(base => base.index === provider)[0].base
 
-      const selectedCategory = get(dataCategoryAtom)
+    // find prefixed url of the selected provider
+    const selectedSourcePrefix = SourceSelection.find(({ value }) => value === provider)?.prefix
 
-      const concatSourceCategory = selectedSource.concat(selectedCategory)
+    // find if the selected data source is Random Data
+    const selectedSource = SourceSelection.find(({ value }) => value === provider)?.source
+    const isJsonPlaceholder = selectedSource === 'Json Placeholder' && true
 
-      const selectedQuantity = get(dataQuantityAtom)
+    // pull in the selected source category
+    const selectedCategory = get(dataCategoryAtom)
 
-      const concatQuantity = concatSourceCategory.concat(selectedQuantity)
+    // chain the selected source with the selected category to create the url
+    const chainCategory = selectedSourcePrefix + selectedCategory
 
-      return concatQuantity
+    // pull in the selected fetch quantity
+    const selectedQuantity = get(dataQuantityAtom)
+    console.log('selectedQuantity', selectedQuantity)
+
+    // chose to show quantity if selected soure is Json Placeholder
+    if (isJsonPlaceholder) {
+      const chainQuantity = chainCategory + selectedQuantity
+      return chainQuantity
+    } else {
+      const chainQuantity = chainCategory
+      return chainQuantity
     }
-
-    // const response = axios.get(concatQuantity)
-    // console.log('response', response)
-    // const urlData = await fetch(userSubmittedUrl).then(response => response.json())
-    // console.log('urlData: ', urlData)
-    // return response
   },
   set: ({ reset }) => {
     reset(dataSourceAtom)

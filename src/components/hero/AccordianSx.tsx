@@ -5,14 +5,8 @@ import Stack from '@mui/material/Stack'
 import { styled } from '@mui/material/styles'
 import { SyntheticEvent, useState } from 'react'
 import { useRecoilValue } from 'recoil'
-import { HttpClients, JsonPlaceholderData, RandomData, SourceSelection } from '../../cms'
-import {
-  currentApiStateAtom,
-  dataCategoryAtom,
-  dataSourceAtom,
-  httpClientAtom
-} from '../../recoil-state'
-// import { BrandSwatch } from '../../style'
+import { JsonPlaceholderData, NodeClient, RandomData, SourceSelection } from '../../cms'
+import { dataCategoryAtom, dataSourceAtom, httpClientAtom } from '../../recoil-state'
 import { AxiosIcon, UseSWRIcon } from '../icons'
 import { AccordionButton } from '../mui'
 import { AccordionContent } from './AccordionContent'
@@ -69,16 +63,16 @@ const AccordionDetailsStyle = styled(
 function AccordionClosedText() {
   const dataSource = useRecoilValue(dataSourceAtom)
 
-  const sourceName = SourceSelection.find(item => item.value === dataSource)?.name
+  const sourceName = SourceSelection.find(item => item.value === dataSource)?.source
 
   const dataCategory = useRecoilValue(dataCategoryAtom)
-  const categoryByProvider = dataSource === 'jsonPlaceholderApi' ? JsonPlaceholderData : RandomData
+  const categoryByProvider = dataSource === '3' ? JsonPlaceholderData : RandomData
 
-  const categoryName = categoryByProvider.find(item => item.url === dataCategory)?.name
+  const categoryName = categoryByProvider.find(item => item.appendix === dataCategory)?.category
 
   const httpClient = useRecoilValue(httpClientAtom)
 
-  const httpName = HttpClients.find(item => item.value === httpClient)?.name
+  const httpName = NodeClient.find(item => item.value === httpClient)?.client
 
   return (
     <Stack direction='row' spacing={20}>
@@ -86,7 +80,7 @@ function AccordionClosedText() {
       <AccordionButton sx={{ ml: 10 }}>Category: {categoryName}</AccordionButton>
       <AccordionButton
         sx={{ ml: 10 }}
-        endIcon={httpName === 'Axios' ? <AxiosIcon fontSize={10} /> : <UseSWRIcon />}
+        endIcon={httpName === 'Axios' ? <AxiosIcon /> : <UseSWRIcon />}
       />
     </Stack>
   )
@@ -99,16 +93,11 @@ export default function AccordionSx() {
     setExpanded(newExpanded ? panel : false)
   }
 
-  const currentApiState = useRecoilValue(currentApiStateAtom)
-
   return (
     <AccordionStyle expanded={expanded === 'selectPanel'} onChange={handleChange('selectPanel')}>
-      {currentApiState && (
-        <AccordionSummaryStyle aria-controls='selectPaneld-content' id='selectPaneld-header'>
-          {!expanded && <AccordionClosedText />}
-        </AccordionSummaryStyle>
-      )}
-
+      <AccordionSummaryStyle aria-controls='selectPaneld-content' id='selectPaneld-header'>
+        {!expanded && <AccordionClosedText />}
+      </AccordionSummaryStyle>
       <AccordionDetailsStyle>
         <AccordionContent />
       </AccordionDetailsStyle>

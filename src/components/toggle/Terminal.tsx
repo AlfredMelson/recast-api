@@ -3,7 +3,7 @@ import { currentApiStateAtom, dataDrawerOpenAtom } from '../../recoil-state'
 import { TerminalIcon } from '../icons'
 import { IconButtonSxStyle, ToolTipSx } from '../mui'
 
-export function TerminalToggle() {
+export default function TerminalToggle() {
   const [dataDrawerOpen, setDataDrawerOpen] = useRecoilState(dataDrawerOpenAtom)
 
   const currentApiState = useRecoilValue(currentApiStateAtom)

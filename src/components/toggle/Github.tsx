@@ -2,7 +2,7 @@ import Link from '@mui/material/Link'
 import { GithubIcon } from '../icons'
 import { IconButtonSxStyle, ToolTipSx } from '../mui'
 
-export function GithubToggle() {
+export default function GithubToggle() {
   return (
     <ToolTipSx tooltipTitle='Github repo'>
       <Link
