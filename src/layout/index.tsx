@@ -14,7 +14,7 @@ export function Layout() {
   return (
     <LayoutWrapper>
       <NavBarHeader />
-      <Container maxWidth='lg' disableGutters sx={{ marginTop: { xs: 60, md: 72 } }}>
+      <Container maxWidth='lg' disableGutters sx={{ paddingTop: { xs: 60, md: 72 } }}>
         <Outlet />
         <EditorDrawer />
       </Container>

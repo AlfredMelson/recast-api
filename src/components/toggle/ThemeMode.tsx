@@ -43,7 +43,7 @@ export default function ThemeModeToggle() {
 
   return (
     <>
-      <AnimatePresence initial={true}>
+      <AnimatePresence initial={false}>
         {themeColor === 'light' && (
           <motion.div
             key='content'
@@ -63,7 +63,7 @@ export default function ThemeModeToggle() {
           </motion.div>
         )}
       </AnimatePresence>
-      <AnimatePresence initial={true}>
+      <AnimatePresence initial={false}>
         {themeColor === 'dark' && (
           <motion.div
             key='content'

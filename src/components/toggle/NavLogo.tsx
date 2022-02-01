@@ -16,7 +16,7 @@ export default function NavLogo({ hover }: LogoContent) {
 
   return (
     <>
-      <AnimatePresence initial={true}>
+      <AnimatePresence initial={false}>
         {!hover && (
           <motion.section
             key='content'
@@ -36,7 +36,7 @@ export default function NavLogo({ hover }: LogoContent) {
           </motion.section>
         )}
       </AnimatePresence>
-      <AnimatePresence initial={true}>
+      <AnimatePresence initial={false}>
         {hover && (
           <motion.section
             key='content'

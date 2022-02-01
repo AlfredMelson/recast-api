@@ -3,7 +3,7 @@ import { useRecoilValue } from 'recoil'
 import { condensedHeroAtom, currentApiStateAtom } from '../../recoil-state'
 import { HeroClosedView, HeroOpenView } from '.'
 
-export default function HeroContent() {
+export default function HeroContainter() {
   const currentApiState = useRecoilValue(currentApiStateAtom)
   const condensedHero = useRecoilValue(condensedHeroAtom)
 
