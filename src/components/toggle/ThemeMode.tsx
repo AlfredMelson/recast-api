@@ -52,7 +52,7 @@ export default function ThemeModeToggle() {
             exit='collapsed'
             variants={{
               open: { opacity: 1, height: 'auto', y: 0 },
-              collapsed: { opacity: 0, height: 0, y: -20 }
+              collapsed: { opacity: 0, height: 0, y: -30 }
             }}
             transition={{ duration: 0.4 }}>
             <ToolTipSx tooltipTitle='Dark mode'>
@@ -71,8 +71,8 @@ export default function ThemeModeToggle() {
             animate='open'
             exit='collapsed'
             variants={{
-              open: { opacity: 1, height: 'auto', y: 0 },
-              collapsed: { opacity: 0, height: 0, y: 10 }
+              open: { opacity: 1, height: 'auto' },
+              collapsed: { opacity: 0, height: 0 }
             }}
             transition={{ duration: 0.4 }}>
             <ToolTipSx tooltipTitle='Light mode'>

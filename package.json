@@ -18,7 +18,8 @@
     "react",
     "react-router-dom",
     "recoil",
-    "typescript"
+    "typescript",
+    "swr"
   ],
   "repository": {
     "type": "git",

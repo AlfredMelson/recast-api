@@ -1,39 +1,40 @@
 import { atom } from 'recoil'
 
 /**
- * @name dataDrawerOpenAtom
- * @description state representing visability of drawer containing user json
+ * Recoil managed state representing mdrawer containing user jsonvisability
+ *
  * @return {Object} a writeable RecoilState object
  * @bug Objects stored in atoms will freeze in development mode when bugs are detected
  *
- * Hooks to manage state changes and notify components subscribing to re-render:
- * const [dataDrawerOpen, setDataDrawerOpen] = useRecoilState(dataDrawerOpenAtom)
- * const setDataDrawerOpen = useSetRecoilState(dataDrawerOpenAtom)
- * const dataDrawerOpen = useRecoilValue(dataDrawerOpenAtom)
- * const resetDataDrawerOpen = useResetRecoilState(dataDrawerOpenAtom)
+ * Utilise hooks to manage state changes and notify components subscribing to re-render.
+ *
  */
-
 export const dataDrawerOpenAtom = atom<boolean>({
   key: 'dataDrawerOpen',
   default: false
 })
+// const [dataDrawerOpen, setDataDrawerOpen] = useRecoilState(dataDrawerOpenAtom)
+// const setDataDrawerOpen = useSetRecoilState(dataDrawerOpenAtom)
+// const dataDrawerOpen = useRecoilValue(dataDrawerOpenAtom)
+// const resetDataDrawerOpen = useResetRecoilState(dataDrawerOpenAtom)
 
 /**
- * @name minifyDialogOpenAtom
- * @description set dialog with minified json visability
+ * Recoil managed state representing minified json visability
+ *
  * @return {Object} a writeable RecoilState object
  * @bug Objects stored in atoms will freeze in development mode when bugs are detected
  *
- * Hooks to manage state changes and notify components subscribing to re-render:
- * const [minifyDialogOpen, setMinifyDialogOpen] = useRecoilState(minifyDialogOpenAtom)
- * const setMinifyDialogOpen = useSetRecoilState(minifyDialogOpenAtom)
- * const minifyDialogOpen = useRecoilValue(minifyDialogOpenAtom)
- * const resetMinifyDialogOpen = useResetRecoilState(minifyDialogOpenAtom)
+ * Utilise hooks to manage state changes and notify components subscribing to re-render.
+ *
  */
 export const minifyDialogOpenAtom = atom<boolean>({
   key: 'minifyDialogOpen',
   default: false
 })
+// const [minifyDialogOpen, setMinifyDialogOpen] = useRecoilState(minifyDialogOpenAtom)
+// const setMinifyDialogOpen = useSetRecoilState(minifyDialogOpenAtom)
+// const minifyDialogOpen = useRecoilValue(minifyDialogOpenAtom)
+// const resetMinifyDialogOpen = useResetRecoilState(minifyDialogOpenAtom)
 
 /**
  * @name minifiedTextAtom

@@ -1,11 +1,9 @@
 import Dialog from '@mui/material/Dialog'
-import { AnimatePresence } from 'framer-motion'
-import { useRecoilState } from 'recoil'
-import { dataDrawerOpenAtom } from '../../recoil-state'
-import { FadeAnimation } from '../framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
+import { useRecoilState, useRecoilValue } from 'recoil'
+import { dataDrawerOpenAtom, minifyDialogOpenAtom } from '../../recoil-state'
 import { Editor } from '../monaco-editor'
-
-// import { MinifyDialog } from '.'
+import { MinifyDialog } from '.'
 
 // export const toggleDrawer = (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
 //   const setDataDrawerOpen = useSetRecoilState(dataDrawerOpenAtom)
@@ -27,21 +25,69 @@ export default function EditorDrawer() {
     setDataDrawerOpen(false)
   }
 
+  const minifyDialogOpen = useRecoilValue(minifyDialogOpenAtom)
+
   return (
-    <AnimatePresence>
-      <Dialog
-        scroll='paper'
-        fullWidth={true}
-        maxWidth='lg'
-        open={dataDrawerOpen}
-        onClose={handleClose}>
-        <FadeAnimation duration={0.4}>
-          <Editor />
-        </FadeAnimation>
-        {/* <FadeAnimation duration={0.4}>
-          <MinifyDialog />
-        </FadeAnimation> */}
-      </Dialog>
-    </AnimatePresence>
+    <Dialog
+      scroll='paper'
+      fullWidth={true}
+      maxWidth='lg'
+      open={dataDrawerOpen}
+      onClose={handleClose}>
+      <AnimatePresence initial={false}>
+        {dataDrawerOpen && (
+          <>
+            <motion.section
+              key='content'
+              initial='collapsed'
+              animate='open'
+              exit='collapsed'
+              variants={{
+                open: { opacity: 1, height: 'auto' },
+                collapsed: { opacity: 0, height: 0 }
+              }}
+              transition={{ duration: 0.5 }}>
+              <motion.div
+                key='content'
+                initial='collapsed'
+                animate='open'
+                exit='collapsed'
+                variants={{
+                  open: { opacity: 1, height: 'auto' },
+                  collapsed: { opacity: 0, height: 0 }
+                }}
+                transition={{ duration: 0.4 }}>
+                <Editor />
+              </motion.div>
+            </motion.section>
+            {minifyDialogOpen && (
+              <motion.section
+                key='content'
+                initial='collapsed'
+                animate='open'
+                exit='collapsed'
+                variants={{
+                  open: { opacity: 1, height: 'auto' },
+                  collapsed: { opacity: 0, height: 0 }
+                }}
+                transition={{ duration: 0.5 }}>
+                <motion.div
+                  key='content'
+                  initial='collapsed'
+                  animate='open'
+                  exit='collapsed'
+                  variants={{
+                    open: { opacity: 1, height: 'auto' },
+                    collapsed: { opacity: 0, height: 0 }
+                  }}
+                  transition={{ duration: 0.4 }}>
+                  <MinifyDialog />
+                </motion.div>
+              </motion.section>
+            )}
+          </>
+        )}
+      </AnimatePresence>
+    </Dialog>
   )
 }
