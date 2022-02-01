@@ -4,6 +4,16 @@ import BrandSwatch from './BrandSwatch'
 export default function BrandThemedComponents(theme: Theme) {
   return {
     components: {
+      MuiAppBar: {
+        defaultProps: {},
+        styleOverrides: {
+          root: {
+            boxShadow: 'none',
+            backgroundImage: 'none'
+          }, // Styles applied to the root element
+          positionFixed: {} // Styles applied to the root element if invisible={true}
+        }
+      },
       MuiBackdrop: {
         defaultProps: {
           invisible: true

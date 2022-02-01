@@ -13,8 +13,8 @@ const LayoutWrapper = styled(Box, { name: 'Layout', slot: 'wrapper' })(({ theme 
 export function Layout() {
   return (
     <LayoutWrapper>
-      <Container maxWidth='lg' disableGutters>
-        <NavBarHeader />
+      <NavBarHeader />
+      <Container maxWidth='lg' disableGutters sx={{ marginTop: { xs: 60, md: 72 } }}>
         <Outlet />
         <EditorDrawer />
       </Container>

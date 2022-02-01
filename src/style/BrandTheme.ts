@@ -191,6 +191,9 @@ const BrandDesignTokens = (mode: 'dark' | 'light') =>
       toolbar: {
         '@media (min-width:0px) and (orientation: landscape)': {},
         '@media (min-width:600px)': {}
+        // '@media screen and (display-mode: standalone)': {
+        //   paddingTop: '40px'
+        // }
       }
     },
     spacingIcons: 1,

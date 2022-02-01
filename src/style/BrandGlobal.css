@@ -1,15 +1,23 @@
-@media screen and (display-mode: standalone) {
+/* @media screen and (display-mode: standalone) {
   .standalone-header,
   .standalone-nav-header {
     padding-top: 40px;
   }
-}
+} */
 
-@media screen and (min-width: 960px) {
+/**
+ * Fix 'jumping scrollbar' issue using CSS - https://aykevl.nl/2014/09/fix-jumping-scrollbar
+ */
+
+/* @media screen and (min-width: 960px) {
   html {
     margin-left: calc(100vw - 100%);
     margin-right: 0;
   }
+} */
+
+html {
+  margin-left: calc(100vw - 100%);
 }
 
 /**
@@ -22,10 +30,9 @@ body.loading * {
 }
 
 /**
- *
  * Microsoft's Monaco Editor style overrides
- *
  */
+
 @media (prefers-color-scheme: dark) {
   .monaco-editor {
     font-family: 'Fira Code' !important;
