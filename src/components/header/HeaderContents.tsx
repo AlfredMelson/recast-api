@@ -6,7 +6,8 @@ import { useRecoilValue } from 'recoil'
 import { dataDrawerOpenAtom, minifyDialogOpenAtom } from '../../recoil-state'
 import { MinifyIcons } from '../drawer'
 import { SlideUpAnimation } from '../framer-motion'
-import { DrawerIconGrid, HeaderIconGrid, HeaderLogoSx, HeaderTitle } from '.'
+import { NavLogo } from '../toggle'
+import { DrawerIconGrid, HeaderIconGrid } from '.'
 
 export default function HeaderContents() {
   const dataDrawerOpen = useRecoilValue(dataDrawerOpenAtom)
@@ -51,27 +52,12 @@ export default function HeaderContents() {
           }}>
           <Box
             sx={{
-              gridColumn: 1,
-              gridRow: 1,
-              placeSelf: 'center start'
-            }}>
-            <HeaderLogoSx animate={hover} />
-          </Box>
-          <Box
-            sx={{
               gridColumn: '1 / 3',
               gridRow: 1,
               placeSelf: 'center start'
             }}>
-            <AnimatePresence>
-              {!dataDrawerOpen && hover && (
-                <SlideUpAnimation startY={30} endY={0}>
-                  <HeaderTitle />
-                </SlideUpAnimation>
-              )}
-            </AnimatePresence>
+            <NavLogo hover={hover} />
           </Box>
-
           <Box
             sx={{
               gridColumn: 2,

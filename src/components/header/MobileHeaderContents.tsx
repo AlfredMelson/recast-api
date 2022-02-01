@@ -1,5 +1,5 @@
 import Box from '@mui/material/Box'
-import { HeaderLogoStyle } from './HeaderLogoSx'
+import { HeaderLogoStyle } from './HeaderLogo'
 import { MobileHeaderIconGrid } from '.'
 
 export default function MobileHeaderContents() {
