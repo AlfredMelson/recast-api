@@ -4,15 +4,15 @@ import { IconButtonSxStyle, ToolTipSx } from '../mui'
 
 export default function GithubToggle() {
   return (
-    <ToolTipSx tooltipTitle='Github repo'>
-      <Link
-        target='_blank'
-        rel='noopener noreferrer'
-        href='https://github.com/AlfredMelson/recast-api'>
+    <Link
+      target='_blank'
+      rel='noopener noreferrer'
+      href='https://github.com/AlfredMelson/recast-api'>
+      <ToolTipSx tooltipTitle='Github repo'>
         <IconButtonSxStyle>
           <GithubIcon />
         </IconButtonSxStyle>
-      </Link>
-    </ToolTipSx>
+      </ToolTipSx>
+    </Link>
   )
 }

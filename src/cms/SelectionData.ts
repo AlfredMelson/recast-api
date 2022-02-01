@@ -7,7 +7,6 @@ export type SourceSelectionAlias = {
 }
 
 export const SourceSelection: SourceSelectionAlias[] = [
-  { source: '', value: '1', prefix: '' },
   { source: 'Random Data', value: '2', prefix: 'https://random-data-api.com/api/' },
   { source: 'Json Placeholder', value: '3', prefix: 'https://jsonplaceholder.typicode.com/' }
 ]
@@ -41,7 +40,6 @@ export type RandomDataAlias = {
 }
 
 export const RandomData: RandomDataAlias[] = [
-  { index: 0, category: '', appendix: '' },
   { index: 1, category: 'Address', appendix: 'address/random_address' },
   { index: 2, category: 'Appliance', appendix: 'appliance/random_appliance' },
   { index: 3, category: 'App', appendix: 'app/random_app' },
@@ -87,7 +85,6 @@ export type JsonPlaceholderDataAlias = {
 }
 
 export const JsonPlaceholderData: JsonPlaceholderDataAlias[] = [
-  { index: 0, category: '', appendix: '' },
   { index: 1, category: 'Posts', appendix: 'posts/' },
   { index: 2, category: 'Comments', appendix: 'comments/' },
   { index: 3, category: 'Albums', appendix: 'albums/' },

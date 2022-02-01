@@ -23,14 +23,8 @@ export default function SearchBar() {
     <Box sx={{ width: '100%' }}>
       <CardSx title={selectedApi ? 'Selected Url ' : 'Typed Url'}>
         <InputBaseSx
-          sx={{
-            pl: 20,
-            width: '100%',
-            fontSize: 16,
-            height: 40
-          }}
-          placeholder='Enter url ...'
           value={selectedApi}
+          placeholder='Enter url ...'
           onChange={handleTextFieldChanges}
         />
       </CardSx>

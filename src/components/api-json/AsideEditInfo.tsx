@@ -22,16 +22,16 @@ export default function AsideEditInfo({ ...props }: BoxProps) {
             <Typography variant='h6' component='div' gutterBottom>
               Selected element
             </Typography>
-            <Typography sx={{ fontSize: 14 }} color='text.secondary' gutterBottom>
+            <Typography variant='caption' color='text.secondary' gutterBottom>
               id: {selectedElement}
             </Typography>
-            <Typography sx={{ fontSize: 14 }} color='text.secondary' gutterBottom>
+            <Typography variant='caption' color='text.secondary' gutterBottom>
               dataType:
             </Typography>
-            <Typography sx={{ fontSize: 14 }} color='text.secondary' gutterBottom>
+            <Typography variant='caption' color='text.secondary' gutterBottom>
               dataValue:
             </Typography>
-            <Typography sx={{ fontSize: 14 }} color='text.secondary'>
+            <Typography variant='caption' color='text.secondary'>
               dataKey:
             </Typography>
           </CardContent>

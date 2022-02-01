@@ -449,7 +449,7 @@ export default function BrandThemedComponents(theme: Theme) {
         },
         styleOverrides: {
           select: {
-            fontSize: 16,
+            ...theme.typography.body2,
             borderRadius: theme.spacing(3),
             transition: theme.transitions.create(['all'], {
               duration: theme.transitions.duration.standard,
@@ -466,11 +466,11 @@ export default function BrandThemedComponents(theme: Theme) {
               duration: theme.transitions.duration.standard,
               easing: theme.transitions.easing.easeInOut
             }),
-            '&:hover': {
-              // color:
-              //   theme.palette.mode === 'dark'
-              //     ? BrandSwatch.Dark.Grey[50]
-              //     : BrandSwatch.Light.Grey[900]
+            '&:hover, &.Mui-focused': {
+              color:
+                theme.palette.mode === 'dark'
+                  ? BrandSwatch.Dark.Grey[50]
+                  : BrandSwatch.Light.Grey[900]
             }
           }, // Styles applied to the icon component
           iconOpen: {
@@ -547,22 +547,6 @@ export default function BrandThemedComponents(theme: Theme) {
           indicator: { backgroundColor: 'transparent' }
         }
       },
-      MuiTableCell: {
-        defaultProps: {},
-        styleOverrides: {
-          root: {
-            padding: theme.spacing(10, 20),
-            borderColor: theme.palette.divider
-          },
-          head: {
-            color: theme.palette.text.primary,
-            fontWeight: 600
-          },
-          body: {
-            color: theme.palette.text.secondary
-          }
-        }
-      },
       MuiTextField: {
         defaultProps: {
           variant: 'outlined',
@@ -570,7 +554,7 @@ export default function BrandThemedComponents(theme: Theme) {
         },
         styleOverrides: {
           root: {
-            fontSize: theme.typography.body2
+            ...theme.typography.body2
           }
         }
       },
@@ -603,7 +587,7 @@ export default function BrandThemedComponents(theme: Theme) {
           popperArrow: {}, // Styles applied to the Popper component if arrow={true}
           popperClose: {}, // Styles applied to the Popper component unless the tooltip is open
           tooltip: {
-            fontSize: 13,
+            ...theme.typography.caption,
             fontWeight: theme.palette.mode === 'dark' ? 400 : 600,
             color: theme.palette.text.primary,
             backgroundColor:

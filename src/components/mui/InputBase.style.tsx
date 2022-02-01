@@ -16,7 +16,7 @@ const InputBaseStyle = styled(
   }
 )(({ theme }) => ({
   ...theme.typography.body2,
-  height: 50,
+  height: 40,
   paddingLeft: theme.spacing(20),
   color: theme.palette.text.secondary,
   backgroundColor:
