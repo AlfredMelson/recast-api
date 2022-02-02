@@ -32,12 +32,13 @@ const HeroButton = styled((props: IconButtonProps) => <IconButton size='small' {
 
 interface ButtonSx {
   onClick: () => void
+  disabled?: boolean
 }
 
-export default function HeroButtonSx({ onClick }: ButtonSx) {
+export default function HeroButtonSx({ onClick, disabled }: ButtonSx) {
   return (
     <Box sx={{ pr: 30 }}>
-      <HeroButton onClick={onClick}>
+      <HeroButton onClick={onClick} disabled={disabled}>
         <KeyboardArrowUpRounded />
       </HeroButton>
     </Box>

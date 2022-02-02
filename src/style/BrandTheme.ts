@@ -76,7 +76,7 @@ const BrandDesignTokens = (mode: 'dark' | 'light') =>
           light: BrandSwatch.Dark.Grey[200]
           // dark: BrandSwatch.Dark.White[50],
           // contrastText: BrandSwatch.Dark.White[50]
-        }
+        },
         // secondary: {
         //   main: BrandSwatch.Dark.White[50],
         //   light: BrandSwatch.Dark.White[50],
@@ -101,12 +101,12 @@ const BrandDesignTokens = (mode: 'dark' | 'light') =>
         //   dark: BrandSwatch.Dark.White[50],
         //   contrastText: BrandSwatch.Light.White[50]
         // },
-        // success: {
-        //   main: BrandSwatch.Dark.White[50],
-        //   light: BrandSwatch.Dark.White[50],
-        //   dark: BrandSwatch.Dark.White[50],
-        //   contrastText: BrandSwatch.Light.White[50]
-        // },
+        success: {
+          main: BrandSwatch.Dark.Green[200]
+          // light: BrandSwatch.Dark.White[50],
+          // dark: BrandSwatch.Dark.White[50],
+          // contrastText: BrandSwatch.Light.White[50]
+        }
         // action: {
         //   active: BrandSwatch.Light.Grey[500],
         //   hover: BrandSwatch.Light.Grey[500],
@@ -124,6 +124,7 @@ const BrandDesignTokens = (mode: 'dark' | 'light') =>
       ...(mode === 'light' && {
         background: {
           default: BrandSwatch.Light.Grey[50]
+          // default: '#F8F9FA'
         },
         common: {
           black: BrandSwatch.Light.Black[50],
@@ -140,7 +141,7 @@ const BrandDesignTokens = (mode: 'dark' | 'light') =>
           light: BrandSwatch.Light.Grey[700]
           // dark: BrandSwatch.Light.White[50],
           // contrastText: BrandSwatch.Light.White[50]
-        }
+        },
         // secondary: {
         //   main: BrandSwatch.Light.White[50],
         //   light: BrandSwatch.Light.White[50],
@@ -165,12 +166,12 @@ const BrandDesignTokens = (mode: 'dark' | 'light') =>
         //   dark: BrandSwatch.Light.White[50],
         //   contrastText: BrandSwatch.Light.White[50]
         // },
-        // success: {
-        //   main: BrandSwatch.Light.White[50],
-        //   light: BrandSwatch.Light.White[50],
-        //   dark: BrandSwatch.Light.White[50],
-        //   contrastText: BrandSwatch.Light.White[50]
-        // },
+        success: {
+          main: BrandSwatch.Light.Green[500]
+          // light: BrandSwatch.Light.White[50],
+          // dark: BrandSwatch.Light.White[50],
+          // contrastText: BrandSwatch.Light.White[50]
+        }
         // action: {
         //   active: BrandSwatch.Light.Grey[500],
         //   hover: BrandSwatch.Light.Grey[500],

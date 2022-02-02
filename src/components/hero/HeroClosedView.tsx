@@ -7,10 +7,9 @@ import {
   condensedHeroAtom,
   currentApiQuerySelector,
   dataCategoryAtom,
-  dataSourceAtom,
-  httpClientAtom
+  dataSourceAtom
 } from '../../recoil-state'
-import { HeroClosedViewButton } from '../mui'
+import HeroChip from './HeroChip'
 
 const ClosedViewContainer = styled(Box, { name: 'ClosedView', slot: 'container' })(({ theme }) => ({
   paddingLeft: theme.spacing(20),
@@ -20,7 +19,9 @@ const ClosedViewContainer = styled(Box, { name: 'ClosedView', slot: 'container' 
   }
 }))
 
-type ClosedViewButtonsAlias = {
+export interface ClosedViewButton {
+  iconref?: 'category' | 'source'
+  variant: 'filled' | 'outlined'
   selector: string
   value: string
 }
@@ -37,31 +38,43 @@ export default function HeroClosedView() {
 
   const categoryName = categoryByProvider.find(item => item.appendix === dataCategory)?.category
 
-  const httpClient = useRecoilValue(httpClientAtom)
-
   const currentApiQuery = useRecoilValue(currentApiQuerySelector)
 
   const apiStatus = currentApiQuery?.status
 
-  const ClosedViewButtons: ClosedViewButtonsAlias[] = [
-    { selector: 'Api:', value: sourceName },
-    { selector: 'Category:', value: categoryName },
-    { selector: 'Client:', value: httpClient },
-    { selector: 'Status:', value: apiStatus }
+  const ClosedViewButtons: ClosedViewButton[] = [
+    {
+      iconref: 'source',
+      variant: 'filled',
+      selector: 'Api',
+      value: sourceName
+    },
+    {
+      iconref: 'category',
+      variant: 'filled',
+      selector: 'Category',
+      value: categoryName
+    },
+    {
+      variant: 'filled',
+      selector: '',
+      value: `status: ${apiStatus}`
+    }
   ]
 
   return (
     <ClosedViewContainer>
       <Stack direction='row' justifyContent='flex-start' alignItems='center'>
         {ClosedViewButtons.map(button => (
-          <HeroClosedViewButton
-            key={button.value}
-            sx={{ mr: 20 }}
+          <HeroChip
+            key={button.selector}
+            iconref={button.iconref}
+            variant={button.variant}
+            label={button.value}
             onClick={() => {
               setCondensedHero(false)
-            }}>
-            {button.selector} {button.value}
-          </HeroClosedViewButton>
+            }}
+          />
         ))}
       </Stack>
     </ClosedViewContainer>

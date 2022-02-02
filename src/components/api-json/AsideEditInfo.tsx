@@ -65,7 +65,7 @@ export default function AsideEditInfo({ ...props }: BoxProps) {
           theme.palette.mode === 'dark' ? BrandSwatch.Dark.Blue[800] : BrandSwatch.Light.Blue[300],
         minWidth: 200,
         borderRadius: '0 0 3px 0',
-        boxShadow: 1,
+        boxShadow: theme => theme.shadows[1],
         ...props.sx
       }}>
       <Box

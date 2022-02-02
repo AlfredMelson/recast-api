@@ -61,6 +61,7 @@ const HeroTypography = styled(
   (props: TypographyProps) => <Typography variant='body2' {...props} />,
   { name: 'Hero', slot: 'typography' }
 )(({ theme }) => ({
+  fontStyle: 'italic',
   color: theme.palette.mode === 'dark' ? BrandSwatch.Dark.Grey[300] : BrandSwatch.Light.Grey[700],
   margin: theme.spacing(20, 0, 0, 30),
   [theme.breakpoints.down('sm')]: {
@@ -99,9 +100,11 @@ export default function HeroOpenView() {
         justifyContent='space-between'
         alignItems='baseline'>
         <HeroTypography>Select API</HeroTypography>
-        {currentApiState && (
-          <HeroButtonSx aria-label='hide' onClick={() => setCondensedHero(bool => !bool)} />
-        )}
+        <HeroButtonSx
+          disabled={!currentApiState}
+          aria-label='hide'
+          onClick={() => setCondensedHero(bool => !bool)}
+        />
       </Stack>
       <HeroStack>
         <SourceSelector />

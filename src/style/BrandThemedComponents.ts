@@ -8,7 +8,7 @@ export default function BrandThemedComponents(theme: Theme) {
         defaultProps: {},
         styleOverrides: {
           root: {
-            boxShadow: 'none',
+            boxShadow: theme.shadows[0],
             backgroundImage: 'none'
           }, // Styles applied to the root element
           positionFixed: {} // Styles applied to the root element if invisible={true}
@@ -88,28 +88,7 @@ export default function BrandThemedComponents(theme: Theme) {
         defaultProps: {},
         styleOverrides: {
           root: {
-            backgroundImage: 'none',
-            transition: theme.transitions.create(['all'], {
-              duration: theme.transitions.duration.standard,
-              easing: theme.transitions.easing.easeInOut
-            })
-          } // Styles applied to the root element
-        }
-      },
-      MuiCardActionArea: {
-        defaultProps: {},
-        styleOverrides: {
-          root: {} // Styles applied to the root element
-        }
-      },
-      MuiCardActions: {
-        defaultProps: {},
-        styleOverrides: {
-          root: {
-            transition: theme.transitions.create(['all'], {
-              duration: theme.transitions.duration.standard,
-              easing: theme.transitions.easing.easeInOut
-            })
+            backgroundImage: 'none'
           } // Styles applied to the root element
         }
       },
@@ -117,11 +96,7 @@ export default function BrandThemedComponents(theme: Theme) {
         defaultProps: {},
         styleOverrides: {
           root: {
-            padding: theme.spacing(0),
-            transition: theme.transitions.create(['all'], {
-              duration: theme.transitions.duration.standard,
-              easing: theme.transitions.easing.easeInOut
-            })
+            padding: theme.spacing(0)
           } // Styles applied to the root element
         }
       },
@@ -143,14 +118,43 @@ export default function BrandThemedComponents(theme: Theme) {
           subheader: {} // Styles applied to the subheader Typography element
         }
       },
+      MuiChip: {
+        defaultProps: { size: 'medium' },
+        styleOverrides: {
+          root: {
+            color: theme.palette.text.secondary,
+            backgroundColor:
+              theme.palette.mode === 'dark'
+                ? alpha(BrandSwatch.Dark.Grey[700], 0.2)
+                : alpha(BrandSwatch.Light.Grey[200], 0.5),
+            boxShadow: theme.shadows[0],
+            '&:hover, &.Mui-focused, &.Mui-selected': {
+              color: theme.palette.text.primary,
+              backgroundColor:
+                theme.palette.mode === 'dark'
+                  ? alpha(BrandSwatch.Dark.Grey[700], 0.8)
+                  : alpha(BrandSwatch.Light.Grey[200], 0.8),
+              boxShadow: theme.shadows[1],
+              '.MuiChip-iconMedium': {
+                color: theme.palette.text.primary
+              }
+            }
+          }, // Styles applied to the root element
+          iconMedium: {
+            color: theme.palette.text.secondary,
+            margin: theme.spacing(0, 1, 0, 10)
+
+            // '&:hover, &.Mui-focused, &.Mui-selected': {
+            //   color: theme.palette.text.primary
+            // }
+          }, // Styles applied to the icon element if color="primary"
+          label: {} // Styles applied to the label `span` element
+        }
+      },
       MuiContainer: {
         defaultProps: {},
         styleOverrides: {
-          root: {
-            // [theme.breakpoints.up('md')]: {
-            //   padding: theme.spacing(0, 20),
-            // },
-          }
+          root: {}
         }
       },
       MuiDialog: {
@@ -181,8 +185,11 @@ export default function BrandThemedComponents(theme: Theme) {
         defaultProps: {},
         styleOverrides: {
           root: {}, // Styles applied to the root element
-          // paperAnchorTop: { boxShadow: 'none' }, // Styles applied to the Paper component if anchor="top"
-          paper: { backgroundColor: 'transparent', backgroundImage: 'none', boxShadow: 'none' } // Styles applied to the Paper component
+          paper: {
+            backgroundColor: 'transparent',
+            backgroundImage: 'none',
+            boxShadow: theme.shadows[0]
+          } // Styles applied to the Paper component
         }
       },
       MuiFormControl: {
@@ -573,7 +580,7 @@ export default function BrandThemedComponents(theme: Theme) {
       },
       MuiTooltip: {
         defaultProps: {
-          arrow: true, // If true, adds an arrow to the tooltip
+          arrow: false, // If true, adds an arrow to the tooltip
           enterDelay: 400, // ms to wait before showing the tooltip
           enterNextDelay: 50, // ms to wait before showing the tooltip when one was already recently opened
           enterTouchDelay: 800, // ms a user must touch the element before showing the tooltip
@@ -594,10 +601,7 @@ export default function BrandThemedComponents(theme: Theme) {
               theme.palette.mode === 'dark'
                 ? BrandSwatch.Dark.Green[500]
                 : BrandSwatch.Light.Green[300],
-            boxShadow:
-              theme.palette.mode === 'dark'
-                ? '0px 0px 6px 0px rgba(0,0,0,0.5)'
-                : '0px 0px 3px 0px rgba(0,0,0,0.25)'
+            boxShadow: theme.shadows[1]
           }, // Styles applied to the tooltip (label wrapper) element
           tooltipArrow: {}, // Styles applied to the tooltip (label wrapper) element if arrow={true}
           arrow: {
