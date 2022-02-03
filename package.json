@@ -38,18 +38,16 @@
     "file-saver": "^2.0.5",
     "framer-motion": "^6.2.3",
     "lodash": "^4.17.21",
-    "material-ui-popup-state": "^2.0.0",
     "react": "^18.0.0-rc.0-next-fe905f152-20220107",
     "react-dom": "^18.0.0-rc.0-next-fe905f152-20220107",
     "react-router-dom": "^6.2.1",
     "react-scripts": "^5.0.0",
     "recoil": "^0.6.1",
-    "swr": "^1.2.0"
+    "swr": "^1.2.1"
   },
   "scripts": {
     "build": "react-scripts build",
     "start": "react-scripts start",
-    "eject": "react-scripts eject",
     "format": "prettier --write \"src/**/*.{js,ts,tsx,css,scss,md,json}\"",
     "lint": "eslint -f unix \"src/**/*.{js,ts,tsx}\"",
     "typeCheck": "tsc --pretty",

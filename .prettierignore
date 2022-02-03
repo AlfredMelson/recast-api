@@ -1,7 +1,7 @@
 # vscode
 .vscode
 
-# jsdocs
+# tsdocs
 /docs
 
 # dependencies
@@ -19,6 +19,10 @@
 # package manager
 yarn-debug.log*
 yarn-error.log*
+
+# specific folders
+.src/cms/json
+.src/cms/md
 
 # specific files
 NOTES.md

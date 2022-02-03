@@ -1,7 +1,7 @@
 # vscode
 .vscode
 
-# jsdocs
+# tsdocs
 /docs
 
 # dependencies
@@ -20,9 +20,9 @@
 yarn-debug.log*
 yarn-error.log*
 
-# specific files
-jsdoc.conf.json
-lerna.json
+# specific folders
+.src/cms/json
+.src/cms/md
 
 # specific files
 NOTES.md

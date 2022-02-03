@@ -3,7 +3,7 @@
 # vscode
 .vscode
 
-# jsdocs
+# tsdocs
 /docs
 
 # dependencies
@@ -14,8 +14,8 @@
 
 # jest testing
 /testing
-test.tsx
-spec.tsx
+*.test.tsx
+*.spec.tsx
 
 # misc
 .env.local
@@ -26,6 +26,10 @@ spec.tsx
 # package manager
 yarn-debug.log*
 yarn-error.log*
+
+# specific folders
+.src/cms/json
+.src/cms/md
 
 # specific files
 NOTES.md
