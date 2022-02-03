@@ -12,7 +12,7 @@ export const ButtonSxApiJsonEditItem = styled(
     borderRadius: 3
   },
   '&:hover': {
-    backgroundColor: theme.palette.background.default
+    bgcolor: ({ palette }) => palette.background.default
   }
 }))
 

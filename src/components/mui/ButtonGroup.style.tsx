@@ -13,8 +13,8 @@ export const ButtonGroupSxTsInterface = styled(ButtonGroup, { name: '', slot: ''
 export const ButtonGroupSx = styled((props: ButtonGroupProps) => <ButtonGroup {...props} />, {
   name: '',
   slot: ''
-})(({ theme }) => ({
+})(() => ({
   '& .MuiButtonGroup-root': {
-    backgroundColor: theme.palette.background.default
+    bgcolor: ({ palette }) => palette.background.default
   }
 }))

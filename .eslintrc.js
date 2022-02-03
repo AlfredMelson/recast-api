@@ -57,6 +57,12 @@ module.exports = {
     ],
     'import/namespace': 2,
     'import/no-unresolved': [2, { commonjs: true, amd: true }],
+    'no-restricted-imports': [
+      'error',
+      {
+        patterns: ['@mui/*/*/*', '!@mui/material/test-utils/*']
+      }
+    ],
     'react/no-unescaped-entities': 'off',
     'react/jsx-filename-extension': ['error', { extensions: ['.tsx'] }],
     'react/jsx-uses-react': 'off',

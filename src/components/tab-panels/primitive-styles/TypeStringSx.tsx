@@ -1,26 +1,20 @@
 import { styled } from '@mui/material/styles'
-import Typography, { TypographyProps } from '@mui/material/Typography'
+import Typography from '@mui/material/Typography'
 import { motion } from 'framer-motion'
 import { BrandSwatch } from '../../../style'
 import { ApiStringAlias } from '../data-types/typeAliases'
 import { DataTypeLabelSx } from '.'
-
-const StringTypographyStyle = styled(
-  (props: TypographyProps) => <Typography variant='code' {...props} />,
-  {
-    name: 'TypeString',
-    slot: 'style'
-  }
-)(({ theme }) => ({
-  color: theme.palette.text.primary
-}))
 
 interface StringTypography {
   dataKey: string | number
 }
 
 function StringTypography({ dataKey }: StringTypography) {
-  return <StringTypographyStyle>&#34;{dataKey}&#34;&#58;&nbsp;</StringTypographyStyle>
+  return (
+    <Typography variant='code' sx={{ color: ({ palette }) => palette.text.primary }}>
+      &#34;{dataKey}&#34;&#58;&nbsp;
+    </Typography>
+  )
 }
 
 const StringSpanStyle = styled('span', {

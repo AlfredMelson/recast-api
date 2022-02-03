@@ -5,7 +5,7 @@ const HeaderTitleStyle = styled(
   (props: TypographyProps) => <Typography variant='code' {...props} />,
   { name: 'HeaderTitle', slot: 'style' }
 )(({ theme }) => ({
-  fontWeight: 500,
+  fontWeight: theme.typography.fontWeightBold,
   color: theme.palette.text.primary
 }))
 

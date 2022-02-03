@@ -1,5 +1,5 @@
-import { Tabs } from '@mui/material'
 import Box from '@mui/material/Box'
+import Tabs from '@mui/material/Tabs'
 import { AnimatePresence, motion } from 'framer-motion'
 import _ from 'lodash'
 import { ReactNode, Suspense, SyntheticEvent, useState } from 'react'

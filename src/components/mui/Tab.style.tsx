@@ -1,4 +1,4 @@
-import { Box } from '@mui/material'
+import Box from '@mui/material/Box'
 import { alpha, styled } from '@mui/material/styles'
 import Tab from '@mui/material/Tab'
 import { motion } from 'framer-motion'
@@ -40,7 +40,7 @@ const TabStyle = styled(
       : alpha(BrandSwatch.Light.Grey[200], 0.5),
   boxShadow: theme.shadows[0],
   '&:hover, &.Mui-focused': {
-    color: theme.palette.text.primary,
+    color: ({ palette }) => palette.text.primary,
     backgroundColor:
       theme.palette.mode === 'dark'
         ? alpha(BrandSwatch.Dark.Grey[700], 0.8)
@@ -57,7 +57,7 @@ const TabStyle = styled(
   },
   '&.Mui-disabled': {
     cursor: 'default',
-    color: theme.palette.text.primary,
+    color: ({ palette }) => palette.text.primary,
     backgroundColor: 'transparent',
     boxShadow: theme.shadows[0]
   },

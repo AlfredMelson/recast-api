@@ -1,5 +1,6 @@
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline'
-import { Stack, Typography } from '@mui/material'
+import Stack from '@mui/material/Stack'
+import Typography from '@mui/material/Typography'
 import { Component, ErrorInfo, ReactNode } from 'react'
 import { BrandSwatch } from '../style'
 

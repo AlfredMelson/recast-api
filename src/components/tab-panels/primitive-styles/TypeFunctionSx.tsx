@@ -13,7 +13,6 @@ const FunctionTypographyStyle = styled(
     slot: 'style'
   }
 )(({ theme }) => ({
-  // color: theme.palette.text.primary
   color: theme.palette.mode === 'dark' ? BrandSwatch.Dark.Blue[400] : BrandSwatch.Light.Blue[600]
 }))
 

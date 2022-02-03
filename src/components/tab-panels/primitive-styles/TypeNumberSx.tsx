@@ -1,26 +1,20 @@
 import { styled } from '@mui/material/styles'
-import Typography, { TypographyProps } from '@mui/material/Typography'
+import Typography from '@mui/material/Typography'
 import { motion } from 'framer-motion'
 import { BrandSwatch } from '../../../style'
 import { ApiNumberAlias } from '../data-types/typeAliases'
 import { DataTypeLabelSx } from '.'
-
-const NumberTypographyStyle = styled(
-  (props: TypographyProps) => <Typography variant='code' {...props} />,
-  {
-    name: 'TypeNumber',
-    slot: 'style'
-  }
-)(({ theme }) => ({
-  color: theme.palette.text.primary
-}))
 
 interface NumberTypography {
   dataKey: string | number
 }
 
 function NumberTypography({ dataKey }: NumberTypography) {
-  return <NumberTypographyStyle>&#34;{dataKey}&#34;&#58;&nbsp;</NumberTypographyStyle>
+  return (
+    <Typography variant='code' sx={{ color: ({ palette }) => palette.text.primary }}>
+      &#34;{dataKey}&#34;&#58;&nbsp;
+    </Typography>
+  )
 }
 
 const NumberSpanStyle = styled('span', {

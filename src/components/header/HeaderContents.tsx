@@ -34,12 +34,7 @@ export default function HeaderContents() {
   const minifyDialogOpen = useRecoilValue(minifyDialogOpenAtom)
 
   return (
-    <Box
-      sx={{
-        display: { xs: 'none', md: 'grid' },
-        gridTemplateColumns: 'auto 176px',
-        pl: 20
-      }}>
+    <>
       <Box
         sx={{
           gridColumn: 1,
@@ -111,6 +106,6 @@ export default function HeaderContents() {
       <Box sx={{ gridColumn: 2, gridRow: 1 }}>
         <HeaderIconGrid />
       </Box>
-    </Box>
+    </>
   )
 }

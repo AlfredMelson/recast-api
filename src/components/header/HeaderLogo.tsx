@@ -1,6 +1,10 @@
+import Box from '@mui/material/Box'
 import { styled } from '@mui/material/styles'
 import Typography, { TypographyProps } from '@mui/material/Typography'
+import { useRecoilValue } from 'recoil'
+import { themeColorAtom } from '../../recoil-state'
 import { BrandSwatch } from '../../style'
+import { DarkModeLogo, LightModeLogo } from '../icons'
 
 export const HeaderLogoStyle = styled(
   (props: TypographyProps) => <Typography variant='code' {...props} />,
@@ -12,5 +16,19 @@ export const HeaderLogoStyle = styled(
 }))
 
 export default function HeaderLogo() {
-  return <HeaderLogoStyle>Recast</HeaderLogoStyle>
+  const themeColor = useRecoilValue(themeColorAtom)
+
+  if (themeColor === 'dark') {
+    return (
+      <Box sx={{ pt: 10 }}>
+        <DarkModeLogo />
+      </Box>
+    )
+  } else {
+    return (
+      <Box sx={{ pt: 10 }}>
+        <LightModeLogo />
+      </Box>
+    )
+  }
 }

@@ -3,11 +3,11 @@ import { useRecoilValue } from 'recoil'
 import { condensedHeroAtom, currentApiStateAtom } from '../../recoil-state'
 import { HeaderLogo, HeaderTitle } from '../header'
 
-interface LogoContent {
+interface NavLogo {
   hover: boolean
 }
 
-export default function NavLogo({ hover }: LogoContent) {
+export default function NavLogo({ hover }: NavLogo) {
   const currentApiState = useRecoilValue(currentApiStateAtom)
   const condensedHero = useRecoilValue(condensedHeroAtom)
 

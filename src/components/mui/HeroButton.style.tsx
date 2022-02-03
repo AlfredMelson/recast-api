@@ -1,5 +1,5 @@
 import KeyboardArrowUpRounded from '@mui/icons-material/KeyboardArrowUpRounded'
-import { Box } from '@mui/material'
+import Box from '@mui/material/Box'
 import IconButton, { IconButtonProps } from '@mui/material/IconButton'
 import { alpha, styled } from '@mui/material/styles'
 import { BrandSwatch } from '../../style'

@@ -4,12 +4,7 @@ import { MobileHeaderIconGrid } from '.'
 
 export default function MobileHeaderContents() {
   return (
-    <Box
-      sx={{
-        display: { xs: 'grid', md: 'none' },
-        gridTemplateColumns: 'auto 120px',
-        px: 20
-      }}>
+    <>
       <Box
         sx={{
           gridRow: 1,
@@ -22,6 +17,6 @@ export default function MobileHeaderContents() {
       <Box sx={{ gridColumn: 2, gridRow: 1, placeSelf: 'center' }}>
         <MobileHeaderIconGrid />
       </Box>
-    </Box>
+    </>
   )
 }
